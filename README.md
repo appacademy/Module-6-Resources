@@ -1,2 +1,9 @@
-# Module-6-Resources
-The repository for all instruction owned resources for App Academy students enrolled in SWE-Online Module 6
+# Module 6 Resources
+This repository provides lecture notes, learning objectives, and other resources for App Academy's Module 6.
+
+## Welcome to Module 6!
+App Academy's Module 6 introduces a new language - Python! Here's an overview of each week in Module 6:
+- Week 17: Python syntax and data structures
+- Week 18: Building a backend server with Python
+- Week 19: Docker
+- Week 20: Group projects
