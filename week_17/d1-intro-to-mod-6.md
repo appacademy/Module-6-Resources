@@ -80,7 +80,9 @@ We'll be using the same concepts we already know, just with a new look!
 
 ---
 
-### [The Zen of Python, by Tim Peters](https://www.python.org/dev/peps/pep-0020/)
+### It also has guiding principles on designing Pythonic code!
+
+[The Zen of Python, by Tim Peters](https://www.python.org/dev/peps/pep-0020/)
 
 ```
 Beautiful is better than ugly.
@@ -113,7 +115,7 @@ import this
 ---
 
 ## Today (pt. 1) - Python (2 hrs)
-- Set up Pyenv and Python
+- Python Setup
     - Use the [python-setup.md](https://github.com/appacademy/unified-setup/blob/main/python-setup.md) in the repo linked in a/A Open
 - Python readings & videos (30 min)
     - Reading: Objectives for the Week
@@ -131,6 +133,17 @@ import this
 - Install Python (using Pyenv)
 - Install Pipenv
     - Don't worry about this - we'll get to it next week!
+
+---
+
+## Verifying your Python install
+
+1. The following commands should return the same Python 3.9.4+ version:
+```
+python --version
+python3 --version
+```
+2. `which python` should return `~/.pyenv/shims/python`
 
 ---
 
