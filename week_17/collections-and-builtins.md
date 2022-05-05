@@ -1,6 +1,4 @@
 # Python Collections and Built-ins
-## Week 17 Day 3
-
 
 ---
 
@@ -184,18 +182,6 @@ print(avg_val)     # 27.25
 
 ---
 
-### Practices (40 min)
-
-- Explore The List (5:00)
-- Return First Element Of A List (2:00)
-- First And Last Entries (1:00)
-- Check Nested Arrays (10:00)
-- Find The Smallest Number In A List (5:00)
-- Sum The Elements Of A List (5:00)
-- Maximum Difference (5:00)
-
----
-
 ### Part 3: Tuples
 
 ---
@@ -319,12 +305,6 @@ Lists are:
 
 ---
 
-### Practices (5 min)
-
-- Explore The Tuple (5:00)
-
----
-
 ## Part 4: Ranges
 
 ---
@@ -410,21 +390,6 @@ for i, element in enumerated_list:
     print(i, element)
 ```
 
-
----
-
-### Practices (7 min)
-
-- Explore The Range (5:00)
-- Range Loops (2:00)
-
----
-
-### Lecture Videos (10 minutes)
-
-Watch:
-
-- Dictionaries in Python (8:31)
 
 ---
 
@@ -625,14 +590,6 @@ print(my_hobbies("Mitchell", "swimming", "cycling",
 
 ---
 
-### Practices (15 minutes)
-- Explore The Dictionary (5:00)
-- Does The Dictionary Have A Key? (2:00)
-- Is The Dictionary Empty? (1:00)
-- Create Name Tag (5:00)
-
----
-
 ## Part 6: Sets
 
 ---
@@ -800,56 +757,3 @@ It takes an optional string prompt as an argument that is printed to standard ou
 name = input("What's your name? ")
 print(name)
 ```
-
----
-
-## Part 8: Intro to Python Imports
-
----
-
-### Basic imports in Python
-
-Python import syntax is backwards from import syntax in JavaScript. 
-```python=
-# from module_name import variable_name
-from random import randint
-
-print(randint(0, 10))
-```
-
-You can also import an entire module, and then access all the values from it using dot notation.
-```python=
-import random
-
-print(random.randint(0, 10))
-```
-
----
-
-### ~~Exports in Python~~
-
-Unlike JavaScript, Python does not require exports. All of the objects, classes, functions, etc. that are defined in a module are automatically available to import.
-
----
-
-## Practices (5 min)
-- All Occurrences Of A Value In A List (5:00)
-
-
-
-## Lecture Videos (17 mins)
-Watch:
-- Input Validation Walkthrough (16:14)
-
-
----
-
-## Summary Practices (60 min)
-
-- Guess A Number Game
-- Bonus: Track The Robot
-- Bonus: Averages
-
-
-## Summary Quizzes (5 min)
-- Structured Data Quiz (5:00)

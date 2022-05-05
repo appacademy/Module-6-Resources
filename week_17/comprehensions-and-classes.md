@@ -1,16 +1,38 @@
 # More Built-ins, Comprehensions, and Classes
-## Week 17 Day 4
 
 ---
 
-## Part 1: More Built-ins
+## Part 1: Intro to Python Imports
 
 ---
 
-### Lecture Videos (22 minutes)
-Watch:
-- Built-Ins: All And Any (8:00)
-- Built-Ins: Filter and Map (10:32)
+### Basic imports in Python
+
+Python import syntax is backwards from import syntax in JavaScript. 
+```python=
+# from module_name import variable_name
+from random import randint
+
+print(randint(0, 10))
+```
+
+You can also import an entire module, and then access all the values from it using dot notation.
+```python=
+import random
+
+print(random.randint(0, 10))
+```
+
+---
+
+### ~~Exports in Python~~
+
+Unlike JavaScript, Python does not require exports. All of the objects, classes, functions, etc. that are defined in a module are automatically available to import.
+
+
+---
+
+## Part 2: More Built-ins
 
 ---
 
@@ -125,13 +147,7 @@ print(combined_dict)  # {90: 'A', 86: 'B', 75: 'C', 91: 'A', 62: 'D', 99: 'A', 8
 
 ---
 
-## Part 2: Comprehensions
-
----
-
-### Lecture videos (22 minutes)
-Watch:
-- List Comprehensions Demo (18:50)
+## Part 3: Comprehensions
 
 ---
 
@@ -296,13 +312,7 @@ print(number_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 
 ---
 
-## Part 3: Classes
-
----
-
-## Lecture videos (23 minutes)
-Watch:
-- Classes in Python Demo (19:18)
+## Part 4: Classes
 
 ---
 

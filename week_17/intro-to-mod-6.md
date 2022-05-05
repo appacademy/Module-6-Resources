@@ -1,26 +1,23 @@
 # Welcome to Mod6!
-
----
-
 ## Learning a second (programming) language
 
 ---
 
 ## Module 6 Overview
-- Week 17: Python language
-- Week 18: Python web applications
-- Week 19: Docker
+- Week 17: Python language (inverted style)
+- Week 18: Python web applications (lecture style)
+- Week 19: Docker (lecture style)
 - Week 20: Group projects
 
 
 ---
 
 ## This week
-- Today: Python setup
-- Tuesday: Python data types
+- Today: Python setup & basics
+- Tuesday: Python data types & control flow
 - Wednesday: Python collections
-- Thursday: Python classes
-- Friday: Study day
+- Thursday: Python importing, decorators, and classes
+- Friday: Python dependency management, unittesting, and study day
 
 ---
 
@@ -75,54 +72,15 @@ We'll be using the same concepts we already know, just with a new look!
 - People may have opinions on how to format your JavaScript code...
 - But Python (the language!) has opinions about how to format your Python code.
     - [PEP 8 style guide](https://www.python.org/dev/peps/pep-0008/)
-- Python has opinions on more than just styling...
-
-
----
-
-### It also has guiding principles on designing Pythonic code!
-
-[The Zen of Python, by Tim Peters](https://www.python.org/dev/peps/pep-0020/)
-
-```
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-```
-
-You can read this with the Python interpreter!
-
-```python=
-import this
-```
+- Python also defines guiding principles on designing "Pythonic" code
+    - [The Zen of Python, by Tim Peters](https://www.python.org/dev/peps/pep-0020/)
 
 ---
 
-## Today (pt. 1) - Python (2 hrs)
-- Python Setup
+## Today:
+1. Python Install
     - Use the [python-setup.md](https://github.com/appacademy/unified-setup/blob/main/python-setup.md) in the repo linked in a/A Open
-- Python readings & videos (30 min)
-    - Reading: Objectives for the Week
-    - Reading: A Second Language
-    - Reading: Python Documentation
-    - Video: Reading Python
-    - Video: Python REPL
+2. Explore the basics of Python syntax & data types
 
 ---
 
@@ -144,16 +102,3 @@ python --version
 python3 --version
 ```
 2. `which python` should return `~/.pyenv/shims/python`
-
----
-
-## Today (pt. 2) - Networking (2 hrs)
-
-- Reading (30min)
-    - Networking Online
-- Watch (20 min)
-    - Networking Online 1
-    - Networking Online 2
-- Get Your Profile Up! (1 hr)
-
-If you finish early, feel free to start on tonight's homework.

@@ -1,5 +1,4 @@
 # Python Data Types & Basic Control Flow
-## Week 17 Day 2
 
 ---
 
@@ -128,22 +127,6 @@ But no more `++` or `--`
 ```python=
 a++       # SyntaxError: invalid syntax
 ```
-
----
-
-
-
-## Exercises (30 minutes)
-- Hello, Eggs and Spam (5:00)
-- Plus, Minus, More (5:00)
-- Adding Two Numbers (1:00)
-- Convert Minutes To Seconds (1:00)
-- Livestock Legs (5:00)
-- Return Next Number (1:00)
-- Remainder Of Two Numbers (1:00)
-- String To Integer (5:00)
-- By The Power Of... (1:00)
-
 
 ---
 
@@ -334,14 +317,6 @@ print(a)          # 'Hello'
 
 ---
 
-## Exercises (15 min)
-
-- Fun With Strings (5:00)
-- Burrrrrp (5:00)
-- Concatenate Names (1:00)
-
----
-
 ## Part 3: Try/Except Statements
 
 ---
@@ -399,13 +374,6 @@ while True:
 ---
 
 ## Part 4: Identity & Equality
-
----
-
-### Lecture Videos (30 minutes)
-Watch:
-- The Meaning of Truth (13:22)
-- Identity vs. Equality Demo (10:50)
 
 ---
 
@@ -635,19 +603,6 @@ print(id(a))
 
 ---
 
-## Practices (40 min)
-- Double That Penny (5:00)
-- Numeric Equality (1:00)
-- Using and (1:00)
-- Split On Capitals (10:00)
-- Count Characters In String (5:00)
-- Factorial (5:00)
-- Is Divisible By 5 (1:00)
-- Is The Last Character N? (5:00)
-- Same Number Of Characters? (1:00)
-
----
-
 ## Part 5: Functions
 
 ---
@@ -731,22 +686,3 @@ print(x) #10
 print(y) # NameError: name 'y' is not defined
 # `y` was created in the scope of the make_a_five function
 ```
-
----
-
-### Lecture Videos (11 min)
-- Functions in Python (8:28)
-- Functions Returning Functions (2:00)
-
-### Summary Practices (1 hr)
-- Fun With Functions (5:00)
-- Valid Hex Code (10:00)
-- First Before Second (10:00)
-- Sequence of Numbers (30:00)
-
-### Summary Quizzes (20 minutes)
-- Python Documentation Quiz (5:00)
-- Arithmetic Operators (5:00)
-- Strings? (5:00)
-- Short Circuit (5:00)
-
