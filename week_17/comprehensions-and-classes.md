@@ -2,7 +2,7 @@
 
 ---
 
-## Part 1: Intro to Python Imports
+## Part 1: Python Imports
 
 ---
 
@@ -29,290 +29,391 @@ print(random.randint(0, 10))
 
 Unlike JavaScript, Python does not require exports. All of the objects, classes, functions, etc. that are defined in a module are automatically available to import.
 
+---
+
+### Python Modules
+A module is code that is imported from a file or directory. A package is a collection of modules. A module/package can be:
+1. Built-in: already in Python's standard module library 
+2. Third-party: downloaded via command line 
+3. Custom: your own code
+
+To import code from a module, we use the `import` keyword. The import keyword will locate and initialize a module, and give you access to the specific names you have imported in the file.
+
 
 ---
 
-## Part 2: More Built-ins
+### The `import` keyword
+The Python standard library has a number of packages you can import without having to install them—they are included when you install Python ([documentation](https://docs.python.org/3/tutorial/stdlib.html)). 
 
----
 
-### Built-in functions: `all()`
-`all()` returns `True` if *all* items in a collection are truthy or if the iterable is empty.
-
-It returns `False` if there is at least one falsey item.
+Let's use the random package as an example (this would work the same with any package).
 
 ```python=
-test1 = {"item", "truthy", ""}
-test2 = []
-test3 = [[]]
-print(all(test1))
-print(all(test2))
-print(all(test3))
+import random  # import everything from random
+print(random.randint(0, 10))
+```
+With aliasing
+```python=
+import random as rand  # import everything, alias random as rand
+print(rand.randint(0, 10))
 ```
 
 ---
 
-### Built-in functions: `any()`
-`any()` returns `True` if there are *any* truthy items in the provided collection.
+### The `import` keyword
 
-It returns `False` if there are no truthy items or if the iterable is empty.
+You can also import just specific functions from a package using the `from` keyword.
 
 ```python=
-test1 = ["item", [], []]
-test2 = []
-test3 = [[]]
-print(any(test1))
-print(any(test2))
-print(any(test3))
+from random import randint  # import just the randint function
+print(randint(0, 10))
+```
+```python=
+from random import randint, shuffle  # import multiple functions at the same time
+print(randint(0, 10))
 ```
 
----
-
-### Built-in functions: `filter()`
-`filter()` takes in a function and an iterable as arguments and returns a *filter object*.
-
-The returned collection includes only the items which, when the function parameter was applied to them, returned a truthy value.
-
-`filter()` does not filter in place. It returns an entirely new object.
-
 ```python=
-def is_a(num):
-    if num >= 90:
-        return True
-    else:
-        return False
-
-
-scores = [90, 86, 75, 91, 62, 99, 88, 90]
-only_as = filter(is_a, scores)  # does not mutate original
-print(only_as)                  # <filter object at 0x10546ad30>
-print(list(only_as))            # [90, 91, 99, 90]
-```
-
-
----
-
-### Built-in functions: `filter()`
-`filter`'s function parameter can also be defined in line as a `lambda` function.
-```python=
-scores = [90, 86, 75, 91, 62, 99, 88, 90]
-only_as = filter(lambda num: num >= 90, scores)
-print(only_as)        # <filter object at 0x10546ad30>
-print(list(only_as))  # [90, 91, 99, 90]
-```
-
----
-
-### Built-in functions: `map()`
-`map()` takes in a function and an iterable as arguments and returns a *map object*.
-
-`map()` transforms each value from the original iterable according to the provided function and returns them in a new object.
-
-```python=
-def get_grade(num):
-    if (num >= 90):
-        return "A"
-    elif (num <90 and num >= 80):
-        return "B"
-    elif (num < 80 and num >= 70):
-        return "C"
-    elif (num < 70 and num >= 60):
-        return "D"
-    else:
-        return "F"
-scores = [90, 86, 75, 91, 62, 99, 88, 90]
-print(map(get_grade, scores))  # <map object at 0x106faffa0>
-grades = list(map(get_grade, scores))
-print(grades)                  # ['A', 'B', 'C', 'A', 'D', 'A', 'B', 'A']
-
-```
-
----
-
-### Built-in functions: `zip()`
-`zip()` takes two iterables as arguments and returns a *zip object* that pairs values at corresponding indices.
-
-You can typecast the *zip object* as a sequence of tuples or as a dictionary.
-
-```python=
-scores = [90, 86, 75, 91, 62, 99, 88, 90]
-grades = ["A", "B", "C", "A", "D", "A", "B", "A"]
-combined = zip(scores, grades)
-combined_list = list(combined)
-combined_dict = dict(combined_list)
-print(combined)       # <zip object at 0x1023a9600>
-print(combined_list)  # [(90, 'A'), (86, 'B'), (75, 'C'), (91, 'A'), (62, 'D'), (99, 'A'), (88, 'B'), (90, 'A')]
-print(combined_dict)  # {90: 'A', 86: 'B', 75: 'C', 91: 'A', 62: 'D', 99: 'A', 88: 'B'}
-```
-
----
-
-## Part 3: Comprehensions
-
----
-
-### Comprehensions
-
-Comprehensions are composed of an expression followed by a `for...in` statement, followed by an optional `if` clause. They can be used to create new lists (or other mutable sequence types).
-
-
-```python=
-my_list = [expression for member in iterable]
-# with optional if statement
-my_list = [expression for member in iterable if condition]
-```
-
----
-
-### Copying a list
-With a `for` loop:
-```python=
-my_list = [1, "2", "three", True, None]
-my_list_copy = []
-#     for loop
-#    ----------
-# /               \
-for item in my_list:
-    my_list_copy.append(item)
-#                        |
-#                       var
-print(my_list_copy)  # [1, '2', 'three', True, None]
-```
-
----
-
-### Copying a list
-
-With a list comprehension:
-```python=
-my_list = [1, "2", "three", True, None]
-#              var         for loop
-#               |        -------------
-#               |      /              \
-my_list_copy = [item for item in my_list]
-
-print(my_list_copy)  # [1, '2', 'three', True, None]
-```
-
----
-
-### Mapping over a list with comprehensions
-Include the desired expression before the `for` statement
-
-```python=
-my_list = ["jerry", "MARY", "carrie", "larry"]
-#          expression            for loop
-#               |               -------------
-#               |             /              \
-mapped_list = [item.lower() for item in my_list]
-
-print(mapped_list)  # ['jerry', 'mary', 'carrie', 'larry']
-```
-
----
-
-### Convert `map()` to list comprehension
-
-```python=
-nums = [-5, 11, 10, 14]
-mapped_nums = map(lambda num: num * 2 + 1, nums)
-
-print(list(mapped_nums))  # [-9, 23, 21, 29]
-```
-
----
-
-### Convert `map()` to list comprehension
-Answer:
-```python=
-nums = [-5, 11, 10, 14]
-# mapped_nums = map(lambda num: num * 2 +1, nums)
-mapped_nums = [num * 2 + 1 for num in nums]
-
-print(mapped_nums)  # [-9, 23, 21, 29]
-```
-
----
-
-### Filtering a list with comprehensions
-```python=
-nums = [-5, 11, 10, 14]
-
-filtered_nums = filter(lambda num: num > 0, nums)
-
-print(list(filtered_nums))  # [11, 10, 14]
+from random import randint as r_i, shuffle
+print(r_i(0, 10))
 ```
 
 ---
 
 
-### Filtering a list with comprehensions
-Answer:
+### Import Python code from a file
+If I have two files at the same level, I can import one file using the filename (minus the `.py`).
+```
+project_folder
+|  my_code.py
+|  other_code.py
+```
+
 ```python=
-nums = [-5, 11, 10, 14]
+# inside my_code.py
+import other_code
+# import just a specific item
+from other_code import my_function
+```
 
-# filtered_nums = filter(lambda num: num > 0, nums)
-filtered_nums = [num for num in nums if num > 0]
+When I import the `other_code.py` file, all of the code in that file will run, even if I'm just importing one function.
 
-print(filtered_nums)  # [11, 10, 14]
+---
+
+### Import Python code from a subdirectory
+
+```
+project_folder
+|  my_code.py
+|  other_code.py
+|  subfolder
+   |  __init__.py
+   |  file_one.py
+```
+
+
+To import code from inside a subfolder, use `import folder_name.file_name`.
+
+```python=
+# inside my_code.py
+import subfolder.file_one
+# or
+from subfolder import file_one
+# or
+from subfolder.file_one import my_function
 ```
 
 ---
 
-### Nested loops
+### Quick note about `__init__.py`
 
-Nested for loop:
-```python=
-letters = ["a", "b", "c"]
-nums = [1, 2]
+This file should go in any directory being imported. It will transform a plain old directory into a Python module/package.
 
-new_list = []
+Upon import from a module/package,  its`__init__.py` file is implicitly executed, and all objects it defines are bound to the module's namespace ([documentation](https://docs.python.org/3/reference/import.html#regular-packages)).
 
-#  outer loop
-#  ----------
-# /          \
-for l in letters:
-    for n in nums:  # <- inner loop
-        new_list.append((l, n))
-#                        \   /
-#                         ---
-#                      expression
+---
 
-print(new_list)  # [('a', 1), ('a', 2), ('b', 1), ('b', 2), ('c', 1), ('c', 2)]
+### Why do we need `__init__.py` if we can import without it?
+
+Python 3.3+ creates an *implicit namespace package* if no `__init__.py` file exists for a directory. We want to avoid this most of the time!
+
+We need a `__init__.py` if we want to run the directory as a module, if we want to run `pytest` on it, etc. 
+
+This file can be completely empty (and often will be). It can also be the place where we initialize our applications!
+
+---
+
+### JavaScript imports
+
+Reminder: In Javascript, when we imported from other files, we used relative import statements.
+```
+project_folder
+|  top_level_file.js
+└──subfolder
+   |  file_one.js
+   |  file_two.js 
+```
+
+The import path changes depending on what file we are in.
+```javascript=
+// inside top_level_file.js
+import { someObject } from "./subfolder/file_two"
+```
+
+```javascript=
+// inside file_one.js
+import { someObject } from "./file_two"
 ```
 
 
 ---
 
-### Nested loops (list comprehension)
+### Python imports
 
-With list comprehension—note that the outer loop is first:
+```
+project_folder
+|  top_level_file.py
+└──subfolder
+   |  __init__.py
+   |  file_one.py
+   |  file_two.py 
+```
+
+In Python, absolute import statements are preferred when we are importing code from other files.
+
+"Absolute" means that all imports are relative only to one location - the top-level file being executed.
+
+Absolute imports are preferred because they are more explicit and straightforward.
+
+
 ```python=
-letters = ["a", "b", "c"]
-nums = [1, 2]
-#       expression    outer loop     inner loop
-#            ---    --------------   -----------
-#           /   \  /              \ /           \
-new_list = [(l, n) for l in letters for n in nums]
+# inside top_level_file.py
+import subfolder.file_two
+```
 
-print(new_list)  # [('a', 1), ('a', 2), ('b', 1), ('b', 2), ('c', 1), ('c', 2)]
+```python=
+# inside file_one.py
+import subfolder.file_two
+```
+
+However...
+
+
+---
+
+### Python Imports
+
+...that means that if I try to run a file directly, instead of from the intended entrypoint of my application, the file won't work correctly.
+```python=
+# inside top_level_file.py
+import subfolder.file_one
+print("Hello from top_level_file.py")
+```
+
+
+```python=
+# inside file_one.py
+import subfolder.file_two
+print("Hello from file_one.py")
+```
+
+```python=
+# inside file_two.py
+print("Hello from file_two.py")
 ```
 
 ---
 
-### Dictionary comprehensions
+### Python Imports
 
-Use a colon in the expression to separate the key and value.
+If you run the `top_level_file.py` file at the command line, you will get the following output:
+```
+Hello from file_two.py
+Hello from file_one.py
+Hello from top_level_file.py
+```
 
+If you run the `file_one.py` file at the command line, you will get the following output:
+```
+ModuleNotFoundError: No module named 'subfolder'
+```
+
+If I rewrote `file_one.py` so that its import statement worked when it runs in isolation (`import file_two`), then it wouldn't work in the context of the application. 
+
+---
+
+### Python imports (takeaways)
+
+1. All import statements should usually be "absolute" - meaning relative to the top level of your project.
+2. Include a `__init__.py` file in any folder that has python code if you are going to be importing from that folder. The `__init__.py` file can be completely empty (and often will be).
+
+
+---
+
+## Part 2: Decorators
+
+---
+
+### What's a decorator?
+
+A decorator is syntactic sugar for a function that decorates another.
+
+A decorator function takes in another function as a callback and returns a modified version of the callback function.
+
+We can use decorators to add to or modify the behavior of regular functions.
+
+---
+
+### Decorators
+Let's create a decorator that could be used for timing function calls.
 ```python=
-# a dictionary that maps numbers to the square of the number
-number_dict = {num: num**2 for num in range(5)}
-print(number_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+from datetime import datetime
+
+# our decorator, which takes in a callback function
+def timer(func):
+    
+    # define the wrapper function that we're going to return
+    def wrapper():
+        # get current time before function call
+        before_time = datetime.now()
+        
+        # invoke the callback
+        val = func()
+        # log the return value of the function
+        print(val)
+        
+        # get current time after function call
+        after_time = datetime.now()
+        
+        # calculate total time
+        total = after_time - before_time
+        
+        # return the total time
+        return total
+    
+    # decorator returns the wrapper function object
+    return wrapper
 ```
 
 ---
 
-## Part 4: Classes
+### Decorators
+
+Without the decorator syntax, we would have to define our function, then reassign our function to the return value from invoking the decorator function on our old function.
+
+```python=
+# decorator function
+from datetime import datetime
+
+def timer(func):
+    def wrapper():
+        before_time = datetime.now()
+        val = func()
+        print(val)
+        after_time = datetime.now()
+        total = after_time - before_time
+        return total
+    
+    return wrapper
+
+
+# function to decorate
+def my_function():
+    return "hello"
+
+
+# before decorating
+print(my_function())  # returns "hello"
+
+# decorated function
+my_function = timer(my_function)
+
+# after decorating
+print(my_function())
+```
+
+
+---
+
+### Decorators
+
+Using the `@decorator_name` syntax, we can shorten this:
+```python=
+def my_function():
+    return "hello"
+
+my_function = timer(my_function)
+```
+To this:
+```python=
+@timer
+def my_function():
+    return "hello"
+```
+
+Decorating a function definition (with the `@decorator` syntax) does the same thing as reassigning the function name to the return value of the decorator.
+
+
+---
+
+### Passing arguments through a decorator
+
+What if I want to wrap functions that take arguments?
+```python=
+from datetime import datetime
+
+def timer(func):
+    def wrapper(name):
+        before_time = datetime.now()
+        val = func(name)
+        print(val)
+        after_time = datetime.now()
+        total = after_time - before_time
+        return total
+    
+    return wrapper
+
+
+@timer
+def my_function_args(name):
+    return f"hello {name}"
+```
+
+
+---
+
+### Passing arguments through a decorator
+
+What if I want to wrap functions that take arguments... but I want to be flexible about what kind of arguments the function takes?
+
+
+```python=
+from datetime import datetime
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        before_time = datetime.now()
+        val = func(*args, **kwargs)
+        print(val)
+        after_time = datetime.now()
+        total = after_time - before_time
+        return total
+    
+    return wrapper
+
+
+@timer
+def my_function_args(name):
+    return f"hello {name}"
+
+@timer
+def my_sum(sum1, sum2):
+    return sum1 + sum2
+```
+
+---
+
+## Part 3: Classes
 
 ---
 
