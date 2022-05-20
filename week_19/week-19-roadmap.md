@@ -107,7 +107,7 @@ This makes it much more scalable and allows us to run many more containers on on
 ### Group Project Planning
 We will have time allotted each day this week to work on group project planning!
 
-Use [this schedule](https://elemental-surf-48f.notion.site/Python-Group-Project-Planning-996f594db9a4424c92c7d80a8f670e6a) to help guide your planning this week.
+Use [project planning sheet in this repo](https://github.com/appacademy/Module-6-Resources/blob/main/group_project_resources/project-planning-sheet.md) to help guide your planning this week.
 
 You must produce 4 design documents for approval by your project advisor this week: 
 - Feature list
