@@ -19,7 +19,8 @@ Submit your design docs for review by tagging your project lead in your group sl
 |   Monday    | Choose Project, Feature List        |     |
 |   Tuesday    | Feature List, User Stories      | Feature List    |
 |   Wednesday    | Scorecard Link   | Scorecard Link, User Stories   |
-|   Thursday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*          | DB Schema  |
+|   Thursday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*          |   |
+|   Friday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*          | DB Schema  |
 
 ## Optional Design Docs
 
@@ -30,7 +31,7 @@ Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but
 
 Please add your cohort lead & project advisor to your project repo.
 
-- Leah: `leahstern-aA`
+- Brad: `bradsimpson213`
 - John: `jwily`
 - David: `hisownspace`
 - Cesar: `171cas`
