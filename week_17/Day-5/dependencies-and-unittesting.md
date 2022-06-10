@@ -1,71 +1,52 @@
-# Python dependency management & unit-testing
+<style>
+    .present {
+        text-align: left;
+    }
+    img[alt=set_operations] {
+        width: 60%;
+        
+    }
+</style>
 
 ---
 
-## Part 1: Dependency Management with Virtual Environments
+###### tags: `Week 17` `W17D5`
 
 ---
 
-### Pip, Virtualenv, and Pipenv
-
-- **pyenv**: version manager for Python
-- **pip**: package manager for Python (but only works for globally installing packages)
-- **virtualenv**: the environment containing a specified python version and a collection of installed packages(in a `.venv` folder)
-- **pipenv**: dependency manager for individual projects
-
+# Dependency Management & Unittesting
+## Week 17 Day 5
 
 ---
 
-
-### Pip, Virtualenv, and Pipenv
-
-| Python tool   | Node.js equivalent      |
-|:------------- |:----------------------- |
-| pyenv	        | nvm                     |
-| pip           | npm --global            |
-| virtualenv    | nvm + node_modules      |
-| pipenv        | npm + nvm               |
-| Pipfile       | package.json            |
-| Pipfile.lock  | package-lock.json       |
-
+## Dependency Management with Virtual Environments
 
 ---
 
-### Using `pipenv`
+### What is a virtual environment?
 
-
-Create a virtual environment by running `pipenv install`. If there is a Pipfile present, this will install the dependencies in the Pipfile, otherwise it will create a new Pipfile along with a virtual environment.
-
-You can specify a particular version of Python to use in your virtual environment with `--python` flag.
-```bash
-pipenv install --python 3.9.4
-```
-You can also pass in a path instead of a number .
-```bash
-pipenv install --python "/Users/username/.pyenv/versions/3.9.4/bin/python"
-```
+A virtual environment is a self-contained directory tree that contains a Python installation for a particular version of Python plus a number of additional dependencies necessary for a project.
 
 ---
 
-### Specifying a Python version (note for projects this week)
+### `pipenv`
 
-Many of the projects this week will specify a version of Python to use. If you try to use a version that you don't have installed, it will not work. Also, these projects expect you to be specifying the path instead of just a number.
+`pipenv` is a tool that creates and manages virtual environments.
 
-If you see something like this
-```bash
-pipenv install --python "$PYENV_ROOT/versions/3.8.3/bin/python"
-```
-Run this instead:
+To create a virtual environment, simply run
 
 ```bash
-pipenv install --python 3.9.4 # or whatever version you do have installed
-```
+pipenv install
+````
 
-If you aren't sure, you can check to see which version you have available with the command `pyenv versions`.
+If there is a Pipfile present, this will install the dependencies in the Pipfile, otherwise it will create a new Pipfile along with a virtual environment.
+
+You can specify a particular version of Python to install in your virtual environment with the `--python` flag followed by the Python version number.
 
 ---
 
 ### Installing packages with `pipenv`
+
 Install a dependency:
 ```bash
 pipenv install package-name
@@ -81,19 +62,32 @@ pipenv uninstall package-name
 
 ---
 
-### More `pipenv` commands
-Activate your virtual environment shell:
+### Using the virtual environment
+
+Activate and enter the virtual environment shell:
 ```bash
 pipenv shell
 ```
-Remove a virtual environment:
+
+Run a command without entering the virtual environment:
+```bash
+pipenv run command
+```
+
+Remove the virtual environment folder:
 ```bash
 pipenv --rm
 ```
 
 ---
 
-## Part 2: Unittest & Pytest
+## Unittest & Pytest
+
+---
+
+`unittest` is the built-in unittesting framework in Python.
+
+Most Python developers choose to use the external `pytest` package because it is cleaner and more readable.
 
 ---
 
@@ -151,10 +145,10 @@ class TestWidgetInitialize(unittest.TestCase):
 
 ### The `pytest` package
 
-Create a virtual environment if you haven't yet, and install pytest.
+Install `pytest` in a virtual environment.
 
 ```bash
-pipenv install pytest --python 3.9.4
+pipenv install pytest
 ```
 
 Run tests at the command line by running
@@ -191,3 +185,23 @@ def test_initialize_widget_with_color():
     # assert
     assert result == color
 ```
+
+---
+
+## Practices for Today...
+
+### Python Environment (30 min)
+pip, virtualenv, And pipenv - 12 min
+Exercise: Pipenv Setup - 15 min
+
+
+### Unit Testing (2 hrs 40 min)
+Writing Unit Tests With unittest - 10 min
+Writing Unit Tests With Pytest - 10 min
+Exercise: Writing tests with pytest - 15 min
+Bonus: TDD With unittest And pytest - 2 hrs
+
+
+### Week 17 Practice Assessment! (1 hr 30 min)
+Python Basics - Part I - 30 min
+Python Basics - Part II - 1 hr
