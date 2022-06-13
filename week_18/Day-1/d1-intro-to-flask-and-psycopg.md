@@ -1,4 +1,72 @@
-# Getting started with Flask
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+
+---
+
+###### tags: `Week 18` `W18D1`
+
+---
+
+# Week 18 Roadmap
+
+---
+
+### Technologies
+- Today: Intro to Flask and Psycopg
+- Tuesday: Flask routing, templating, and forms
+- Wednesday: Interacting with a database via the SQLAlchemy ORM
+- Thursday: Data migrations with Alembic
+- Friday: review, practice assessment walkthrough, and Kahoot!
+
+
+---
+
+### Intro to Flask & Psycopg (Today)
+- [Flask](https://flask.palletsprojects.com/)
+    - Web server (like Express, but for Python)
+- [Psycopg2](https://www.psycopg.org/docs/index.html#)
+    - Database adapter for Python, allows Flask to communicate with Postgres database
+
+---
+
+### More about Flask (Tuesday)
+- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+    - Templating language (like Pug)
+- [WTForms](https://wtforms.readthedocs.io) & [Flask-WTF](https://flask-wtf.readthedocs.io)
+    - WTForms is a form validation library
+    - Flask-WTF integrates WTForms with Flask
+
+---
+
+### SQLAlchemy & Flask-SQLAlchemy (Wednesday)
+- [SQLAlchemy](https://docs.sqlalchemy.org/en/14/index.html)
+    - Object-relational mapping tool (ORM) that makes it easier to interact with our database (like Sequelize)
+- [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com) 
+    - Integrates SQLAlchemy with Flask
+
+
+---
+
+### Alembic & Flask-Migrate (Thursday)
+- [Alembic](https://alembic.sqlalchemy.org)
+    - Database migration tool that works with SQLAlchemy
+- [Flask-Migrate](https://flask-migrate.readthedocs.io)
+    - Integrates Alembic with Flask
+
+---
+
+### Review day (Friday)
+- Independent study time
+- Practice assessment walkthrough
+- Kahoot
+
+---
+
+# Getting started with Flask & Psycopg
 ## Week 18 Day 1
 
 ---
@@ -11,15 +79,16 @@ Watch:
 
 ### Flask app setup
 
-1. install flask
+1. Install flask
 ```bash
 pipenv install flask
 ```
-2. import `Flask` to the file where we are building our application
+2. Create a folder for your application with a `__init__.py`.
+3. Import `Flask` in the `__init__.py`
 ```python=
 from flask import Flask
 ```
-3. instantiate a `Flask` instance
+4. Instantiate a `Flask` instance
 ```python=
 app = Flask(__name__)
 ```
@@ -34,11 +103,11 @@ app = Flask(__name__)
 FLASK_APP=app
 FLASK_ENV=development
 ```
-5. install python-dotenv
+5. Install python-dotenv to load environment variables into the app configuration
 ```bash
 pipenv install python-dotenv
 ```
-6. run your application...
+6. Run your application!
 ```bash
 pipenv run flask run
 ```
@@ -122,11 +191,19 @@ If you do, please let us know and we will help you out!
 pipenv install psycopg2-binary
 ```
 2. Import the `psycopg2` package at the top of your file.
-3. Set up your connection parameters in a dictionary, including `dbname`, `user`, and `password`:
+3. 2.5 Set up a database to connect to in psql
+```python=
+CREATE USER psycopg_test_user WITH 
+        CREATEDB PASSWORD 'password';
+
+CREATE DATABASE psycopg_test_db WITH 
+        OWNER psycopg_test_user;
+```
+4. Set up your connection parameters in a dictionary, including `dbname`, `user`, and `password`:
 ```python=
 CONNECTION_PARAMETERS = {
-    "dbname": "widget_database",
-    "user": "widget_user",
+    "dbname": "book_database",
+    "user": "book_user",
     "password": "password",
 }
 ```
@@ -146,27 +223,27 @@ We will use the `with` keyword to manage our database connections with `psycopg`
 
 ### Setting up `psycopg2` [2/2]
 
-4. Open a connection to the database. Use the `with` keyword, and the `connect` method on `psycopg2`:
+5. Open a connection to the database. Use the `with` keyword, and the `connect` method on `psycopg2`:
 ```python=
 with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
     # code to follow
 ```
 
-5. Open a "cursor" to perform data operations.
+6. Open a "cursor" to perform data operations.
 ```python=
 with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
     with conn.cursor() as curs:
       # code to follow
 ```
-6. With our cursor, we can use the `execute` method to run a SQL command:
+7. With our cursor, we can use the `execute` method to run a SQL command:
 ```python=
 with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
     with conn.cursor() as curs:
         curs.execute(
-            """CREATE TABLE widgets (
+            """CREATE TABLE books (
             id SERIAL PRIMARY KEY,
-            color VARCHAR(50),
-            shape VARCHAR(50)
+            title VARCHAR(50),
+            author VARCHAR(50)
             );""")
 ```
 
@@ -185,7 +262,7 @@ with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
         curs.execute(
             """
             SELECT *
-            FROM widgets
+            FROM books
             """)
         results = curs.fetchone()
         print(results)
@@ -199,17 +276,17 @@ with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
 We can use parameterized SQL statements to insert data into our database.
 ```python=
 # Inserting a new record
-def add_new_widget(color, shape):
+def create_book(title, author):
     with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
         with conn.cursor() as curs:
             curs.execute(
                 """
-                INSERT INTO widgets (color, shape)
-                VALUES (%(color)s, %(shape)s)
+                INSERT INTO books (title, author)
+                VALUES (%(title)s, %(author)s)
                 """,
                 {
-                    "color": color,
-                    "shape": shape
+                    "title": title,
+                    "author": author
                 })
 
 ```
@@ -222,4 +299,16 @@ def add_new_widget(color, shape):
 
 [documentation](https://www.psycopg.org/docs/usage.html#the-problem-with-the-query-parameters)
 
+
 ---
+
+
+### For the rest of today...
+
+- No project/practice today
+
+- Behavioral Interview Exercise (optional)
+
+- Get started on homework
+
+- EOD from Cesar on DS&A
