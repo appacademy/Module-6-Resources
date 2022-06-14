@@ -1,3 +1,15 @@
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+---
+
+###### tags: `Week 18` `W18D2`
+
+---
+
 # More about Flask
 ## Week 18 Day 2
 
