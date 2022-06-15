@@ -1,3 +1,15 @@
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+---
+
+###### tags: `Week 18` `W18D3`
+
+---
+
 # Using SQLAlchemy with Flask
 ## Week 18 Day 3
 
@@ -9,21 +21,20 @@
 
 ### Steps for setting up Flask-SQLAlchemy
 
-1. Create your database & user in psql.
+1. Install psycopg2, sqlalchemy, and flask-sqlalchemy
+```bash
+pipenv install psycopg2-binary sqlalchemy flask-sqlalchemy
+```
+
+2. Create your database & user in psql.
 ```sql
 create user book_user with password 'password';
 create database book_database with owner 'book_user';
 ```
 
-
-2. Add a DATABASE_URL to your `.env`
+3. Add a DATABASE_URL to your `.env`
 ```bash=
 DATABASE_URL=postgresql://book_user:password@localhost/book_database
-```
-
-3. Install psycopg2, sqlalchemy, and flask-sqlalchemy
-```bash
-pipenv install psycopg2-binary sqlalchemy flask-sqlalchemy
 ```
 
 ---
@@ -45,7 +56,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 ### Steps for setting up Flask-SQLAlchemy
 
 
-5. Create a models.py file, and instantiate a `SQLAlchemy` object from `flask_sqlalchemy`.
+5. Create a models folder with a __init__.py and db.py files inside it, and then in the db.py file instantiate a `SQLAlchemy` object from `flask_sqlalchemy`.
 
 ```python=
 from flask_sqlalchemy import SQLAlchemy
@@ -66,10 +77,10 @@ db.init_app(app)
 
 ---
 
-## Lecture Videos (32 min)
+## Lecture Videos (20 min)
 Watch:
 - FlaskSQLAlchemy: Creating Mapping Files (15:00)
-- FlaskSQLAlchemy: Interacting with Data (13:10)
+
 
 ---
 
@@ -157,84 +168,10 @@ author = db.relationship("Author", back_populates="books")
 books = db.relationship("Book", back_populates="author", cascade="all, delete")
 ```
 
----
 
-### Creating records
-
-To make a new row in your database, first create a new instance of one of your model classes.
-
-After you create your instance, add it to your session and commit it to the database.
-
-```python=
-new_book = Book(title="Alice in Wonderland")
-db.session.add(new_book)
-db.session.commit()
-```
 
 ---
 
-### Querying with SQLAlchemy
-
-To query the database, we use the `query` attribute on our `db.Model` classes.
-
-Get all records:
-```python=
-all_books = Book.query.all()
-```
-
-Get one record by primary key:
-```python=
-one_book = Book.query.get(id)
-```
-
----
-
-### Filtering on queries
-
-To apply a filter, you can use the `.filter` method, passing in an operator on a column. Use `.all()` to get a list of all records that match the filter, or use `.first()` to get the first matching record.
-
-```python=
-# all books where the title starts with "a"
-Book.query.filter(Book.title.like("A%"))
-```
-
-```python=
-# first book where the title starts with "a"
-Book.query.filter(Book.title.like("A%")).first()
-```
-
-We can use `.join(OtherModel)` on a query to perform a join query.
-
-```python=
-# all authors with books >= 100 pages
-Author.query.join(Book).filter(Book.pages >= 100)
-```
-
-[more available operators](https://docs.sqlalchemy.org/en/14/core/operators.html)
-
----
-
-### Updating records
-Once you have queried or created an instance of your model, you can update it by changing a value on that instance, and adding/commiting to the db.
-```python=
-book = Book.query.get(1)
-book.author_id = 1
-db.session.commit()
-```
-
----
-
-
-### Deleting records
-
-Deleting records uses the `delete` method on the `db.session` object.
-```python=
-book = Book.query.get(1)
-db.session.delete(book)
-db.session.commit()
-```
-
----
 
 ### Many-to-Many Relationships
 
@@ -304,65 +241,91 @@ books = db.relationship(
 
 ---
 
-## Flask Sessions
+### Creating records
 
----
+To make a new row in your database, first create a new instance of one of your model classes.
 
-### Flask sessions
-
-Sessions let you store user-specific information on a cookie.
-
-You must have a secret key (SECRET_KEY) set on your application to use the session object.
-
-
----
-
-### Using sessions
-First, import the session object from Flask.
+After you create your instance, add it to your session and commit it to the database.
 
 ```python=
-from flask import Flask, render_template, session
-```
+new_book = Book(title="Alice in Wonderland")
+db.session.add(new_book)
+db.session.commit()
 
-The session object works like a dictionary. It starts out empty. We can access the values in the dictionary using the dictionary `.get()` method so that we don't get an error if we try to access a key that isn't in the dictionary yet.
-
-```python=
-# inside a route
-value = session.get("some_key", None)
-```
-
----
-
-### Using sessions
-
-Let's use the session object to count a specific user's views.
-
-Depending on whether or not the "views" key exists in the dictionary yet, we will either add it or update the value.
-```python=
-# inside a route
-views = session.get("views", None)
-if views is not None:
-    # update "views" in the dictionary
-else:
-    # assign the "views" key to a value of one
 ```
 
 
 ---
 
-### Sessions
 
-Because sessions are stored client-side, restarting the server won't clear the session cookie.
+## Lecture Videos (20 min)
+Watch:
+- FlaskSQLAlchemy: Interacting with Data (13:10)
 
-However, if the client clears their cookies, the information from the session will disappear.
+
+
+___
+
+### Querying with SQLAlchemy
+
+To query the database, we use the `query` attribute on our `db.Model` classes.
+
+Get all records:
+```python=
+all_books = Book.query.all()
+```
+
+Get one record by primary key:
+```python=
+one_book = Book.query.get(id)
+```
 
 ---
 
-### Sessions summary
+### Filtering on queries
 
-Sessions are a useful way to store user-specific information with a secure cookie in the client's browser. It will persist until the client clears their cookies.
+To apply a filter, you can use the `.filter` method, passing in an operator on a column. Use `.all()` to get a list of all records that match the filter, or use `.first()` to get the first matching record.
 
-The library we will use for auth with Flask applications uses sessions—we won't have to interact with the session object directly.
+```python=
+# all books where the title starts with "a"
+Book.query.filter(Book.title.like("A%"))
+```
+
+```python=
+# first book where the title starts with "a"
+Book.query.filter(Book.title.like("A%")).first()
+```
+
+We can use `.join(OtherModel)` on a query to perform a join query.
+
+```python=
+# all authors with books >= 100 pages
+Author.query.join(Book).filter(Book.pages >= 100)
+```
+
+[more available operators](https://docs.sqlalchemy.org/en/14/core/operators.html)
+
+---
+
+### Updating records
+Once you have queried or created an instance of your model, you can update it by changing a value on that instance, and adding/commiting to the db.
+```python=
+book = Book.query.get(1)
+book.author_id = 1
+db.session.commit()
+```
+
+---
+
+
+### Deleting records
+
+Deleting records uses the `delete` method on the `db.session` object.
+```python=
+book = Book.query.get(1)
+db.session.delete(book)
+db.session.commit()
+```
 
 ---
 
