@@ -1,4 +1,16 @@
-# Migrations with Flask & SQLAlchemy
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+---
+
+###### tags: `Week 18` `W18D4`
+
+---
+
+# Alembic Migrations & JSON with Flask
 ## Week 18 Day 4
 
 ---
@@ -36,13 +48,17 @@ Migrate(app, db)
 ```bash
 flask db init
 ```
+4. Set up the correct revision file name in the alembic.ini
+```bash=
+file_template = %%(year)d%%(month).2d%%(day).2d_%%(hour).2d%%(minute).2d%%(second).2d_%%(slug)s
+```
 
-4. Create a migration file.
+5. Create a migration file.
 ```bash
 flask db migrate
 ```
 
-5. Apply your migrations to your database.
+6. Apply your migrations to your database.
 ```bash
 flask db upgrade
 ```
@@ -53,12 +69,12 @@ flask db upgrade
 ### Workflow
 When you make changes to your models:
 
-6. Run migrate to get a new migration script.
+7. Run migrate to get a new migration script.
 ```bash
 flask db migrate
 ```
 
-7. Run upgrade to apply the changes.
+8. Run upgrade to apply the changes.
 ```bash
 flask db upgrade
 ```
