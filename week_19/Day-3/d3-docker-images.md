@@ -1,3 +1,15 @@
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+---
+
+###### tags: `Week 19` `W19D3`
+
+---
+
 # Docker Images and Dockerfiles
 ## Week 19 Day 3
 
@@ -154,7 +166,7 @@ CMD command param1 param2
 
 
 ### Dockerfile demo
-Let's use a Dockerfile to create an image for a simple express server, and then push it to Docker hub.
+Let's use a Dockerfile to create an image for a simple react app, and then push it to Docker hub.
 
 First we'll need a Dockerfile, so create a file named "Dockerfile" inside our demo directory
 
@@ -278,7 +290,7 @@ node_modules
 
 ---
 
-## Building and pushing the container
+## Building and pushing the image
 ```bash=
 # log in to dockerhub
 docker login
