@@ -1,3 +1,15 @@
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+---
+
+###### tags: `Week 19` `W19D4`
+
+---
+
 # Docker-Compose
 ## Week 19 Day 4
 
@@ -16,6 +28,15 @@ A lot of the options you had to specify at the command line every time you ran a
 
 To use docker-compose, you first create a __docker-compose.yml__ file which describes all of the services, networks, and volumes in your application.
 
+
+---
+
+### Useful docker-compose CLI commands
+- `docker-compose up`: create all containers, networks and volumes described in our docker-compose file
+- `docker-compose up -d`: same as above, but run containers in detached mode
+- `docker-compose -f <filename> up`: create containers based on a different docker-compose file
+- `docker-compose down`: remove all containers and networks
+- `docker-compose down -v`: remove all containers, networks, and volumes
 
 ---
 
@@ -179,23 +200,6 @@ container_name_1:
 
 ---
 
-## Volumes
-
----
-
-### `volumes`
-If you include any named volumes, list their names under the top-level "volumes" key.
-
-Anonymous volumes and bind mounts don't need to be listed.
-
-```yaml
-volumes:
-  some_named_volume:
-  another_named_volume:
-```
-
----
-
 ## Networks
 
 ---
@@ -213,20 +217,29 @@ networks:
 
 ---
 
-### Useful docker-compose CLI commands
-- `docker-compose up`: create all containers, networks and volumes described in our docker-compose file
-- `docker-compose up -d`: same as above, but run containers in detached mode
-- `docker-compose -f <filename> up`: create containers based on a different docker-compose file
-- `docker-compose down`: remove all containers and networks
-- `docker-compose down -v`: remove all containers, networks, and volumes
-
-
+## Volumes
 
 ---
 
-## Projects time!
+### `volumes`
+If you include any named volumes, list their names under the top-level "volumes" key.
+
+Anonymous volumes and bind mounts don't need to be listed.
+
+```yaml
+volumes:
+  some_named_volume:
+  another_named_volume:
+```
+
+---
+
+
+## Project time!
 - First Docker Compose File
 - Become Docker Compose Pros
 - Optional - *Putting It Together*
 
-We will have an EOD lecture at 4 PST from our PTM Caleb Braaten! He will talk to us about multithreading in Python.
+As always, please coordinate with your groups when you would like to continue project planning.
+
+We will have a guest EOD lecture today at 4 PST from Caleb! He will be covering multithreading in Python.

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    image: react_fe
+    networks:
+      - test_network
+    ports:
+      - 3000:3000
+
+
+  database:
+    image: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - test_network
+    env_file:
+      - .env
+    ports:
+      - 5431:5432
+
+
+networks:
+  test_network:
+  # my_network2:
+  #   external: True
+
+volumes:
+  postgres-data:
+    external: True
