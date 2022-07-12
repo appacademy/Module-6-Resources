@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect 
+from flask import Flask, render_template, redirect
 from dad_jokes.config import Config
 from .db_jokes import jokes
 from random import choice
@@ -8,15 +8,14 @@ from .routes.user_routes import users_router
 app = Flask(__name__)
 app.config.from_object(Config)
 
-app.register_blueprint(jokes_router) #/jokes
+app.register_blueprint(jokes_router)
 app.register_blueprint(users_router, url_prefix="/users")
-
 
 
 @app.route('/')
 def index():
     joke = choice(jokes)
-    print(joke)
+    print("Here is our joke...", joke)
     return render_template("index.html", joke=joke)
     # return redirect("/another", 302)
 
@@ -27,5 +26,5 @@ def index():
 
 
 @app.route('/another')
-def another_route():
-    return "<h1>This is a totally different route!</h1>"
+def another_route(): 
+    return "<h1>This is another route, yay!</h1>"
