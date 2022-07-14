@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block potato %}
-<h3>Create a new joke:</h3>
-<form method="POST" action="/jokes/new">
-    {{ form.csrf_token }}
-    <p>{{ form.joke.label }}: {{ form.joke }}</p>
-    <p>{{ form.punchline.label }}: {{ form.punchline }}</p>
-    <p>{{ form.rating.label }}: {{ form.rating }}</p>
-    <p>{{ form.user.label}}: {{ form.user }}</p>
-    <p>{{ form.submit }}</p>
-</form>
 
-{% endblock %}
+{% block potato%}
+<h3>Create A New Joke:</h3>
+    <form method="POST" action="/jokes/new">
+        {{ form.csrf_token }}
+        <p>{{ form.joke.label }} {{ form.joke }}</p>
+        <p>{{ form.punchline.label }} {{ form.punchline }}</p>
+        <p>{{ form.rating.label }} {{ form.rating }}</p>
+        <p>{{ form.user.label }} {{ form.user }}</p>
+        <p>{{ form.submit }}</p>
+    </form>
+
+{% endblock%}

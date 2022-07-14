@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block potato %}
-<h3>I hope you like dad jokes </h3>
 
-<div>
-    <p>Joke: {{ joke.joke_body }}</p>
-    <p>Punchline: {{ joke.punchline }}</p>
-    <p>Rating: {{ joke.rating }}</p>
-</div>
+<h3>We are gonna see a random joke here...</h3>
+    <div>
+        <p>Joke: {{ joke.joke_body }}</p>
+        <p>Punchline: {{ joke.punchline }}</p>
+        <p>Rating: {{ joke.rating }}</p>
+        <p>Author: {{ joke.user.username }}</p>
+        <p>Likes: {{ joke.joke_likes | length }}</p>
+    </div>
+
 {% endblock %}

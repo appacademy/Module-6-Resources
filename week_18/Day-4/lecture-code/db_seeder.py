@@ -1,13 +1,14 @@
+# when running this file we use the commands pipenv run python db_seeder.py
+
 from dad_jokes.models.db import db, User, Joke
 from dad_jokes import app
 
-
 with app.app_context():
-    
+
     # db.drop_all()
-    # print("All table dropped!")
+    # print("All tables dropped!")
     # db.create_all()
-    # print("Create all tables!")
+    # print("All tables were created!")
 
     user1 = User(username="Brad", email="brad@gmail.com", password="password")
     user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
@@ -23,6 +24,7 @@ with app.app_context():
         joke_likes=[user2, user3]
     )
 
+ 
     joke2 = Joke(
         joke_body='What do you call a lazy doctor?',
         punchline='Dr Doo-little...',
@@ -53,7 +55,6 @@ with app.app_context():
         user=user2,
         joke_likes=[user1, user3, user4]
     )
-
  
 
     db.session.add(user1)
