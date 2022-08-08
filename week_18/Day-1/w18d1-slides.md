@@ -16,7 +16,7 @@
 ---
 
 ### Technologies
-- Today: Intro to Flask and Psycopg
+- Today: Intro to Flask and SQLite3
 - Tuesday: Flask routing, templating, and forms
 - Wednesday: Interacting with a database via the SQLAlchemy ORM
 - Thursday: Data migrations with Alembic
@@ -25,11 +25,11 @@
 
 ---
 
-### Intro to Flask & Psycopg (Today)
+### Intro to Flask & SQLite3 (Today)
 - [Flask](https://flask.palletsprojects.com/)
     - Web server (like Express, but for Python)
-- [Psycopg2](https://www.psycopg.org/docs/index.html#)
-    - Database adapter for Python, allows Flask to communicate with Postgres database
+- [SQLite3](https://docs.python.org/3/library/sqlite3.html)
+    - Built in SQLite3 module for Python, allows Flask to communicate with a SQLite3 database
 
 ---
 
@@ -66,7 +66,7 @@
 
 ---
 
-# Getting started with Flask & Psycopg
+# Getting started with Flask & SQLite3
 ## Week 18 Day 1
 
 ---
@@ -162,143 +162,118 @@ app.config.from_object(Config)
 
 ---
 
-## Lecture Videos (10 min)
-Watch:
-- Psycopg Demo (7:32)
+### SQLite3
+
+
+Python has a built in module named `sqlite3` which allows us to connect directly to a SQLite3 database file from Python.
+
+It is NOT the equivalent of Sequelize. We can use it directly, but typically we will want to use an actual ORM (SQLAlchemy). 
+
 
 ---
 
-### Psycopg
 
-`psycopg2` is a utility that lets us connect directly to a postgresql database from Python.
+### Setting up `sqlite3` [1/2]
 
-It is NOT the equivalent of Sequelize. We can use it directly, but typically we will want to use an actual ORM. Our ORM will rely on `psycopg2`, but it will have a much more convenient interface.
-
----
-
-### Attention M1 users!
-
-The M1 arm64 CPU architecture has historically been incompatible with `psycopg`. While you will be able to install the package without issue, you might run into problems trying to access a database with `psycopg` or `SQLAlchemy`.
-
-If you do, please let us know and we will help you out!
-
----
-
-### Setting up `psycopg2` [1/2]
-
-1. Install `psycopg2`
-```bash
-pipenv install psycopg2-binary
-```
-2. Import the `psycopg2` package at the top of your file.
-3. 2.5 Set up a database to connect to in psql
+1. Import the `sqlite3` package at the top of your file.
 ```python=
-CREATE USER psycopg_test_user WITH 
-        CREATEDB PASSWORD 'password';
-
-CREATE DATABASE psycopg_test_db WITH 
-        OWNER psycopg_test_user;
+import sqlite3
 ```
-4. Set up your connection parameters in a dictionary, including `dbname`, `user`, and `password`:
+2. Create a new database to connect to in the terminal.
 ```python=
-CONNECTION_PARAMETERS = {
-    "dbname": "book_database",
-    "user": "book_user",
-    "password": "password",
-}
+sqlite3 dev.db
+```
+3. Set up your connection parameters (file name for the SQLite3 database). 
+```python=
+DB_FILE = "dev.db"
 ```
 
 ---
 
 ### Quick note: the `with` keyword
 
-`with` works like a `try`/`except`/`finally` block wrapped up into one keyword! It runs some setup logic, then "tries" the code in the `with` block, and whether or not it runs into an error, it runs some clean up code.
+ - `with` works like a `try/except/finally` block wrapped up into one keyword! It runs some setup logic, then "tries" the code in the `with` block, and whether or not it runs into an error, it runs some clean up code.
 
-It is used to more easily manage common resources (e.g. closing a database connection, a file, etc.)
+ - It is used to more easily manage common resources (e.g. closing a database connection, a file, etc.) We do not need to define anything, how to use the `with` keyword is defined in the modules.
 
-We will use the `with` keyword to manage our database connections with `psycopg`.
-
-
----
-
-### Setting up `psycopg2` [2/2]
-
-5. Open a connection to the database. Use the `with` keyword, and the `connect` method on `psycopg2`:
-```python=
-with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
-    # code to follow
-```
-
-6. Open a "cursor" to perform data operations.
-```python=
-with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
-    with conn.cursor() as curs:
-      # code to follow
-```
-7. With our cursor, we can use the `execute` method to run a SQL command:
-```python=
-with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
-    with conn.cursor() as curs:
-        curs.execute(
-            """CREATE TABLE books (
-            id SERIAL PRIMARY KEY,
-            title VARCHAR(50),
-            author VARCHAR(50)
-            );""")
-```
+ - We will use the `with` keyword to manage our database connections with `sqlite3`. 
 
 
 ---
 
-### Executing SQL with `psycopg2`
+### Setting up `sqlite3` [2/2]
+
+4. Open a connection to the database. Use the `with` keyword, and the `connect` method on `sqlite3`:
+```python=
+with sqlite3.connect(DB_FILE) as conn:
+```
+
+5. Open a "cursor" to perform data operations.
+```python=
+with sqlite3.connect(DB_FILE) as conn:
+    curs = conn.cursor() 
+```
+6. With our cursor, we can use the `execute` method to run a SQL command:
+```python=
+with sqlite3.connect(DB_FILE) as conn:
+    curs = conn.cursor()
+    curs.execute(
+            """
+            CREATE TABLE jokes(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            joke_body VARCHAR(250),
+            punchline VARCHAR(250),
+            rating VARCHAR(15)
+            );
+            """    
+    )
+```
+
+
+---
+
+### Executing SQL with `sqlite3`
 
 After executing a command, we can fetch the results using the `fetchone` or `fetchall` methods on the cursor.
 - `fetchone()` will return a tuple of the first matched record
 - `fetchall()` will return a list of tuples of all matching records
 ```python=
 # Fetching one record
-with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
-    with conn.cursor() as curs:
-        curs.execute(
-            """
-            SELECT *
-            FROM books
-            """)
-        results = curs.fetchone()
-        print(results)
+with sqlite3.connect(DB_FILE) as conn:
+    curs = conn.cursor()
+    curs.execute(
+        """
+        SELECT *
+        FROM jokes;
+        """
+    )
+    results = curs.fetchall()
+    print(results)
 ```
 
 
 ---
 
 
-### Creating data with `psycopg2`
+### Creating data with `sqlite3`
 We can use parameterized SQL statements to insert data into our database.
 ```python=
 # Inserting a new record
-def create_book(title, author):
-    with psycopg2.connect(**CONNECTION_PARAMETERS) as conn:
-        with conn.cursor() as curs:
-            curs.execute(
-                """
-                INSERT INTO books (title, author)
-                VALUES (%(title)s, %(author)s)
-                """,
-                {
-                    "title": title,
-                    "author": author
-                })
-
+def create_joke(joke_body, punchline, rating):
+    with sqlite3.connect(DB_FILE) as conn:
+        curs = conn.cursor() 
+        curs.execute(
+            """
+            INSERT INTO jokes (joke_body, punchline, rating)
+            VALUES(:joke_body, :punchline, :rating)
+            """,
+            {
+                "joke_body": joke_body,
+                "punchline": punchline,
+                "rating": rating
+            }
+        )
 ```
-
----
-
-
-### Why can't I use f-string syntax?
-
-
-[documentation](https://www.psycopg.org/docs/usage.html#the-problem-with-the-query-parameters)
-
 
 ---
 

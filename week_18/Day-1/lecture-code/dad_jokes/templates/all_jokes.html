@@ -1,0 +1,19 @@
+<h3>Here are all of our dad jokes...</h3>
+
+
+{% for joke in jokes %}
+    <div>
+        <p>Joke: {{ joke.joke }}</p>
+        <p>Punchline: {{ joke.punchline }}</p>
+        {% if joke.rating == "G" %}
+            <p style="color: green">Rating: {{ joke.rating }}</p>
+        {% elif joke.rating == "PG" %}
+            <p style="color: orange">Rating: {{ joke.rating }}</p>
+        {% elif joke.rating == "R" %}
+            <p style="color: red">Rating: {{ joke.rating }}</p>
+        {% else %}
+            <p>Rating: {{ joke.rating }}</p>
+        {% endif %}
+        <p> - - - - - - - - - - - - </p>
+    </div>
+{% endfor%}

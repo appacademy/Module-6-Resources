@@ -6,10 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 python-dotenv = "*"
-psycopg2-binary = "*"
 
 [dev-packages]
-psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9"
