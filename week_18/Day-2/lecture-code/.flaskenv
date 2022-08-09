@@ -1,2 +1,2 @@
 FLASK_APP=dad_jokes
-FLASK_ENV=development
+FLASK_DEBUG = True

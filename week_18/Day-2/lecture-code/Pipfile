@@ -6,12 +6,10 @@ name = "pypi"
 [packages]
 flask = "*"
 python-dotenv = "*"
-psycopg2-binary = "*"
 wtforms = "*"
 flask-wtf = "*"
 
 [dev-packages]
-psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9"
