@@ -6,14 +6,12 @@ name = "pypi"
 [packages]
 flask = "*"
 python-dotenv = "*"
-psycopg2-binary = "*"
 wtforms = "*"
 flask-wtf = "*"
 sqlalchemy = "*"
 flask-sqlalchemy = "*"
 
 [dev-packages]
-psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9"
