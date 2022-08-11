@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 flask = "*"
 python-dotenv = "*"
-psycopg2-binary = "*"
 wtforms = "*"
 flask-wtf = "*"
 sqlalchemy = "*"
@@ -15,7 +14,6 @@ alembic = "*"
 flask-migrate = "*"
 
 [dev-packages]
-psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9"
