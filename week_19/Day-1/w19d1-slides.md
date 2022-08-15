@@ -1,3 +1,15 @@
+<style>
+    .present {
+        text-align: left;
+    }
+</style>
+
+---
+
+###### tags: `Week 19` `W19D1`
+
+---
+
 # Docker Intro and Week 19 Roadmap
 
 ---
@@ -56,7 +68,7 @@ This makes it much more scalable and allows us to run many more containers on on
     - We can build a template for our application called an *image* 
     - We can automate the process of building & deploying that image with *docker compose*
 - We can run the same application on *any* machine without worrying about performance or incompatibilites
-    - Having psycopg issues on your M1? Use a Docker container!
+   
 
 ---
 
@@ -66,7 +78,6 @@ This makes it much more scalable and allows us to run many more containers on on
 - Docker Containers (Tuesday)
 - Docker Images & Dockerfiles (Wednesday)
 - Docker Compose (Thursday)
-- Microservices (Friday)
 
 ---
 
@@ -90,24 +101,24 @@ This makes it much more scalable and allows us to run many more containers on on
 
 - Easily spin up a collection of containers, and configure them to communicate with one another
 
+### Thursday afternoon
+- Multithreading EOD from Caleb Braaten!
+
 ---
 
-### Microservices (Friday morning)
-
-- Microservices are a design principle that involves separating an application into sub-services
-- We can use Docker to implement a microservice-based approach to development & deployment
+### Microservices (Friday)
+- Understand how to implement a microservice-based application and the benefits/downsides
 
 ### Friday afternoon
-- Mark Rodriguez talks to us about Mod7!
-- Walkthrough the group project starter
-- Group project planning
+- Mark Rodriguez talks to us about ~the future~!
+- Walkthrough the project starter
 
 ---
 
 ### Group Project Planning
 We will have time allotted each day this week to work on group project planning!
 
-Use [project planning sheet in this repo](https://github.com/appacademy/Module-6-Resources/blob/main/group_project_resources/project-planning-sheet.md) to help guide your planning this week.
+Use [this schedule](https://github.com/appacademy/Module-6-Resources/blob/main/group_project_resources/project-planning-sheet.md) to help guide your planning this week.
 
 You must produce 4 design documents for approval by your project advisor this week: 
 - Feature list
@@ -115,7 +126,75 @@ You must produce 4 design documents for approval by your project advisor this we
 - Database schema
 - Grading scorecard
 
+
 ---
+
+
+
+## Steps to Get Started on the Project
+
+1. Come up with an idea for your project with your group and create a Feature List for Instructor approval. Make sure to get instructor approval on your feature list before continuing on with your other design docs.
+2. Start an empty git repository WITHOUT a readme and create a wiki in your repo to hold all of your design docs. Share your wiki with your project advisor.
+3. The project starter repo will be released on Friday. Do not start coding until this is released AND you have finished your design docs!
+
+
+---
+
+
+## Daily Planning Schedule
+
+The following schedule is a general guideline for how to proceed with project planning.
+
+
+
+| Day | Tasks to Work On         | Design Docs Due                |
+| :------: | :--------------- | :--------------------- |
+|   Monday    | Choose Project, Feature List        |     |
+|   Tuesday    | Feature List, User Stories      | Feature List    |
+|   Wednesday    | Scorecard Link   | Scorecard Link, User Stories   |
+|   Thursday    | DB Schema         |   |
+|   Friday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*         | DB Schema     |
+
+
+
+---
+
+## Optional Design Docs
+
+You do not need to follow this schedule exactly! We prefer to you to take time with your planning - it is ok to turn in your docs after their "due" dates.
+
+Submit your design docs for review by tagging your project lead in your group slack channel with a link to your GitHub wiki page.
+
+Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but might be helpful!
+
+
+---
+
+
+## Instructor GitHub Handles
+
+Please add your cohort lead & project advisor to your project repo.
+
+- Brad: bradsimpson213
+- John: jwily
+- David N: hisownspace
+- Cesar: 171cas
+- David D:  sneakblue
+
+
+---
+
+
+## SCORECARD!  [Scorecard Template](https://docs.google.com/spreadsheets/d/1OtaNB31kl_FhGrEPl-GoOmTvJrQurAF1jsr3Ts_d-I4/edit#gid=1927083016)
+
+Please make a **copy** of this template for your scorecard. Fill out the purple sections and share your scorecard with your project advisor and cohort lead.
+
+
+
+
+___
+
+
 
 ### Group Projects
 You are free to choose between cloning an existing app, creating your own, or something in between! Possible clones are listed in a/A Open under `Week 20 - Python Project -> Expectations -> Python Group Project`.
@@ -130,8 +209,8 @@ You may use packages and modules not covered by the App Academy curriculum (Reac
 
 ### Today's itinerary [1/2]
 1. Docker introduction:
-    - Video: [12-minute Docker Overview](https://www.youtube.com/watch?v=YFl2mCHdv24) (listed under Tuesday in Open)
     - Reading: Non Technical Overview of Docker
+    - Video: [12-minute Docker Overview](https://www.youtube.com/watch?v=YFl2mCHdv24)
 
 2. Docker installation (if not already installed):
     - Reading: Docker Installation
