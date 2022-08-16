@@ -323,7 +323,7 @@ You wouldn't modify the contents directly (only from inside a container), but yo
 
 Instead of providing a path to the folder (like you would with a bind mount) you can provide the name of the volume.
 
-Think of a volume like a flask drive, you can connect it to you computer, then take that same drive and connect it to another
+Think of a volume like a flash drive, you can connect it to you computer, then take that same drive and connect it to another
 
 ---
 
