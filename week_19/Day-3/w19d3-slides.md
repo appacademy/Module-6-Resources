@@ -165,6 +165,14 @@ CMD command param1 param2
 ---
 
 
+### Layers are Cached on Builds!
+When a dockerfile is built the first time it must run each layer of commands.  If there is an error or you made changes, and docker is "rebuilding" an image, it will cache the layers that were successful and unchanged! This does mean we want to consider this process when writing our Dockerfiles
+
+
+
+---
+
+
 ### Dockerfile demo
 Let's use a Dockerfile to create an image for a simple react app, and then push it to Docker hub.
 
