@@ -1,143 +1,157 @@
-# FUNCTIONS & OTHER STUFF...
+# FUNCTIONS
 
 def get_average(num1, num2):
-    """This function will accept two numbers and return their average"""
+    """This function will accept two numbers and return the average"""
     average = (num1 + num2) / 2
-    print(average)
-    return average
+    # print(average)
+    return f'the average of {num1} + {num2} is {average}'
 
 
-# ran_average = get_average(4, 6)
-# print(ran_average)
-# help(get_average)
+# run_average = get_average(2, 4)
+# print(run_average)
 
-# STRING STUFF
+
+# STRINGS
 
 lunch = "Pizza"
-# print(lunch)
-# print(len(lunch))
+dinner = 'Streak'
 
-# print('Pizza')
-# print("Pizza")
-# print("Let's")
-# print(''' This is a
-# multiline string
-# so 
-# so 
-# many lines ''')
+# print(lunch + dinner)
+
+# print("""We can have multiple
+# lines of strings using triple quotes and 
+# they can 
+# be many many
+# many lines""")
+
+LUNCH = "Wings"
 
 a = 1
 b = 2
-# print(a)
-# a = "Pizza"
-# print(a)
 
-# LUNCH = "Pizza"
+# print(f"Let's add {a} and {b} to get {a + b}")
+# print("Let's add {} and {} to get {}".format(a, b, a + b))
+# print("Let's add {thing1} and {thing2} to get {thing3}".format(thing3=a + b, thing1=a, thing2=b ))
 
-# print(f"Let's add {a} and {b} together to get {a + b}")
 
-# print("Let's add {} and {} together to get {}".format(a, b, a+b))
+sentence = "Brad is rather obsessed with eating pizza for lunch"
 
-# print("Let's add {thing1} and {thing2} together to get {thing3}".format(thing3=a+b, thing1=a, thing2=b))
-
-# print("Pizza " + "is " + "great")
-# print("Pizza" * 4)
-
-# sentence = "Brad is very much obsessed with pizza today!"
-
-# print(sentence[2:10:2])
-# print(sentence[:-5])
+# print(sentence[-2])
+# # varible[start:stop:step]
 # print(sentence.split())
-# print(len(sentence))
 
-# names = ["Brad", "John", "Cesar", 'David']
-# join_str = ' and '
-# print(join_str.join(names))
+list(sentence)
+[*sentence]
+
+instructors = ["Brad", "John", "Cesar", "David"]
+join_str = "".join(instructors)
+# print("".join(instructors))
+
+# print(sentence.index("d"))
 
 # BOOLEANS
 a = True
 b = False
 
-# && || !
+#  && || !
 # and or not
-# print(True and False)
+
+# print(True and True)
+# print(False and True)
 # print(True or False)
 # print(not True)
-# print(True + 1)
-# print(False + 1)
-# print(True + True)
-# # print("pizza" + 1)
-# print(False/True)
-# print(2**False)
+
+# print(True + False)
+
+# print(True == 1)
+# print(False == 0)
 
 # NUMBERS
-result = 2 * 4
-# print(result)
-# print(int('1234'))
-# print(float("123435.56"))
-# print(float(123))
+results = 2 * 4
+# print(results)
 
 # + - * / %  // **
-# print(4**2)
+
+results2 = 2**4
+# print(results2)
 
 def long_division(num1, num2):
-    results = num1 // num2
+    result = num1 // num2
     remainder = num1 % num2
-    print(result, remainder)
-    return f"{num1} divided by {num2} is {result} remainder {remainder}"
+    print(f"{num1} divided by {num2} equals {result} remainder {remainder}")
+    return result, remainder
 
 
-# print(long_division(25, 3))
+# long_division(25, 3)
+
+# print(int('12345'))
+# print(float("12345.60"))
+# print(float(6789))
+# print(int(147.80))
+# print(str(123))
+
+# count = 2
+# print(count)
+# count += 1
+# print(count)
+value = None
+# print(int(value))
+
+# print("Pizza" * 10)
+
+# print(8 / 4)
+
 
 # VARIABLES
-num1 = 40
-num1 += 1
+num_1 = 40
+num_1 += 1
 
-a = 40
-b = 35
-lunch = "pizza"
-# print(num1)
-# print(num1)
-# num1 = "donuts"
-# print(num1)
+
+age = 40
+lunch = 'Salad'
+
+MEALS = ["breakfast", "lunch", "dinner"]
+# print(MEALS)
+# MEALS = 'PASTA'
+# print(MEALS)
 
 bags = cases = 50
 # print('bags', bags)
 # print('cases', cases)
-
-dinner = None
-
-DESSERT = "ice cream"
-
-
+cases = 60
+# print('bags', bags)
+# print('cases', cases)
+# print(bags == cases)
+# print(bags is cases)
 
 
 # IDENTITY vs EQUALITY
-#    is    vs    ==
+#     is   vs    ==
 
 my_int = 4
 my_float = 4.0
+# print(my_float == my_int)
+# print(my_float is my_int)
 
-# print(my_int == my_float)
-# print(my_int is my_float)
+# print("21" == '2')
+# print("21" is '2')
 
-# print("2" == '2')
-# print("2" is '2')
-
-# a = None
+# a = 3
 # print(id(a))
 # b = "pizza"
 # print(id(b))
-# c = None
+# c = 3
 # print(id(c))
 # print(a is c)
-# d = "pizza"
-# print(id(d))
-# print(b is d)
 
-list1 = [ 1, 2, 3 ]
-print(id(list1))
-list2 = [ 1, 2, 3 ]
-print(id(list2))
-print(list1 == list2)
-print(list1 is list2)
+list_1 = [ 1, 2, 3]
+print(id(list_1))
+list_2 = [ 1, 2, 3]
+print(id(list_2))
+list_3 = list_1
+print(id(list_3))
+
+val = True
+print(id(val))
+print(id(True))
+print(val is True)
