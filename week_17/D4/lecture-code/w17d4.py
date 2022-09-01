@@ -1,77 +1,122 @@
 # IMPORTING
+# import random 
+# random.randint()
+# random.choices()
 
-from random import choice as pick, shuffle, randint
+# import random as randy
+# randy.randint(a, b)
+# randy.choices()
 
-nums = [1, 2, 3, 4, 5]
+# from random import choice, randint, shuffle
+# randint()
+# choice()
 
-# print(pick(nums))
+# from helpers.helper1 import add2, add4
+# from helpers.helper2 import add6, nums
 
-from helpers import add2, add4, add6
+from helpers import add2, add4, add6, nums
 
 # print(add2(2))
 # print(add4(2))
-# print(add2(add6(2)))
+# print(add6(2))
+
+# print(nums)
+# nums.append(7)
+# print(nums)
 
 
 # DECORATORS
 from datetime import datetime
 
 def timer(func):
+    """ decorator definition for a function that times how long
+    it takes for the function it is decorating to run """
     def wrapper(*args, **kwargs):
         start_time = datetime.now()
         val = func(*args, **kwargs)
         print(val)
         end_time = datetime.now()
         time_elapsed = end_time - start_time
-        return time_elapsed    
+        return time_elapsed
     return wrapper
 
 
 @timer
-def say_hi(name='you'):
+def say_hi(age, color, name="you"):
+    """ function that takes in an age & color for no appearant reason
+    and also a name, which it will use to say hi to a person"""
     return f"Hello {name}!"
+
 
 @timer
 def say_bye():
-    return "Goodbye!"
+    return "See ya later!"
+
 
 @timer
 def say_good_afternoon():
-    return "Have a great afternoon!"
+    return "Good afternoon!"
 
-# print(say_hi("Brad"))   
-# print(say_bye()) 
-# print(say_good_afternoon())
 
+# print(say_bye())
+# print(say_hi("Brad"))
 # timed_hi = timer(say_hi)
 # print(timed_hi())
+# print(dir(say_hi))
+# print(say_hi.__closure__)
 # print(timed_hi.__closure__)
-# print(say_hi.__closure__)
+# print(say_bye.__closure__)
+# print(say_good_afternoon())
 
-# timed_bye = timer(say_bye)
-# print(timed_bye.__closure__)
-# print(say_hi.__closure__)
+# def square_decorator(func):
+#     def inner(*args, **kwargs):
+#         x = func(*args, **kwargs)
+#         return x * x
+#     return inner
 
+# def multiply_decorator(func):
+#     def inner(*args, **kwargs):
+#         x = func(*args, **kwargs)
+#         return 3 * x
+#     return inner
+  
+# def chain_decorator(func):
+#   @square_decorator
+#   @multiply_decorator
+#   def inner(*args, **kwargs):
+#     return func(*args, **kwargs)
+#   return inner
+
+# @chain_decorator
+# def num(a, b):
+#     return a + b
+
+# print(num(5, 2))  #> 441
+# print(num(8, 2))  #> 900
+# print(num(4, 9))  #> 1521
 
 # CLASSES
+
 class Cat:
     breed = "American Short Hair"
     def __init__(self, color, age, name="Kitty"):
         self._color = color
         self._age = age
         self._name = name
-        # print(f'You make a cat named {self._name}')
+        # print(f"You created a intance of Cat named {self._name}")
 
-
+    
     @property
     def name(self):
         return self._name
 
-
+    
     @name.setter
     def name(self, new_name):
         if len(new_name) > 15:
-            print("That's too long of a name!")
+            print("Thats too long a name for a cat")
+        elif len(new_name) < 3:
+            print('Thats too short of a name for a cat')
         else:
             self._name = new_name
 
@@ -84,9 +129,9 @@ class Cat:
     @age.setter
     def age(self, new_age):
         if new_age > 25:
-            print("That's too old for a cat")
+            print("Thats too old for a cat!")
         elif new_age < 0:
-            print("Cats can't have a negative age!")
+            print("Cats can't have negative ages")
         else:
             self._age = new_age
 
@@ -97,70 +142,49 @@ class Cat:
 
     @classmethod
     def cat_factory(cls, cats):
-        new_cats = [cls(color, age, name) for color, age, name in cats]
-        # print([cat.speak() for cat in new_cats])
+        new_cats = [ cls(color, age, name) for color, age, name in cats]
+        print([cat.speak() for cat in new_cats])
         return new_cats
 
-
+    
     @staticmethod
     def feed_me():
         for i in range(5):
-            print('Meowwww?!?!')
+            print("Meowwwwww?!?!")
 
 
-make_cats = Cat.cat_factory([("black", 5, "Blue"), ("tuxedo", 5, "Patch"), ("gray", 12, 'Mimi')])
-blue, patch, mimi = make_cats
+    @classmethod
+    def oldest_cat(cls, cats):
+        oldest = cats[0].age
+        oldest_cat = cats[0].name
+        for cat in cats:
+            print(cat.name, cat.age)
+            if oldest < cat.age:
+                oldest = cat.age
+                oldest_cat = cat.name
+        return oldest_cat
 
-# blue.feed_me()
-# print(blue.name)
-# blue.name = "MaverickIsAWildNameForACat"
-# print(blue.name)
-# print(blue.age)
-# blue.age = 6
-# print(blue.age)
-# blue._name = "Peter"
 
-# print(blue._name)
 
+# blue = Cat("black", 5, "Blue")
+# patch = Cat('tuxedo', 5, "Patch")
+cats = [("black", 5, "Blue"), ("tuxedo", 5, "Patch"), ("gray", 10, "Mimi")]
+blue, patch, mimi = Cat.cat_factory(cats)
+oldest_cat = Cat.oldest_cat([blue, patch, mimi])
+print("oldest cat", oldest_cat)
+# print(blue._age)
 # print(blue.speak())
-# blue = Cat(
-#     age=5,
-#     name='Blue',
-#     color="Black"
-# )
+# blue.breed = "Long Hair"
+# print(blue.name)
+# blue.name = "Mr FancyPants Better Blue"
+# print(blue.name)
+# print(patch._color)
+# patch.feed_me()
+# print(blue.age)
+# blue.age = 10
+# print(blue.age)
 
-# print(blue._name)
-# patch = Cat('tuxedo', 5, 'Patch')
-# print(patch._name, patch._color)
-# print(blue.breed)
-# print(patch.breed)
-# Cat.breed = "Long Hair"
-# print(blue.breed)
-# print(patch.breed)
-# print(Cat.breed)
-# print(blue)
-
-# GETTERS & SETTERS Problem
-class Game:
-    def __init__(self):
-        self._score = 50
-       
-
-    @property
-    def score(self):
-        return self._score
-
-    @score.setter
-    def score(self, value):
-        self._score = value * 10
-
-my_game = Game()
-# print(my_game.score) # 0
-
-# my_game.score = 5
-# print(my_game.score) # 50
-# print(my_game._score)
-
+# raise Exception("Text for the exception")
 
 # INHERITANCE & POLYMORPHISM
 class Tiger(Cat):
@@ -169,28 +193,30 @@ class Tiger(Cat):
         self._teeth = teeth
         print(self.speak())
 
+    
     def speak(self):
         if self._name == "Tony":
-            return f"{self._name} says 'They're Great!!!'"    
+            return f"{self._name} says'They're GREAT!!!'"
         else:
-            return f"{self._name} says 'RAWRRRRRWWWRRR!'"    
+            return f"{self._name} says 'RAWRRRRRWRRR!'"
 
 
     def __repr__(self):
-        return f'< {self._name} is a {self._color} Tiger!>'
+        return f'< {self._name} is a {self._age} yr old {self._color} Tiger >'
 
     
     def __str__(self):
-        return f'< {self._name} is a {self._color} Tiger!>'
+        return f'< {self._name} is a {self._age} yr old {self._color} Tiger >'
 
 
     def __len__(self):
-        return 12
+        return self._age
+        
 
 
-tony = Tiger('orange', 20, "Tony", 30)
+# tony = Tiger("orange", 20, "Tony", 24)
+# tigger = Tiger("orange", 30, "Tigger", 4)
 # print(tony.name)
-# print(tony.speak())
 # print(tony)
 # print(len(tony))
-tiger = Tiger('orange', 10, 'Tiger', 4)
+# print(tony.__str__())
