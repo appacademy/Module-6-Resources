@@ -1,22 +1,30 @@
-from flask import Flask, render_template
-from .config import Config
+from flask import Flask, render_template 
+from .config import Config 
 from .db_jokes import jokes
 from random import choice
+from .routes.jokes_routes import jokes_router
+from .routes.user_routes import user_router
+
 
 app = Flask(__name__)
+# print("dunder name", __name__)
 app.config.from_object(Config)
+app.register_blueprint(jokes_router)
+app.register_blueprint(user_router, url_prefix="/users")
 
-print("This is what name looks like", __name__)
 
 
 @app.route('/')
 def index():
+    # this is where you would do DB stuff
+    # jokes = Joke.query.all()
     joke = choice(jokes)
+    tyler = "Just for Tyler"
     print(joke)
-    return render_template('index.html', joke=joke)
+    return render_template("index.html", joke=joke, tyler=tyler, title="DAD JOKES" )
 
 
-@app.route('/all')
-def all_jokes():
-    # Eventually we will query our DB for the jokes here
-    return render_template('all_jokes.html', jokes=jokes)    
+
+
+
+
