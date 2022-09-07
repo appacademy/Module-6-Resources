@@ -1,2 +1,2 @@
 FLASK_APP=dad_jokes
-FLASK_DEBUG = True
+FLASK_DEBUG=True
