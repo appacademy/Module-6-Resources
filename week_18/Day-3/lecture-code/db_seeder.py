@@ -1,19 +1,18 @@
 from dad_jokes import app
 from dad_jokes.models import db, User, Joke
 
-
 with app.app_context():
-    
+
     db.drop_all()
     print("All tables dropped!")
-
+    
     db.create_all()
-    print("Created all tables!")
+    print("All tables created!")
 
     user1 = User(
         username="Brad", 
-        email="brad@gmail.com",
-        password="wings_wednesday"
+        email="brad@gmail.com", 
+        password="password"
     )
     user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
     user3 = User(username="Blue", email="blue@gmail.com", password="iamaninja")
@@ -22,11 +21,11 @@ with app.app_context():
     joke1 = Joke(
         joke_body="What did the plumber say to the singer?",
         punchline="Nice pipes...",
-        rating="G",
-        user= user1,
+        rating='G',
+        user=user1,
         joke_likes=[user2, user3]
-    )
-
+    )    
+    
     joke2 = Joke(
         joke_body='What do you call a lazy doctor?',
         punchline='Dr Doo-little...',
@@ -38,14 +37,22 @@ with app.app_context():
     joke3 = Joke(
         joke_body='What do you call a camel in a drought?',
         punchline='A dry humper...',
-        rating='R',
-        user=user1
+        rating='PG',
+        user=user1,
     )
+
+    # how we would add a user like after joke3 was already created
+    # joke = Joke.query.get(3)
+    # if user4 not in joke.joke_likes:
+    #     joke.joke_likes.append(user4)
+    #     joke.rating = 'R'
+    #     db.session.commit()
+
 
     joke4 = Joke(
         joke_body='Did you hear Steve Harvey and his wife got into a fight?',
         punchline='It was a real family feud...',
-        rating='PG',
+        rating='R',
         user=user2,
         joke_likes=[user3, user4]
     )
@@ -58,6 +65,8 @@ with app.app_context():
         joke_likes=[user1, user3, user4]
     )
 
+    # all_user = [user1, user2, user3, user4]
+    # add_all_users = [db.session.add(user) for user in all_users]
 
     db.session.add(user1)
     db.session.add(user2)
@@ -69,4 +78,6 @@ with app.app_context():
     db.session.add(joke4)
     db.session.add(joke5)
     db.session.commit()
-    print("DB was seeded!")
+    print('DB has been seeded!')
+
+

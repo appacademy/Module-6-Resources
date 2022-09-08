@@ -1,8 +1,8 @@
 from flask import Blueprint
 
-users_router = Blueprint("users", __name__)
+user_router = Blueprint("users", __name__)
 
 
-@users_router.route('/')
+@user_router.route('/')
 def get_user():
-    return "<h2>This is where user info will be </h2>"
+    return "<h2>This is where user info will be <h2>"
