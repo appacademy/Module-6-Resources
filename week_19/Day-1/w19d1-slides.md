@@ -33,32 +33,53 @@ Docker is a platform that allows for development and deployment of software in p
 
 ### How does Docker work?
 #### Part 1: Your Computer
-In order to understand Docker, we should first discuss how our computers work to begin with.
 
-Your computer has physical hardware, an OS, and a kernel that interfaces between the two, which are all tightly coupled.
-
-When we build & deploy apps with this environment, we are limited to the performance of our machine and the libraries that are compatible with it.
+- In order to understand Docker, we should first discuss how our computers work to begin with.
+- Your computer has physical hardware, an OS, and a kernel that interfaces between the two, which are all tightly coupled.
+- When we build & deploy apps with this environment, we are limited to the performance of our machine and the libraries that are compatible with it.
 
 ---
 
 ### How does Docker work?
 #### Part 2: Why not use a VM?
-A VM has an OS that is *decoupled* from your computer's hardware. With VMs, can have multiple OSs running on a computer.
 
-A VM has a kernel & hypervisor. The kernel interfaces between the hardware and the OS. The hypervisor creates & runs a VM.
+- A VM has an OS that is *decoupled* from your computer's hardware. With VMs, can have multiple OSs running on a computer.
+- A VM has a kernel & hypervisor. The kernel interfaces between the hardware and the OS. The hypervisor creates & runs a VM.
+- A VM is heavy - we often don't need an entirely separate kernel & hypervisor just for the purposes of deploying an application.
 
-A VM is heavy - we often don't need an entirely separate kernel & hypervisor just for the purposes of deploying an application.
+
+---
+
+### VM Visualization 
+
+<img src="https://k21academy.com/wp-content/uploads/2020/06/Virtual_Machine_Architecture.png" />
+
 
 
 ---
 
 ### How does Docker work?
 #### Part 3: Docker containers
-A Docker container is like a mini-VM that is hardware agnostic - it doesn't care about the host OS.
 
-It is lightweight - it consists only of a small Linux distribution and necessary libraries & resources. It does not have its own kernel or hypervisor.
+- A Docker container is like a mini-VM that is hardware agnostic - it doesn't care about the host OS.
+- It is lightweight - it consists only of a small Linux distribution and necessary libraries & resources. It does not have its own kernel or hypervisor.
+- This makes it much more scalable and allows us to run many more containers on one machine than VMs.
 
-This makes it much more scalable and allows us to run many more containers on one machine than VMs.
+
+---
+
+### Docker Visualization
+
+<img src="https://k21academy.com/wp-content/uploads/2020/06/output-onlinepngtools-16.png" />
+
+
+
+---
+
+### Virtual Machine vs Docker
+
+<img src="https://k21academy.com/wp-content/uploads/2020/05/2020_05_13_12_19_07_PowerPoint_Slide_Show_Azure_AZ104_M01_Compute_ed1_-1024x467.png" />
+
 
 ---
 
@@ -100,16 +121,12 @@ This makes it much more scalable and allows us to run many more containers on on
 ### Docker-compose (Thursday)
 
 - Easily spin up a collection of containers, and configure them to communicate with one another
-
-### Thursday afternoon
-- Multithreading EOD from Caleb Braaten!
+- Multithreading/concurrency EOD from Caleb Braaten!
 
 ---
 
-### Microservices (Friday)
-- Understand how to implement a microservice-based application and the benefits/downsides
-
-### Friday afternoon
+### Project Begins! (Friday)
+- Fishing up all project documentation
 - Mark Rodriguez talks to us about ~the future~!
 - Walkthrough the project starter
 
@@ -173,13 +190,13 @@ Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but
 
 ## Instructor GitHub Handles
 
-Please add your cohort lead & project advisor to your project repo.
+Please add your instructors to your project repo.
 
 - Brad: bradsimpson213
 - John: jwily
-- David N: hisownspace
+- David: hisownspace
 - Cesar: 171cas
-- David D:  sneakblue
+- Drew:  Drewthurm21
 
 
 ---
