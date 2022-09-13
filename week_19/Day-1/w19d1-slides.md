@@ -1,248 +1,376 @@
 <style>
     .present {
         text-align: left;
+        
     }
 </style>
 
 ---
 
-###### tags: `Week 19` `W19D1`
+###### tags: `Week 19` `W19D2`
 
 ---
 
-# Docker Intro and Week 19 Roadmap
-
----
-
-## What is Docker?
-![shipping container](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/MAERSK_MC_KINNEY_M%C3%96LLER_%26_MARSEILLE_MAERSK_%2848694054418%29.jpg/1920px-MAERSK_MC_KINNEY_M%C3%96LLER_%26_MARSEILLE_MAERSK_%2848694054418%29.jpg)
-
-Docker is a platform that allows for development and deployment of software in packages called *containers*.
-
----
-
-### Docker containers
-
-- Containers are:
-    - **Isolated:** They do not interact with your local filesystem/OS or other containers (unless we configure them to do so)
-    - **Ephemeral:** They can be deleted (& recreated) easily without worry
-    - **Lightweight:** They are single-purpose and contain only what they need for that purpose
-    - **Reproducible:** We can rebuild the same container over & over with a single command
-
----
-
-### How does Docker work?
-#### Part 1: Your Computer
-
-- In order to understand Docker, we should first discuss how our computers work to begin with.
-- Your computer has physical hardware, an OS, and a kernel that interfaces between the two, which are all tightly coupled.
-- When we build & deploy apps with this environment, we are limited to the performance of our machine and the libraries that are compatible with it.
-
----
-
-### How does Docker work?
-#### Part 2: Why not use a VM?
-
-- A VM has an OS that is *decoupled* from your computer's hardware. With VMs, can have multiple OSs running on a computer.
-- A VM has a kernel & hypervisor. The kernel interfaces between the hardware and the OS. The hypervisor creates & runs a VM.
-- A VM is heavy - we often don't need an entirely separate kernel & hypervisor just for the purposes of deploying an application.
-
-
----
-
-### VM Visualization 
-
-<img src="https://k21academy.com/wp-content/uploads/2020/06/Virtual_Machine_Architecture.png" />
-
-
-
----
-
-### How does Docker work?
-#### Part 3: Docker containers
-
-- A Docker container is like a mini-VM that is hardware agnostic - it doesn't care about the host OS.
-- It is lightweight - it consists only of a small Linux distribution and necessary libraries & resources. It does not have its own kernel or hypervisor.
-- This makes it much more scalable and allows us to run many more containers on one machine than VMs.
-
-
----
-
-### Docker Visualization
-
-<img src="https://k21academy.com/wp-content/uploads/2020/06/output-onlinepngtools-16.png" />
-
-
-
----
-
-### Virtual Machine vs Docker
-
-<img src="https://k21academy.com/wp-content/uploads/2020/05/2020_05_13_12_19_07_PowerPoint_Slide_Show_Azure_AZ104_M01_Compute_ed1_-1024x467.png" />
-
-
----
-
-### Cool... but why are we learning about Docker?
-- We can easily scale an application using a cluster of containers on one or more machines
-- We can easily share our application with others for testing & development
-    - We can build a template for our application called an *image* 
-    - We can automate the process of building & deploying that image with *docker compose*
-- We can run the same application on *any* machine without worrying about performance or incompatibilites
-   
+# Docker Container CLI
+## Week 19 Day 2
 
 ---
 
 
-## Docker topics
-- Intro and installation (today)
-- Docker Containers (Tuesday)
-- Docker Images & Dockerfiles (Wednesday)
-- Docker Compose (Thursday)
+## Roday's Docker Topics
+
+- Container terminal commands
+- Networks
+- Bind Mounts & Volumes- 
+
 
 ---
 
-### Docker containers (Tuesday)
-
-- A docker container is a lightweight package which contains only the software and dependencies we need to run a single process
-- A container is a running image
-- We'll explore containers & use the command line interface to work with them
+## Lecture Videos 1 (17 minutes)
+Watch:
+- Container Intro (12:00)
 
 ---
 
-### Docker images (Wednesday)
+## What is a Container?
 
-- Images are templates for building docker containers
-- Images allow you to make the same container over and over
-- We can customize/build our own images using a Dockerfile
+A container runs an application. It is a unit of software that contains the source code, linux distro, dependencies, and other tools the application needs to run.
 
----
-
-### Docker-compose (Thursday)
-
-- Easily spin up a collection of containers, and configure them to communicate with one another
-- Multithreading/concurrency EOD from Caleb Braaten!
+When we build a container, we are starting up an application image.
 
 ---
 
-### Project Begins! (Friday)
-- Fishing up all project documentation
-- Mark Rodriguez talks to us about ~the future~!
-- Walkthrough the project starter
+### `docker container run` ([Official documentation](https://docs.docker.com/engine/reference/commandline/container_run/))
+Usage:
+```shell
+docker container run [OPTIONS] image-name [COMMAND] [ARG...]
+```
+- You always need to specify the image—__every container is based on an image__.
+- The optional "OPTIONS" are specified with a flag.
+    - Any options you include will come before the image name
+- Each image has a default command—that will be replaced if you specify a new command (after the image-name)
+
 
 ---
 
-### Group Project Planning
-We will have time allotted each day this week to work on group project planning!
+#### Commonly used flags for `docker container run`:
 
-Use [this schedule](https://github.com/appacademy/Module-6-Resources/blob/main/group_project_resources/project-planning-sheet.md) to help guide your planning this week.
 
-You must produce 4 design documents for approval by your project advisor this week: 
-- Feature list
-- User stories
-- Database schema
-- Grading scorecard
+| flag               | purpose                                                | example usage   |
+| ------------------ | ------------------------------------------------------ | --------------- |
+| `--name`           | specify a name for the container                       | `--name hello`  |
+| `-p` / `--publish` | publish a port to the "outside world" on your localhost (externalport:internalport) | `-p 8080:80`    |
+| `-d`               | detached session (runs in background)                  | `-d`            |
+| `--rm`             | automatically remove container once stopped            | `--rm`          |
+| `-it`              | use an interactive session (e.g. bash)                 | `-it` / `-i -t` |
 
+
+---
+
+### Pop quiz
+
+1. Let's run a container based on the *nginx* image, in detached mode. We want to publish the contents of that container's internal port 80, to my localhost at port 8080.
+
+2. Let's run a container based on the *alpine* image and name it "test". We want to run it with an interactive terminal, and use the command `sh`.
+
+3. Let's run a container based on the *ubuntu* image and name it "greet_me". We want the container to be removed automatically once it is stopped. Let's have it use the command `echo hello world`.
+
+---
+
+### Pop quiz (answer key)
+1.
+```bash
+docker container run -p 8080:80 -d nginx
+```
+2.
+```bash
+docker container run -it --name test alpine sh
+```
+3.
+```bash
+docker container run --name greet_me --rm ubuntu echo hello world
+```
 
 ---
 
 
 
-## Steps to Get Started on the Project
+### `docker container ls` ([Official documentation](https://docs.docker.com/engine/reference/commandline/container_ls/))
+Purpose: list containers (can be used interchangeably with `docker ps`)
+- `-a` flag includes stopped containers
 
-1. Come up with an idea for your project with your group and create a Feature List for Instructor approval. Make sure to get instructor approval on your feature list before continuing on with your other design docs.
-2. Start an empty git repository WITHOUT a readme and create a wiki in your repo to hold all of your design docs. Share your wiki with your project advisor.
-3. The project starter repo will be released on Friday. Do not start coding until this is released AND you have finished your design docs!
+Usage:
+```bash
+docker container ls [OPTIONS]
+```
+
+---
+
+
+### `docker container stop` ([Official documentation](https://docs.docker.com/engine/reference/commandline/container_stop/))
+Purpose: stop a container (or containers) that is currently running.
+
+Usage:
+```bash
+docker container stop [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+---
+
+
+### `docker container start` ([Official documentation](https://docs.docker.com/engine/reference/commandline/container_start/))
+Purpose: start a stopped container (or containers)
+- this will not create a new container, the container must already exist
+
+
+Usage:
+```bash
+ docker container start [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+---
+
+### `docker container rm` ([Official documentation](https://docs.docker.com/engine/reference/commandline/container_rm/))
+Purpose: remove a container
+- by default you can only remove stopped containers
+- `-f` flag forces removal even if container is running
+
+Usage:
+```
+ docker container rm [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+---
+
+### `docker container prune` ([Official documentation](https://docs.docker.com/engine/reference/commandline/container_prune/))
+Purpose: remove all stopped containers
+
+Usage:
+```
+ docker container prune [OPTIONS]
+```
+
+
+---
+
+### `docker container exec` ([Official documentation](https://docs.docker.com/engine/reference/commandline/exec/))
+Purpose: execute a command within a running container
+- often useful for opening interactive shell (uses same `-it` flag as container run)
+```
+docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]
+```
+
+---
+
+## Lecture Videos 2 (12 minutes)
+Watch:
+- Docker Networking (8:30)
+
+---
+
+### Docker networks
+Networks allow containers to communicate with each other, whether or not they are exposing ports.
+[Official documentation](https://docs.docker.com/network/)
+
+
+---
+
+### Docker networks
+The Docker engine comes with 3 network drivers:
+- `bridge` - allows containers connected to the same bridge network to communicate, while providing isolation from containers which are not connected to that bridge network
+- `host` - uses host machine's networking stack and namespace
+- `none` - disables all networking for a container
+
+---
+
+### Networking with Docker
+By default, containers are connected to the "bridge" driver network. While containers can communicate via IP address over the bridge network, it does not enable DNS resolution.
+
+To be able to communicate via domain name over a network we must create a custom network.
+
+---
+
+### Creating custom networks ([Official documentation](https://docs.docker.com/engine/reference/commandline/network_create/))
+
+Creating a custom network will allow the containers on that network to interact with each other.
+```bash
+docker network create [OPTIONS] network-name
+```
+
+```bash
+docker network ls
+```
+
+
+---
+
+### Networking demo [1/2]
+Let's create a network, and attach containers to it so we can see how networked containers communicate. 
+
+For comparison, we'll use two containers that are on the default network.
+```bash
+# create a network based on the bridge driver, called "test-network"
+docker network create --driver bridge test-network
+# create two images on that network
+docker container run -d --name c1 --network test-network nginx:alpine
+docker container run -d --name c2 --network test-network nginx:alpine
+
+# create two more images, without specifying a network
+docker container run -d --name c3 nginx:alpine
+docker container run -d --name c4 nginx:alpine
+```
+
+---
+
+### Networking demo [2/2]
+
+```bash
+# access the shell on one of our two networked containers
+docker container exec -it c1 ash
+# ping a container that is not on the network
+ping -c 2 c3
+# ping a container that is on the network
+ping -c 2 c2
+
+
+docker container exec -it c3 ash
+ping -c 2 c1
+ping -c 2 c4
+```
+
+
+---
+
+## Lecture videos 3 (25 minutes)
+Watch:
+- Persistant Data in Docker: Bind Mounts (9:00)
+- Persistant Data in Docker: Volumes (8:30)
+
+---
+
+### Docker volumes/bind mounts
+
+Using bind mounts and volumes allows data to persist even after a container is gone.
+
+Bind mounts directly mount the contents of a folder on your filesystem into your container.
+
+Volumes are managed by Docker—so you wouldn't directly access the files, but can be accessed and modified from within a container.
+
+---
+
+### Options for creating volumes/bind mounts
+
+There are two different types of syntax you can use with `docker container run` to establish volumes and bind mounts. Both flags can create either volumes or bind mounts.
+- `-v` and `--mount` flags have the same purpose.
+- `--mount` is typically preferred as it is considered to be clearer.
+
+```bash
+docker container run -v ...
+docker container run --mount ...
+```
+
+---
+
+### `--mount` syntax
+
+Pass in a series of `<key>=<value>` pairs in any order, separated by a comma.
+
+Type must be "bind" for bind mounts, or "volume" for volumes
+
+
+---
+
+### `--mount` syntax
+#### for bind mounts
+
+```
+--mount type=bind,source=/absolute/path,target=/absolute/path/in/container
+```
+#### for volumes
+
+```
+--mount type=volume,source=name_of_volume,target=/absolute/path/in/container
+```
 
 
 ---
 
 
-## Daily Planning Schedule
+### Bind mounts
+[Official documentation](https://docs.docker.com/storage/bind-mounts/)
 
-The following schedule is a general guideline for how to proceed with project planning.
-
-
-
-| Day | Tasks to Work On         | Design Docs Due                |
-| :------: | :--------------- | :--------------------- |
-|   Monday    | Choose Project, Feature List        |     |
-|   Tuesday    | Feature List, User Stories      | Feature List    |
-|   Wednesday    | Scorecard Link   | Scorecard Link, User Stories   |
-|   Thursday    | DB Schema         |   |
-|   Friday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*         | DB Schema     |
-
+- Bind mounts connect a folder in your file system to a folder on your container
+- Convenience in simple cases—any changes made in one place will change what's present in the other
 
 
 ---
 
-## Optional Design Docs
+### Demo: Serve a Website [1/2]
+First, create a folder called __app__ in your current directory, and make an empty __index.html__ file inside the folder. 
+```bash=
+# run an nginx:alpine-based container, in detached mode
+# mount the /app folder into the container at the path where nginx serves
+# its files from (/usr/share/nginx/html)
+# and expose port 80 to view the contents
+docker container run -d \
+--mount type=bind,source="$(pwd)/app",target=/usr/share/nginx/html \
+-p 8080:80 nginx:alpine
+```
 
-You do not need to follow this schedule exactly! We prefer to you to take time with your planning - it is ok to turn in your docs after their "due" dates.
+---
 
-Submit your design docs for review by tagging your project lead in your group slack channel with a link to your GitHub wiki page.
-
-Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but might be helpful!
+### Demo: Serve a Website [2/2]
+Once your container is running, visit localhost:8080—you should see a blank page. Add some content to your html page, then save and refresh localhost:8080. Now you can see the new content you added, because the contents of your folder stays in sync with the contents of the folder inside your container.
 
 
 ---
 
+### Volumes
+[Official documentation](https://docs.docker.com/storage/volumes/)
+Volumes are managed from within Docker—don't depend on your file structure.
 
-## Instructor GitHub Handles
+You wouldn't modify the contents directly (only from inside a container), but you can use it to spin up new containers with same contents.
 
-Please add your instructors to your project repo.
+Instead of providing a path to the folder (like you would with a bind mount) you can provide the name of the volume.
 
-- Brad: bradsimpson213
-- John: jwily
-- David: hisownspace
-- Cesar: 171cas
-- Drew:  Drewthurm21
-
+Think of a volume like a flash drive, you can connect it to you computer, then take that same drive and connect it to another
 
 ---
 
+### Demo: Persist data from a postgres instance that runs in a container
 
-## SCORECARD!  [Scorecard Template](https://docs.google.com/spreadsheets/d/1OtaNB31kl_FhGrEPl-GoOmTvJrQurAF1jsr3Ts_d-I4/edit#gid=1927083016)
-
-Please make a **copy** of this template for your scorecard. Fill out the purple sections and share your scorecard with your project advisor and cohort lead.
-
-
-
-
-___
-
-
-
-### Group Projects
-You are free to choose between cloning an existing app, creating your own, or something in between! Possible clones are listed in a/A Open under `Week 20 - Python Project -> Expectations -> Python Group Project`.
-
-You must use the Python project starter code.
-
-You must have 4 MVP features - at least 2 of which must be full CRUD features.
-
-You may use packages and modules not covered by the App Academy curriculum (React libraries, Flask libraries, etc.), but CSS libraries are not permitted for this project.
+```bash=
+# pull the postgres image so we can inspect it
+docker pull postgres
+# inspect the image to find out what the path to the volume should be
+# and what port we want to expose
+docker image inspect postgres
+```
 
 ---
 
-### Today's itinerary [1/2]
-1. Docker introduction:
-    - Reading: Non Technical Overview of Docker
-    - Video: [12-minute Docker Overview](https://www.youtube.com/watch?v=YFl2mCHdv24)
+### Demo: Persist data from a postgres instance that runs in a container
 
-2. Docker installation (if not already installed):
-    - Reading: Docker Installation
-        - If you want to test your installation:
-        - `docker container run --rm hello-world`
-    - NOTE FOR WSL USERS: You must upgrade to WSL2 to use Docker
-
-3. Alpine Linux video & readings
-    - Video: Installing Packages on Alpine Linux
-    - Reading: Notes for Installing Packages on Alpine Linux
-    - Reading: Linux Basics
-
+```bash=
+# run the container with a volume named "postgres-data"
+# that corresponds to the path where a 
+# postgres container stores its data
+# (/var/lib/postgresql/data)
+docker container run -p 5431:5432 \
+-e POSTGRES_PASSWORD=password \
+--name postgres5431 -d \
+--mount type=volume,source=postgres-data,target=/var/lib/postgresql/data postgres
+# now use the psql command line tool to connect
+# to the postgres instance running in our container
+psql -p 5431 -h localhost -U postgres
+```
 
 ---
 
-### Today's itinerary [2/2]
+### Project time!
 
-Start meeting with your groups and project planning!
+Today's projects are:
+- First Containers
+- Container Fun
+
+Once you finish these projects, please coordinate with your groups for more project planning time.
