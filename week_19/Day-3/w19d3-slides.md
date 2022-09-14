@@ -148,6 +148,8 @@ RUN <COMMAND>
 
 `CMD` specifies the default process that a container based on the image should execute. An image can only have one `CMD`—if more than one is specified, only the latter will be used.
 
+YOU MUST USE DOUBLE QUOTES IN DOCKERFILES!!!
+
 If you include a command after the image name when running a container with `docker container run ...`, that will replace the CMD in the Dockerfile.
 
 Usage:
