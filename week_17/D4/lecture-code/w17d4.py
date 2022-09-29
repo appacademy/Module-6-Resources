@@ -1,36 +1,42 @@
-# IMPORTING
-# import random 
-# random.randint()
-# random.choices()
+# # IMPORTING MODULES
+
+# # import random
 
 # import random as randy
-# randy.randint(a, b)
-# randy.choices()
 
-# from random import choice, randint, shuffle
-# randint()
-# choice()
+# # import superlongnamedmodulecomeonthisisridiculous as thing
 
-# from helpers.helper1 import add2, add4
-# from helpers.helper2 import add6, nums
+# from random import choice, shuffle
 
-from helpers import add2, add4, add6, nums
+# # list1 = [1, 2, 3, 4 ]
 
-# print(add2(2))
+# # rand_int = randy.choice(list1)
+# # print(rand_int)
+# # randy.shuffle(list1)
+# # print(list1)
+
+# # IMPORTING FROM OTHER FILES
+
+# # from helpers.helper1 import add2, nums
+# # from helpers.helper2 import add6, add4
+
+
+# from helpers import add2, names, add4, add6
+
+
+# print(add2(4))
 # print(add4(2))
-# print(add6(2))
+# print(add6(6))
+# print(names)
 
-# print(nums)
-# nums.append(7)
-# print(nums)
-
+# from random import choice
 
 # DECORATORS
+
 from datetime import datetime
 
+
 def timer(func):
-    """ decorator definition for a function that times how long
-    it takes for the function it is decorating to run """
     def wrapper(*args, **kwargs):
         start_time = datetime.now()
         val = func(*args, **kwargs)
@@ -42,58 +48,60 @@ def timer(func):
 
 
 @timer
-def say_hi(age, color, name="you"):
-    """ function that takes in an age & color for no appearant reason
-    and also a name, which it will use to say hi to a person"""
-    return f"Hello {name}!"
-
+def say_hi(name='you'):
+    return f'Hello {name}!'
 
 @timer
 def say_bye():
-    return "See ya later!"
+    return "See you later!"
 
 
-@timer
-def say_good_afternoon():
-    return "Good afternoon!"
-
-
-# print(say_bye())
-# print(say_hi("Brad"))
 # timed_hi = timer(say_hi)
 # print(timed_hi())
-# print(dir(say_hi))
-# print(say_hi.__closure__)
+# print(dir(timed_hi))
 # print(timed_hi.__closure__)
-# print(say_bye.__closure__)
-# print(say_good_afternoon())
+# print(say_hi.__closure__)
+# timed_bye = timer(say_bye)
+# print(timed_bye())
+# print(say_hi("Brad"))
 
-# def square_decorator(func):
-#     def inner(*args, **kwargs):
-#         x = func(*args, **kwargs)
-#         return x * x
-#     return inner
+# CHAINED DECORATOR
+# Problem 4 - Chain Decorator
+# Write your function here.
 
-# def multiply_decorator(func):
-#     def inner(*args, **kwargs):
-#         x = func(*args, **kwargs)
-#         return 3 * x
-#     return inner
-  
-# def chain_decorator(func):
-#   @square_decorator
-#   @multiply_decorator
-#   def inner(*args, **kwargs):
-#     return func(*args, **kwargs)
-#   return inner
+def power_of_two(func):
+    def inner(*args, **kwargs):
+        x = func(*args, **kwargs)
+        return x * x
+    return inner
 
-# @chain_decorator
-# def num(a, b):
-#     return a + b
+def multiply_by_three(func):
+    def inner(*args, **kwargs):
+        x = func(*args, **kwargs)
+        return x * 3
+    return inner
 
-# print(num(5, 2))  #> 441
+
+def chain_decorator(func):
+    @power_of_two
+    @multiply_by_three
+    def inner(*args, **kwargs):
+        val = func(*args, **kwargs)
+        return val
+    return inner
+
+
+@chain_decorator
+def num(a, b):
+    return a + b
+
+
+# print(num(5, 2))  #> 441  
+# # 7 => 49 => 147  
+# # 7 => 21 => 441
 # print(num(8, 2))  #> 900
 # print(num(4, 9))  #> 1521
+
 
 # CLASSES
 
@@ -103,21 +111,22 @@ class Cat:
         self._color = color
         self._age = age
         self._name = name
-        # print(f"You created a intance of Cat named {self._name}")
+        # print(f"You made a cat named {self._name}")
 
-    
-    @property
+
+    @property  # GETTER METHOD FOR NAME
     def name(self):
         return self._name
 
     
-    @name.setter
+    @name.setter  #SETTER METHOD FOR NAME
     def name(self, new_name):
         if len(new_name) > 15:
-            print("Thats too long a name for a cat")
-        elif len(new_name) < 3:
-            print('Thats too short of a name for a cat')
+            print("Thats too long of a name!")
+        elif len(new_name) < 2:
+            print("Please give your cat a real name!")
         else:
+            print(f"{self._name} was renamed to {new_name}")
             self._name = new_name
 
 
@@ -129,94 +138,93 @@ class Cat:
     @age.setter
     def age(self, new_age):
         if new_age > 25:
-            print("Thats too old for a cat!")
+            print("That's too old for a cat's age!")
         elif new_age < 0:
-            print("Cats can't have negative ages")
+            print("Cats can not have a negative age")
         else:
+            print(f"{self._age} was updated to {new_age}")
             self._age = new_age
 
-
+    
     def speak(self):
-        return f'{self._name} says "Meow!"'
+        return f'{self._name} says MEOW!!!'
 
-
+    
     @classmethod
     def cat_factory(cls, cats):
         new_cats = [ cls(color, age, name) for color, age, name in cats]
-        print([cat.speak() for cat in new_cats])
+        # print([cat.speak() for cat in new_cats])
         return new_cats
 
-    
+
     @staticmethod
     def feed_me():
         for i in range(5):
-            print("Meowwwwww?!?!")
+            print("Meowwwww!?!?!")
 
 
-    @classmethod
-    def oldest_cat(cls, cats):
-        oldest = cats[0].age
-        oldest_cat = cats[0].name
-        for cat in cats:
-            print(cat.name, cat.age)
-            if oldest < cat.age:
-                oldest = cat.age
-                oldest_cat = cat.name
-        return oldest_cat
+blue, patch, mimi = Cat.cat_factory([('black', 6, 'Blue'), ('tuxedo', 6, 'Patch'), ('gray', 10, "Mimi")])
+
+
+# print(blue.name)
+# blue.name = "Tommy the totally tubular kitten"
+# print(blue.name)
+
+
+# print(blue.age)
+# blue.age += 1
+# print(blue.age)
 
 
 
-# blue = Cat("black", 5, "Blue")
-# patch = Cat('tuxedo', 5, "Patch")
-cats = [("black", 5, "Blue"), ("tuxedo", 5, "Patch"), ("gray", 10, "Mimi")]
-blue, patch, mimi = Cat.cat_factory(cats)
-oldest_cat = Cat.oldest_cat([blue, patch, mimi])
-print("oldest cat", oldest_cat)
-# print(blue._age)
 # print(blue.speak())
-# blue.breed = "Long Hair"
-# print(blue.name)
-# blue.name = "Mr FancyPants Better Blue"
-# print(blue.name)
 # print(patch._color)
+# blue = Cat('black', 6, 'Blue')
+# patch = Cat('tuxedo', 6, 'Patch')
+# print(blue)
+# print(blue._name)
+# print(blue.speak())
+# print(blue.breed)
+# print(patch.breed)
+# Cat.breed = "American Long Hair"
+# blue.breed = "Silly little ninja"
+# print(blue.breed)
+# print(patch.breed)
 # patch.feed_me()
-# print(blue.age)
-# blue.age = 10
-# print(blue.age)
 
-# raise Exception("Text for the exception")
 
-# INHERITANCE & POLYMORPHISM
 class Tiger(Cat):
     def __init__(self, color, age, name, teeth):
         super().__init__(color, age, name)
         self._teeth = teeth
-        print(self.speak())
+        # print(self.speak())
 
-    
+
     def speak(self):
         if self._name == "Tony":
-            return f"{self._name} says'They're GREAT!!!'"
+            return f"{self._name} says 'They're GREAT!!!!!'"
         else:
-            return f"{self._name} says 'RAWRRRRRWRRR!'"
+            return f"{self._name} says 'RAWRRWWWRRR!!!'" 
 
 
     def __repr__(self):
-        return f'< {self._name} is a {self._age} yr old {self._color} Tiger >'
+        return f'< {self._name} is a {self._color} Tiger >'
 
     
     def __str__(self):
-        return f'< {self._name} is a {self._age} yr old {self._color} Tiger >'
+        return f'< {self._name} is a {self._color} Tiger >'
 
 
     def __len__(self):
         return self._age
-        
+    
 
 
-# tony = Tiger("orange", 20, "Tony", 24)
-# tigger = Tiger("orange", 30, "Tigger", 4)
-# print(tony.name)
-# print(tony)
-# print(len(tony))
-# print(tony.__str__())
+tony = Tiger('orange', 20, "Tony", 30)
+tigger = Tiger('orange', 12, "Tigger", 4)
+
+print(tony)
+print(tigger)
+
+print(len(tony))
+print(dir(Tiger))

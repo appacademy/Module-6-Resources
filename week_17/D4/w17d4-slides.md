@@ -110,12 +110,7 @@ A decorator is a function that takes in another function as a callback and modif
 
 ---
 
-### Decorator Reading & Video (25 min)
-Decorators - 10 min
-Decorators Demo - 11 min
 
-
----
 
 ### Decorators
 Let's create a decorator that could be used for timing function calls.
