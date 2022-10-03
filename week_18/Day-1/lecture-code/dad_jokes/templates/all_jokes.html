@@ -1,20 +1,21 @@
-<h2>Here are all of our Dad Jokes</h2>
-<div>
-    {% for joke in jokes %}
-        <div>
-            <p>Joke #: {{ joke.jokeid }}</p>
-            <p>Joke: {{ joke.joke }}</p>
-            <p>Punchline: {{ joke.punchline }}</p>
-            {% if joke.rating == "G" %}
-                <p style="color: green">Rating: {{ joke.rating }}</p>
-            {% elif joke.rating == "PG" %}
-                <p style="color: orange">Rating: {{ joke.rating }}</p>
-            {% elif joke.rating == "R" %}
-                <p style="color: red">Rating: {{ joke.rating }}</p>
-            {% else %}
-                <p>Rating: {{ joke.rating }}</p>
-            {% endif %}
-            <p>---------------------------------</p>
-        </div>
-    {% endfor %}
-</div>
+<h2>Here are all our Dad Jokes!</h2>
+
+{% for joke in jokes %}
+    <div>
+        <p>Joke: {{ joke.joke  }}</p>
+        <p>Punchline: {{ joke.punchline }}</p>
+        {% if joke.rating == "G" %}
+            <p style="color: green">Rating: {{ joke.rating }}</p>
+        {% elif joke.rating == "PG" %}
+            <p style="color: orange">Rating: {{ joke.rating }}</p>
+        {% elif joke.rating == "R" %}
+            <p style="color: red">Rating: {{ joke.rating }}</p>
+        {% else %}
+            <p>Rating: {{ joke.rating }}</p>
+        {% endif %}
+        <p>-------------------------------------</p>
+    </div>
+    
+{% endfor %}
+
+<footer>Brad made this cool site</footer>
