@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
     <title>Dad Jokes</title>
 </head>
 <body>
-    <h1>Welcome to Dad Jokes!</h1>
-    <a href="/">Home</a>
-    <a href="/jokes/all">All Jokes</a>
-    <a href="/jokes/new">Create A Joke</a>
+    <h1>Welcome to the Dad Jokes App!</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/jokes/all">All Jokes</a>
+        <a href="/jokes/new">Creat a new Joke</a>
+    </nav>
 
     {% block potato %}
     {% endblock %}
+
     {% include "footer.html" %}
+
 </body>
 </html>
