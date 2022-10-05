@@ -1,31 +1,34 @@
-from dad_jokes import app
 from dad_jokes.models import db, User, Joke
+from dad_jokes import app
+
 
 with app.app_context():
-
+    
     db.drop_all()
     print("All tables dropped!")
-    
+
     db.create_all()
-    print("All tables created!")
+    print("Create all tables!")
 
     user1 = User(
         username="Brad", 
         email="brad@gmail.com", 
         password="password"
     )
+
     user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
     user3 = User(username="Blue", email="blue@gmail.com", password="iamaninja")
     user4 = User(username="Patch", email="patch@gmail.com", password="ilovefud")
 
-    joke1 = Joke(
-        joke_body="What did the plumber say to the singer?",
-        punchline="Nice pipes...",
-        rating='G',
-        user=user1,
-        joke_likes=[user2, user3]
-    )    
     
+    joke1 = Joke(
+        joke_body = "what did the plumber say to the singer?",
+        punchline = "Nice pipes...",
+        rating = "G",
+        user = user1,
+        joke_likes = [user2, user3]
+    )
+
     joke2 = Joke(
         joke_body='What do you call a lazy doctor?',
         punchline='Dr Doo-little...',
@@ -38,16 +41,8 @@ with app.app_context():
         joke_body='What do you call a camel in a drought?',
         punchline='A dry humper...',
         rating='PG',
-        user=user1,
+        user=user1
     )
-
-    # how we would add a user like after joke3 was already created
-    # joke = Joke.query.get(3)
-    # if user4 not in joke.joke_likes:
-    #     joke.joke_likes.append(user4)
-    #     joke.rating = 'R'
-    #     db.session.commit()
-
 
     joke4 = Joke(
         joke_body='Did you hear Steve Harvey and his wife got into a fight?',
@@ -64,20 +59,16 @@ with app.app_context():
         user=user2,
         joke_likes=[user1, user3, user4]
     )
+    
+    
+    users = [user1, user2, user3, user4]
+    for user in users:
+        db.session.add(user)
 
-    # all_user = [user1, user2, user3, user4]
-    # add_all_users = [db.session.add(user) for user in all_users]
-
-    db.session.add(user1)
-    db.session.add(user2)
-    db.session.add(user3)
-    db.session.add(user4)
     db.session.add(joke1)
     db.session.add(joke2)
     db.session.add(joke3)
     db.session.add(joke4)
-    db.session.add(joke5)
+    db.session.add(joke5) 
     db.session.commit()
-    print('DB has been seeded!')
-
-
+    print("All users/jokes created!")
