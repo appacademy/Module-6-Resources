@@ -1,1 +1,1 @@
-from .db import db, Joke, User
+from .db import db, User, Joke

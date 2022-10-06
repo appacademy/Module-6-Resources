@@ -1,13 +1,13 @@
-{% extends "home/base.html" %}
+{% extends "base.html" %}
 
 {% block potato %}
-<div>
+    <h1>Here is a sample random joke...</h1>
     <div>
-        <p>Joke: {{ joke.joke_body }}</p>
+        <p>Joke: {{ joke.joke_body  }}</p>
         <p>Punchline: {{ joke.punchline }}</p>
         <p>Rating: {{ joke.rating }}</p>
         <p>Author: {{ joke.user.username }}</p>
-        <p>Likes: {{ joke.joke_likes|length }}
+        <p>Likes: {{ joke.joke_likes|length }}</p>
     </div>
-</div>
-{% endblock%}
+
+{% endblock %}

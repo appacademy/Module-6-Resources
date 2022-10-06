@@ -9,6 +9,7 @@ RATING_CHOICES = ["G", "PG", "R"]
 class NewJokeForm(FlaskForm):
     joke = StringField("Joke", validators=[DataRequired()])
     punchline = StringField("Punchline", validators=[DataRequired()])
-    rating = SelectField("Rating", choices=RATING_CHOICES )
-    user = SelectField("Author", choices=[])
+    rating = SelectField("Rating", choices=RATING_CHOICES)
+    user = SelectField("User", choices=[])
     submit = SubmitField("Add Joke")
+    # user = SelectField()

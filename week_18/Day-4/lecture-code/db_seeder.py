@@ -1,83 +1,74 @@
-from dad_jokes import app
 from dad_jokes.models import db, User, Joke
+from dad_jokes import app
+
 
 with app.app_context():
-
-    db.drop_all()
-    print("All tables dropped!")
     
+    # db.drop_all()
+    # print("All tables dropped!")
+
     # db.create_all()
-    # print("All tables created!")
+    # print("Create all tables!")
 
-    # user1 = User(
-    #     username="Brad", 
-    #     email="brad@gmail.com", 
-    #     password="password"
-    # )
-    # user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
-    # user3 = User(username="Blue", email="blue@gmail.com", password="iamaninja")
-    # user4 = User(username="Patch", email="patch@gmail.com", password="ilovefud")
+    user1 = User(
+        username="Brad", 
+        email="brad@gmail.com", 
+        password="password"
+    )
 
-    # joke1 = Joke(
-    #     joke_body="What did the plumber say to the singer?",
-    #     punchline="Nice pipes...",
-    #     rating='G',
-    #     user=user1,
-    #     joke_likes=[user2, user3]
-    # )    
+    user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
+    user3 = User(username="Blue", email="blue@gmail.com", password="iamaninja")
+    user4 = User(username="Patch", email="patch@gmail.com", password="ilovefud")
+
     
-    # joke2 = Joke(
-    #     joke_body='What do you call a lazy doctor?',
-    #     punchline='Dr Doo-little...',
-    #     rating='PG',
-    #     user=user1,
-    #     joke_likes=[user1, user2, user4]
-    # )
+    joke1 = Joke(
+        joke_body = "what did the plumber say to the singer?",
+        punchline = "Nice pipes...",
+        rating = "G",
+        user = user1,
+        joke_likes = [user2, user3]
+    )
 
-    # joke3 = Joke(
-    #     joke_body='What do you call a camel in a drought?',
-    #     punchline='A dry humper...',
-    #     rating='PG',
-    #     user=user1,
-    # )
+    joke2 = Joke(
+        joke_body='What do you call a lazy doctor?',
+        punchline='Dr Doo-little...',
+        rating='PG',
+        user=user1,
+        joke_likes=[user1, user2, user4]
+    )
 
-    # how we would add a user like after joke3 was already created
-    # joke = Joke.query.get(3)
-    # if user4 not in joke.joke_likes:
-    #     joke.joke_likes.append(user4)
-    #     joke.rating = 'R'
-    #     db.session.commit()
+    joke3 = Joke(
+        joke_body='What do you call a camel in a drought?',
+        punchline='A dry humper...',
+        rating='PG',
+        user=user1
+    )
 
+    joke4 = Joke(
+        joke_body='Did you hear Steve Harvey and his wife got into a fight?',
+        punchline='It was a real family feud...',
+        rating='R',
+        user=user2,
+        joke_likes=[user3, user4]
+    )
 
-    # joke4 = Joke(
-    #     joke_body='Did you hear Steve Harvey and his wife got into a fight?',
-    #     punchline='It was a real family feud...',
-    #     rating='R',
-    #     user=user2,
-    #     joke_likes=[user3, user4]
-    # )
+    joke5 = Joke(
+        joke_body='What do mermaids wash their fins with?',
+        punchline='Tide...',
+        rating='G',
+        user=user2,
+        joke_likes=[user1, user3, user4]
+    )
+    
+    
+    users = [user1, user2, user3, user4]
+    for user in users:
+        db.session.add(user)
 
-    # joke5 = Joke(
-    #     joke_body='What do mermaids wash their fins with?',
-    #     punchline='Tide...',
-    #     rating='G',
-    #     user=user2,
-    #     joke_likes=[user1, user3, user4]
-    # )
-
-    # all_user = [user1, user2, user3, user4]
-    # add_all_users = [db.session.add(user) for user in all_users]
-
-    # db.session.add(user1)
-    # db.session.add(user2)
-    # db.session.add(user3)
-    # db.session.add(user4)
-    # db.session.add(joke1)
-    # db.session.add(joke2)
-    # db.session.add(joke3)
-    # db.session.add(joke4)
-    # db.session.add(joke5)
-    # db.session.commit()
-    # print('DB has been seeded!')
-
-
+    db.session.add(joke1)
+    db.session.add(joke2)
+    db.session.add(joke3)
+    db.session.add(joke4)
+    db.session.add(joke5) 
+    db.session.commit()
+    print("All users/jokes created!")
