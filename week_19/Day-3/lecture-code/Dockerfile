@@ -1,25 +1,21 @@
-# SAMPLE DOCKERFILE DO NOT ACTUALLY BUILD
-FROM node:18-alpine3.15
-
-EXPOSE 3000 
+FROM python:3.11-alpine:3.16
 
 ENV FLASK_APP=my-app
-ENV FLASK_DEBUF=false
+ENV FLASK_ENV=production
 ENV REACT_BACKEND_URL="https://heroku-my-app.com"
 
-WORKDIR /app 
+WORKDIR /app
+# /app:   run commands in that terminal level
+COPY pipfile .
+RUN pip install
 
-# COPY AND INSTALL NODE MODULES
 COPY package.json .
-COPY package-lock.json .
-# can use the wildCARD * if needed
-# COPY package*.json .
-RUN npm install 
-
-
-# TO COPY AND INSTALL PYTHON DEPENDANCIES
-COPY Pipfile .
-RUN pip install 
+RUN npm install
 
 COPY . .
-CMD ['npm', 'start']
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+# CMD ["param1", "param2"]
+# CMD npm start
