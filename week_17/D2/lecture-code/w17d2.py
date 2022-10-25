@@ -1,33 +1,37 @@
-# XOR
+#XOR
+
+# print(True ^ False)
+# print(True ^ True)
+# print(False ^ False)
+# print(False ^ True)
+
+# 0 for any number type
+# '' [] set() {}
+# False None
+
+num = 0
+
+if num:
+    pass # do stuff here
 
 # print(True or False)
 
-# print(True ^ True)
-# print(False ^ False)
-# print(True ^ False)
-# print(False ^ True)
-
 # IF STATEMENTS
-
 def breakfast(food):
-    """accepts a breakfast food as a string an returns 
-    how we feel about said food """
-    if food == 'waffles':
-        print(f'{food} are my favorite breakfast!')
-    elif food == 'pancakes':
-        print(f"{food} are a pretty good second to waffles")
+    if food == "waffle":
+        print(f'{food} is my favorite breakfast!')
+    elif food == "bacon":
+        print(f'{food} is the most delicious thing on earth, yummy!')
     else:
-        print(f'{food}!?!?  That is not a great breakfast!')
+        print(f'{food} is okay breakfast!')
 
+# breakfast("bacon")
 
-# breakfast("waffles")
-# breakfast('pancakes')
-# breakfast('potato chips')
+# XOR
 
-# XOR PROBLEM
-
-def xor(val1, val2):
-    return val1 ^ val2
+def xor(x, y):
+    """ takes 2 values and compares them with xor """
+    return x ^ y
 
 
 # print(xor(False, False))   #>  False
@@ -38,62 +42,59 @@ def xor(val1, val2):
 # print(xor(2, 2))  #> 0
 # print(xor(1, 2))  #> 3
 # print(xor(4, 4))  #> 0
-# print(bin(True))
-# print(bin(False))
-# 0b1
-# 0b1
 # print(bin(5))
 # print(bin(3))
-# # 0b101
-# # 0b011
-# # 0b110
-# print(bin(6))
+# 0b101
+# 0b011
+# 0b110
+# print(bin(6)) 
 
 # STRINGS
+meal = "breakfast"
+food= 'pancakes'
 
-lunch = "tacos"
-long_string = """ THis is going to be
-a great
-super fantastic 
-multi line string"""
+# print(f"we are eating {food} for {meal}")
+# print("we are eating {thing1} for {thing2}".format(thing2=meal, thing1=food))
 
-# print(f'I am hoping to have {lunch} for lunch today!')
-# print("I am hoping to have {} for lunch today!".format(lunch))
+multi = """ This is going
+to allow us 
+to make as many
+lines
+as we
+would like
+"""
 
-a = 'a'
+# print(multi)
+
+a = "a"
 b = 'b'
 an = 'an'
 
 # print(b + an)
-# print(b + a * 7)
+# print(b + an * 2 + a)
 
-breakfast = 'waffles'
-# print(breakfast[-2])
-# print(breakfast[::2])
+lunch = 'pizza'
 
-# print(breakfast.index('af'))
-# print(breakfast.count('q'))
-# print(breakfast.split('a'))
+# print(lunch[2])
+# print(lunch[-1])
+# print(lunch[::-1])
 
-instructors = ["Brad", "John", "Cesar", "David"]
-join_str = ', '
-# print(join_str.join(instructors))
-# print(list(breakfast))
+# print("index", lunch.index('q'))
+# print("count", lunch.count('q'))
+# print("split", lunch.split())
 
-# print("waffles".upper())
-
-# REVERSE BINARY
-# print(bin(5)) # -> 0b101
-# print(int('0b101', 2))
+instructor = ["Brad", 'David', "John", 'Ryan']
+# print(", ".join(instructor))
+# print(lunch.upper())
 
 
 # Write your function, here.
-def is_palindrome(str):
-#   reverse = ''.join(reversed(str))
-  reverse = str[::-1]
-
-  return str == reverse
-
+def is_palindrome(string):
+    # reverse_string = string[::-1]
+    # print("rev", reverse_string, "OG", string)
+    reverse = ''.join(reversed(string))
+    print(reverse)
+    return string == reverse
 
 
 # print(is_palindrome("kayak")) # True
@@ -102,142 +103,128 @@ def is_palindrome(str):
 # print(is_palindrome("valid")) # False
 
 
-def recursive_string(string):  # input - "civic"
-  if len(string) == 0:
-    return string
-    # if string == "waffles":
-    #     # do our logic here
-    #     pass
-
-  return recursive_string(string[1:]) + string[0]
-#                           "ivic"  "c"
-#                             "vic" "i"  "c"
-#                               "ic" "v"  "i"  "c"
-#                               "c" "i"  "v" "i" "c"
-#                               "" "c" "i"  "v" "i" "c"
-
-# print(recursive_string("civic")) # civic
-# print(recursive_string("refer")) # refer
-# print(recursive_string("string")) # gnirts
-# print(recursive_string("avocado")) # odacova
-# print(recursive_string("application")) # noitacilppa
-
-
-
 # NUMBERS
-# print(int("123455"))
 
-# print(4 / 2)
-# print(4 // 2)
+# print(10 // 4)
+# print(10 % 4)
 
-val = 5
-# print(val)
-# val += 1
-# print(val)
+# num = 10
+# print(num)
+# num += 1
+# print(num)
+
+# print( True is 1)
 
 
-my_int = 4
-my_float = 4.0
- 
-# check if the values are the same
-# print(my_int == my_float)  # True
- 
-# check if the values are the same and check type
-# print(my_int == my_float and isinstance(my_int, float))
-# print(my_int is my_float)
 
-list_1 = [1,2,3]
-list_2 = list_1
+# First Before Second
+# You are given three inputs: a string, one letter, 
+# and a second letter. Write a function that returns 
+# True if every instance of the first letter occurs 
+# before every instance of the second letter.
 
-# print(list_1 == list_2) 
-# print(list_1 is list_2) 
-# print(id(list_1))
-# print(id(list_2))
+def first_before_second(string, first, second):
+    return string.rindex(first) < string.index(second)
+    
+
+# print(first_before_second("a rabbit jumps joyfully", "a", "j"))
+# #> True
+# # Every instance of "a" occurs before every instance of "j".
+
+# print(first_before_second("knaves knew about waterfalls", "k", "w"))
+# #> True
+
+# print(first_before_second("happy birthday", "a", "y"))
+# #> False
+# # The "a" in "birthday" occurs after the "y" in "happy".
+
+# print(first_before_second("precarious kangaroos", "k", "a"))
+# #> False
+
 
 # STATEMENTS
-
-# i = 0
+i = 0
 
 # while i < 5:
 #     if i == 3:
-#         print(i, "We have a 3!" )
-#     else:
-#         print(i, "Nope not a 3")
+#         print(i, "We have a 3!!!")
+#     else: 
+#         print(i, "Nope not a 3 here")
 #     i += 1
 
-
-# i = 0
 # while True:
-#     print(f"{i}. Hello, world.")
+#     print(f'{i}. Hello World!')
 #     if i < 4:
 #         i += 1
 #         continue
-#     print("You've printed 5 times. Goodbye.")
+#     print("You printed 5 times, We are done!")
 #     break
+#     print("Never gonna see this")
 
 
-foods = ['pizza', 'taco', 'waffle', 'salad']
+foods = ['pizza', 'tacos', 'waffles', 'wings', 'salad']
 
 # for food in foods:
 #     print(food)
 
-# print(user in post_likes)
+# print("pizza" in foods)
+# print("sandwich" in foods)
 
-# my_nums = range(4, -1, -1)
-# # print(list(my_nums))
+# RANGES 
+# print(list(range(10,0,-1)))
 
-# for index in range(0, len(foods)):
-#     print(index, foods[index])
+# for i in range(len(foods)):
+#     print(i, foods[i])
+
+# TRY/EXCEPT
 
 
-# num = 0
+# num = "pizza"
+
 # try:
 #     print("In the try block")
 #     print(4/num)
 
 # except ZeroDivisionError:
-#     print("Dividing by zero is bad!")
+#     print("We can not divide by zero")
+
 
 # except TypeError:
-#     print("We can't do math with non numbers!")
+#     print("we can't do math with non numbers")
 
-# else: 
-#     print("Our try block must have worked great if we see this")
+# else:
+#     print("We should see this only if our try block works")
 
 # finally:
-#     print("I am going to print stuff no matter what, you can't stop me!!!")
+#     print("This is going to print no matter what")
+
 
 
 # SEQUENCE OF NUMBERS
-# # Problem 6 - Sequence of Numbers
-# # Write your function, here.
-
+# Write your function, here.
+# There are hints after the print statements
 def seq_of_numbers(seq):
-# iterate through the string
-# counter variable
-# result/response variable
-# conditionals 
     seq += ' '
     count = 1
+    # i = 0
     results = ''
-    index = 0
 
-    while index < len(seq)-1:
-        if seq[index] != seq[index + 1]:
-            results= results + str(count) + seq[index] + ','
+    # while i < len(seq) - 1:
+    for i in range(len(seq) - 1):
+        if seq[i] != seq[i+1]:
+            results = results + str(count) + seq[i] + ","
             count = 1
-        else: 
+        else:
             count += 1
-
-        index += 1
+        # i += 1
 
     return results
 
 
-# print(seq_of_numbers("1211"))
+
+# print(seq_of_numbers("1211 "))
 # # This is "one 1, one 2, two 1s"
 # # Prints "11,12,21"
-# # 111221
 
 # print(seq_of_numbers("111221"))
 # # This is "three 1s, two 2s, and one 1"
@@ -250,79 +237,73 @@ def seq_of_numbers(seq):
 
 
 # FUNCTIONS
+
 def is_even(num):
-    """function that takes in a number and lets 
-    us know if it is even or not """
+    """takes in a number and returns a boolean 
+    if that number is even or not"""
+    if True:
+        print("new indent for new block")
     return num % 2 == 0
 
-# print("regular results", is_even(6))
+# print(is_even(9))
 
 # even = lambda num: num % 2 == 0
 
-# print("lambda result", even(6))
+# print(even(6))
 
-# times_two = lambda num: num * 2
+# multiply = lambda num1, num2: num1 * num2
 
-# multiply = lambda num_1, num_2: num_1 * num_2
-
-# print(multiply(10, 4))
-
+# print(multiply(4, 4))
 
 # SCOPING
-# y = 200
-# print("Y global first time", y)
 
-# def brads_func():
-#     global y
-#     print("First print", y)
-#     y += 5
-#     print("Second print", y)
+y = 'pizza'
+y = "burrito"
 
-# brads_func()
-# print("Y in global second time", y)
+LUNCH = 'soup'
+
+def make_a_five():
+    """return the integer value of 5"""
+    # y = 5
+    # global y
+    print("inside func", y)
+    y = "taco"
+    return y
+
+# make_a_five()
+# print("global scope", y)
+# y = 'banana'
+# print("global scope", y)
 
 
-# def my_funct(num_1, num_2, num_3 = 5, *args, **kwargs):
-#     print(num_1, num_2, num_3)
-#     print("args", args)
-#     print("kwargs", kwargs)
+# def my_function(num, num2, num3=5, *args, **kwargs):
+#     print(num, num2, num3)
+#     print(args)
+#     print(kwargs)
 
+# my_function(2, 3, 6, 8, 9, num8=10, num9=239)
 
-# my_funct(4, 7, 6, 8, 9, 231, num_7 = 43, num_8 = -8743)
-
-# Write a function string_multi_print that accepts 
-# a string, str, and returns a lambda that prints 
-# str i times.
-
-# def string_multi_print(str):        # Prints 1 concatenated string
-#     return lambda i : print(str * i)
-
-# string_multi_print('hello ')(2)  # Prints "hello hello "
-# string_multi_print('wahoo ')(3)  # Prints "wahoo wahoo wahoo "
 
 # LISTS
-foods = ["tacos", "wings", "salad", "steak", "bacon"]
+
+foods = ["tacos", "burgers", "pizza", "wings"]
 
 # print(foods)
-# # print(foods[:3])
+# # print(foods[::-1])
 # # print(len(foods))
 # foods.append("steak")
 # print(foods)
-# foods.extend(["cheesesteak", "hamburger"])
+# foods.extend(["salad", 'sloppy joe'])
 # print(foods)
-# foods.insert(0, "fries")
+# foods.insert(1, 'mac n chees')
 # print(foods)
-# foods[2] = 'chicken'
-# print(foods)
-# foods.remove('steak')
 # foods.remove('steak')
 # print(foods)
 
-vals = [2, 4, 56, 12, 7]
+vals = [2, 4, 56, 23, 7, 19]
 
-print(vals)
 vals.sort()
 print(vals)
-print("sum:", sum(vals))
-print("min:", min(vals))
-print("max:", max(vals))
+print(sum(vals))
+print(min(vals))
+print(max(vals))
