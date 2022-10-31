@@ -285,5 +285,3 @@ def create_joke(joke_body, punchline, rating):
 - Behavioral Interview Exercise (optional)
 
 - Get started on homework
-
-- EOD from Cesar on DS&A
