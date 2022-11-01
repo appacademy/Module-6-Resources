@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 flask = "*"
-python-dotenv = "*"
 wtforms = "*"
+python-dotenv = "*"
 flask-wtf = "*"
 
 [dev-packages]

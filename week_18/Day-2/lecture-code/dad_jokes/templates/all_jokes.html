@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block potato %}
-
-<h2>Here are all our Dad Jokes!</h2>
-
-{% for joke in jokes %}
+<h2>Here are all of our Dad Jokes!</h2>
+<div>
+    {% for joke in jokes %}
     <div>
-        <p>Joke: {{ joke.joke  }}</p>
+        <p>Joke #: {{ joke.jokeid }}</p>
+        <p>Joke: {{ joke.joke }}</p>
         <p>Punchline: {{ joke.punchline }}</p>
         {% if joke.rating == "G" %}
             <p style="color: green">Rating: {{ joke.rating }}</p>
@@ -17,9 +17,8 @@
         {% else %}
             <p>Rating: {{ joke.rating }}</p>
         {% endif %}
-        <p>-------------------------------------</p>
+            <p> ---------------------------------- </p>
     </div>
-    
-{% endfor %}
-
+    {% endfor %}
+</div>
 {% endblock %}
