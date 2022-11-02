@@ -8,17 +8,16 @@
     <title>Dad Jokes</title>
 </head>
 <body>
-    <h1>Welcome to the Dad Jokes App!</h1>
+    <h1>Welcome to Dad Jokes!</h1>
     <nav>
         <a href="/">Home</a>
         <a href="/jokes/all">All Jokes</a>
-        <a href="/jokes/new">Creat a new Joke</a>
+        <a href="/jokes/new">Create A New Joke</a>
     </nav>
+        {% block potato %}
 
-    {% block potato %}
-    {% endblock %}
+        {% endblock %}
 
-    {% include "footer.html" %}
-
+        {% include "footer.html" %}
 </body>
 </html>
