@@ -12,4 +12,3 @@ class NewJokeForm(FlaskForm):
     rating = SelectField("Rating", choices=RATING_CHOICES)
     user = SelectField("User", choices=[])
     submit = SubmitField("Add Joke")
-    # user = SelectField()
