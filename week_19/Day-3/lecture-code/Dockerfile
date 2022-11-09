@@ -1,21 +1,24 @@
-FROM python:3.11-alpine:3.16
+# Example dockerfile
+FROM node:18-alpine3.15
 
-ENV FLASK_APP=my-app
-ENV FLASK_ENV=production
-ENV REACT_BACKEND_URL="https://heroku-my-app.com"
-
-WORKDIR /app
-# /app:   run commands in that terminal level
-COPY pipfile .
-RUN pip install
-
-COPY package.json .
-RUN npm install
-
-COPY . .
+ENV FLASK_APP=my_app
+ENV FLASK_DEBUG=false
+ENV REACT_BACKEND_URL="https://my_app.onrender.com"
 
 EXPOSE 3000
 
+WORKDIR /app
+
+COPY package.json .
+RUN npm install 
+
+COPY pipfile .
+# COPY package-lock.json .
+# COPY package*.json . 
+RUN pip install
+
+COPY . .
+
 CMD ["npm", "start"]
-# CMD ["param1", "param2"]
-# CMD npm start
+CMD ["param1", "param2"]
+CMD npm start
