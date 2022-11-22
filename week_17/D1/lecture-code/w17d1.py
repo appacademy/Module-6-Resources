@@ -1,149 +1,148 @@
 # FUNCTIONS
+# this is a comment
+
+average = 0
 
 def get_average(num_1, num_2):
-    """ This fucntion will accept 2 
-    numbers and print 
-    their average    
+    """
+    Take in 2 parameters and return their average 
     """
     average = (num_1 + num_2) / 2
-    print("Inside function", average)
+    print(average) 
+    if True:
+        print("In a if block")
+        average += 1
+
     return average
 
-
-# ran_average = get_average(4, 2)
-# print("Outside", ran_average)
+# got_average = get_average(6, 4)
+# print(got_average)
 # help(get_average)
 
-long_string = '''This is some
-long long
-multiline text '''
-# print(long_string)
+# Variabe declarations
+n = 78
+n = "Turkey"
+lunch = "Turkey"
 
-
-a = 4
-n = 236
-x = "Pizza"
 
 # STRINGS
 
-lunch = "Pizza"
-# print(lunch)
-# lunch = 1
-# print(lunch)
-# LUNCH = 2
-# print(LUNCH)
-# LUNCH = "Sandwich"
-# print(LUNCH)
-
+# lunch = "Turkey"
 # print(lunch)
 # print(len(lunch))
 
+# print("Pumpkin Pie")
+# print('Apple Pie')
+# print('Let\\\'s')
+# print(''' This is a multi
+# line string
+# it is so so 
+# so many
+# lines ''')
 
-# print("Pizza")
-# print('Pizza')
-# print("Let's")
-# print('Let\'s')
-# print(""" THis is a 
-# multi
-# multi
-# multi
-# very 
-# long string
-# """)
+
+# LUNCH = "Turkey"
+# print(LUNCH)
+# LUNCH = 'Ham'
+# print(LUNCH)
 
 a = 1
-b = 5
+b = 2
+# print(a)
+# a = "Gravy"
+# print(a)
 
-# print(f'Let\'s add {a} and {b} together to get {a + b}')
-# print("Let's add {} and {} together to get {}".format(a, b, a + b))
-# print("Let's add {thing1} and {thing2} together to get {thing3}".format(thing3=a + b, thing2=b, thing1=a))
+# print(f"Let's add {a} and {b} together to get {a + b }")
 
-# print("Pizza " + "is " + "delicious!" )
-# print("Pizza " * 4)
+# print("Let's add {2} and {1} together to get {0}".format(1, 2, 1 + 2))
 
-sentence = "Brad is very much obsessed with pizza today!"
+# print("Let's add {thing_1} and {thing_2} together to get {thing_3}".format(thing_3=a + b, thing_1 = a, thing_2 = b ))
 
+
+# print("Mashed potatoes" + " are" + " great?")
+# print("Turkey " * 4)
+
+sentence = "Its almost thanksgiving and Brad is obsessed with turkey"
+# print(sentence[-1])
+# print(sentence[5:])
+# print(sentence[1:13:2])
 # print(sentence[::-1])
-# sentence[start:stop:step] # stop is not inclusive
-# print(sentence.split())
+# print(sentence.split('a'))
 # print(list(sentence))
 
-# names = ['Brad', 'John', 'David', 'Cesar']
+# names = ["Brad", "John", "David", "Andrew"]
 # join_str = ' and '
 # print(join_str.join(names))
 
 
 # BOOLEANS
 
-a = True
-b = False
+# a = True
+# b = False
 
-# && || !
-# and or not 
+# # && || !
+# # and or not
 
 # print(True and False)
+# print(True or True)
 # print(True or False)
-# print(not True)
-# print(True + 1)
-# print(False + 1)
-# print(1 == 1)
-# print(1 == 2)
-# print(1 != 1)
-# print(2 != 1)
-# print(int("1") == 1)
+# print( not True)
+# print( 3 != 4)
+# print( not "")
+# print(True + False)
 
+# new_dict = {
+#     "lunch": "Turkey",
+#     1: "Gravy"
+# }
 
-# NUMBERS
-
-results = 2 * 4.0
+# NUMBERS - Integers and Floats
+results = 2 * 4
 # print(results)
-# print(int("1234"))
-# print(float("1234.56"))
-# print(float(123))
 
+# operators + - * / % // **
 
-# + - * / % // **
-# print(2**4)
+# print(12 / 7)
+# print(12 // 7)
 
 def long_division(num_1, num_2):
-    result = num_1 // num_2
+    results = num_1 // num_2
     remainder = num_1 % num_2
-    print(result, remainder)
-    return f"{num_1} divided by {num_2} is {result} remainder {remainder}"
+    print(results, remainder)
+    return f"{num_1} divided by {num_2} is {results} remainder {remainder}"
 
+# print(long_division(234, 12))
 
-# print(long_division(25, 3))
+# print(12 / 6)
 
-num = 20
-num += 1
+# print(int("1235"))
+# print(float("1235"))
+# print(int(234.78))
 
-my_float = 123.45678
-# print(round(my_float, 4))
+# print( 4 * 20 + 40)
 
+# print(2**4)
 
-dinner = ['Salad', 'Pizza', 'wings']
-dinner = "salad"
+# num = 14
+# num += 1
 
-num = 30
-num += 5
+# num = None
 
-bags = 50
-cases = 50
+# VARIABLES
 
-# print(bags)
-# print(cases)
+brads_age = 44
+brads_age += 1
 
-DESSERT = 'ice cream'
+a = 44
+a = "potatoes"
 
-num = 1
+DAYS_OF_WEEK = ("Mon", "Tues", "Weds")
 
-def new_func():
-    num = 1
-    if true:
-        num = 2
-    for food in dinner:
-        num = 3
+bags = cases = 50
+# print(bags, cases)
 
+# bags = 50
+# cases = 50
 
 
 # IDENTITY vs EQUALITY
@@ -151,9 +150,11 @@ def new_func():
 
 my_int = 4
 my_float = 4.0
+my_string = "4"
 
 # print(my_float == my_int)
-# print(my_float is my_int)
+# print(my_string == my_int)
+# print(my_float is my_int )
 
 # print("2" == '2')
 # print("2" is '2')
@@ -162,13 +163,19 @@ my_float = 4.0
 # print(id(a))
 # b = 'pizza'
 # print(id(b))
-# print(a is b)
 # c = None
 # print(id(c))
 # print(a is c)
 # d = 'pizza'
 # print(id(d))
-# print(d is b)
+# print(b is d)
 
-# print( True == 1)
-# print( True is 1)
+list_1 = [1, 2, 3]
+list_2 = [1, 2, 4]
+# print(list_1 == list_2)
+# print(id(list_1))
+# print(id(list_2))
+# print(list_1 is list_2)
+
+print(True == 1)
+print(True is 1)
