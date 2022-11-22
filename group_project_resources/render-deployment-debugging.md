@@ -210,7 +210,7 @@ class User(db.Model, UserMixin):
 
 ```
 
-Make sure to add this conditional to all of your class defined models after the `__tablename__`!
+Make sure to add this conditional to all of your class defined models after the `__tablename__`! (and you will need to import `environment` and `SCHEMA` from the db.py file)
 
 ```python
     if environment == "production":
@@ -219,5 +219,35 @@ Make sure to add this conditional to all of your class defined models after the 
 
 ### Foreign Keys
 
+Every time we use a foreign key on any of our models (join tables included) in production, we will need to tell SqlAlchemy which SCHEMA it needs to look for the foreign key on.  If you look in the db.py file (in the models folder), there is a helper function to assist us with this.
+
+```python
+
+def add_prefix_for_prod(attr):
+    if environment == "production":
+        return f"{SCHEMA}.{attr}"
+    else:
+        return attr
+
+```
+
+We will need to import this function `add_prefix_for_prod`, as well as our `environment` and `SCHEMA` from db.py if we have not already.  Then for every foreign key, we want to pass the `add_prefix_for_prod` in to each `db.ForeignKey()` like the following...
+
+```python
+
+   user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+
+```
 
 ### Join Tables
+
+As mentioned above, our join tables will also need a 
+
+```python
+likes = db.Table(
+    'likes',
+    db.Model.metadata,
+    db.Column('users', db.Integer, db.ForeignKey('users.id'), primary_key=True ),
+    db.Column('jokes', db.Integer, db.ForeignKey('jokes.id'), primary_key=True )
+)
+```

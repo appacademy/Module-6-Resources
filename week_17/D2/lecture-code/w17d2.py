@@ -1,131 +1,110 @@
-#XOR
-
-# print(True ^ False)
-# print(True ^ True)
-# print(False ^ False)
-# print(False ^ True)
-
-# 0 for any number type
-# '' [] set() {}
-# False None
-
-num = 0
-
-if num:
-    pass # do stuff here
+# XOR
 
 # print(True or False)
 
+# print(True ^ True)
+# print(True ^ False)
+# print(False ^ True)
+# print(False ^ False)
+
+# Logical Operators
+# && || !
+# and or not 
+
 # IF STATEMENTS
 def breakfast(food):
-    if food == "waffle":
-        print(f'{food} is my favorite breakfast!')
-    elif food == "bacon":
-        print(f'{food} is the most delicious thing on earth, yummy!')
+    if food == "waffles":
+        print(f"{food} are my favorite! Yum!")
+        print("Breakfast is fun")
+    elif food == "pancakes":
+          print(f"{food} are pretty good too!")
     else:
-        print(f'{food} is okay breakfast!')
+        print(f"{food} is okay but not as good as waffles")
 
-# breakfast("bacon")
-
-# XOR
-
-def xor(x, y):
-    """ takes 2 values and compares them with xor """
-    return x ^ y
+# breakfast("waffles")
+# breakfast("pancakes")
 
 
-# print(xor(False, False))   #>  False
-# print(xor(True, False))   #>  True
-# print(xor(True, True)) #>  False
+# Create a function that returns the xor result of two values.
+# Write your function, here.
+def xor(val1, val2):
+    return val1 ^ val2
+
+
+# print(xor(False, False))   #>  False 0 0 
+# print(xor(True, False))   #>  True 1 0 
+# print(xor(True, True)) #>  False 1 1 
 # print(xor(5, 3))  #> 6
 # print(xor(8, 4))  #> 12
 # print(xor(2, 2))  #> 0
 # print(xor(1, 2))  #> 3
 # print(xor(4, 4))  #> 0
+# print(bin(True))
+# print(bin(False))
 # print(bin(5))
 # print(bin(3))
-# 0b101
-# 0b011
+# # 0b101
+# # 0b011
+# #   110
+# print(bin(6))
 # 0b110
-# print(bin(6)) 
 
 # STRINGS
+
 meal = "breakfast"
-food= 'pancakes'
+food = "waffles"
 
-# print(f"we are eating {food} for {meal}")
-# print("we are eating {thing1} for {thing2}".format(thing2=meal, thing1=food))
-
-multi = """ This is going
-to allow us 
-to make as many
-lines
-as we
-would like
-"""
-
-# print(multi)
+# print(f"We are eating {food} for {meal}!")
+# message = '''We can make
+# multi line strings with three quotes
+# and they can be double or single
+# quotes'''
+# print(message)
 
 a = "a"
-b = 'b'
-an = 'an'
-
+b = "b"
+an = "an"
 # print(b + an)
+# print(b + a * 7)
 # print(b + an * 2 + a)
 
-lunch = 'pizza'
+meal = "breakfast"
+food = "waffles"
 
-# print(lunch[2])
-# print(lunch[-1])
-# print(lunch[::-1])
+# print(meal[::-1])
+# print(food.count("o"))
+# print(food.index('aff'))
+# print(food[1:5].upper())
+# food.index("a").upper().title()
 
-# print("index", lunch.index('q'))
-# print("count", lunch.count('q'))
-# print("split", lunch.split())
+# print(12 / 5)
+# print(12 // 5)
+# print(float(23))
+# print(int("12345"))
 
-instructor = ["Brad", 'David', "John", 'Ryan']
-# print(", ".join(instructor))
-# print(lunch.upper())
-
-
-# Write your function, here.
-def is_palindrome(string):
-    # reverse_string = string[::-1]
-    # print("rev", reverse_string, "OG", string)
-    reverse = ''.join(reversed(string))
-    print(reverse)
-    return string == reverse
+# val =  25.567
+# print(int(round(val, 2)))
 
 
-# print(is_palindrome("kayak")) # True
-# print(is_palindrome("app"))  # False
-# print(is_palindrome("racecar")) # True
-# print(is_palindrome("valid")) # False
+# a = None
+# print(id(a))
+# b = "Turkey"
+# print(id(b))
+# c = None
+# print(id(c))
+# print(a is c)
 
+a = 1
+# print(a == True)  # don't do this, in Python 1 is equal in value to True
+# print(a is True)
 
-# NUMBERS
-
-# print(10 // 4)
-# print(10 % 4)
-
-# num = 10
-# print(num)
-# num += 1
-# print(num)
-
-# print( True is 1)
-
-
-
-# First Before Second
-# You are given three inputs: a string, one letter, 
-# and a second letter. Write a function that returns 
-# True if every instance of the first letter occurs 
-# before every instance of the second letter.
 
 def first_before_second(string, first, second):
-    return string.rindex(first) < string.index(second)
-    
+    last_first = string.rindex(first)
+    first_second = string.index(second)   
+    return last_first < first_second 
+
+
 
 # print(first_before_second("a rabbit jumps joyfully", "a", "j"))
 # #> True
@@ -139,64 +118,72 @@ def first_before_second(string, first, second):
 # # The "a" in "birthday" occurs after the "y" in "happy".
 
 # print(first_before_second("precarious kangaroos", "k", "a"))
-# #> False
 
 
-# STATEMENTS
+# WHILE LOOPS
+
 i = 0
 
 # while i < 5:
-#     if i == 3:
-#         print(i, "We have a 3!!!")
-#     else: 
-#         print(i, "Nope not a 3 here")
+#     print(f'{i} Happy Thanksgiving')
 #     i += 1
 
+# print("Outside the while loop")
+
+
 # while True:
-#     print(f'{i}. Hello World!')
+#     print(f'{i} Happy Thanksgiving')
 #     if i < 4:
 #         i += 1
 #         continue
-#     print("You printed 5 times, We are done!")
+#     print(f"Did we get here? {i}")
 #     break
-#     print("Never gonna see this")
+
+# FOR LOOPS
+
+pies = ['apple', 'pumpkin', 'pecan', 'berry', 'key lime']
+
+# for pie in pies:
+#     if pie == 'berry':
+#         break
+#     print(f"{pie} is delicious!")
+
+# print("cherry" in pies)
+# vals[start:stop:step]
+# vals = range(start, stop, step)
+vals = range(11, 1, -1)
+# print(list(vals))
+
+# for i in range(len(pies)):
+#     print(f"{i}. {pies[i]}")
+
+# for i, pie in enumerate(pies, start=1):
+#     print(i, pie)
 
 
-foods = ['pizza', 'tacos', 'waffles', 'wings', 'salad']
-
-# for food in foods:
-#     print(food)
-
-# print("pizza" in foods)
-# print("sandwich" in foods)
-
-# RANGES 
-# print(list(range(10,0,-1)))
-
-# for i in range(len(foods)):
-#     print(i, foods[i])
-
-# TRY/EXCEPT
-
-
-# num = "pizza"
+# TRY/EXCEPT - similar try/catch
+# num = "turkey"
 
 # try:
 #     print("In the try block")
-#     print(4/num)
+#     print(10 / num)
 
 # except ZeroDivisionError:
-#     print("We can not divide by zero")
-
+#     print('we can not divide by zero')
 
 # except TypeError:
-#     print("we can't do math with non numbers")
+#     print('we can do division with strings')
 
 # else:
-#     print("We should see this only if our try block works")
+#     print('we will see this only if our try block works')
 
 # finally:
-#     print("This is going to print no matter what")
+#     print('we will always see this')
+
+
+# # raise Exception("You made an error. boooo!")
+
+# print("really important stuff we need to see")
 
 
 
@@ -206,23 +193,19 @@ foods = ['pizza', 'tacos', 'waffles', 'wings', 'salad']
 def seq_of_numbers(seq):
     seq += ' '
     count = 1
-    # i = 0
+    i = 0
     results = ''
-
-    # while i < len(seq) - 1:
-    for i in range(len(seq) - 1):
+    while i < len(seq) -1:
         if seq[i] != seq[i+1]:
-            results = results + str(count) + seq[i] + ","
+            results = results + str(count) + seq[i] + ','
             count = 1
         else:
             count += 1
-        # i += 1
+        i += 1
 
     return results
 
-
-
-# print(seq_of_numbers("1211 "))
+# print(seq_of_numbers("1211"))
 # # This is "one 1, one 2, two 1s"
 # # Prints "11,12,21"
 
@@ -235,75 +218,75 @@ def seq_of_numbers(seq):
 #    one 3, one 1, two 2s, and one 1"
 # Prints "13,21,13,11,12,31,13,11,22,11"
 
-
 # FUNCTIONS
 
 def is_even(num):
-    """takes in a number and returns a boolean 
-    if that number is even or not"""
-    if True:
-        print("new indent for new block")
+    """
+    takes in a number and returns a boolean if the 
+    number is even
+    """
     return num % 2 == 0
 
-# print(is_even(9))
+# print(is_even(5))
 
 # even = lambda num: num % 2 == 0
 
-# print(even(6))
+# print(even(4))
 
-# multiply = lambda num1, num2: num1 * num2
+# multiply = lambda num_1, num_2: num_1 * num_2
 
-# print(multiply(4, 4))
+# print(multiply(5,3))
 
-# SCOPING
+# SCOPE
 
-y = 'pizza'
-y = "burrito"
+y = 20
 
-LUNCH = 'soup'
+# def add_5():
+#     global y
+#     print("y in function", y)
+#     y += 5
+#     print("y in fucntion after adding 5", y)
+#     if True:
+#         y = 99
+#         print("in if block", y)
+#     print("back in function", y)
 
-def make_a_five():
-    """return the integer value of 5"""
-    # y = 5
-    # global y
-    print("inside func", y)
-    y = "taco"
-    return y
+# add_5()
+# print("global y", y)
 
-# make_a_five()
-# print("global scope", y)
-# y = 'banana'
-# print("global scope", y)
+# def my_function(num_1, num_2, num_3=5, *args, **kwargs):
+#     print(num_1, num_2, num_3)
+#     print("args", args)
+#     print("kwargs", kwargs)
 
 
-# def my_function(num, num2, num3=5, *args, **kwargs):
-#     print(num, num2, num3)
-#     print(args)
-#     print(kwargs)
-
-# my_function(2, 3, 6, 8, 9, num8=10, num9=239)
+# my_function(4, 6, 8, 10, 12, 14, num_4 = 16, num_5 = 18)
 
 
 # LISTS
 
-foods = ["tacos", "burgers", "pizza", "wings"]
 
-# print(foods)
-# # print(foods[::-1])
-# # print(len(foods))
+items = [1, None, True, [1, 2, 3], "Turkey"]
+
+empty = []
+
+foods = ["tacos", "burger", "pizza", "wings"]
+
+# print(foods[1:3])
+# print(foods[::-1])
+# print(len(foods))
 # foods.append("steak")
 # print(foods)
-# foods.extend(["salad", 'sloppy joe'])
+# foods.extend(["salad", "sloppy joes"])
 # print(foods)
-# foods.insert(1, 'mac n chees')
+# foods.pop(2)
 # print(foods)
-# foods.remove('steak')
+# foods.remove("burger")
+# print(foods)
+# foods.sort()
 # print(foods)
 
-vals = [2, 4, 56, 23, 7, 19]
-
-vals.sort()
-print(vals)
+vals = [2, 4, 6, 8, 10]
 print(sum(vals))
 print(min(vals))
 print(max(vals))
