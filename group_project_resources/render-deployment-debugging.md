@@ -1,6 +1,6 @@
 # Render Debugging
 
-You you have tried to deploy to render, and it just is not working?  Been there, it can be frustrating!  Hopefully you will find some help here!
+Have you tried to deploy to render, and it just is not working?  Been there, it can be frustrating!  Hopefully you will find some help here!
 
 Most of the time, the deployment issue are going to be related to your database.  Also, about half the time it could be an issue with deploying using postgres, and not really an issue with render.  (Postgres in production will enforce constraints that Sqlite did not in development, meaning while it worked for you in development, not so much in production)
 
@@ -241,7 +241,7 @@ We will need to import this function `add_prefix_for_prod`, as well as our `envi
 
 ### Join Tables
 
-As mentioned above, our join tables will also need a 
+As mentioned above, our join tables will also need a conditional for adding a SCHEMA when in production.  Add the below conditional after your `db.Table` to prefix it with the SCHEMA (you will need to change the varaible name to match whatever you saved your `db.Table` to).
 
 ```python
 likes = db.Table(
@@ -250,4 +250,9 @@ likes = db.Table(
     db.Column('users', db.Integer, db.ForeignKey('users.id'), primary_key=True ),
     db.Column('jokes', db.Integer, db.ForeignKey('jokes.id'), primary_key=True )
 )
+
+if environment == "production":
+    likes.schema = SCHEMA
+
+
 ```
