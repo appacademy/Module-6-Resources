@@ -263,6 +263,59 @@ So if you migrations and models are all set, how about those seed files?  A few 
 
 ### Order Matters!
 
-In production we use postgres, which cares a whole lot more about enforcing rules and constrains than sqlite does.  
+In production we use postgres, which cares a whole lot more about enforcing rules and constraints than sqlite does.  So the order of how we apply and remove our seed files matters too.  The below code is taken from the `__init__.py` file in the `seeds` folder of the starter, and I have added 2 more seed files (from Dad Jokes)
+
+
+```python
+
+# Creates a seed group to hold our commands
+# So we can type `flask seed --help`
+seed_commands = AppGroup('seed')
+
+# Creates the `flask seed all` command
+@seed_commands.command('all')
+def seed():
+    if environment == 'production':
+        # Before seeding in production, you want to run the seed undo 
+        # command, which will  truncate all tables prefixed with 
+        # the schema name (see comment in users.py undo_users function).
+        # Make sure to add all your other model's undo functions below
+        undo_likes()
+        undo_jokes()
+        undo_users()
+    seed_users()
+    seed_jokes()
+    seed_likes()
+    # Add other seed functions here
+
+
+# Creates the `flask seed undo` command
+@seed_commands.command('undo')
+def undo():
+    undo_likes()
+    undo_jokes()
+    undo_users()
+    # Add other undo functions here
+```
+
+Note that when we seed, we first seed our tables that do no depend on other tables.  Above we seed `users` first, because it does not depend on any other tables, then we seed `jokes`because it has a foregin key to the users table, so it depends on `users` being created already.  Lastly we seed `likes` as it depends on both the `users` and `jokes` tables to already exist.
+
+When we *undo* our seeds, we need to do it in the reverse order than when we seeded.  If we try to remove the `users` table first, we will get an error and both `posts` and `likes` depend on their being a `users` table.  If you are getting an error when something is `violating a foreign key constraint` you are probably undoing your seeds in the wrong order.
+
+
 
 ### Truncate vs Reset
+
+We also want to remember that for each new seed file we make, we need to also add conditional logic to each seed undo function to `TRUNCATE` in production but `RESET` in development.  (This is due to sqlite vs poatgres requiring different commands to clear data from a table while also resetting the `id` attrubute)
+
+```python
+
+def undo_users():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM users")
+        
+    db.session.commit()
+
+```
