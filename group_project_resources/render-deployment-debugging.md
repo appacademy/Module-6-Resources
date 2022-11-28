@@ -256,3 +256,13 @@ if environment == "production":
 
 
 ```
+
+## How About Those Seeders?
+
+So if you migrations and models are all set, how about those seed files?  A few things you will want to check out with them
+
+### Order Matters!
+
+In production we use postgres, which cares a whole lot more about enforcing rules and constrains than sqlite does.  
+
+### Truncate vs Reset
