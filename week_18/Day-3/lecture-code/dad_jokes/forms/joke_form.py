@@ -1,10 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Email
 
 
 RATING_CHOICES = ["G", "PG", "R"]
-
 
 class NewJokeForm(FlaskForm):
     joke = StringField("Joke", validators=[DataRequired()])
