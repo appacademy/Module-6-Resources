@@ -1,23 +1,26 @@
 from dad_jokes.models import db, User, Joke
 from dad_jokes import app
 
-
 with app.app_context():
-
+    
     # db.drop_all()
     # print("All table dropped!")
     # db.create_all()
     # print("Create all tables!")
 
-    user1 = User(username="Brad", email="brad@gmail.com", password="password")
+    user1 = User(
+        username="Brad",
+        email="brad@gmaile.com",
+        password="password"
+    )
     user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
     user3 = User(username="Blue", email="blue@gmail.com", password="iamaninja")
     user4 = User(username="Patch", email="patch@gmail.com", password="ilovefud")
 
     all_users = [user1, user2, user3, user4]
-    saved_users = [db.session.add(user) for user in all_users ]
+    add_users = [db.session.add(user) for user in all_users]
     db.session.commit()
-    print("Users were seeded!")
+    print("Users seeded!")
 
     joke1 = Joke(
         joke_body="What did the plumber say to the singer?",
@@ -26,7 +29,7 @@ with app.app_context():
         user=user1,
         joke_likes=[user2, user3]
     )
-
+ 
     joke2 = Joke(
         joke_body='What do you call a lazy doctor?',
         punchline='Dr Doo-little...',
@@ -58,10 +61,7 @@ with app.app_context():
         joke_likes=[user1, user3, user4]
     )
 
-    db.session.add(joke1)
-    db.session.add(joke2)
-    db.session.add(joke3)
-    db.session.add(joke4)
-    db.session.add(joke5)
+    all_jokes = [joke1, joke2, joke3, joke4, joke5]
+    add_jokes = [db.session.add(joke) for joke in all_jokes]
     db.session.commit()
-    print("Jokes were seeded!")
+    print("Jokes seeded")
