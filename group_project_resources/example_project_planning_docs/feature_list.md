@@ -37,3 +37,6 @@ FauxTwitterClone, a Twitter clone, is a website for users to share brief thought
 
 * Display a list of recent commonly used fauxtags.
 * Users can search for other users to view all of their fauxtweets.
+
+
+# User Stories
