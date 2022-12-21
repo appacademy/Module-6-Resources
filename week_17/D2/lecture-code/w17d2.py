@@ -1,292 +1,306 @@
 # XOR
 
-# print(True or False)
-
-# print(True ^ True)
-# print(True ^ False)
-# print(False ^ True)
-# print(False ^ False)
-
-# Logical Operators
-# && || !
-# and or not 
+# print( True ^ False)
+# print( True ^ True )
+# print( False ^ True )
+# print( False ^ False)
 
 # IF STATEMENTS
-def breakfast(food):
-    if food == "waffles":
-        print(f"{food} are my favorite! Yum!")
-        print("Breakfast is fun")
-    elif food == "pancakes":
-          print(f"{food} are pretty good too!")
+
+def present(item):
+    if item == 'PS5':
+        print(f'A {item} is an awesome holiday present!')
+    elif item == 'Xbox':
+        print(f'Microsoft is awesome! A {item} is a great gift!')
     else:
-        print(f"{food} is okay but not as good as waffles")
+        print(f'{item} is a great gift too!')
 
-# breakfast("waffles")
-# breakfast("pancakes")
+# present('PS5')
+# present('Xbox')
+# present('Socks')
 
-
-# Create a function that returns the xor result of two values.
-# Write your function, here.
+# XOR PROBLEM
 def xor(val1, val2):
     return val1 ^ val2
 
 
-# print(xor(False, False))   #>  False 0 0 
-# print(xor(True, False))   #>  True 1 0 
-# print(xor(True, True)) #>  False 1 1 
+# print(xor(False, False))   #>  False
+# print(xor(True, False))   #>  True
+# print(xor(True, True)) #>  False
 # print(xor(5, 3))  #> 6
-# print(xor(8, 4))  #> 12
-# print(xor(2, 2))  #> 0
-# print(xor(1, 2))  #> 3
-# print(xor(4, 4))  #> 0
+# # print(xor(8, 4))  #> 12
+# # print(xor(2, 2))  #> 0
+# # print(xor(1, 2))  #> 3
+# # print(xor(4, 4))  #> 0
 # print(bin(True))
 # print(bin(False))
+# # 0b1
+# # 0b0
 # print(bin(5))
 # print(bin(3))
-# # 0b101
-# # 0b011
-# #   110
+# 0b101
+# 0b011
+#   110
 # print(bin(6))
-# 0b110
+
+
+# Write your function, here.
+def not_or(bool1, bool2):
+    return not bool1 or bool2
+
+
+# print(not_or(True, False))    #> False
+# print(not_or(True, True))     #> True
+# print(not_or(False, True))    #> True
+# print(not_or(False, False))   #> True
+
 
 # STRINGS
 
-meal = "breakfast"
-food = "waffles"
+a = 'a'
+b = 'b'
+an = 'an'
 
-# print(f"We are eating {food} for {meal}!")
-# message = '''We can make
-# multi line strings with three quotes
-# and they can be double or single
-# quotes'''
-# print(message)
-
-a = "a"
-b = "b"
-an = "an"
 # print(b + an)
 # print(b + a * 7)
 # print(b + an * 2 + a)
 
-meal = "breakfast"
-food = "waffles"
+christmas_dinner = "Turkuuuey"
 
-# print(meal[::-1])
-# print(food.count("o"))
-# print(food.index('aff'))
-# print(food[1:5].upper())
-# food.index("a").upper().title()
+# print(christmas_dinner[1:3:1])
+# print(christmas_dinner[::-5])
 
-# print(12 / 5)
-# print(12 // 5)
-# print(float(23))
-# print(int("12345"))
+# # print(christmas_dinner.index('q'))
+# print(christmas_dinner.count('q'))
+# print(list(christmas_dinner))
 
-# val =  25.567
-# print(int(round(val, 2)))
+# reindeer = ["Comet", "Donner", "Blitzen"]
+# print(', '.join(reindeer))
 
+# Write your function, here.
+def recursive_string(string):
+    if len(string) == 0:
+        return string
+    
+    return recursive_string(string[1:]) + string[0]
 
-# a = None
-# print(id(a))
-# b = "Turkey"
-# print(id(b))
-# c = None
-# print(id(c))
-# print(a is c)
-
-a = 1
-# print(a == True)  # don't do this, in Python 1 is equal in value to True
-# print(a is True)
-
-
-def first_before_second(string, first, second):
-    last_first = string.rindex(first)
-    first_second = string.index(second)   
-    return last_first < first_second 
+# string      s
+# tring       t
+# ring        r
+# ing         i
+# ng           n
+# g             g
+# gnirts
 
 
 
-# print(first_before_second("a rabbit jumps joyfully", "a", "j"))
-# #> True
-# # Every instance of "a" occurs before every instance of "j".
+# print(recursive_string("civic")) # civic
+# print(recursive_string("refer")) # refer
+# print(recursive_string("string")) # gnirts
+# print(recursive_string("avocado")) # odacova
+# print(recursive_string("application")) # noitacilppa
 
-# print(first_before_second("knaves knew about waterfalls", "k", "w"))
-# #> True
+# NUMBERS
 
-# print(first_before_second("happy birthday", "a", "y"))
-# #> False
-# # The "a" in "birthday" occurs after the "y" in "happy".
+# a = 6
+# print(a)
+# a += 1
+# print(a)
+# a *= 2
+# print(a)
 
-# print(first_before_second("precarious kangaroos", "k", "a"))
+
+my_int = 4
+my_float = 4.0
+
+# print(my_int == my_float)
+# print(my_int is my_float)
+
+# print(id(my_int))
+# print(id(my_float))
+
+# print( 1 == True)
+# print( 1 is True)
+
+string1 = 'word'
+string2 = 'word'
+# print(id(string1))
+# # print(string1.upper())
+# print(id(string2))
+# string1 += 's'
+# print(id(string1))
+# print(id(string2))
+
+# print(string1 == string2)
+# print(string1 is string2)
+# print(id(string1))
+# print(id(string2))
+
+# variable = None
+# var2 = None
+
+str1 = '1'
+str2 = str(1)
+# print(id(str1))
+# print(id(str2))
+# print(str1)
+# print(str2)
+
+# STATEMENTS
+
+# WHILE
+
+# days = 5
+
+# while days > 0:
+#     if days == 1:
+#         print("Tomorrow is Christmas!")
+#     else:
+#         print(f'{days} days till Christmas!')
+    
+#     days -= 1
 
 
-# WHILE LOOPS
-
-i = 0
-
-# while i < 5:
-#     print(f'{i} Happy Thanksgiving')
-#     i += 1
-
-# print("Outside the while loop")
-
+# days = 5
 
 # while True:
-#     print(f'{i} Happy Thanksgiving')
-#     if i < 4:
-#         i += 1
+#     if days > 1:
+#         print(f'{days} days till Christmas!')
+#         days -= 1
 #         continue
-#     print(f"Did we get here? {i}")
+
+#     print("Tomorrow is Christmas!")
 #     break
-
-# FOR LOOPS
-
-pies = ['apple', 'pumpkin', 'pecan', 'berry', 'key lime']
-
-# for pie in pies:
-#     if pie == 'berry':
-#         break
-#     print(f"{pie} is delicious!")
-
-# print("cherry" in pies)
-# vals[start:stop:step]
-# vals = range(start, stop, step)
-vals = range(11, 1, -1)
-# print(list(vals))
-
-# for i in range(len(pies)):
-#     print(f"{i}. {pies[i]}")
-
-# for i, pie in enumerate(pies, start=1):
-#     print(i, pie)
+#     print("You will never see this")
 
 
-# TRY/EXCEPT - similar try/catch
-# num = "turkey"
+# reindeer = ["Comet", "Cupid", "Donner", "Blitzen", "Rudolf"]
+
+# for deer in reindeer:
+#     print(f"{deer} is a cool reindeer!")
+
+# print("Comet" in reindeer)
+# print("Greg" in reindeer)
+
+# print(list(range(0,5)))
+
+# for i in range(len(reindeer)):
+#     print(f"{i + 1}. {reindeer[i]}")
+
+
+# TRY/EXCEPT
+num = "cookies"
+# print(4/0)
 
 # try:
-#     print("In the try block")
-#     print(10 / num)
+#     print("in the try block")
+#     print(4/num)
 
 # except ZeroDivisionError:
-#     print('we can not divide by zero')
+#     print("we can not divide by zero!")
 
 # except TypeError:
-#     print('we can do division with strings')
+#     print("we can not do division with strings!")
 
-# else:
-#     print('we will see this only if our try block works')
+# else: 
+#     print("this will only print if the try block is successful")
 
 # finally:
-#     print('we will always see this')
-
-
-# # raise Exception("You made an error. boooo!")
-
-# print("really important stuff we need to see")
-
+#     print('we will see this no matter what!')
 
 
 # SEQUENCE OF NUMBERS
 # Write your function, here.
-# There are hints after the print statements
 def seq_of_numbers(seq):
-    seq += ' '
+    seq += " "
     count = 1
-    i = 0
+    # i = 0
     results = ''
-    while i < len(seq) -1:
-        if seq[i] != seq[i+1]:
-            results = results + str(count) + seq[i] + ','
+    
+    # while i < len(seq) - 1:
+    for i in range(len(seq) - 1):
+        if seq[i] != seq[i + 1]:
+            results = results + str(count) + seq[i] + ","
             count = 1
         else:
             count += 1
-        i += 1
+
+        # i += 1
 
     return results
 
-# print(seq_of_numbers("1211"))
-# # This is "one 1, one 2, two 1s"
-# # Prints "11,12,21"
+
+# print(seq_of_numbers("1211 "))
+# # # This is "one 1, one 2, two 1s"
+# # # Prints "11,12,21"
 
 # print(seq_of_numbers("111221"))
-# # This is "three 1s, two 2s, and one 1"
-# # Prints "31,22,11"
+# # # This is "three 1s, two 2s, and one 1"
+# # # Prints "31,22,11"
 
 # print(seq_of_numbers("31131211131221"))
-# This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
-#    one 3, one 1, two 2s, and one 1"
-# Prints "13,21,13,11,12,31,13,11,22,11"
+# # This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
+# #    one 3, one 1, two 2s, and one 1"
+# # Prints "13,21,13,11,12,31,13,11,22,11"
 
 # FUNCTIONS
-
 def is_even(num):
     """
-    takes in a number and returns a boolean if the 
-    number is even
+    takes in a number and returns a boolean 
+    if the number is even
     """
     return num % 2 == 0
 
+is_even = lambda num: num % 2 == 0
+
 # print(is_even(5))
+# print(is_even(4))
 
-# even = lambda num: num % 2 == 0
-
-# print(even(4))
-
-# multiply = lambda num_1, num_2: num_1 * num_2
-
-# print(multiply(5,3))
-
-# SCOPE
-
-y = 20
-
-# def add_5():
-#     global y
-#     print("y in function", y)
-#     y += 5
-#     print("y in fucntion after adding 5", y)
-#     if True:
-#         y = 99
-#         print("in if block", y)
-#     print("back in function", y)
-
-# add_5()
-# print("global y", y)
-
-# def my_function(num_1, num_2, num_3=5, *args, **kwargs):
-#     print(num_1, num_2, num_3)
-#     print("args", args)
-#     print("kwargs", kwargs)
+# multiply = lambda num1, num2: num1 * num2
+# print(multiply(2, 10))
 
 
-# my_function(4, 6, 8, 10, 12, 14, num_4 = 16, num_5 = 18)
+y = 10
+
+PI = 3.14
+
+# def make_a_five(PI):
+#     # y = 5
+#     # global PI
+#     # PI = 3.14
+#     print("inside function", PI)
+#     PI += 5
+#     # if True:
+#     #     y = 15
+
+#     # print("in function after if block", y)
+
+# make_a_five(PI)
+
+# print("global scope", PI)
+
+
 
 
 # LISTS
 
+reindeer = ["Comet", "Cupid", "Donner", "Blitzen", "Rudolf"]
 
-items = [1, None, True, [1, 2, 3], "Turkey"]
+# print(reindeer[1::2])
+# print(reindeer[::-1])
+# print(len(reindeer))
+# reindeer.append("Vixen")
+# print(reindeer)
+# reindeer.extend(["Dasher", "Dancer"])
+# print(reindeer)
+# reindeer.insert(1, "Prancer")
+# print(reindeer)
+# reindeer.remove("Dancer")
+# print(reindeer)
 
-empty = []
-
-foods = ["tacos", "burger", "pizza", "wings"]
-
-# print(foods[1:3])
-# print(foods[::-1])
-# print(len(foods))
-# foods.append("steak")
-# print(foods)
-# foods.extend(["salad", "sloppy joes"])
-# print(foods)
-# foods.pop(2)
-# print(foods)
-# foods.remove("burger")
-# print(foods)
-# foods.sort()
-# print(foods)
-
-vals = [2, 4, 6, 8, 10]
+vals = [2, 4, 56, 12, 4]
+vals.sort()
+print(vals)
 print(sum(vals))
 print(min(vals))
 print(max(vals))
