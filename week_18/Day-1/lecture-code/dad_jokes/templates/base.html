@@ -7,11 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to the best Dad Jokes App!</h1>
-    <div>
-        <p>Joke: {{ joke.joke  }}</p>
-        <p>Punchline: {{ joke.punchline }}</p>
-        <p>Rating: {{ joke.rating }}</p>
-    </div>
+    <h1>Welcome to Dad Jokes!</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/all">All Jokes</a>
+        <a href="/new">Create A New Joke</a>
+    </nav>
+
+    {% block main %}
+    {% endblock %}
+
+    {% include "footer.html"  %}
+
 </body>
 </html>
