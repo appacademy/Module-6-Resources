@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block banana %}
-<h3>Create a New Joke:</h3>
+{% block main %}
+<h3>Create a new joke: </h3>
 <form method="POST" action="/jokes/new">
     {{ form.csrf_token }}
     <p>{{ form.joke.label }}: {{ form.joke }}</p>
@@ -10,4 +10,4 @@
     <p>{{ form.submit }}</p>
 </form>
 
-{% endblock %}
+{% endblock%}
