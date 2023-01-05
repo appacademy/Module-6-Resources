@@ -1,11 +1,10 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+
+users_routes = Blueprint("users", __name__)
+
+print("user routes", __name__)
 
 
-users_routes = Blueprint('users', __name__)
-
-print("in user bp", __name__)
-
-
-@users_routes.route('/all')
-def get_al_users():
-    return "<h2>Here are all of our lovely users</h2>"
+@users_routes.route('/')
+def get_users():
+    return "<h1>User info coming soon...</h1>"

@@ -2,3 +2,18 @@ body {
     background-color: black;
     color: whitesmoke;
 }
+
+a {
+    color: blue;
+    text-decoration: none;
+    margin: 5px 15px 5px 15px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    border: 1px solid white;
+    border-radius: 15px;
+}
