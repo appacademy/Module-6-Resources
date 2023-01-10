@@ -34,7 +34,7 @@ Please add your cohort lead & project advisor to your project repo.
 - Brad: `bradsimpson213`
 - John: `jwily`
 - David: `hisownspace`
-- Cesar: `171cas`
+- Andrew: `andrwtran`
 
 
 ## [Scorecard Template](https://docs.google.com/spreadsheets/d/1OtaNB31kl_FhGrEPl-GoOmTvJrQurAF1jsr3Ts_d-I4/edit#gid=1927083016)
