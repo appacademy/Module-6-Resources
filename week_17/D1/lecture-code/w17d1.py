@@ -1,149 +1,107 @@
 # FUNCTIONS
+def get_average(num_1, num_2):
+    """This function will accept two numbers
+    and return the average"""
+    average = (num_1 + num_2) / 2
+    print(average)
+    return average
+    print("Not gonna see this")
 
-import random
-
-def naughty_or_nice(person):
-    """
-    Takes in a person and tells us if they 
-    have been naughty or nice
-    """
-    behavior = ['nauhgty', 'nice']
-    return f"{person} is on the {random.choice(behavior)} list!"
-
-
-# result = naughty_or_nice('Brad')
-# print(result)
-
-# help(naughty_or_nice)
+# ran_average = get_average(4,6)
+# print(ran_average)
+# help(get_average)
 
 
-# STRINGS
-# snack = "Christmas Cookies"
-# print(snack)
-# print(len(snack))
-
-# print("Candy cane")
-# print('Candy cane')
-# print("Let's eat candy canes")
-# print('Let\'s eat candy canes')
-# print("""Happy Holidays
-# to everyone and 
-# also a
-# very very
-# very very
-# Happy New Year
+# STRING STUFF
+# lunch = "Pizza"
+dinner = 'Wings'
+# print(lunch)
+# print(dinner)
+# print(len(lunch))
+# print(""" This is a
+# multi line string
+# and we can do 
+# lots and 
+# lots of lines
+# cool
 # """)
 
-a = "glass balls"
-b = "lights"
+a = 1
+b = 2
 # print(a)
-# a = "Christmas cookies"
+# a = "Pizza"
 # print(a)
 
-# SNACK = "Peppermint Bark"
-# print(SNACK)
-# SNACK = "Eggnog"
-# print(SNACK)
+LUNCH_TIME = "Pizza"
 
-# print(f"Let's decorate the tree with {a.upper()} and {'lots of ' + b}!")
-# print("Let's decorate the tree with {0} and {1}!".format(a.upper(), b))
-# print("Let's decorate the tree with {thing1} and {thing2}!".format(thing2=a.upper(), thing1=b))
+# print(f"Let's add {a} and {b} together to get {a + b} ")
+# print("Let's add {1} and {0} together to get {2}".format(a, b, a+b))
+# print("Let's add {thing2} and {thing1} together to get {thing3}".format(thing2=a, thing1=b, thing3=a+b))
 
-# print("Hot Cocoa" + " is" + " delicious!")
-# print(" Hot Cocoa " * 3)
+# thing1 = "Taco"
+# print(thing1)
 
-sentence = 'Brad is a cotton headed ninny muffin!'
+# print("Pizza" + " is" + " so" + ' delicious')
+# print("Pizza is so" + (" very," * 4) + " yummy!" )
 
-# print(sentence[-3])
-# print(sentence[:6])
-# print(sentence[:8:2])
+# sentence = "Brad is very much obsessed with Pizza today!"
+
 # print(sentence[::-1])
+# print(sentence[2:10:1])
 # print(sentence.split("a"))
-# print(sentence.lower().index("a"))
 # print(list(sentence))
 
-names = ["Buddy", "Santa", "Walter Hobbes", "Jovy"]
-join_str = ', '
-# print(join_str.join(names))
-
-# Write your function, here.
-def concat_name(first_name, last_name):
-    # return last_name + ', ' + first_name
-    return f'{last_name}, {first_name}'
+# names = ["Brad", "David N.", "Andrew", "David D."]
+# join_str = ', '
+# print(join_str.join(names)) 
 
 
-# print(concat_name("First", "Last"))  #> "Last, First"
-# print(concat_name("John", "Doe"))    #> "Doe, John"
-# print(concat_name("Mary", "Jane"))   #> "Jane, Mary"
+# BOOLEANS
+a = True
+b = False
 
-
-# # BOOLEANS
-
-# a = True
-# b = False
-
-# # && || !
-# # and or not
-
-# print(True and False and True)
-# print((True or False) and False)
-# print(not True)
-# print(True + 1)
-# print(False + 1)
-# print(False//True)
-
-# # print(len(list1) == 0 )
-
-# if value in [4, 5, 6]:
-#     print("do something")
+# && || !
+# and or not
+# print(True and False)
+# print(True or False)
+# # print(not False)
+# # print(True + 1)
+# # print(False + 10)
+# print(1 == 2)
+# print(1 == True)
+# print(1 == 1.0)
+# print(1 != 2)
 
 
 # NUMBERS
-result = 4 * 5
-# print(result)
-# print(12345)
-# print(1_000_000_00)
-# print(int('1234') + 5)
-# print(float('1234.23') + 5.12)
-# print(int(1235.35))
+results = 2.0 * 4.0
+# print(results)
+# print(int('1234') + 3)
+# print(str(1234))
+# print(float(235))
+# print(int(2367.8))
+
 
 # OPERATIONS
 # + - * / % // **
 # print(4**2)
 
-# def long_division(num1, num2):
-#     results = num1 // num2
-#     reaminder = num1 % num2
-#     print(result, reaminder)
-#     return f"{num1} divided by {num2} is {result} reaminder {reaminder}"
-
-# print(long_division(25, 3))
-
-# VARIABLES
-
-num1 = 40
-val = 50
-lunch = "pizza"
-
-bags = cases = 50
-# print(bags)
-# print(cases)
-
-num1 = "Christmas Elves"
-
-TREE = "Douglas Fir"
-
-val2 = 5
-val2 += 1
+def long_division(num_1, num_2):
+    results = num_1 // num_2
+    remainder = num_1 % num_2
+    print(results, remainder)
+    return f"{num_1} divided by {num_2} is {results} remainder {remainder}"
 
 
-# OPERATORS
+# print(long_division(253_456, 3_234))
 
-# IDENTITY vs EQUALITY
-#    is    vs  ==
 
-my_int = 4
-my_float = 4.0
+# IDENTITY                      vs          EQUALITY
+# JS: === (identity/type and value)            == (value)
+# PY:  is                                      ==
+
+# my_int = 4
+# my_float = 4.0
 
 # print(my_float == my_int)
 # print(my_float is my_int)
@@ -152,18 +110,31 @@ my_float = 4.0
 # print("2" is '2')
 
 # a = None
-# print(id(a))
-# b = None
-# print(id(b))
-# print(a is b)
+# print('A',id(a))
+# b = 'pizza'
+# print('B',id(b))
+# c = None
+# print('C',id(c))
+# d = 'pizza'
+# print('D',id(d))
+# print(a is c)
+# print(b is d)
 
-# print( True == 1)
-# print( True is 1)
+print(True == 1)
+print(True is 1)
 
-list1 = [1, 2, 3]
-list2 = [2, 2, 3]
-print(id(list1))
-print(id(list2))
+bags = cases = boxes = barrels = 50
 
-print(list1 == list2)
-print(list1 is list2)
+print(bags, cases)
+
+bags = "Bags"
+print(bags)
+
+num_4 = 40
+num_4 += 1
+
+DESSERT = "ice cream"
+
+DESSERT = "pecan pie"
+
+print(DESSERT)
