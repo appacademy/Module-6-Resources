@@ -1,38 +1,36 @@
-# from random import choice as pick
-# import random as rand
-# from random import choice, shuffle 
+# import random
+# from random import choice as pick, shuffle, randint
 
-# nums = [1, 2, 3, 43, 5]
-# print(rand.choice(nums))
+# from helpers.helpers import add2, add4
+# from helpers.helpers2 import add6, add8
 
-# from helpers1 import add2
-# from helpers.helpers2 import add4
-# from helpers import add2, add4, add6
-# import helpers 
+# from helpers import add2, add4, add6, add8, add10
+# from random import choice, choices, randint, randfloat
 
-# helpers.add2()
+
+# nums = [1, 2, 3, 4, 5, 6]
+
+# def choice(num):
+#     pass
+
+# print(pick(nums))
 
 # print(add2(4))
-# print(add4(4))
-# print(add6(4))
 
-# import random
-# from random import shuffle, choice
+# print(add8(4))
 
+# print(add10(10))
 
 # DECORATORS
 from datetime import datetime
 
 def timer(func):
-    """
-    decorator function that will time how long 
-    the wrapped fucntion takes to execute
-    """
+    """ decorator fefinition for a function 
+    that times how long the function it wraps 
+    takes to execute"""
     def wrapper(*args, **kwargs):
-        # say_hello("Brad", "Alex")
-        # print(args) -> ("Brad", "Alex")
         start_time = datetime.now()
-        val = func(*args, **kwargs) # -> args will be spread to "Brad", "Alex"
+        val = func(*args, **kwargs)
         print(val)
         end_time = datetime.now()
         time_elapsed = end_time - start_time
@@ -45,57 +43,57 @@ def say_hi(name='you'):
     return f"Hello {name}!"
 
 @timer
-def say_bye(time="later"):
-    return f"See ya {time}!"
+def say_bye():
+    return "See ya later!"
 
 @timer
-def say_good_afternoon():
-    return 'Have a great afternoon'
+def say_goodafternoon():
+    return "What a lovely afternoon!"
 
-# timed_hi = timer(say_hi)
-# print(timed_hi())
 
 # timed_bye = timer(say_bye)
 # print(timed_bye())
-# print(say_hi("Brad"))
-# print(say_bye("next year!"))
-# print(say_good_afternoon())
+# timed_hi = timer(say_hi)
+# print(timed_hi())
 
-def function(func):
-    return func
+# print(say_hi())
+# print(say_bye())
+# print(say_goodafternoon())
 
 
-# def close_it():
-#     multipler = 5
-#     def times_by(arg):
-#         print(arg * multipler)
-#     return times_by
-
-# closed_times = close_it()
-# closed_times(4)
 
 # CHAIN DECORATOR
-def power_of_two(func):
+def square_decorator(func):
     def inner(*args, **kwargs):
         x = func(*args, **kwargs)
         return x * x
     return inner
 
-def multiply_by_three(func):
+
+def multiply_decorator(func):
     def inner(*args, **kwargs):
         x = func(*args, **kwargs)
-        return x * 3
+        return 3 * x
     return inner
 
-# @power_of_two
-# @multiply_by_three
-# def num(a, b):
-#     return a + b
+
+@multiply_decorator
+@square_decorator
+def num(a, b):
+    return a + b
+
+print(num(5, 2))  # > 441 -> 7 -> 49 -> 147
+                  # -> 7 -> 21 -> 441  
+print(num(8, 2))  # > 900
+print(num(4, 9))  # > 1521
+
+
+
 
 
 def chain_decorator(func):
-    @multiply_by_three
-    @power_of_two
+    @square_decorator
+    @multiply_decorator
     def inner(*args, **kwargs):
         x = func(*args, **kwargs)
         return x
@@ -107,180 +105,118 @@ def num(a, b):
     return a + b
 
 
-# print(num(5, 2))  #> 441  7 => 49 => 147  
-#                        # 7 => 21 => 441
-# print(num(8, 2))  #> 900
-# print(num(4, 9))  #> 1521
-
-
-
-# Hello world
-
-def hello_world_decorator(func):
-    def inner():
-        print("Hello", end=' ')
-        func()
-        print("Goodnight")
-    return inner
-
-@hello_world_decorator
-def world():
-  print("World", end=' ')
-
-# world() #> Hello World Goodnight
-
-
 # CLASSES
-class Cookie:
-    calories = 90
-    def __init__(self, color, quantity, name="cookie"):
-        self._color = color
-        self._quantity = quantity
-        self._name = name + " cookie"
-        self._baking_time = 60
-        print(f'You made a {self._name}!')
-        self.cookies_are_great()
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter  
-    def name(self, new_name):
-        if len(new_name) <= 3:
-            print("Thats too short of a name for a cookie")
-        else:
-            print(f"{self._name} cookie has been renamed to {new_name}")
-            self._name = new_name
 
 
-    @property 
-    def quantity(self):
-        return self._quantity
-
-    @quantity.setter 
-    def quantity(self, new_quantity):
-        if new_quantity < 1:
-            print("we need to have at least 1 cookie")
-        else:
-            output = "Yay we now have more cookies" if new_quantity >= self._quantity else "Awww we lost cookies"
-            print(output)
-            self._quantity = new_quantity
-
-
-    def eat_cookie(self):
-        print("Yum, that was a delicious cookie!")
-        self._quantity -= 1
-
-
-    def __repr__(self):
-        return f"<{self._name} with {self._quantity} left>"
-   
-
-    def __str__(self):
-        return f"<{self._name} with {self._quantity} left>"
-
-
-    @classmethod
-    def cookie_factory(cls, cookies):
-        new_cookies = [cls(color, quantity, name) for color, quantity, name in cookies]
-        return new_cookies
-
-
-    @staticmethod
-    def cookies_are_great():
-        for i in range(3):
-            print("I love cookies they are awesome and deliious!")
-
-
-
-new_cookies = [
-    ("tan", 24, "Oatmeal"),
-    ('tan with brown chips', 12, "Chocolate chip"),
-    ("tan", 36, "Sugar")
-]
-# oatmeal, choco_chip, sugar = Cookie.cookie_factory(new_cookies)
-# print(oatmeal, choco_chip, sugar)
-# oatmeal = Cookie("tan", 24, "Oatmeal")
-# choco_chip = Cookie('tan with brown chips', 12, "Chocolate chip")
-# print(oatmeal)
-# print(oatmeal._quantity)
-# oatmeal.eat_cookie()
-# print(oatmeal._quantity)
-# print(oatmeal.calories)
-# print(choco_chip.calories)
-# Cookie.calories = 120
-# print(oatmeal.calories)
-# print(choco_chip.calories)
-# oatmeal.cookies_are_great()
-# print(oatmeal.name)
-# oatmeal.name = "PB"
-# print(oatmeal.name)
-# oatmeal.name = "Peanut butter"
-# print(oatmeal.name)
-# print(oatmeal.quantity)
-# oatmeal.quantity = 30
-# print(oatmeal.quantity)
-# oatmeal.quantity = 12
-# print(oatmeal.quantity)
-
-class HolidayCookie(Cookie):
-    def __init__(self, color, quantity, name, shape):
-        super().__init__(color, quantity, name)
-        self._shape = shape
-
-    def eat_cookie(self):
-        if self.name == 'gingerbread cookie':
-            print("Not my gumdrop buttons!")
-        else:
-            print("Yum, that was a delicious holiday cookie!")
-        self._quantity -= 1
-
-
-    def __len__(self):
-        return self._quantity
-
-    def __repr__(self):
-        return f"< 🎄 Holiday {self._name} with {self._quantity} left 🎄 >"
-
-    def __str__(self):
-        return f"< 🎄 Holiday {self._name} with {self._quantity} left 🎄 >"
-
-gingerbread = HolidayCookie("brown", 12, "gingerbread", "small humanoid")
-print(gingerbread)
-# print(gingerbread.name)
-gingerbread.eat_cookie()
-print(len(gingerbread))
-gingerbread._quantity = 0
-
-
-
-
-
-
-
-
-
-
-def identify_polygon(self):
-    # num sides 3 or greater
-
-    identifier_dict = {
-                3: "Triangle",
-                4: "Quadrilateral",
-                5: "Pentagon",
-                6: "Hexagon",
-                7: "Heptagon",
-                8: "Octagon",
-                9: "Nonagon",
-                10: "Decagon"
-            }
-    try:
-        self.type = identifier_dict[self.num_sides]
-    except KeyError:
-        self.type = f"Polygon with {self.num_sides} sides"
-
-
-    self.type = identifier_dict.get(self.num_sides, f"Polygon with {self.num_sides} sides")
-
+class Human:
+  price = 500
+  def __init__(self, name, age):
+    self.name = name
+    self._age = age
+  
+  def do_something_human(self):
+    return f"{self.name} does something a normal human would do."
+  
+  @classmethod
+  def human_facts(cls):
+    return f"The average human is worth ${cls.price}"
+  
+  @staticmethod
+  def more_human_facts():
+    return "Technically, humans are edible."
+  
+  @property
+  def age(self):
+    return self._age
+  
+  @age.setter
+  def age(self, val):
+    if 0 < val < 125:
+      self._age = val
+    else:
+      print("No one is that age.")
+  
     
+  
+david = Human("David", 30)
+
+# print(david.name)
+
+# print(david.do_something_human())
+
+# print(Human.price)
+# print(david.price)
+david.price = 1000000
+# print(david.price)
+# print(Human.price)
+
+# Human.price = 1
+
+# print(Human.price)
+
+brad = Human("Brad", 30)
+
+# print(brad.price)
+# print(david.price)
+
+# print(Human.human_facts())
+# print(david.human_facts())
+# print(brad.human_facts())
+
+brad.price = 1000000000
+
+# print(brad.price)
+
+# print(Human.more_human_facts())
+# print(david.more_human_facts())
+
+# print(david.age)
+# david.age = 126
+# print(david.age)
+# david._age = 5
+# print(david._age)
+
+class AppAcademyStudent(Human):
+  price = 30000
+  def __init__(self, name, age, level_of_sleep):
+    super().__init__(name, age)
+    self.level_of_sleep = level_of_sleep
+  
+  def do_something_human(self):
+    return f"{self.name} does something a human might do. Everyone is very impressed."
+  
+  @classmethod
+  def human_facts(cls):
+    return f"App academy students are worth {cls.price}"
+  
+  def __repr__(self):
+    return f"<{self.name} is an app Academy student who is worth ${self.price}>"
+    
+# chris = AppAcademyStudent("Christopher", 25, "Not enough")
+
+# print(chris.level_of_sleep)
+# print(chris.age)
+# print(chris.name)
+
+student = AppAcademyStudent("Student", 20, "way too much")
+
+# print(student.price)
+
+# print(student.do_something_human())
+# print(student.human_facts())
+print(student)
+
+# class MyInt(int):
+#   def __init__(self, num):
+#     super().__init__()
+    
+#   def __add__(val1, val2):
+#     return 10
+
+
+
+# num1 = MyInt(1)
+# num2 = MyInt(2)
+
+# print(num1)
+# print(num2)

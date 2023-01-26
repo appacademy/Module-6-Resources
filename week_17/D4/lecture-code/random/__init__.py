@@ -1,2 +1,2 @@
-from random1 import choice, shuffle
-from random2 import randint
+from .choice_stuff import choice, choices
+from .math_stuff import randfloat, randint
