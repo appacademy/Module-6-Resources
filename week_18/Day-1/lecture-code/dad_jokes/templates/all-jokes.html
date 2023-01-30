@@ -1,12 +1,8 @@
-{% extends "base.html" %}
-
-
-{% block main %}
-<h2>Here are all of our jokes!</h2>
-{% for joke in jokes %}
+<h2>Here are all of our great Dad Jokes!</h2>
+<div>
+    {% for joke in jokes %}
     <div>
-        <p>ID: {{ joke.jokeid }}</p>
-        <p>Joke: {{ joke.joke }}</p>
+        <p>ID:{{ joke.jokeid }} Joke: {{ joke.joke }} </p>
         <p>Punchline: {{ joke.punchline }}</p>
         {% if joke.rating == "G" %}
             <p style="color: green">Rating: {{ joke.rating }}</p>
@@ -17,7 +13,11 @@
         {% else %}
             <p>Rating: {{ joke.rating }}</p>
         {% endif %}
-        <p>---------------------------------------</p>
+        <p>-------------------------------------------</p>
     </div>
-{% endfor %}
-{% endblock %}
+    {% endfor %}
+
+
+<p>Footer: Cool site made by Brad</p>
+</div>
+
