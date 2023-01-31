@@ -1,10 +1,8 @@
-from flask import Blueprint, render_template
+from flask import Blueprint
 
-users_routes = Blueprint("users", __name__)
-
-print("user routes", __name__)
+user_routes = Blueprint("user", __name__)
 
 
-@users_routes.route('/')
+@user_routes.route('/')
 def get_users():
-    return "<h1>User info coming soon...</h1>"
+    return "<h3>One day there might be users here...</h3>"

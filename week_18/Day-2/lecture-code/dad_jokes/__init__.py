@@ -1,48 +1,31 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect  
 from .config import Config
 from .db_jokes import jokes
 from random import choice
-from .routes.joke_routes import jokes_router
-from .routes.user_routes import users_routes
-
+from .routes.joke_routes import joke_routes
+from .routes.user_routes import user_routes
 
 app = Flask(__name__)
 app.config.from_object(Config)
-print("in dunder init", __name__)
 
-app.register_blueprint(jokes_router)
-app.register_blueprint(users_routes, url_prefix="/users")
-
+app.register_blueprint(joke_routes)
+app.register_blueprint(user_routes, url_prefix="/users")
 
 
-@app.route('/')
+# print(__name__)
+@app.route("/")
 def index():
-    """
-    Landing page that returns a single random joke
-    """
+    """Home route, will display a random joke"""
     joke = choice(jokes)
-    return render_template('index.html', joke=joke, title="Dad Jokes")
+    print(joke)
     # return redirect("/another", 302)
-
+    return render_template("index.html", joke=joke)
 
 
 @app.route("/another")
-def redirected():
-    return "<h1>We totally got redirected!</h1>"
+def another_route():
+    return "<h1>This is another totally different route! </h1>"
 
 
 
-# @app.route('/all')
-# def all_jokes():
-#     """
-#     Returns all jokes in database
-#     """
-#     # jokes = Joke.query.all()
-#     return render_template('all_jokes.html', jokes=jokes)
 
-
-# @app.route('/<int:id>')
-# def one_joke(id):
-#     # one_joke = Joke.query.get(id)
-#     one_joke = jokes[id - 1] if id <= len(jokes) else "No Joke with that ID"
-#     return render_template('all_jokes.html', jokes=[one_joke])
