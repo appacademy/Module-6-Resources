@@ -2,8 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired
 
+RATING_CHOICES = ["G", "PG", "R"]
 
-RATING_CHOICES = ["G","PG", "R"]
 
 class NewJokeForm(FlaskForm):
     joke = StringField("Joke", validators=[DataRequired()])
@@ -11,4 +11,3 @@ class NewJokeForm(FlaskForm):
     rating = SelectField("Rating", choices=RATING_CHOICES)
     user = SelectField("User", choices=[])
     submit = SubmitField("Add Joke")
-    

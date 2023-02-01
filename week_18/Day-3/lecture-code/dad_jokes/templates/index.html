@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
+{% block potato %}
+    <h4>Here is a random joke for you to enjoy...</h4>
+    <div>
+        <p>Joke: {{ joke.joke_body }} </p>
+        <p>Punchline: {{ joke.punchline }}</p>
+        <p>Rating: {{ joke.rating }}</p>
+        <p>Author: {{ joke.user.username }}</p>
+        <p>Likes: {{ joke.joke_likes | length }}</p>
+    </div>
 
-{% block main %}
-<h4>Random joke for your enjoyment...</h4>
-<div>
-    <p>Joke: {{ joke.joke_body }}</p>
-    <p>Punchline: {{ joke.punchline }}</p>
-    <p>Rating: {{ joke.rating }}</p>
-    <p>Author: {{ joke.user.username }}</p>
-    <p>Likes: {{ joke.joke_likes | length }}</p>
-</div>
 {% endblock %}
