@@ -1,8 +1,8 @@
-"""create user, joke, and likes table
+"""empty message
 
-Revision ID: 8cd6c4b9be62
+Revision ID: 239b52fc0800
 Revises: 
-Create Date: 2022-12-02 11:32:49.161866
+Create Date: 2023-02-02 11:32:21.754400
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8cd6c4b9be62'
+revision = '239b52fc0800'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,16 +23,14 @@ def upgrade():
     sa.Column('username', sa.String(length=100), nullable=False),
     sa.Column('email', sa.String(length=150), nullable=False),
     sa.Column('password', sa.String(length=50), nullable=False),
-    sa.Column('profile_pic', sa.String(length=150), nullable=True),
-    sa.Column('bio', sa.String(length=250), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )
     op.create_table('jokes',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('joke_body', sa.String(length=255), nullable=False),
-    sa.Column('punchline', sa.String(length=255), nullable=False),
-    sa.Column('rating', sa.String(length=10), nullable=False),
+    sa.Column('joke_body', sa.String(length=250), nullable=False),
+    sa.Column('punchline', sa.String(length=250), nullable=False),
+    sa.Column('rating', sa.String(length=20), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')

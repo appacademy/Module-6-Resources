@@ -1,6 +1,7 @@
-import sqlite3
+import sqlite3  
 
 DB_FILE = "dev.db"
+
 
 # with sqlite3.connect(DB_FILE) as conn:
 #     curs = conn.cursor()
@@ -10,11 +11,10 @@ DB_FILE = "dev.db"
 #             id INTEGER PRIMARY KEY AUTOINCREMENT,
 #             joke_body VARCHAR(250),
 #             punchline VARCHAR(250),
-#             rating VARCHAR(10)    
+#             rating VARCHAR(15)
 #             );
 #         """
 #     )
-    
 
 def create_joke(joke_body, punchline, rating):
     with sqlite3.connect(DB_FILE) as conn:
@@ -30,18 +30,20 @@ def create_joke(joke_body, punchline, rating):
                 "rating": rating
             }
         )
+        print("New joke created!")
 
 # create_joke("Why did the scarecrow get a promotion?", 
-#             "He was out standing in his field", "G")
+# "He was outstanding in his field!", "G")
 
 def get_all_jokes():
-      with sqlite3.connect(DB_FILE) as conn:
+    with sqlite3.connect(DB_FILE) as conn:
         curs = conn.cursor()
         curs.execute(
             """
-            SELECT * FROM jokes;
+            SELECT *
+            FROM jokes;
             """
-        )    
+        )
         results = curs.fetchone()
         print(results)
 

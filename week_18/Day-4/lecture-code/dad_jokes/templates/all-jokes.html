@@ -1,26 +1,29 @@
 {% extends "base.html" %}
 
-{% block banana %}
-<h2>Here are all of our dad jokes!</h2>
+{% block potato %}
 
+<h2>Here are all of our great Dad Jokes!</h2>
 <div>
     {% for joke in jokes %}
-        <p>ID: {{ joke.id }}</p>
-        <p>Joke: {{ joke.joke_body  }}</p>
+    <div>
+        <p>ID:{{ joke.id }} Joke: {{ joke.joke_body }} </p>
         <p>Punchline: {{ joke.punchline }}</p>
-        {% if joke.rating == "G"  %}
+        {% if joke.rating == "G" %}
             <p style="color: green">Rating: {{ joke.rating }}</p>
-        {% elif joke.rating == "PG"  %}
-            <p style="color: yellow">Rating: {{ joke.rating }}</p>
-        {% elif joke.rating == "R"  %}
+        {% elif joke.rating == "PG" %}
+            <p style="color: orange">Rating: {{ joke.rating }}</p>
+        {% elif joke.rating == "R" %}
             <p style="color: red">Rating: {{ joke.rating }}</p>
         {% else %}
             <p>Rating: {{ joke.rating }}</p>
         {% endif %}
         <p>Author: {{ joke.user.username }}</p>
         <p>Likes: {{ joke.joke_likes | length }}</p>
-        <p>------------------------------------</p>
+        <p>-------------------------------------------</p>
+    </div>
     {% endfor %}
+
 </div>
 
 {% endblock %}
+

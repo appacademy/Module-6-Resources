@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
-{% block banana %}
-<h3>Create a New Joke:</h3>
+{% block potato %}
+
+<h3>Create a New Joke!</h3>
 <form method="POST" action="/jokes/new">
     {{ form.csrf_token }}
     <p>{{ form.joke.label }}: {{ form.joke }}</p>
