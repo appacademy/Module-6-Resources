@@ -32,7 +32,6 @@ Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but
 Please add your cohort lead & project advisor to your project repo.
 
 - Brad: `bradsimpson213`
-- John: `jwily`
 - David: `hisownspace`
 - Andrew: `andrwtran`
 

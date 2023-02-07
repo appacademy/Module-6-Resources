@@ -188,19 +188,6 @@ Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but
 ---
 
 
-## Instructor GitHub Handles
-
-Please add your instructors to your project repo.
-
-- Brad: bradsimpson213
-- John: jwily
-- David: hisownspace
-- Cesar: 171cas
-- Drew:  Drewthurm21
-
-
----
-
 
 ## SCORECARD!  [Scorecard Template](https://docs.google.com/spreadsheets/d/1OtaNB31kl_FhGrEPl-GoOmTvJrQurAF1jsr3Ts_d-I4/edit#gid=1927083016)
 
