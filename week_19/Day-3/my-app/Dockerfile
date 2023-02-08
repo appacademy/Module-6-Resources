@@ -1,19 +1,21 @@
-FROM node:18-alpine3.15
-# Linux and Node
+# we always want to start from another image
+FROM node:18-alpine3.16
 
-# some sort of port
 EXPOSE 3000
 
-# React App - dependancies (npm install)
-# install those dependancies
 WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install
+RUN npm install 
 
-# source code
-COPY . . 
+COPY . .
 
-# start up react app 
 CMD ["npm", "start"]
+
+
+
+
+
+
+
