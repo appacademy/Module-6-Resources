@@ -1,103 +1,79 @@
-# import random
-# from random import choice as pick, shuffle, randint
-
-# from helpers.helpers import add2, add4
-# from helpers.helpers2 import add6, add8
-
-# from helpers import add2, add4, add6, add8, add10
-# from random import choice, choices, randint, randfloat
-
-
-# nums = [1, 2, 3, 4, 5, 6]
-
-# def choice(num):
-#     pass
-
-# print(pick(nums))
-
-# print(add2(4))
-
-# print(add8(4))
-
-# print(add10(10))
-
 # DECORATORS
 from datetime import datetime
 
 def timer(func):
-    """ decorator fefinition for a function 
-    that times how long the function it wraps 
-    takes to execute"""
-    def wrapper(*args, **kwargs):
-        start_time = datetime.now()
-        val = func(*args, **kwargs)
-        print(val)
-        end_time = datetime.now()
-        time_elapsed = end_time - start_time
-        return time_elapsed
-    return wrapper
+  """ decorator function that times how long
+  it takes the passed in function to execute"""
+  def wrapper(*args, **kwargs):
+    start_time = datetime.now()
+    val = func(*args, **kwargs)
+    print(val)
+    end_time = datetime.now()
+    time_elapsed = end_time - start_time
+    return time_elapsed
 
-
-@timer
-def say_hi(name='you'):
-    return f"Hello {name}!"
+  return wrapper
 
 @timer
-def say_bye():
-    return "See ya later!"
+def say_hi(name="you"):
+  return f"Hello {name}!"
 
 @timer
-def say_goodafternoon():
-    return "What a lovely afternoon!"
+def say_bye(name="buddy"):
+  return f"Goodbye {name}!"
 
-
-# timed_bye = timer(say_bye)
-# print(timed_bye())
 # timed_hi = timer(say_hi)
 # print(timed_hi())
 
+# timed_bye = timer(say_bye)
+# print(timed_bye())
+# print(say_bye("Brad"))
 # print(say_hi())
-# print(say_bye())
-# print(say_goodafternoon())
 
+@timer
+def do_stuff(num):
+  counter = 1
+  for val in range(num):
+    counter += 1
+  return counter
 
+# print(do_stuff(10_000))
+# print(do_stuff(10_000))
+# print(do_stuff(10_000_000))
+# print(do_stuff(1_000_000_000)) # 1.32 minutes to run
 
 # CHAIN DECORATOR
-def square_decorator(func):
+def power_of_two(func):
     def inner(*args, **kwargs):
         x = func(*args, **kwargs)
         return x * x
     return inner
 
-
-def multiply_decorator(func):
+def multiply_by_three(func):
     def inner(*args, **kwargs):
         x = func(*args, **kwargs)
-        return 3 * x
+        return x * 3
     return inner
 
 
-@multiply_decorator
-@square_decorator
+@multiply_by_three
+@power_of_two
 def num(a, b):
     return a + b
 
-print(num(5, 2))  # > 441 -> 7 -> 49 -> 147
-                  # -> 7 -> 21 -> 441  
-print(num(8, 2))  # > 900
-print(num(4, 9))  # > 1521
 
-
-
-
+# print(num(5, 2))  #> 441  7 => 49 => 147  
+#                        # 7 => 21 => 441
+# print(num(8, 2))  #> 900
+# print(num(4, 9))  #> 1521
 
 def chain_decorator(func):
-    @square_decorator
-    @multiply_decorator
-    def inner(*args, **kwargs):
-        x = func(*args, **kwargs)
-        return x
-    return inner
+  @power_of_two
+  @multiply_by_three
+  def inner(*args, **kwargs):
+    x = func(*args, **kwargs)
+    return x
+  return inner
 
 
 @chain_decorator
@@ -107,116 +83,98 @@ def num(a, b):
 
 # CLASSES
 
-
-class Human:
-  price = 500
-  def __init__(self, name, age):
-    self.name = name
+class Cat:
+  breed = "American Short Hair"
+  def __init__(self, color, age, name="Kitty"):
+    self._color = color
     self._age = age
-  
-  def do_something_human(self):
-    return f"{self.name} does something a normal human would do."
-  
-  @classmethod
-  def human_facts(cls):
-    return f"The average human is worth ${cls.price}"
-  
-  @staticmethod
-  def more_human_facts():
-    return "Technically, humans are edible."
-  
+    self._name = name
+    # self._hashed_password
+    # print(f"You made a cat named {self._name}")
+
+  def speak(self):
+    return f'{self._name} says "Meow!"'
+
+
   @property
+  def name(self):
+    return self._name
+
+  @name.setter
+  def name(self, new_name):
+    bad_names = ["cat", "kitty", "kitty kitty"]
+
+    if len(new_name) > 15:
+      print("Thats to long of a name for a cat!")
+    elif len(new_name) < 2:
+      print("Cats need a longer name than that!")
+    elif new_name in bad_names:
+      print("Pick a better name for your cat!")
+    else:
+      self._name = new_name
+
+
+  @property  
   def age(self):
     return self._age
-  
+
   @age.setter
-  def age(self, val):
-    if 0 < val < 125:
-      self._age = val
+  def age(self, new_age):
+    if new_age > 25:
+      print("Thats too old for a cat's age")
+    elif new_age < 0:
+      print("Cat's cant have negative ages")
     else:
-      print("No one is that age.")
-  
-    
-  
-david = Human("David", 30)
+      self._age = new_age
 
-# print(david.name)
 
-# print(david.do_something_human())
-
-# print(Human.price)
-# print(david.price)
-david.price = 1000000
-# print(david.price)
-# print(Human.price)
-
-# Human.price = 1
-
-# print(Human.price)
-
-brad = Human("Brad", 30)
-
-# print(brad.price)
-# print(david.price)
-
-# print(Human.human_facts())
-# print(david.human_facts())
-# print(brad.human_facts())
-
-brad.price = 1000000000
-
-# print(brad.price)
-
-# print(Human.more_human_facts())
-# print(david.more_human_facts())
-
-# print(david.age)
-# david.age = 126
-# print(david.age)
-# david._age = 5
-# print(david._age)
-
-class AppAcademyStudent(Human):
-  price = 30000
-  def __init__(self, name, age, level_of_sleep):
-    super().__init__(name, age)
-    self.level_of_sleep = level_of_sleep
-  
-  def do_something_human(self):
-    return f"{self.name} does something a human might do. Everyone is very impressed."
-  
   @classmethod
-  def human_facts(cls):
-    return f"App academy students are worth {cls.price}"
-  
+  def cat_factory(cls, cats):
+    new_cats = [cls(color, age, name) for color, age, name in cats]
+    # print([cat.speak() for cat in new_cats])
+    return new_cats
+
+
+  @staticmethod
+  def feed_me():
+    hunger_level = int(input("From 1 to 9, how hungry is the kitty?: "))
+    for i in range(hunger_level):
+      print("Meeeooowwww?!?!")
+
+
   def __repr__(self):
-    return f"<{self.name} is an app Academy student who is worth ${self.price}>"
-    
-# chris = AppAcademyStudent("Christopher", 25, "Not enough")
+    return f'<{self.name} is a {self._color} Cat!>'
 
-# print(chris.level_of_sleep)
-# print(chris.age)
-# print(chris.name)
-
-student = AppAcademyStudent("Student", 20, "way too much")
-
-# print(student.price)
-
-# print(student.do_something_human())
-# print(student.human_facts())
-print(student)
-
-# class MyInt(int):
-#   def __init__(self, num):
-#     super().__init__()
-    
-#   def __add__(val1, val2):
-#     return 10
+  def __str__(self):
+    return f'<{self.name} is a {self._color} Cat!>'
 
 
+make_cats = Cat.cat_factory([("black", 6, "Blue"), ("tuxedo", 6, "Patch"), ("grey", 13, "Mimi")])
+blue, patch, mimi = make_cats
 
-# num1 = MyInt(1)
-# num2 = MyInt(2)
-
-# print(num1)
-# print(num2)
+# blue = {
+#   "age": 6,
+#   "name": "Blue",
+#   "color": "black"
+# }
+# blue = Cat(**blue)
+# blue = Cat(age=6, color="black", name='Blue')
+# patch = Cat(age=6, color="tuxedo", name='Patch')
+# print(blue)
+# print(blue._age)
+# print(blue.speak())
+# print(blue.breed)
+# blue.breed = "Long Hair"
+# print(blue.breed)
+# print(patch.breed)
+# print(Cat.breed)
+# Cat.breed = 'Long Hair'
+# print(blue.breed)
+# print(patch.breed)
+# # print(Cat.breed)
+# print(mimi._color)
+# patch.feed_me()
+# print(blue.name)
+# blue.name = 'Mr Fancy Pants Kittenpuss'
+# print(blue.name)
+# print(blue)
