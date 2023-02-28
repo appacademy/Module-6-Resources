@@ -1,0 +1,34 @@
+{% extends "navbar.html" %}
+
+
+{% block content %}
+<div class="feed-container">
+
+    {% for post in posts %}
+        <div class="post-container">
+            <div class="post-box">
+                <div class="post-author">
+                    <img class="profile-pic"
+                        src="{{ post.author.profile_pic }}"
+                    />
+                    {% if post.author.username == "Patchenator" %}
+                        <h2 style="color: red;">{{ post.author.username }}</h2>
+                    {% elif post.author.username == "Blueberry44" %}
+                        <h2 style="color: blue;">{{ post.author.username }}</h2>
+                    {% else %}
+                        <h2 style="color: green;">{{ post.author.username }}</h2>
+                    {% endif %}
+                </div>
+                <h3>{{ post.date }}</h3>
+            </div>
+            <div>
+                <img class="post-image" src="{{ post.image }}" />
+                <p class="post-text">{{ post.caption }}</p>
+                <p class="post-text">{{ post.likes }} Likes</p>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
