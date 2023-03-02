@@ -1,77 +1,86 @@
-from dad_jokes.models.db import db, User, Joke
-from dad_jokes import app
+from app.models import db, User, Post
+from app import app
+from random import choice
+from faker import Faker
+
+fake = Faker()
 
 
 with app.app_context():
 
-    db.drop_all()
-    print("All tables dropped!")
+    # db.drop_all()
+    # print("All table droppped!")
     # db.create_all()
-    # print("Create all tables!")
+    # print("Created all tables!")
 
-
-    user1 = User(
-        username="Brad",
-        email="brad@gmail.com",
-        password="password",
-    )
-    user2 = User(username="Andy", email="andy@gmail.com", password="cubingiscool")
-    user3 = User(username="Blue", email="blue@gmail.com", password="iamaninja")
-    user4 = User(username="Patch", email="patch@gmail.com", password="ilovefud")
-
-    # all_users = [ user1, user2, user3, user4 ]
-    # add_user = [db.session.add(user) for user in all_users]
-    # db.session.commit()
-    # print("Users table seeded!")
-
-    joke1 = Joke(
-        joke_body="What did the plumber say to the singer?",
-        punchline="Nice pipes!",
-        rating='G',
-        user=user1,
-        joke_likes=[user2, user3]
-    )
-    joke2 = Joke(
-        joke_body='What do you call a lazy doctor?',
-        punchline='Dr Doo-little...',
-        rating='PG',
-        user=user1,
-        joke_likes=[user1, user2, user4]
+    user_1 = User(
+        username="Patchenator",
+        email="patcj_the_cat@gmail.com",
+        profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
+        bio="I love naps and food"
     )
 
-    joke3 = Joke(
-        joke_body='What do you call a camel in a drought?',
-        punchline='A dry humper...',
-        rating='PG',
-        user=user1
+    user_2 = User(
+            username="Blueberry44",
+            email="blue@aol.com",
+            profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912128/Patchstagram/66346842095__0566A55A-DF10-4E86-A59A-F5694436FA4E_wmoi1w.jpg",
+            bio="I am a ninja! 🥷🏻",
     )
 
-    joke4 = Joke(
-        joke_body='Did you hear Steve Harvey and his wife got into a fight?',
-        punchline='It was a real family feud...',
-        rating='R',
-        user=user2,
-        joke_likes=[user3, user4]
+    user_3 = User(
+            username="brads213",
+            email="brad@gmail.com",
+            profile_pic="https://ca.slack-edge.com/T03GU501J-USQFVK3GT-941e867a316f-512",
+            bio="I am the father of 2 crazy cats",
     )
 
-    joke5 = Joke(
-        joke_body='What do mermaids wash their fins with?',
-        punchline='Tide...',
-        rating='G',
-        user=user2,
-        joke_likes=[user1, user3, user4]
+    
+    all_users = [user_1, user_2, user_3]
+    add_users = [db.session.add(user) for user in all_users] 
+    db.session.commit()
+    print("All users seeded")
+
+
+    post_1 = Post(
+        caption="Napping outside is always fun...",
+        image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
+        post_date=fake.date_between(start_date="-1y", end_date="today"),
+        user=choice(all_users),
+        post_likes=[user_2, user_3],
     )
 
+    post_2 = Post(
+        caption="Napping inside is pretty awesome too...",
+        image="https://res.cloudinary.com/app-academy4/image/upload/v1647912403/Patchstagram/64865942444__2B7B1A74-ECAF-4798-BEAB-D4890B7164C4_hnmowy.jpg",
+        post_date=fake.date_between(start_date='-1y', end_date='today'),
+        user=choice(all_users),
+        post_likes=[user_2, user_1],
+    )
 
-    # all_jokes = [joke1, joke2, joke3, joke4, joke5]
-    # add_jokes = [db.session.add(joke) for joke in all_jokes]
-    # db.session.commit()
-    # print("Jokes table seeded!")
+    post_3 = Post(
+        caption= "I like my fish",
+        image= "https://res.cloudinary.com/app-academy4/image/upload/v1647912006/Patchstagram/IMG_3437_u2frrk.jpg",
+        post_date=fake.date_between(start_date='-1y', end_date='today'),
+        user=choice(all_users),
+        post_likes=[user_1, user_2, user_3],
+    )       
+    
+    post_4 = Post(
+        caption= "Now THIS is a party!",
+        image= "https://res.cloudinary.com/app-academy4/image/upload/v1647912056/Patchstagram/IMG_3389_i6czzx.jpg",
+        post_date=fake.date_between(start_date='-1y', end_date='today'),
+        user=choice(all_users),
+    )
 
+    post_5 = Post(
+        caption= "This punk stole my tent! ⛺️",
+        image= "https://res.cloudinary.com/app-academy4/image/upload/v1647912094/Patchstagram/IMG_3211_sy5wcy.jpg",
+        post_date=fake.date_between(start_date='-1y', end_date='today'),
+        user=user_2,
+        post_likes=[user_2, user_3]
+    )
 
-
-    # db.session.add(joke1)
-    # db.session.add(joke2)
-    # db.session.add(joke3)
-    # db.session.add(joke4)
-    # db.session.add(joke5)
+    all_posts = [post_1, post_2, post_3, post_4, post_5]
+    add_posts = [db.session.add(post) for post in all_posts]
+    db.session.commit()
+    print("All posts seeded!")
