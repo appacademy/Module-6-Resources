@@ -18,7 +18,7 @@ Submit your design docs for review by tagging your project lead in your group sl
 | :------: | :--------------- | :--------------------- |
 |   Monday    | Choose Project, Feature List        |     |
 |   Tuesday    | Feature List, User Stories      | Feature List    |
-|   Wednesday    | Scorecard Link   | Scorecard Link, User Stories   |
+|   Wednesday    | User Stories   |  User Stories   |
 |   Thursday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*          |   |
 |   Friday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*          | DB Schema  |
 
@@ -34,9 +34,8 @@ Please add your cohort lead & project advisor to your project repo.
 - Brad: `bradsimpson213`
 - David: `hisownspace`
 - Andrew: `andrwtran`
+- Keegan: `Holidaez`
 
 
-## [Scorecard Template](https://docs.google.com/spreadsheets/d/1OtaNB31kl_FhGrEPl-GoOmTvJrQurAF1jsr3Ts_d-I4/edit#gid=1927083016)
 
-Please make a **copy** of this template for your scorecard. Fill out the purple sections and share your scorecard with your project advisor and cohort lead.
 
