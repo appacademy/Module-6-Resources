@@ -137,11 +137,12 @@ We will have time allotted each day this week to work on group project planning!
 
 Use [this schedule](https://github.com/appacademy/Module-6-Resources/blob/main/group_project_resources/project-planning-sheet.md) to help guide your planning this week.
 
-You must produce 4 design documents for approval by your project advisor this week: 
+***You will be required to have 4 features for this project, 2 full CRUD and 2 partial CRUD***
+
+You must produce 3 design documents for approval by your project advisor this week: 
 - Feature list
 - User stories
 - Database schema
-- Grading scorecard
 
 
 ---
@@ -168,13 +169,15 @@ The following schedule is a general guideline for how to proceed with project pl
 | :------: | :--------------- | :--------------------- |
 |   Monday    | Choose Project, Feature List        |     |
 |   Tuesday    | Feature List, User Stories      | Feature List    |
-|   Wednesday    | Scorecard Link   | Scorecard Link, User Stories   |
+|   Wednesday    | User Stories    | User Stories   |
 |   Thursday    | DB Schema         |   |
 |   Friday    | DB Schema, *Optional: API Routes, Wire Frames, Redux State Shape, Set up Scrum Board & Issues*         | DB Schema     |
 
 
 
 ---
+
+
 
 ## Optional Design Docs
 
@@ -185,20 +188,8 @@ Submit your design docs for review by tagging your project lead in your group sl
 Redux State Shape, API routes, Frontend Routes, and Wire Frames are optional but might be helpful!
 
 
+
 ---
-
-
-
-## SCORECARD!  [Scorecard Template](https://docs.google.com/spreadsheets/d/1OtaNB31kl_FhGrEPl-GoOmTvJrQurAF1jsr3Ts_d-I4/edit#gid=1927083016)
-
-Please make a **copy** of this template for your scorecard. Fill out the purple sections and share your scorecard with your project advisor and cohort lead.
-
-
-
-
-___
-
-
 
 ### Group Projects
 You are free to choose between cloning an existing app, creating your own, or something in between! Possible clones are listed in a/A Open under `Week 20 - Python Project -> Expectations -> Python Group Project`.
