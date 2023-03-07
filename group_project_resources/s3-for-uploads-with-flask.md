@@ -1,8 +1,67 @@
 # Using S3 for image upload with Flask
-## Setup
-Follow [these instructions](https://github.com/jamesurobertson/aws-s3-pern-demo#create-your-aws-user-and-bucket) to create your aws user and bucket, and obtain your credentials (stop after the __Create your AWS User and Bucket__ section). You will need these credentials in subsequent steps to set up your environment.
 
-You will also need to set up your bucket so that files can be publicly accessed—follow [these instructions](https://github.com/jamesurobertson/aws-s3-pern-demo#public-file-read-configuration), again stopping after you finish the __On AWS S3 Console__ section.
+
+### Create your AWS User and Bucket
+
+Navigate to https://s3.console.aws.amazon.com/s3/home?region=us-east-1 click on “create bucket”, enter a name, choose a region, and leave all other options as default.
+
+Head to https://console.aws.amazon.com/iam/home?#/users to create a new user. Name the user whatever you like. Give the user Programmatic access. Proceed to the next step. Now you need to set up the security policy for your new user. This is how they will be allowed to connect. Click 'Attach existing policies directly' and then 'Create Policy'. This will open up a new tab.
+
+In the new tab, click the JSON tab and paste the following:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1420751757000",
+      "Effect": "Allow",
+      "Action": ["s3:*"],
+      "Resource": "arn:aws:s3:::<NAME OF BUCKET>/*"
+    }
+  ]
+}
+```
+Make sure to replace <NAME OF BUCKET> with the name of your bucket. Click Review Policy.
+
+Give the policy whatever name you like (e.g. s3-access-to-name-of-project). After you save and create the policy, head back over to the other tab/window where you are creating a new user.
+
+Click the refresh button all the way to the right of the Create Policy button then search for the policy that you just created. Check that policy then head over to the next step. You can skip additional tags. Create the user.
+
+After you create the user, you will get the Access Key ID and the Secret Access Key. Download the .csv file Store this somewhere safe on your computer
+
+
+
+### Set up Public File Access
+
+
+Public File Read Configuration
+On AWS S3 Console
+
+Access your bucket public permissions:
+
+<img src='https://github.com/jamesurobertson/aws-s3-pern-demo/blob/master/assets/block-public-access.png'/>
+
+
+Unblock all public access. Your images are going to be accessible to the public for this demo. Be careful when setting this for more sensitive information in the future where you do want to block public access.
+
+Then, scroll to Object Ownership and click on Edit.
+
+<img src='https://user-images.githubusercontent.com/89059894/168724451-b7e33a65-c50b-4e4f-a3bc-8159c48c6b83.png'/>
+
+Change the settings to ACLs Enabled and Bucket owner preferred.
+
+<img src='https://user-images.githubusercontent.com/89059894/168724412-e4c330de-bbc7-4729-b6a4-da18133a6de3.png'/>
+
+Hit Save Changes
+
+Sending up the files to your frontend
+
+All you need to read the files on your frontend is the url path to the file that you saved to the database. Nothing special is needed other than the saved S3 URL.
+
+Multiple Files Backend
+Take a look at the multiplePublicFileUpload, and multipleMulterUpload functions in the following file, awsS3.js. These functions are used in the same way as the single file upload functions above.
+
+
 
 Finally, use pipenv to install the `boto3` library in your project folder.
 
