@@ -197,7 +197,7 @@ def upload_file_to_s3(file, acl="public-read"):
 For the purposes of this tutorial, let's assume we have an Image model in our database with a column for the image url and a column for the id of the user who uploaded the image. After we've successfully uploaded the image to S3, we can store the returned URL in our database.
 
 
-```python=
+```python
 from flask import Blueprint, request
 from app.models import db, Image
 from flask_login import current_user, login_required
@@ -240,10 +240,10 @@ def upload_image():
 
 Here is a simple example of a component for users to upload images. You will undoubtedly need to modify this for your usage, but make sure that the name of the field you attach to your `FormData` object matches what you are looking for on the backend end (i.e. the name in `formData.append("<some name>", image);` should match `image = request.files["<some name>"]`).
 
-Note that you must NOT set the `Content-Type` header on your request. If you leave the `Content-Type` field blank,  the `Content-Type` will be generated and set correctly by your browser (check it out in the network tab!). If you include `Content-Type`, your request will be missing information and your Flask backend will be unable to locate the attached files.
+Note that you must NOT set the `Content-Type` header on your request. If you leave the `Content-Type` field blank,  the `Content-Type` will be generated and set correctly by your browser (check it out in the network tab!). If you include `Content-Type`, your request will be missing information and your Flask backend will be unable to locate the attached files.  
 
 
-```javascript=
+```javascript
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 
@@ -286,7 +286,9 @@ const UploadPicture = () => {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form 
+            onSubmit={handleSubmit}
+        >
             <input
               type="file"
               accept="image/*"
