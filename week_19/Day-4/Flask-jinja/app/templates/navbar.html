@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block navbar %}
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo-container">
+                <img class="nav-logo"
+                    src="https://res.cloudinary.com/app-academy4/image/upload/v1647291502/Patchstagram/patch_hd_riobbp.png"
+                    alt="cat-logo"
+                />
+                <h1 class="nav-title">Patchstagram</h1>
+            </div>
+            <a href="/">Home</a>
+            <a href="/posts/all">Feed</a>
+            <a href="/posts/new">New Post</a>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+
+{% endblock %}

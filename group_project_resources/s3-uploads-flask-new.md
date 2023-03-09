@@ -342,12 +342,7 @@ const UploadPicture = () => {
             console.log("error");
         }
     }
-    
-    const updateImage = (e) => {
-        const file = e.target.files[0];
-        setImage(file);
-    }
-    
+     
     return (
         <form 
             onSubmit={handleSubmit}
@@ -374,7 +369,6 @@ context.
 
 
 ## Credits
-Inspired by [this boto3
-tutorial](https://www.zabana.me/notes/flask-tutorial-upload-files-amazon-s), as
-well as [this tutorial](https://github.com/jamesurobertson/aws-s3-pern-demo)
-that uses Express.
+ - Boto3 Docs [boto3 docs](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+ - Flask_wtf docs [flask_wtf docs on file uploads](https://flask-wtf.readthedocs.io/en/1.0.x/form/?highlight=file#file-uploads)
+ - AWS setup walkthrough for Express[aws-s3 tutorial on express](https://github.com/jamesurobertson/aws-s3-pern-demo)
