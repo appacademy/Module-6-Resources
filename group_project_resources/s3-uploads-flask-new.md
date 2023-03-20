@@ -363,12 +363,15 @@ export default UploadPicture;
 ```
 
 ## Working Demo
-Check out [this repo](https://github.com/jshafto/widget_app) to see this code in
-context.
+ - Check out [this repo](https://github.com/jshafto/widget_app) to see this code
+   in context.
 
 
 
 ## Credits
- - Boto3 Docs [boto3 docs](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
- - Flask_wtf docs [flask_wtf docs on file uploads](https://flask-wtf.readthedocs.io/en/1.0.x/form/?highlight=file#file-uploads)
- - AWS setup walkthrough for Express[aws-s3 tutorial on express](https://github.com/jamesurobertson/aws-s3-pern-demo)
+ - Boto3 Docs [boto3
+   docs](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+ - Flask_wtf docs [flask_wtf docs on file
+   uploads](https://flask-wtf.readthedocs.io/en/1.0.x/form/?highlight=file#file-uploads)
+ - AWS setup walkthrough for Express [aws-s3 tutorial on
+   express](https://github.com/jamesurobertson/aws-s3-pern-demo)

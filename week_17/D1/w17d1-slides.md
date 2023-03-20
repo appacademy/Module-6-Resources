@@ -18,10 +18,12 @@
 ## Meet the Team!
 - Module Lead
    - Brad Simpson
-- TA’s
-    - John Lee
-    - Cesar Solano
+- Module Assistant
     - David Nash
+- TA’s
+    - Andrew Tran
+    - Keegan Abley
+
 
 
 ---
