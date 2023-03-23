@@ -1,65 +1,107 @@
-# DECORATORS
+# IMPORTS
+
+# IMPORTING FROM MODULES
+# import random
+# import os 
+# from random import choice as pick, shuffle
+
+# nums = [1, 2, 3, 4, 5]
+# print(pick(nums))
+
+# IMPORTING FROM FILES
+from helpers import add2, add4, names
+# from all_helpers.helpers2 import add6
+# from all_helpers.helpers3 import add8
+from all_helpers import add10, add6, add8
+
+# print(add2(2))
+# print(add4(2))
+# print(add6(2))
+# print(add8(2))
+
+
 from datetime import datetime
 
 def timer(func):
-  """ decorator function that times how long
-  it takes the passed in function to execute"""
   def wrapper(*args, **kwargs):
     start_time = datetime.now()
     val = func(*args, **kwargs)
-    print(val)
     end_time = datetime.now()
-    time_elapsed = end_time - start_time
-    return time_elapsed
-
+    print(val)
+    elapsed_time = end_time - start_time
+    return elapsed_time
   return wrapper
 
 @timer
-def say_hi(name="you"):
+def say_hello(name="David"):
   return f"Hello {name}!"
 
 @timer
-def say_bye(name="buddy"):
+def say_bye(name):
   return f"Goodbye {name}!"
 
-# timed_hi = timer(say_hi)
-# print(timed_hi())
+@timer
+def say_hello_many_times(name1, name2):
+  return f"Hello {name1} and {name2}!"
 
-# timed_bye = timer(say_bye)
-# print(timed_bye())
-# print(say_bye("Brad"))
-# print(say_hi())
+print(say_hello_many_times("Andrew", "Keegan"))
+
+# timed_hello = timer(say_hello)
+
+# print(timed_hello("Brad"))
+
+print(say_hello(name="Brad"))
+print(say_bye("Brad"))
 
 @timer
 def do_stuff(num):
-  counter = 1
+  count = 0
   for val in range(num):
-    counter += 1
-  return counter
+    count += 1
+  return count
 
-# print(do_stuff(10_000))
-# print(do_stuff(10_000))
-# print(do_stuff(10_000_000))
-# print(do_stuff(1_000_000_000)) # 1.32 minutes to run
-
-# CHAIN DECORATOR
-def power_of_two(func):
-    def inner(*args, **kwargs):
-        x = func(*args, **kwargs)
-        return x * x
-    return inner
-
-def multiply_by_three(func):
-    def inner(*args, **kwargs):
-        x = func(*args, **kwargs)
-        return x * 3
-    return inner
+# print(do_stuff(1))
+# print(do_stuff(100))
+# print(do_stuff(1000))
+# print(do_stuff(100000000))
 
 
-@multiply_by_three
-@power_of_two
-def num(a, b):
-    return a + b
+# # Problem 4 - Chain Decorator
+# # Write your function here.
+
+# def power_of_two(func):
+#     def inner(*args, **kwargs):
+#         x = func(*args, **kwargs)
+#         return x * x
+#     return inner
+
+
+# def multiply_by_three(func):
+#     def inner(*args, **kwargs):
+#         x = func(*args, **kwargs)
+#         return x * 3
+#     return inner
+
+
+# @multiply_by_three
+# @power_of_two
+# def num(a, b):
+#     return a + b
+
+
+
+# def chain_decorator(func):
+#     @square_decorator
+#     @multiply_decorator
+#     def inner(*args, **kwargs):
+#         x = func(*args, **kwargs)
+#         return x
+#     return inner
+
+
+# @chain_decorator
+# def num(a, b):
+#     return a + b
 
 
 # print(num(5, 2))  #> 441  7 => 49 => 147  
@@ -67,114 +109,133 @@ def num(a, b):
 # print(num(8, 2))  #> 900
 # print(num(4, 9))  #> 1521
 
-def chain_decorator(func):
-  @power_of_two
-  @multiply_by_three
-  def inner(*args, **kwargs):
-    x = func(*args, **kwargs)
-    return x
-  return inner
-
-
-@chain_decorator
-def num(a, b):
-    return a + b
+# def timer(func):
+#     """ decorator definition for a function that times how long
+#     it takes for the function it is decorating to run """
+#     def wrapper(*args, **kwargs):
+#         start_time = datetime.now()
+#         val = func(*args, **kwargs)
+#         print(val)
+#         end_time = datetime.now()
+#         time_elapsed = end_time - start_time
+#         return time_elapsed    
+#     return wrapper
 
 
 # CLASSES
-
 class Cat:
-  breed = "American Short Hair"
-  def __init__(self, color, age, name="Kitty"):
-    self._color = color
-    self._age = age
-    self._name = name
-    # self._hashed_password
-    # print(f"You made a cat named {self._name}")
-
-  def speak(self):
-    return f'{self._name} says "Meow!"'
+    breed = "American Short Hair"
+    def __init__(self, color, age, name="Kitty"):
+        self._color = color
+        self._age = age
+        self._name = name
+        print(self.speak())
 
 
-  @property
-  def name(self):
-    return self._name
+    @property  
+    def name(self):
+        return self._name
 
-  @name.setter
-  def name(self, new_name):
-    bad_names = ["cat", "kitty", "kitty kitty"]
-
-    if len(new_name) > 15:
-      print("Thats to long of a name for a cat!")
-    elif len(new_name) < 2:
-      print("Cats need a longer name than that!")
-    elif new_name in bad_names:
-      print("Pick a better name for your cat!")
-    else:
-      self._name = new_name
+    @name.setter 
+    def name(self, new_name):
+        if len(new_name) < 2:
+            print("That's too short a name for a cat!")
+        else:
+            self._name = new_name
 
 
-  @property  
-  def age(self):
-    return self._age
+    @property
+    def age(self):
+        return self._age
 
-  @age.setter
-  def age(self, new_age):
-    if new_age > 25:
-      print("Thats too old for a cat's age")
-    elif new_age < 0:
-      print("Cat's cant have negative ages")
-    else:
-      self._age = new_age
+    @age.setter 
+    def age(self, new_age):
+        if new_age > 25:
+            print("thats too old for a cat!")
+        elif new_age < 0:
+            print("Cats can't have a negative age!")
+        else:
+            self._age = new_age
 
-
-  @classmethod
-  def cat_factory(cls, cats):
-    new_cats = [cls(color, age, name) for color, age, name in cats]
-    # print([cat.speak() for cat in new_cats])
-    return new_cats
+    
+    def speak(self):
+        return f"{self._name} says 'Meow!'"
 
 
-  @staticmethod
-  def feed_me():
-    hunger_level = int(input("From 1 to 9, how hungry is the kitty?: "))
-    for i in range(hunger_level):
-      print("Meeeooowwww?!?!")
+    def __repr__(self):
+        return f"< {self.name} is a {self._color} cat >"
+
+    
+    def __str__(self):
+        return f"< {self.name} is a {self._color} cat >"
 
 
-  def __repr__(self):
-    return f'<{self.name} is a {self._color} Cat!>'
+    @classmethod
+    def cat_factory(cls, cats):
+        new_cats = [cls(color, age, name) for color, age, name in cats]
+        # print([cat.speak() for cat in new_cats])
+        return new_cats
 
-  def __str__(self):
-    return f'<{self.name} is a {self._color} Cat!>'
+
+    @staticmethod
+    def feed_me():
+        for i in range(5):
+            print('Meowwwww?!?!')
 
 
-make_cats = Cat.cat_factory([("black", 6, "Blue"), ("tuxedo", 6, "Patch"), ("grey", 13, "Mimi")])
+
+make_cats = Cat.cat_factory([("Black", 6, "Blue"),
+        ("Tuxedo", 6, "Patch"),("Gray", 14, "Mimi")])
 blue, patch, mimi = make_cats
-
-# blue = {
-#   "age": 6,
-#   "name": "Blue",
-#   "color": "black"
-# }
-# blue = Cat(**blue)
-# blue = Cat(age=6, color="black", name='Blue')
-# patch = Cat(age=6, color="tuxedo", name='Patch')
-# print(blue)
-# print(blue._age)
+# blue = Cat("Black", 6, "Blue")
+# patch = Cat("Tuxedo", 6, "Patch")
+# print(blue._name)
 # print(blue.speak())
 # print(blue.breed)
-# blue.breed = "Long Hair"
+# # blue.breed = "Long Hair Kitty"
+# Cat.breed = "Good Kitty"
 # print(blue.breed)
 # print(patch.breed)
-# print(Cat.breed)
-# Cat.breed = 'Long Hair'
-# print(blue.breed)
-# print(patch.breed)
-# # print(Cat.breed)
-# print(mimi._color)
 # patch.feed_me()
+# print(blue._age)
+# print(blue.age)
+# blue.age = 7
+# print(blue.age)
+# print(blue._name)
 # print(blue.name)
-# blue.name = 'Mr Fancy Pants Kittenpuss'
+# blue.name = "Mr. Fancypants McGoo"
 # print(blue.name)
 # print(blue)
+
+# GETTERS & SETTERS
+# Implement a class called Game with the
+# following:
+# A constructor that takes no arguments and sets an
+# instance variable called score to an initial value of 0.
+# A getter
+# method named score that returns the value of a private instance property
+# called _score.
+# A setter method named score that sets the value of
+# the private property _score. This method should take a single argument for the
+# value and set _score to this value * 10.
+
+class Game:
+    def __init__(self):
+        self._score = 0
+
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter 
+    def score(self, new_score):
+        self._score = new_score * 10
+
+
+my_game = Game()
+print(my_game.score) # 0
+
+my_game.score
+my_game.score(5)
+my_game.score = 5
+print(my_game.score) # 50
