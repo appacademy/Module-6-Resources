@@ -1,7 +1,7 @@
-{% extends "navbar.html" %}
+{% extends "nav.html" %}
 
 
-{% block content %}
+{% block potato %}
 <div class="feed-container">
 
     {% for post in posts %}
@@ -13,7 +13,7 @@
                     />
                     {% if post.user.username == "Patchenator" %}
                         <h2 style="color: red;">{{ post.user.username }}</h2>
-                    {% elif post.user.username == "Blueberry44" %}
+                    {% elif post.author.username == "Blueberry44" %}
                         <h2 style="color: blue;">{{ post.user.username }}</h2>
                     {% else %}
                         <h2 style="color: green;">{{ post.user.username }}</h2>
@@ -24,7 +24,11 @@
             <div>
                 <img class="post-image" src="{{ post.image }}" />
                 <p class="post-text">{{ post.caption }}</p>
-                <p class="post-text">{{ post.likes }} Likes</p>
+                <p class="post-text">{{ post.post_likes | length }} Likes</p>
+            </div>
+            <div>
+                <a href="/posts/update/{{ post.id }}">Edit Post</a>
+                <a href="/posts/delete/{{ post.id }}">Delete Post</a>
             </div>
         </div>
     {% endfor %}
