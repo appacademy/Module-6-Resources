@@ -2,9 +2,9 @@ from flask import Blueprint
 
 users = Blueprint("users", __name__)
 
-# print("inside the users bp", __name__)
+# print("inside users BP", __name__)
 
 
-@users.route("/all")
-def get_all_users():
-    return "<h1>Look at all the lovely users...</h1>"
+@users.route("/")
+def user_stuff():
+    return "<h2>Users Stuff here!</h2>"
