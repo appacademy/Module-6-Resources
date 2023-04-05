@@ -1,23 +1,24 @@
-FROM node:18-alpine3.16
+# Example Dockerfile Commands (should not try to build this!)
 
-ENV FLASK_APP=my-app
-ENV FLASK_DEBUG=True
-ENV REACT_APP_BACKEND_URL="https://my-app.onrender.com"
+FROM node:18-alpine3.15
 EXPOSE 3000
 
-WORKDIR /my-app
+ENV FLASK_APP=my-app
+ENV FLASK_DEBUG=false
+ENV REACT_BACKEND_URL='https://heroku-app.myapp.com'
+
+WORKDIR /app
 
 COPY package.json .
+COPY package-lock.json .
 
 RUN npm install
 
-
-COPY Pipfile .
 RUN pip install
 
-COPY . .
-RUN flask run
+COPY . . 
 
-CMD ["npm", "start"]
-CMD ["param1", "param2"]
+CMD ['npm', 'start' ]
+CMD ['param1', 'param2']
 CMD npm start
+

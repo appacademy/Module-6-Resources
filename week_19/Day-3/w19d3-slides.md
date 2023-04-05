@@ -171,6 +171,7 @@ CMD command param1 param2
 When a dockerfile is built the first time it must run each layer of commands.  If there is an error or you made changes, and docker is "rebuilding" an image, it will cache the layers that were successful and unchanged! This does mean we want to consider this process when writing our Dockerfiles
 
 
+<img style="height: 400px;" src="https://media.giphy.com/media/kwafZfFxw8WnC/giphy.gif" />
 
 ---
 
