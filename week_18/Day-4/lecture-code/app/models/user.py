@@ -1,30 +1,29 @@
 from .db import db
-from .likes import likes 
+from .likes import likes
 
 class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(120), nullable=False)
+    username = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     profile_pic = db.Column(db.String(250))
-    bio = db.Column(db.String(200))
+    bio = db.Column(db.String(300))  
 
-    # RELATIONSHIP ATTRIBUTED
+    # relationship attribute
     posts = db.relationship(
-            "Post", 
-            back_populates="user"
+        "Post",
+        back_populates="user",
     )
-
+    
     user_likes = db.relationship(
         "Post",
         secondary=likes,
-        back_populates="post_likes",
-        cascade="all, delete" 
+        back_populates="post_likes"
     )
 
 
     def __repr__(self):
-        return f"<USER: {self.username} ID:{self.id} >"
+        return f'< User: {self.id}, username: {self.username} >'
 
 
     def to_dict(self):
@@ -33,17 +32,13 @@ class User(db.Model):
             "username": self.username,
             "email": self.email,
             "profilePic": self.profile_pic,
-            "bio": self.bio,
-            "posts": [post.to_dict_no_user() for post in self.posts],
-            "likes": len(self.user_likes)
+            "posts": [post.to_dict() for post in self.posts]
         }
-    
+
     def to_dict_no_post(self):
         return {
             "id": self.id,
             "username": self.username,
             "email": self.email,
             "profilePic": self.profile_pic,
-            "bio": self.bio,
-            "likes": len(self.user_likes)
         }
