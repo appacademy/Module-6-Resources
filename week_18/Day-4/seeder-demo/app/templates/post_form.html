@@ -1,0 +1,25 @@
+{% extends "nav.html" %}
+
+
+{% block child %}
+<div class="feed-container">
+    <h2>Create A New Post</h2>
+    {% if errors != None %}
+        {% for error in errors %}
+            <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    {% if type == "post" %}
+        <form action="/posts/new" method="POST">
+    {% else %}
+        <form action="/posts/update/{{ id }}" method="POST">
+    {% endif %}
+        {{ form.csrf_token }}
+        <p>{{ form.caption.label }}: {{ form.caption }}</p>
+        <p>{{ form.image.label }}: {{ form.image }}</p>
+        <p>{{ form.author.label }}: {{ form.author }}</p>
+        <p>{{ form.submit }}</p>
+    </form>
+</div>
+
+{% endblock %}
