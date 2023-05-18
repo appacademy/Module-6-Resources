@@ -1,47 +1,46 @@
+LUNCH = "Turkey Sandwich"
 
 class Cat:
     breed = "American Short Hair"
-    def __init__(self, color, age, name="Kitty"):       
+    def __init__(self, color, age, name="Kitty"):
         self._color = color
         self._age = age
         self._name = name
-        # print(self.speak())
-
-
-    def speak(self):
-        """method to make your cat talk!"""
-        return f'{self.name} says "Meow!"'
+        # self.breed = "Crazy Ninja Kitty"  # override a class 
+        # atrribute by changing it on the intance
+        # print(f"You made a cat named {self.name}")
 
 
     @property
+    def age(self):
+        return self._age
+
+    @age.setter 
+    def age(self, new_age):
+        if new_age > 30:
+            print("Thats too old for a cat!")
+        elif new_age < 0:
+            print("Cats can't have a negative age!")
+        else:
+            self._age = new_age
+
+    
+    @property 
     def name(self):
         return self._name
 
 
-    @name.setter
+    @name.setter 
     def name(self, new_name):
         if len(new_name) > 20:
-            print("Thats to long of a name")
-        elif len(new_name) < 2:
-            print("Cats should have a name thats not a single letter")
+            print("That's too long of a name for a cat!")
         else:
-            self._name = new_name 
+            self._name = new_name
 
 
-    @property 
-    def age(self):
-        return self._age
-
-
-    @age.setter
-    def age(self, new_age):
-        if new_age > 25:
-            print("Thats a bit old for a cat")
-        elif new_age < 0:
-            print("Cat ages should be positive values")
-        else:
-            self._age = new_age
-
+    
+    def speak(self):
+        return f'{self.name} says "MEOW!"'
 
 
     @classmethod
@@ -51,64 +50,89 @@ class Cat:
         return new_cats
 
 
-    @staticmethod
+    @staticmethod 
     def feed_me():
         for i in range(5):
             print("Meowwww?!?!")
 
 
-# make_cats = Cat.cat_factory([
-#     ("black", 6, "Blue"),
-#     ("tuxedo", 6, "Patch"),
-#     ("gray", 12, "Mimi")
-# ])
+    def __repr__(self):
+        return f"<{self.name} is a {self._color} Cat>"
+    
 
-# blue, patch, mimi = make_cats 
-# blue = Cat("Black", 6, "Blue")
-# patch = Cat("Tuxedo", 6, "Patch")
-# print(blue._name)
-# print(blue._age)
+
+# make_cats = Cat.cat_factory(
+#     [   ("black", 6, "Blue"),
+#         ("tuxedo", 6, "Patch"),
+#         ("gray", 15, "Mimi")
+#     ]
+# )
+# blue, patch, mimi = make_cats
+
+# blue = Cat("black", 6, "Blue")
+# patch = Cat("tuxedo", 6, "Patch")
+# print(blue._color)
 # print(blue.speak())
-# print(Cat.breed)
 # print(blue.breed)
 # print(patch.breed)
-# blue.breed = "Furry Ninja"
 # print(Cat.breed)
+# blue.breed = "Crazy Ninja Kitty"
 # print(blue.breed)
 # print(patch.breed)
-# Cat.breed = "American Long Hair"
 # print(Cat.breed)
+# Cat.breed = "Long Hair"
 # print(blue.breed)
 # print(patch.breed)
+# print(Cat.breed)
 # patch.feed_me()
+# print(patch.age)
+# patch.age = -1
+# print(patch.age)
+# blue.name = "Ninja"
 # print(blue.name)
-# blue.name = "S"
-# print(blue.name)
-# blue.name = "Mr. Blueberry Banana Pants"
-# print(blue.name)
-# blue.age = 29
-# print(blue.age)
-# blue.age = -2
-# print(blue.age)
+# print(blue)
+
+
+# Declare your class here
+# class BadCalculator:
+#     def __init__(self, num1, num2):
+#         self._num1 = num1
+#         self._num2 = num2    
+
+    
+#     def change_nums(self, val1, val2):
+#         self._num1 = val1
+#         self._num2 = val2
+
+
+#     def mult_nums(self):
+#         return self._num1 * self._num2
+
+    
+#     def div_nums(self):
+#         if self._num2 == 0:
+#             print("Sorry we can not divide by zero!")
+#         else:
+#             return self._num1 / self._num2
+
+
+#     def __repr__(self):
+#         return f"<Bad Calculator - can only do {self._num1}*{self._num2} and {self._num1}/{self._num2}>"
+    
+
+#     def __str__(self):
+#         return f"<Bad Calculator - can only do {self._num1}*{self._num2} and {self._num1}/{self._num2}>"
 
 
 
-# GETTERS & SETTERS Problem
-class Game:
-    def __init__(self):
-        self._score = 0
+# pair_1 = BadCalculator(15, 3)
+# print(pair_1) # <Bad Calculator - can only do 15*3 and 15/3>
 
-    @property 
-    def score(self):
-        return self._score
+# print(pair_1.mult_nums()) # 45 
+# print(pair_1.div_nums()) # 5.0
 
-    @score.setter 
-    def score(self, new_score):
-        self._score = new_score * 10
+# pair_1.change_nums(4, 0)
+# print(pair_1) # <Bad Calculator - can only do 4*0 and 4/0>
 
-
-# my_game = Game()
-# print(my_game.score) # 0
-
-# my_game.score = 5
-# print(my_game.score) # 50
+# print(pair_1.mult_nums()) # 0
+# print(pair_1.div_nums()) # Sorry, I cannot divide by zero

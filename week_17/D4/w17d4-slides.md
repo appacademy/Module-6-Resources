@@ -93,8 +93,7 @@ Upon import from a module/package,  its`__init__.py` file is implicitly executed
 
 ---
 
-### Import Practices (25 min)
-Import Quiz - 3 min
+### Import Practices (30 min)
 Python Import Short Practice - 15 min
 
 
@@ -440,11 +439,6 @@ print(thingie)  # <__main__.Gadget object at 0x105103d60>
 print(thingie.color, thingie.shape, thingie.noise)  # purple spiral whrrrrrr
 ```
 
----
-
-### Class Inheritance Practice (30 min)
-Quadrilateral with Inheritance - 10 min
-Triangle with Inheritance - 10 min
 
 
 ---
@@ -488,60 +482,11 @@ print(thingie.info())
 
 ---
 
-### Duck-Typing
 
-"If it looks like a duck, and quacks like a duck, it must be a duck"
+### Class Inheritance Practice (30 min)
+Quadrilateral with Inheritance - 10 min
+Triangle with Inheritance - 10 min
 
-We can implement polymorphism with duck typing. All classes in Python automatically inherit from the `object` parent class, which defines certain magic methods.
-
-We can redefine these magic methods on classes we implement!
-
----
-
-### Duck-typing
-Using duck-typing you can:
-- have your class work with the addition operator (`+`)
-- define what equality operator (`==`) means for your class
-- loop over an instance of your class with `for ... in`
-- and much more!
-- duck-typing is powerful!
-
----
-
-### Duck-typing
-
-The default value when you print a user-defined class instance is not typically very helpful...
-```python=
-class Icon:
-    def __init__(self, color, shape):
-        self.color = color
-        self.shape = shape
-
-my_new_icon = Icon("blue", "circle")
-print(my_new_icon)  # <__main__.Icon object at 0x1071cebb0>
-```
-
-
----
-
-### Duck-typing
-You can use the `__repr__` method that will let you control what gets printed for your class.
-
-```python=
-class Icon:
-    def __init__(self, color, shape):
-        self.color = color
-        self.shape = shape
-
-
-    def __repr__(self):
-        return f"Icon({self.color}, {self.shape})"
-
-my_new_icon = Icon("blue", "circle")
-print(my_new_icon)  # Icon(blue, circle)
-```
-
----
 
 ### Polymorphism Practices (40 min)
 Book Polymorphism - 10 min
