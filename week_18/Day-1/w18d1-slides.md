@@ -278,10 +278,13 @@ def create_joke(joke_body, punchline, rating):
 ---
 
 
+
 ### For the rest of today...
 
 - No project/practice today
 
-- Behavioral Interview Exercise (optional)
+- Get started on homework!
 
-- Get started on homework
+- EOD @ 4:35 Pm PST
+    - Brad will talk about groups for the upcoming group project
+    - Monte will reminds us to be nice to each other
