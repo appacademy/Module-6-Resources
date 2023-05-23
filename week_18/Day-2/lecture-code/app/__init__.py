@@ -5,25 +5,25 @@ from .routes.user_routes import users
 
 
 app = Flask(__name__)
-# print(__name__)
+print(__name__, "in the main __init__")
+
 app.config.from_object(Config)
+
 app.register_blueprint(posts, url_prefix="/posts")
 app.register_blueprint(users, url_prefix="/users")
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    """renders the site home page"""
-    # Queries would go here
-    # and data manipulation you want to do to that query
+    """Landing page"""
+    # Query the DB
+    # return "<h1>Welcome to our flask server!</h1>"
     return render_template("index.html")
     # return redirect("/another")
 
 
-# @app.route('/another')
-# def another_route():
-#     return "<h2>This is totally another route!!</h2>"
 
-
-
+@app.route("/another")
+def another():
+    return "<h2>This is another route!!!</h2>"
 
