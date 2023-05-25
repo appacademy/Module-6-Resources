@@ -3,8 +3,7 @@ from .config import Config
 from .routes.post_routes import posts
 from .routes.user_routes import users
 from .models import db
-from flask_migrate import Migrate
-
+from flask_migrate import Migrate 
 
 app = Flask(__name__)
 # print(__name__)

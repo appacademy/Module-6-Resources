@@ -7,7 +7,7 @@ class User(db.Model):
     username = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     profile_pic = db.Column(db.String(250))
-    bio = db.Column(db.String(300))  
+    bio = db.Column(db.String(300))
 
     # relationship attribute
     posts = db.relationship(
@@ -24,21 +24,3 @@ class User(db.Model):
 
     def __repr__(self):
         return f'< User: {self.id}, username: {self.username} >'
-
-
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "username": self.username,
-            "email": self.email,
-            "profilePic": self.profile_pic,
-            "posts": [post.to_dict() for post in self.posts]
-        }
-
-    def to_dict_no_post(self):
-        return {
-            "id": self.id,
-            "username": self.username,
-            "email": self.email,
-            "profilePic": self.profile_pic,
-        }

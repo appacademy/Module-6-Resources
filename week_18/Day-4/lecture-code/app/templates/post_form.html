@@ -9,10 +9,10 @@
             <p style="color: red;">{{ error }}</p>
         {% endfor %}
     {% endif %}
-    {% if type == "post" %}
-        <form action="/posts/new" method="POST">
-    {% else %}
+    {% if type == "update" %}
         <form action="/posts/update/{{ id }}" method="POST">
+    {% else %}
+        <form action="/posts/new" method="POST">
     {% endif %}
         {{ form.csrf_token }}
         <p>{{ form.caption.label }}: {{ form.caption }}</p>
