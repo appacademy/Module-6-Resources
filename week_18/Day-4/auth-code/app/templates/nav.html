@@ -11,9 +11,13 @@
             />
             <h1 class="nav-title">Patchstagram</h1>
         </div>
-        <a href="/">Home</a>
+        <span>User: {{ user.username }} is logged in!</span>
         <a href="/posts/all">Feed</a>
         <a href="/posts/new">New Post</a>
+        <form action="/logout" method="POST">
+            {{ logout_form.csrf_token }}
+            <p>{{ logout_form.submit }}</p>
+        </form>
     </div>
 </nav>
 

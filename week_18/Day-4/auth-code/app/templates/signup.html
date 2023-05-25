@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block nav %}
+<div class="feed-container">
+    <h2>Sign Up!</h2>
+    {% if errors != None %}
+        {% for error in errors %}
+            <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="/signup" method="POST">
+        {{ form.csrf_token }}
+        <p>{{ form.username.label }}: {{ form.username }}</p>
+        <p>{{ form.email.label }}: {{ form.email }}</p>
+        <p>{{ form.password.label }}: {{ form.password }}</p>
+        <p>{{ form.profile_pic.label }}: {{ form.profile_pic }}</p>
+        <p>{{ form.bio.label }}: {{ form.bio }}</p>
+        <p>{{  form.submit }}</p>
+    </form>
+    <a href="/">Already a user?  Login here instead!</a>
+</div>
+{% endblock %}

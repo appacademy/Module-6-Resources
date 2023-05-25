@@ -24,11 +24,28 @@
             <div>
                 <img class="post-image" src="{{ post.image }}" />
                 <p class="post-text">{{ post.caption }}</p>
-                <p class="post-text">{{ post.post_likes | length }} Likes</p>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class=flashes>
+                        {% for category, message in messages %}
+                            {% if category == post.id %}
+                                <li>{{ message }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
             </div>
-            <div class="post-buttons">
-                <a href="/posts/update/{{ post.id }}">Edit Post</a>
-                <a href="/posts/delete/{{ post.id }}">Delete Post</a>
+            <div class="post-buttons-container">
+                <div class="post-buttons">
+                    <a href="/posts/like/{{ post.id }}">👍🏼 Like</a>
+                    <a href="/posts/dislike/{{ post.id }}">👎🏻 Dislike</a>
+                </div>
+                <span class="post-text">{{ post.post_likes | length }} Likes</span>
+                <div class="post-buttons">
+                    <a href="/posts/update/{{ post.id }}">📝 Edit</a>
+                    <a href="/posts/delete/{{ post.id }}">❌ Delete</a>
+                </div>
             </div>
         </div>
     {% endfor %}

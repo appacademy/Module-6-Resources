@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block nav %}
+<div class="splash-container">
+    <div>
+        <h1 class="splash-title">Patchstagram</h1>
+        <img class="splash-logo" 
+            src="https://res.cloudinary.com/app-academy4/image/upload/v1647291502/Patchstagram/patch_hd_riobbp.png" 
+            alt="cat-logo" 
+        />
+        <p class="splash-detail">The cat with so much to talk about, he needs his own social media site!</p>   
+    </div>
+    <div class="login-form">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="/" method="POST">
+            {{ form.csrf_token }}
+            <p>{{ form.username.label }}: {{ form.username }}</p>
+            <p>{{ form.password.label }}: {{ form.password }}</p>
+            <p>{{ form.submit }}</p>
+        </form>
+        <a href="/signup">Not a user? Sign up here!</a>
+    </div>
+
+</div>
+{% endblock %}
+    

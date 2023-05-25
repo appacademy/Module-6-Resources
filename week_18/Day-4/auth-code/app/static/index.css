@@ -133,10 +133,9 @@ body {
 }
 
 .post-container {
-    width: 500px;
+    width: 600px;
     height: auto;
     border: 1px solid gray;
-    border-radius: 10px;
     box-shadow: 3px 3px 2px lightgray ;
     margin: 15px 0 15px 0;
     background-color: whitesmoke;
@@ -176,6 +175,7 @@ body {
     margin-left: 10px;
 }
 
+
 .post-buttons {
     display:flex;
     flex-direction: row;
@@ -184,4 +184,26 @@ body {
 
 .post-buttons > a {
     margin: 10px;
+    text-decoration: none;
+}
+
+.login-form {
+    display: flex;
+    width: 30%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: gray;
+    font-size: medium;
+}
+
+
+.post-buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }

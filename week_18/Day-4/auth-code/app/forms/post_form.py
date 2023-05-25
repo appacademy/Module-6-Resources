@@ -9,5 +9,5 @@ from wtforms.validators import DataRequired, Length, URL
 class PostForm(FlaskForm):
     caption = StringField("Caption", validators=[DataRequired(), Length(min=5, message="Post captions must be at least 5 chars!")])
     image = StringField("Post Image URL", validators=[DataRequired(), URL()]) 
-    author = SelectField("Post Author", choices=[])   
+    # author = SelectField("Post Author", choices=[])   
     submit = SubmitField("Save Post")
