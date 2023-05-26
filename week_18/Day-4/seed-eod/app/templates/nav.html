@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block nav %}
+<nav>
+    <div class="nav-container">
+        <div class="nav-logo-container">
+            <img class="nav-logo"
+                src="https://res.cloudinary.com/app-academy4/image/upload/v1647291502/Patchstagram/patch_hd_riobbp.png"
+                alt="cat-logo"
+            />
+            <h1 class="nav-title">Patchstagram</h1>
+        </div>
+        <span>User: {{ user.username }} is logged in!</span>
+        <a href="/posts/all">Feed</a>
+        <a href="/posts/new">New Post</a>
+        <form action="/logout" method="POST">
+            {{ logout_form.csrf_token }}
+            <p>{{ logout_form.submit }}</p>
+        </form>
+    </div>
+</nav>
+
+{% block child %}
+{% endblock %}
+
+{% endblock %}
