@@ -15,9 +15,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Brad was here...
         </a>
       </header>
+      <div>New Div Text</div>
     </div>
   );
 }
