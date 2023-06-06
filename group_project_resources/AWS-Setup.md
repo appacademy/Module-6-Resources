@@ -1,12 +1,12 @@
-# AWS S3 Bucket Setup
+# Amazon Web Services Simple Storage Service (AWS S3) Bucket Setup
 
 
 
-## Why do we want to integrate a AWS S3 bucket in to our Applications?
+## Why do we want to integrate AWS S3 buckets with our Applications?
 
 
 
-When we visit a professional website, and we are asked to provide an image (or
+When we visit a professional website and we are asked to provide an image (or
 music or video), we are asked to provide a file, not a url.  This is for a few
 reasons, first not every user has the ability to host their files and provide
 urls, but also an external url that your application does not have any control
@@ -28,7 +28,7 @@ actual data for those files will be stored on AWS.
 We are going to assume in this walkthrough that you already have a functional
 form/route for handling new resources that currently accepts and stores URL's as
 strings, but we want to refactor to accept files instead.  Here is a very high
-level overview of what we are looking to accomplish to interate file uploads:
+level overview of what we are looking to accomplish to integrate file uploads:
 
 1. Set up an account on AWS
 
@@ -44,12 +44,12 @@ level overview of what we are looking to accomplish to interate file uploads:
 5. Set up necessary new `.env` variables for our AWS credentials
 
 6. Write a helper function to make unique file names (all filenames in an S3
-   bucket must be unique, a duplicate name will overwrite the existing one)
+   bucket must be unique; a duplicate name will overwrite the existing one)
 
 7. Write another helper function to upload files to our AWS S3 bucket, and
    ultimately return to us a public url to that saved file, to store in our
    database. (so we never change the column in our database that stores URL's as
-   string, its just we now control those URL's)
+   string, it's just we now control those URL's)
 
 8. Write yet one more helper function to handle removing files from our S3
    bucket (if a user deletes a resource attached to a file we stored, we want to
@@ -60,17 +60,18 @@ level overview of what we are looking to accomplish to interate file uploads:
 10. Refactor our server routes to call the helper functions as needed, and
     handle any error output to help us (and our users) debug
 
+11. Refactor our front end form, as we will now need a file input field instead
+    of a text input field
 
+12. Refactor our front end `onSubmit` to use `FormData` instead of making a JSON
+    object (we need to send a file, not just data to our server, and while we can
+    JSON stringify a file, its not an simple process. `FormData` will allow us to
+    send both a file and data at the same time and is much easier to implement)
 
-
-
-11. Refactor our front end form, as we will now need a file input field instead of a text input field
-
-12. Refactor our front end `onSubmit` to use `FormData` instead of making a JSON object (we need to send a file, not just data to our server, and while we can JSON stringify a file, its not an simple process.  `FormData` will allow us to send both a file and data at the same time and is much easier to implement)
-
-13. Modify our thunk to handle sending the `FormData` instead of JSON stringifying the body.
+13. Modify our thunk to handle sending the `FormData` instead of JSON stringifying
+    the body
 
 14. Test out our AWS-S3 upload and remove functionaly
 
-15. Celebrate integrating AWS-S3 to our application!
+15. :tada: Celebrate integrating AWS-S3 to our application! :tada:
 
