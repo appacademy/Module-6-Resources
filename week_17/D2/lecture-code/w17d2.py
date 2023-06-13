@@ -1,360 +1,242 @@
-# XOR
-# print(True ^ False)
-# print(True ^ True)
-# print(False ^ False)
-# print(False ^ True)
+# if 0:
+#     print("0 is truthy")
+
+a = "hello"
+b = 5
+
+# if b == 6 or a == "hello":
+#     print("one of our conditions have been met")
+
+# False and print("hello")
+
+# if a == "bye":
+#     print("bye yourslef")
+# elif b == 5:
+#     print("five is good")
+# else:
+#     print("nothing is true")
 
 
-# print(False and True)
-# print(True or True)
+long_quote = """
+This is the first line
+this is the second line
+this is ...
+"""
+
+# print(long_quote)
 
 
-def breakfast(food):
-    if food == 'waffles':
-        print(f'{food} is the best breakfast!')
-    
-    elif food == 'pancakes':
-        print(f"{food} is a pretty good breakfast!")
-    
-    elif food == 'french toast':
-        print(f"Heck yeah!  French Toast!")
+# interp = f"I've said {'spork' if True else 'candle'} {b} times today!"
 
-    else:
-        print("Your breakfast choice is weak")
+# print(interp)
 
+b = "b"
+an = "an"
+a = "a"
 
-# breakfast("waffles")
-# breakfast("pancakes")
-# breakfast("cereals")
-# breakfast("french toast")
+# print(b + (9 * an) + a)
 
-
-# Write your function, here.
-def xor(val1, val2):
-    return val1 ^ val2
+sentence = "There are a lot of e's in this sentence, aren't there?"
+sentence1 = "There are a lot of e's in this sentence, aren't there?"
+# print(sentence is sentence1)
+# print(sentence)
+# print("".join(["^" if char == "e" else " " for char in sentence]))
+# print(sentence[0::6])
+# print(len(sentence))
 
 
-# print(xor(False, False))   #>  False
-# print(xor(True, False))   #>  True
-# print(xor(True, True)) #>  False
-# print(xor(5, 3))  #> 6
-# print(xor(8, 4))  #> 12
-# print(xor(2, 2))  #> 0
-# print(xor(1, 2))  #> 3
-# print(xor(4, 4))  #> 0
-# print(bin(True))
-# print(bin(False))
-# 0b1
-# 0b0
-# print(bin(5))
-# print(bin(3))
-# # 0b101
-# # 0b011
-# # 0b110
-# print(bin(6))
+# print(sentence.index("'"))
+# print(sentence.count("e"))
 
-# print("let's")
-# print('let\'s')
-# print("""This lets us 
-# make a multi line string
-# and preserve spaces  
-# and     new lines
-# """)
+# print(sentence.lower())
+# print(sentence.upper())
+# print(sentence.title())
+#
+# print("00000000000".join(sentence.split(" ")))
 
-food = "tacos"
+# print(help(str))
+# if "x" in sentence:
+#     print(sentence.index("x"))
 
-# print(food[1])
-# print(food[-2])
-# print(food[start:stop(non inclusive):step])
-# print(food[:3])
-# print(food[::-1])
+# print(sentence.find("x"))
 
-# print(food.index('ac'))
-# print(food.find('aw'))
-# print(food.split("a"))
-# print(list(food))
+# print(help(str))
+
+# a, b, c = 0, 0.0, 0j
+a = 0
+b = 0.0
+c = 0j
+# print("type a:\t", type(a), "\ntype b:\t", type(b), "\ntype c:\t", type(c))
+
+# print(f"19 divided by 2 is {19//2} with {19%2} remaining")
 
 
-# Palindrome problem
-def is_palindrome(string):
-    return string == string[::-1]
- 
+num = 15
 
-# print(is_palindrome("kayak")) # True
-# print(is_palindrome("app"))  # False
-# print(is_palindrome("racecar")) # True
-# print(is_palindrome("valid")) # False
+num **= 2
 
+# print(num)
 
-# Problem 7 - Recursive String
-# Write your function, here.
-def recursive_string(string):
-    # base case
-    if len(string) == 0:
-        return string
-    # recursive case
-    return recursive_string(string[1:]) + string[0]
-#                           #ivic     + c
-                            #vic + i
-                            #ic + v
-                            #c   + i
-                            #     
+word1 = "Keegan"
+word2 = "Keegan"
+
+num1 = 5
+num2 = 5
+
+ls1 = [1, 2, 3]
+ls2 = [1, 2, 3]
+
+# print(word1 == word2)
+# print(word1 is word2)
+#
+# print(ls1 == ls2)
+# print(ls1 is ls2)
 
 
-# print(recursive_string("civic")) # civic
-# print(recursive_string("refer")) # refer
-# print(recursive_string("string")) # gnirts
-# print(recursive_string("avocado")) # odacova
-# print(recursive_string("application")) # noitacilppa
-
-# # Problem 3 - Perfect Square
-# # Write your function, here.
-def perfect_square(num1, num2):
-    return num2**2 == num1 and num1 / num2 == num2
+# print("word1 id:", id(word1))
+# print("word2 id:", id(word2))
+# print()
+# print("num1 id:", id(num1))
+# print("num2 id:", id(num2))
+# print()
+# print("ls1 id:", id(ls1))
+# print("ls2 id:", id(ls2))
 
 
-# print(perfect_square(15, 5)) #> False
-# print(perfect_square(25, 5)) #> True
-# print(perfect_square(81, 9)) #> True
-# print(perfect_square(9, 2))  #> False
+a = 5
+check = a > 0
+
+# if check is True:
+#     print(f"{a} is greater than five")
 
 
-# Operators (Equality vs Identity)
-# val = "power"
-# print(id(val))
-# other_val = val
-# print(id(other_val))
-# yet_another_val = val
-# print(id(yet_another_val))
-# even_one_more_val = yet_another_val.lower()
-# print(id(other_val.upper()))
-# print(id(yet_another_val.lower()))
+x = "0"
+
+y = 0
+
+# print(x == y)
+
+# console.log('0' == 0);
+
+# print("abasklasdfas" < "bfdsafadsfafdsa")
+
+# print(id(None))
 
 
-# print(val is even_one_more_val)
-# print(val == even_one_more_val)
+# def none_func():
+#     pass
 
 
+# print(id(none_func()))
 
+start = 1
+end = 10
+count = start
 
-# Write your function, here.
-def first_before_second(string, letter1, letter2):
-    last_first_letter = string.rindex(letter1)
-    print(last_first_letter)
-    first_last_letter = string.index(letter2)
-    print(first_last_letter)
-    return last_first_letter < first_last_letter 
+# while count < end:
+#     if count % 3 == 0:
+#         count += 1
+#         break
+#     print(count)
+#     count += 1
+#
+# print("done with that!")
 
-# print(first_before_second("a rabbit jumps joyfully", "a", "j"))
-# #> True  # Every instance of "a" occurs before every instance of "j".
-# print(first_before_second("knaves knew about waterfalls", "k", "w"))
-# #> True
-# print(first_before_second("happy birthday", "a", "y"))
-# #> False  # The "a" in "birthday" occurs after the "y" in "happy".
-# print(first_before_second("precarious kangaroos", "k", "a"))
-# #> False
+word = "hello"
 
+# if "h" in word:
+#     print("the letter h is indeed in the word hello")
 
-# STATEMENTS
+# for i in range(len(word)):
+#     print(i)
+#     print(word[i])
 
-# While Loop
-index = 0
-# while index < 5:
-#     print(f'{index}. Hey there!')
-#     index += 1
-
-# print("exited while loop, hopefully we printed 5 times")
-
-# while True:
-#     print(f"{index}. we printed!")
-#     if index < 4:
-#         index += 1
-#         continue
-#     print("we should have printed 5 times")
-#     break
-
-
-# import random
-# import time
-# import os
-
-# count = 99
-
-# while count < 1000:
-#     os.system("clear")
-#     print(f"{count} little bugs in our code...")
-#     time.sleep(2)
-#     print(f"{count} pesky little bugs...")
-#     time.sleep(2)
-#     print("Take one down and patch it around...")
-#     time.sleep(2)
-#     new_bugs = random.randint(1, 75)
-#     count += new_bugs
-#     print(f"{count} little bugs in our code!")
-#     time.sleep(2)
-
-
-foods = ["pizza", "tacos", "wings", "salad"]
-
-# for food in foods:
-#     print(food)
-
-# print("pizza" in foods)
-# print("burrito" in foods)
-
-# range(start, stop, step)
-# print(range(10))
-# print(list(range(10)))
-
-# for index in range(len(foods)):
-#     print(f"{index}. {foods[index]}")
-
-
-
-# TRY/EXCEPT
-
-# num = 0
-# # print(4/num)
 
 # try:
-#     print("In the try block")
-#     print(4/num)
-
-
-# except ZeroDivisionError:
-#     print("You can not divide by zero!")
-
-# except TypeError:
-#     print("You can not do division with strings!")
-
-# else:
-#     print("You will only see me if the try succeeded")
-
+#     print(9 // 1)
+# except ZeroDivisionError as e:
+#     # print("I don't know what nine divided by 0 is")
+#     print(e)
 # finally:
-#     print("We will always see this")
+#     print("and we're done")
 
 
-# print("Super important info...")
+i = 0
 
-# Sequence of numbers
-
-def seq_of_numbers(seq):
-    # iterate
-    # conditional check value is the same as the next value
-    # index for iteration
-    # counter 
-    count = 1
-    index = 0
-    results = ''
-    seq += " "
-
-    while index < len(seq)-1:
-        if seq[index] != seq[index + 1]:
-            results = results + str(count) + seq[index] + ","
-            count = 1
-        else:
-            count += 1
-        
-        index += 1
-
-    return results
-
-# print(seq_of_numbers("1211"))
-# # This is "one 1, one 2, two 1s"
-# # Prints "11,12,21"
-# # 111221
-
-# print(seq_of_numbers("111221"))
-# # This is "three 1s, two 2s, and one 1"
-# # Prints "31,22,11"
-
-# print(seq_of_numbers("31131211131221"))
-# This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
-#    one 3, one 1, two 2s, and one 1"
-# Prints "13,21,13,11,12,31,13,11,22,11"
+# try:
+#     while True:
+#         print(word[i])
+#         i += 1
+# except IndexError as e:
+#     pass
 
 
-# # FUNCTIONS
-# def is_even(integer):   
-#     """take in an integer and return a boolean if 
-#     the integert is even or not"""
-#     return integer % 2 == 0
-
-# # print(is_even(5))
-
-# # even = lambda integer: integer % 2 == 0
-# # print(even(5))
-
-# # multiply = lambda num1, num2: num1 * num2
-# # print(multiply(2, 5))
-
-# # SCOPE
-
-# y = 100
-
-# DAYS = ["Mon", "Tues", "Wed"]
-# PI = 3.14
-
-# def some_function():
-#     """nonsensical function made only 
-#     to demonstrate scope in python"""
-#     # y = 50
-#     global y
-#     print("inside some function y = ", y)
-
-#     def other_function():
-#         global y
-#         print("inside other function y = ", y)
-#         y += 15
-    
-#     other_function()
-
-#     print("inside some function 2nd time, y = ", y)
-#     y += 20
-
-#     print("inside some function 3rd time, y = ", y)
-#     # if True:
-#     #     print("inside the if block y =",y)
-
-# some_function()
-
-# print("y outside function y =", y)
-
-# print(some_function.__doc__)
+import re
 
 
-# LISTS
+def valid_zip_code(zip_code):
+    valid = re.match("[0-9]{5}(-\d{4})?$", zip_code)
+    return zip_code if valid else "The zip code you entered is invalid"
 
-foods = [
-        "Hamburger", 
-        "Hot Dog", 
-        "Ice Cream", 
-        "Cake", 
-        "Pure Sugar"
-    ]
 
-# print(foods)
-# print(foods[1])
-# print(foods[1:4])
-# print(foods[::-1])
-# print(len(foods))
-# foods.append("Donuts")
-# foods.append("Donuts")
-# print(foods)
-# foods.extend(["Deep Fried Butter", "Funnel Cake"])
-# print(foods)
-# foods.insert(1, "Fried Ice Cream")
-# print(foods)
-# foods.remove("Donuts")
-# print(foods)
-# val = foods.pop()
-# print(foods)
-# print(val)
+zip1 = "47243"
+zip2 = "23128-"
+zip3 = "01237-1238"
+zip4 = "91374-31"
+zip5 = "1321-9883"
+zip6 = "6320"
 
-vals = [2, 3, 6, 8, 56, 12, 7]
+# print(valid_zip_code(zip1))  # '47243'
+# print(valid_zip_code(zip2))  # "The zip code you entered is invalid"
+# print(valid_zip_code(zip3))  # '01237-1238'
+# print(valid_zip_code(zip4))  # "The zip code you entered is invalid"
+# print(valid_zip_code(zip5))  # "The zip code you entered is invalid"
+# print(valid_zip_code(zip6))  # "The zip code you entered is invalid"
 
-vals.sort()
-print(vals)
-print(sum(vals))
-print(min(vals))
-print(max(vals))
+
+# def is_even(num):
+#     return num % 2 == 0
+
+
+# is_even = lambda x: x % 2 == 0
+
+# print(is_even(22))
+
+
+# print(list(filter(lambda x: x % 2 == 0, ls)))
+
+a = 0
+
+
+def print_a():
+    """
+    Defines and the prints a variable in order to
+    demonstrate python function scoping
+    """
+    # print(a)  # UnboundLocalError!
+    while True:
+        a = 1
+        break
+    print(a)
+
+
+# print_a()
+# print(print_a.__doc__)
+
+ls = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# print(ls[9:3:-2])
+
+# print(len(ls))
+print(ls.extend([10, 11, 12, 13, 14, 15]))
+print(ls)
+
+ls.remove(5)
+
+print(ls)
+
+
+ls.sort()
+# help(ls.sort)
+print(ls)
+print(max(ls))
+print(len(ls))
