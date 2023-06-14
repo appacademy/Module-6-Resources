@@ -1,114 +1,114 @@
-# TUPLE
+# # # TUPLES
 
-# tup = ("red", "blue")
-# tup += ("green", "orange")
-# print(tup)
-# print(tup[1:3])
+# # tup = ('red', 'blue')
+# # tup += "green", "orange"
 
-# tup2 = 'Brad', "David", "Andrew", "Keegan"
-# print(tup2)
+# # print(tup)
 
-# # EMPTY TUPLE
-# tup3 = ()
-# print(tup3)
+# # # EMPTY TUPLE
+# # tup_2 = ()
 
-# SINGLE VALUE TUPLE
-tup4 = (1,)
-tup5 = 2, 
+# # # SINGLETON TUPLE
+# # tup_3 = 1,
+# # tup_4 = (2,)
+
+# DAYS = ("Mon", "Tue", "Wed", "Thurs", "Fri")
+
+# def sum_and_average(lst):
+#     list_sum = sum(lst)
+#     average = list_sum / len(lst)
+#     return (list_sum, average)
 
 
-def sum_and_average(lst):
-    list_sum = sum(lst)
-    average = list_sum / len(lst)
-    return (list_sum, average)
+# list_sum, list_average = sum_and_average([1, 2, 3, 4])
+# print(list_sum, list_average)
 
-# return_average, return_sum = sum_and_average([1, 2, 3, 4])
-# print(return_average, return_sum)
+# print(DAYS[1:3])
 
-DAYS = ("Mon", "Tue", "Wed", "Thurs", "Fri")
+# for day in DAYS:
+#     print(day)
 
-sorted_days = sorted(DAYS)
+
+# sorted_days = sorted(DAYS)
 # print(tuple(sorted_days))
 
 
-def function(num1, num2, num3=15, *args):
-    total = sum((num1, num2, num3, *args))
-    print(args)
-    # for arg in args:
-    #     total += arg
-    print(total)
+# def function(num_1, num_2, num_3 = 15, *args):
+#     print(num_1, num_2, num_3)
+#     print(args)
 
 
 # function(5, 10, 20, 25, 30)
 
-
 # INDEX SORT
-def compare(val):
-    return val[1]
 
+# Write your function, here.
 
-def index_sort(tuple_list):
-    sorted_list = sorted(tuple_list, key=compare, reverse=True)  #lambda val: val[1]
-    return sorted_list
+# def compare(val):
+#     return val[1]
 
-    tuple_list.sort()
+# def index_sort(lst):
+#     sorted_tuples = sorted(lst, key=compare) # lambda val: val[1]
+#     return sorted_tuples
 
 # print(index_sort([(1, 2, 3), (6, 8, 9), (0, 5, 0), (2, 0, 4)])) #> [(2, 0, 4), (1, 2, 3), (0, 5, 0), (6, 8, 9)]
 # print(index_sort([(9, 55, 11), (7, 14, 5), (32, 41, 12), (8, 5, 2)])) #> [(8, 5, 2), (7, 14, 5), (32, 41, 12), (9, 55, 11)]
 # print(index_sort([(0, 9, 1), (4, 3, 0), (6, 5, 14), (64, 32, 28)])) #> [(4, 3, 0), (6, 5, 14), (0, 9, 1), (64, 32, 28)]
 
 
-
-# RANGES
-
+# RANGES & ENUMERATE
+# values = range(start,stop,step)
 # values = range(10, 0, -1)
-# print(list(values))
+# print(values)
+# print(tuple(values))
 
-lunch = ["wings", "sandwich", "pizza", "chicken parm"]
 
-# for index in range(len(lunch)):
-#     print(index, lunch[index])
+lunch = ['wings', 'pizza', 'sandwich', 'soup', 'salad']
 
-# for index in lunch:
-#     print(index)
+# for i in range(len(lunch)):
+#     print(f"{i}. {lunch[i]}")
 
 # ENUMERATE
-# print(tuple(enumerate(lunch)))
 
-# print("Today's lunch menu: ")
-# for index, food in enumerate(lunch, 1):
-#     print(f"{index}. {food}")
+# print(enumerate(lunch))
+# print(list(enumerate(lunch)))
 
 
-# FACTORIAL
-def factorial(n):
-    total = 1
-    for number in range(1, n + 1):
-        total *= number
-    return total
+# for index, value in enumerate(lunch, 1):
+#     print(f"{index}. {value}")
 
 
-# print(factorial(1))     #> 1
-# print(factorial(8))     #> 40320
-# print(factorial(12))    #> 479001600
+# RANGE FACTORIAL
+# Write your function, here.
+# def factorial(n):
+#     total = 1
+#     for i in range(1, n + 1):
+#         total *= i
+#     return total
+
+# def recur_factorial(n):
+#     if n == 1:
+#         return n
+#     else:
+#         return n * recur_factorial(n - 1)
 
 
+# print(recur_factorial(1))     #> 1
+# print(recur_factorial(8))     #> 40320
+# print(recur_factorial(12))    #> 479001600
 
 
+# CAN NEST
+# list1's min is greater than list2's min
+# list1's max is less than list2's max
 
-
-# Problem 4 - Check Nested Arrays
-# Your code, here.
-
-# def can_nest(list1, list2):
-#     list1_min = min(list1)
-#     list1_max = max(list1)
-#     list2_min = min(list2)
-#     list2_max = max(list2)
+# def can_nest(list_1, list_2):
+#     list1_min = min(list_1)
+#     list1_max = max(list_1)
+#     list2_min = min(list_2)
+#     list2_max = max(list_2)
 #     return list1_min > list2_min and list1_max < list2_max
 
-
-can_nest = lambda list1, list2: min(list1) > min(list2) and max(list1) < max(list2)
 
 # print(can_nest([1, 2, 3, 4], [0, 6]))  #> True
 # print(can_nest([3, 1], [4, 0]))        #> True
@@ -118,232 +118,214 @@ can_nest = lambda list1, list2: min(list1) > min(list2) and max(list1) < max(lis
 
 # DICTIONARIES
 
-meals = {
-    "breakfast": "coffee",
+meals = { 
+    "breakfast": "coffee", 
     "lunch": "wings",
     "dinner": "pizza",
     "dessert": "ice cream",
-    4: "meals",
-    True: "even more meals",
+    4: "neals",
     "second breakfast": "apple",
 }
 
-
 # print(meals)
-# print(meals["lunch"])
-# # print(meals["brinner"]) # -> will throw a keyerror
+# print(meals["dinner"])
+# print(meals["brinner"])
+# print(meals.get("brinner", "Key not in dictionary"))
 
-
-# print(meals.get("lunch"))
-# print(meals.get("brinner", "Nope.  Sorry buddy no key for you!"))
-
-
-# if meals.get("second breakfast") is None:
-#     meals["second breakfast"] = "pear"
+# if meals.get("brinner") is None:
+#     meals["brinner"] = "pancakes"
 # else:
 #     print("Key already exists")
 
 # print(meals)
-
-# meals["dinner"] = "steak"
-# meals.update({"supper": "roast", "elevensies": "donut"})
-# print(meals)
-# del meals[4]
+# del meals["second breakfast"]
 # print(meals)
 
-# print("second breakfast" in meals)
+# meals.update({"elevensies": "biscuit", "supper": "roast"})
+# print(meals)
+
+# print("lunch" in meals)
+# print(5 in meals)
 
 # print(meals.keys())
 # print(meals.values())
 # print(meals.items())
 
-# for key in meals.keys():
-#     print(key)
+# for k, v in meals.items():
+#     print(f"{k}, {v}")
 
-# for value in meals.values():
-#     print(value)
-
-# for key, value in meals.items():
-#     print(key, value)
+# for val in meals.values():
+#     print(val)
 
 
+# ARGS / KWARGS
 
-def sum_stuff(num1, num2, num3=15, *args, **kwargs):
-    total = sum((num1, num2, num3, *args))
-    print(args)
-    # for arg in args:
-    #     total += arg
-    # inner(*args, **kwargs)
-    print(kwargs)
-    for val in kwargs.values():
-        total += val
-    print(total)
+# def sum(num_1, num_2, num_3 = 15, *args, **kwargs):
+#     total = num_1 + num_2 + num_3
+#     print("args", args)
+#     for val in args:
+#         total += val
+#     print("kwargs", kwargs)
+#     for more_vals in kwargs.values():
+#         total += more_vals
+#     return total
 
+# print(sum(10, 20, 30, 40 , 50, num_6=60, num_7=70))
 
-# sum_stuff(5, 10, 20, 25, 30, num6=35, num7=40)
+# lst_1 = ['a', 'b', 'c']
+# lst_2 = [1, 2, 3]
+# lst_3 = [*lst_1, *lst_2]
+# print(lst_3)
 
-
-lst1 = ['a', 'b', 'c']
-lst2 = [1, 2, 3 ]
-lst3 = [*lst1, *lst2]
-
-# print(lst3)
-
-# dict1 = {
-#     "breakfast": "coffee",
+# dict_1 = {
+#     "breakfast": "eggs",
 #     "lunch": "wings",
-#     "dinner": "pizza",
+#     "dinner": "pizza"
 # }
 
-# dict2 = {**dict1}
-# print(dict2)
-
-# for key in *{dict1}:
-#     print(key)
+# dict_2 = {**dict_1}
+# print(dict_2)
 
 
-# Merged 2 Lists
-# def merge_lists(lst1, lst2):
+
+# MERGE 2 Lists
+# Write your code here.
+# def merge_lists(list_1, list_2):
+#     return_dict = {}
+#     for index, value in enumerate(list_1):
+#         return_dict[value] = list_2[index]
+
+#     return return_dict
+
+
+# def merge_lists_2(list_1, list_2):
 #     merged_list = []
-#     for index in range(len(lst1)):
-#         merge_tuple = (lst1[index], lst2[index])
-#         merged_list.append(merge_tuple)
-#     print(merged_list)
+#     for index in range(len(list_1)):
+#         merged_tuple = (list_1[index], list_2[index])
+#         merged_list.append(merged_tuple)
+
 #     return dict(merged_list)
 
 
 
-# def merge_lists2(lst1, lst2):
-#     return_dict = {}
-#     for index, value in enumerate(lst1):
-#         return_dict[value] = lst2[index]
-#     return return_dict
-  
-
-# def merge_lists_OG(lst1, lst2):
-#     merged_dict = {}
-#     ind = 0
-#     while ind < len(lst1):
-#         merged_dict[lst1[ind]] = lst2[ind]
-#         ind += 1
-#     return merged_dict
-
 # lst1 = ['a', 'b']
 # lst2 = [1, 2]
-# merged_dict = merge_lists(lst1, lst2)
+# merged_dict = merge_lists_2(lst1, lst2)
 # print(merged_dict)      # { 'a': 1, 'b': 2 }
 
 
 # SETS
-not_a_set = {}
-set1 = set()
-set2 = {1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5}
-# print(set2)
+# EMPTY SETS
+# new_set = set()
 
-# list1 = [1, 1, 1, 2, 2, 2, 3, 4, 5, 5, 5, 6, 8, 8, 8, 9]
-# print(set(list1))
+# other_set = {"pizza", "wings", "burrito"}
+
+# print(new_set, other_set)
+
+# values = [1, 1, 2, 2, 3, 4, 4, 5, 7]
+# print(set(values))
 
 # string = "hello"
 # print(set(string))
 
-my_set = {1, 2, 3, 4}
+# my_set = {1, 2, 3, 4}
 # print(1 in my_set)
+
+# # print(my_set[2])
+
+# my_set.add(5)
+# print(my_set)
+# my_set.update({6, 7})
+# print(my_set)
+# my_set.remove(5)
+# print(my_set)
 
 # for val in my_set:
 #     print(val)
 
-# my_set.add(5)
-# print(my_set)
-# my_set.update({5, 6, 7})
-# print(my_set)
-# my_set.remove(3)
-# print(my_set)
 
+a = {0, 1, 2, 3, 4}
+b = {3, 4, 5, 6, 7}
 
-set_1 = {1, 2, 3, 4, 5}
-set_2 = {4, 5, 6, 7, 8}
-
-# UNION 
-# print( set_1 | set_2)
-# print( set_1.union(set_2))
+# UNION
+# print( a | b )
+# print(a.union(b))
 
 
 # INTERSECTION
-# print( set_1 & set_2 )
-# print( set_1.intersection(set_2))
+# print( a & b )
+# print(a.intersection(b))
 
 
-# # DIFFERENCE
-# print( set_1 - set_2)
-# print( set_2 - set_1)
-# print( set_1.difference(set_2))
+# DIFFERENCE
+# print( a - b )
+# print( b - a )
+# print(a.difference(b))
+
+# SYMMETRIC DIFFERENCE
+# print( a ^ b )
+# print( a.symmetric_difference(b))
 
 
-# # SYMETTRIC DIFFERENCE
-# print( set_1 ^ set_2 )
-# print( set_1.symmetric_difference(set_2))
+# BUILT IN FUNCTIONS
 
 
-# BUILT IN FUNCTION
 # SORTED
-names = ("JAMES", "julie", "Ana", "Ria")
-nums = [1, 4,  2, 7]
-# names.sort(key=lambda x: x.lower())
-# print(names)
-sorted_names = sorted(names, key=lambda x: x.lower(), reverse=True)
-# print(sorted_names)
+# names = ("JAMES", "julie", "Ana", "Ria")
+# #  ['james', "julie", 'ana", "ria"]
+# sorted_names = sorted(names, key=lambda name: name.lower(), reverse=True)
+# print(set(sorted_names))
 
 # ALL & ANY
-test1 = ['2', False, 0]
-test2 = {}
-test3  = [True, "Hello", 243]
-# print(all(test1))
-# print(all(test2))
-# print(all(test3))
-# ALL is "happy" if nothing inside is False
-# print(any(test1))
-# print(any(test2))
-# print(any(test3))
-# ANY is "happy" if a least 1 thing is True
+# test = ["", "pizza", 2, 0]
+# test_2 = {}
+# print(all(test))
+# print(all(test_2))
+
+# test = ["", "pizza", 2, 0]
+# test_2 = {}
+# print(any(test))
+# print(any(test_2))
 
 # FILTER
 # scores = [90, 86, 75, 91, 62, 99, 88, 90]
-# only_as = filter(lambda score: score >= 90 , scores)
-# list_as = list(only_as)
-# set_as = set(list_as)
-
-# print(list_as)
-# print(set_as)
+# only_as = filter(lambda num: num >= 90, scores)
+# print(only_as)
+# list_scores = list(only_as)
+# print(list_scores)
+# print(tuple(list_scores))
 
 
 # MAP
-def get_grade(num):
-    if (num >= 90):
-        return "A"
-    elif (num <90 and num >= 80):
-        return "B"
-    elif (num < 80 and num >= 70):
-        return "C"
-    elif (num < 70 and num >= 60):
-        return "D"
-    else:
-        return "F"
+# def get_grade(num):
+#     if (num >= 90):
+#         return "A"
+#     elif (num <90 and num >= 80):
+#         return "B"
+#     elif (num < 80 and num >= 70):
+#         return "C"
+#     elif (num < 70 and num >= 60):
+#         return "D"
+#     else:
+#         return "F"
 
+
+# scores = [90, 86, 75, 91, 62, 99, 88, 90]
 # mapped_grades = map(get_grade, scores)
 # print(mapped_grades)
 # print(list(mapped_grades))
 
 # ZIP
-# scores = [90, 86, 75, 91, 62, 99, 88, 90]
+# scores = [90, 86, 75, 91, 62, 99, 88, 90, 40, 40]
 # grades = ["A", "B", "C", "A", "D", "A", "B", "A"]
-# combined = zip(grades, scores)
-# combined_list = list(combined)
-# combined_dict = dict(combined_list)
+# combined = zip(scores, grades)
+# print(combined)
+# tuple_list = list(combined)
+# combined_dict = dict(tuple_list)
 # print(combined_dict)
 
-# num = 1_000_000_000
-# print(num)
 
+# REMOVE DUPLICATES
 
 phones = [
     {
@@ -377,13 +359,13 @@ phones = [
         "color": "stormy black"
     }
 ]
-# REMOVE DUPLICATES SOLUTION EXPLAINED
+
 # def get_unique_models(phone_list):
 #     just_models = map(lambda phone: phone["model"], phone_list)
-#     return list(set(just_models))
+#     print(list(set(just_models)))
 
 
-# print(get_unique_models(phones))
+# get_unique_models(phones)
 
 # def get_unique_models(phone_list):
 #     seen = []
@@ -395,37 +377,42 @@ phones = [
 #         return seen.append(phone['model']) is None
 #     else:
 #         return False
-#     #
-#     # Because this is a callback in a filter, it needs to return True or False
-#     # to determine if the value gets added to our filtered list
-#     #
-#     # In the else, we return False, makes sense...
-#     # The append method does not have a return, but we know that if a
-#     # function does not have a set return value, it returns None!
-#     # So we check if the return value is None, which will evaluate to true!
+    
+    # Because this is a callback in a filter, it needs to return True or False
+    # to determine if the value gets added to our filtered list
+    
+    # In the else, we return False, makes sense...
+    # The append method does not have a return, but we know that if a
+    # function does not have a set return value, it returns None!
+    # So we check if the return value is None, which will evaluate to true!
+
+   
+
+# def map_to_names(phone_list):
+#     return list(map(lambda phone: phone['model'], phone_list))
 
 
 # COMPREHENSIONS
-
-# my_list = [1, "2", True, "Wednesday"]
-# my_list_copy = [item for item in my_list]
-# my_list_copy2 = [*my_list]
+# my_list = [2, 4, 6, 8, 10]
+# my_list_copy = [num for num in my_list]
 # print(my_list_copy)
-# print(my_list_copy2)
+# another_copy = [*my_list]
+# print(another_copy)
 
-
-# nums = [-10, -5, 2, 6, 8, 10]
+nums = [-5, -2, 5, 13, 27, 3_000_000]
+# mapped_num = map(lambda num: num * 2, nums)
+# print(list(mapped_num))
 # mapped_nums = [num * 2 for num in nums]
 # print(mapped_nums)
-# filter_nums = [num for num in nums if num > 0]
-# print(filter_nums)
-# mapped_and_filtered_num = [num*2 for num in nums if num > 0]
-# print(mapped_and_filtered_num)
+# filtered_nums = [num for num in nums if num > 0]
+# print(filtered_nums)
+# mappped_and_filtered_num = [num * 2 for num in nums if num > 0]
+# print(mappped_and_filtered_num)
+
 
 # DICTIONARY COMPREHENSIONS
-
-numbers_dict = { num: num**2 for num in range(6)}
-print(numbers_dict)
+# number_dictionary = {num: num**2 for num in range(6)}
+# print(number_dictionary)
 
 breaks = {
     "lunch": 2,
@@ -433,5 +420,6 @@ breaks = {
     "EOD": 7,
 }
 
-breaks_CST = {k: v - 1 for k, v in breaks.items()}
-print(breaks_CST)
+print(breaks)
+daylight_savings = {k: v + 1 for k, v in breaks.items()}
+print(daylight_savings)

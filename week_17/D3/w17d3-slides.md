@@ -41,11 +41,17 @@ Structured Data Quiz - 5 min
 
 ### Tuples
 
+Docs link:
+https://docs.python.org/3.9/library/stdtypes.html?highlight=tuple#tuple
+
+
 ---
 
 Tuples are an ordered, immutable collection type. 
 
 They are defined using parentheses `()`, with values separated by a comma.
+
+
 
 ```python=
 a = (1, 2, 3, 4, 5, 6, 7, 8, 9)
@@ -118,6 +124,9 @@ Tuple With Same Product - Challenge - 20 min
 ---
 
 ## Ranges
+
+Docs link:
+https://docs.python.org/3.9/library/stdtypes.html?highlight=range#range
 
 ---
 
@@ -198,6 +207,9 @@ Range Sum of BST - Challenge - 10 min
 ---
 
 ## Dictionaries
+
+Docs link:
+https://docs.python.org/3.9/library/stdtypes.html?highlight=tuple#dict
 
 ---
 
@@ -284,6 +296,9 @@ Two Sum Revisited - Challenge - 10 min
 
 ## Sets
 
+Docs link:
+https://docs.python.org/3.9/library/stdtypes.html?highlight=set#set
+
 ---
 
 Sets are mutable, unordered collections where all elements are unique. 
@@ -352,6 +367,10 @@ Find the Town Judge - Challenge - 10 min
 
 ## Built-in functions
 
+Docs link:
+https://docs.python.org/3.9/library/functions.html?highlight=any#any
+
+
 ---
 
 ### `sorted()`
@@ -385,6 +404,10 @@ test = ["item", [], []]
 print(any(test)) # True
 print(all(test)) # False
 ```
+
+all is "happy" if nothing inside is falsy, 
+any is "happy" if at least one thing is truthy
+
 
 ---
 
