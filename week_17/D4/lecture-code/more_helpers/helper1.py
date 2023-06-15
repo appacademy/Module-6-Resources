@@ -1,8 +1,8 @@
 
 
-def add6(num):
+def add_6(num):
     return num + 6
 
 
-def add8(num):
+def add_8(num):
     return num + 8
