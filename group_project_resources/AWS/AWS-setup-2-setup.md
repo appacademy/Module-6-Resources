@@ -94,10 +94,32 @@ We will want to replace the default JSON policy with the below information (this
 
 Click the `Next` button on the bottom to continue, and give the policy whatever name you like (e.g. s3-access-to-name-of-project). You can leave all other fields as their default, and click the `Create policy` button on the button to save the policy.  Now head back over to the other tab/window where you are creating a new user to continue the setup process.
 
-We will want to refresh the `Permission policies` list and find and select the policy we just created to attach to our user, and then click the `Next` button on the bottom to continue. There is no need to create tags, so you can click the `Create user` button on the bottom and now we have a user!
+
+We will want to refresh the `Permission policies` list and then find and select the policy we just created to attach to our user, and then click the `Next` button on the bottom to continue. There is no need to create tags, so you can click the `Create user` button on the bottom and now we have a user!
+
 
 Almost done with the AWS account setup, our last step is we need to generate our access keys for the user we just made.  
 
+Find the user details page, it should look like the below image, and select the `Security-credentials` tab where we will want to click on the `Create access key` button.
 
-After you create the user, you will get the Access Key ID and the Secret Access
-Key.   You will want to keep these very safe, like in our `.env` file.
+<img
+src='https://res.cloudinary.com/app-academy4/image/upload/v1687299983/AWS/Screenshot_2023-06-20_at_2.20.25_PM_fekhto.png'
+style='width: 400px;' />
+
+On the next page we want to select the setting for `Aplication running outside of AWS` as our sites will not be hosted on AWS.  Then click on the `Next` button to continue.
+
+<img
+src='https://res.cloudinary.com/app-academy4/image/upload/v1687300089/AWS/Screenshot_2023-06-20_at_2.20.40_PM_wenrfz.png'
+style='width: 400px;' />
+
+On this last page we can view our `Access key` and our `Secret access key`, like in the image below. You will want to keep these very safe, like in our `.env` file, and remember do not push them to github, or AWS will send you an email and suspend your account if you do not generate new credentials.
+
+<img
+src='https://res.cloudinary.com/app-academy4/image/upload/v1687300046/AWS/Screenshot_2023-06-20_at_2.20.58_PM_vmuidp.png'
+style='width: 400px;' />
+
+
+At this point are AWS S3 bucket and user have been created, time to start work on our server next...
+
+
+
