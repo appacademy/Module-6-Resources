@@ -1,64 +1,44 @@
-from flask import Blueprint, render_template, redirect
-from ..posts import posts as seed_posts
-from ..forms.post_form import PostForm
-from datetime import date
 from random import randint
+from datetime import datetime
+from flask import Blueprint, render_template, redirect, url_for
+from ..posts import posts
+from ..forms.post_form import PostForm
 
-posts = Blueprint("posts", __name__)
+post_routes = Blueprint("posts", __name__)
 
+# print(__name__)
 
-print(__name__, "Inside posts blueprint")
+@post_routes.route("/all")
+def all_posts():
+  return render_template("feed.html", posts=posts)
 
-
-
-@posts.route("/all")
-def feed():
-    """Get all post and send to template for display"""
-    # Query for all posts
-    # all_posts = Post.query.all()
-    sorted_posts = sorted(seed_posts, key=lambda post: post["date"], reverse=True)
-    return render_template("feed.html", posts = sorted_posts)
-
-
-
-
-@posts.route("/<int:id>")
+@post_routes.route("/<int:id>")
 def get_post_by_id(id):
-    """returns a single post by its id"""
-    # onme_post = Post.query.get(id)
-    print(id)
-    one_post = [post for post in seed_posts if post['id'] == id ]
-    print(one_post)
+    one_post = [post for post in posts if post["id"] == id]
+    # print(one_post)
     return render_template("feed.html", posts=one_post)
 
+    
+@post_routes.route("/new", methods=["GET", "POST"])
+def new_post():
+  form = PostForm()
+  # print(form.caption.label)
+  
+  if form.validate_on_submit():
+    post_dict = {
+      "author": form.data["author"],
+      "caption": form.data["caption"],
+      "image": form.data["image"],
+      "likes": randint(1, 10),
+      "id": max([post["id"] for post in posts]) + 1,
+      "date": datetime.now()
+    }
+    posts.append(post_dict)
+    return redirect(url_for("posts.all_posts"))
+  
+  print(form.errors)
+  if form.errors:
+    return render_template("post_form.html", form=form, errors=form.errors)
+  
 
-
-@posts.route("/new", methods=["GET", "POST"])
-def create_new_post():
-    """renders an empty form on get requests, and validates 
-    a form and creates a resource on post requests"""
-    form = PostForm()
-    # form.author.choices= User.query.all()
-
-    if form.validate_on_submit():
-        # we will make a new post
-        new_post = {
-            "id": len(seed_posts) + 1,
-            "caption": form.data["caption"],
-            "image": form.data["image_url"],
-            "author": form.data["author"],
-            "date": date.today(),
-            "likes": randint(1, 10)
-        }
-        print(new_post)
-        seed_posts.append(new_post)
-        return redirect("/posts/all")
-
-
-    if form.errors:
-        print(form.errors)
-        return render_template("post_form.html", form=form, errors=form.errors)
-
-    # DOTO - Post stuff
-    return render_template("post_form.html", form=form, errors=None)
-
+  return render_template("post_form.html", form=form)

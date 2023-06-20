@@ -1,7 +1,8 @@
 {% extends "nav.html" %}
 
+{% block title %}<title>Feed</title>{% endblock %}
 
-{% block second %}
+{% block feed %}
 <div class="feed-container">
     {% for post in posts  %}
         <div class="post-container">
@@ -9,16 +10,16 @@
                 <div class="post-author">
                     {% if post.author == "Patch" %}
                         <h3 style="color: red">{{ post.author }}</h3>
-                        <p>{{ post .id }}</p>
+
                     {% elif post.author == "Blue" %}
                         <h3 style="color: blue">{{ post.author }}</h3>
-                        <p>{{ post .id }}</p>
+
                     {% elif post.author == "Mimi" %}
                         <h3 style="color: green">{{ post.author }}</h3>
-                        <p>{{ post .id }}</p>
+
                     {% else %}
                         <h3>{{ post.author }}</h3>
-                        <p>{{ post .id }}</p>
+
                     {% endif %}
                 </div>
                 <h3>{{ post.date }}</h3>
@@ -31,5 +32,4 @@
         </div>
     {% endfor %}
 </div>
-
 {% endblock %}
