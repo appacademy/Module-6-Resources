@@ -54,13 +54,5 @@ posts = [
             "image": "https://res.cloudinary.com/app-academy4/image/upload/v1647912094/Patchstagram/IMG_3211_sy5wcy.jpg",
             "date": random_date(datetime.datetime(2023, 1, 1), datetime.datetime.now()),
             "likes": randint(1, 10),
-        },
-        {
-            "id": 6,
-            "author": "Mimi",
-            "caption": "Hi boys...",
-            "image": "https://res.cloudinary.com/app-academy4/image/upload/v1684861055/Patchstagram/Mimi2_nzcfiy.png",
-            "date": random_date(datetime.datetime(2023, 1, 1), datetime.datetime.now()),
-            "likes": randint(1, 10),
         }
 ]

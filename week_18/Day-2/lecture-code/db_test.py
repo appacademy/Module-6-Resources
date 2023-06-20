@@ -7,16 +7,16 @@ DB_FILE="dev.db"
 #     curs = conn.cursor()
 #     curs.execute(
 #         """
-#         CREATE TABLE users(
+#         CREATE TABLE user(
 #         id INTEGER PRIMARY KEY AUTOINCREMENT,
-#         username VARCHAR(100),
-#         email VARCHAR(150),
+#         username VARCHAR(250),
+#         email VARCHAR(250),
 #         profile_pic VARCHAR(250)
 #         );
 #         """
 #     )
 
-#     print("Users table created")
+#     print('User table created')
 
 
 def create_user(username, email, profile_pic):
@@ -24,16 +24,16 @@ def create_user(username, email, profile_pic):
         curs = conn.cursor()
         curs.execute(
             """
-            INSERT INTO users(username, email, profile_pic)
+            INSERT INTO user(username, email, profile_pic)
             VALUES (:username, :email, :profile_pic)
             """,
             {
                 "username": username,
                 "email": email,
-                "profile_pic": profile_pic,
-            }    
+                "profile_pic": profile_pic
+            }
         )
-        print("New user created!")
+        print("User created!")
 
 
 # create_user(
@@ -43,18 +43,17 @@ def create_user(username, email, profile_pic):
 # )
 
 
-def get_all_user():
+def get_all_users():
     with sqlite3.connect(DB_FILE) as conn:
         curs = conn.cursor()
         curs.execute(
             """
             SELECT *
-            FROM users;
+            FROM user;
             """
         )
-
-        results = curs.fetchalll()
+        results = curs.fetchone()
         print(results)
 
 
-get_all_user()
+get_all_users()
