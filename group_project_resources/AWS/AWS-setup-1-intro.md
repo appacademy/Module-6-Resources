@@ -64,11 +64,17 @@ level overview of what we are looking to accomplish to interate file uploads:
 
 
 
-11. Refactor our front end form, as we will now need a file input field instead of a text input field
+11. Refactor our front end form, as we will now need a file input field instead
+    of a text input field
 
-12. Refactor our front end `onSubmit` to use `FormData` instead of making a JSON object (we need to send a file, not just data to our server, and while we can JSON stringify a file, its not an simple process.  `FormData` will allow us to send both a file and data at the same time and is much easier to implement)
+12. Refactor our front end `onSubmit` to use `FormData` instead of making a JSON
+    object (we need to send a file, not just data to our server, and while we
+    can JSON stringify a file, its not an simple process.  `FormData` will allow
+    us to send both a file and data at the same time and is much easier to
+    implement)
 
-13. Modify our thunk to handle sending the `FormData` instead of JSON stringifying the body.
+13. Modify our thunk to handle sending the `FormData` instead of JSON
+    stringifying the body.
 
 14. Test out our AWS-S3 upload and remove functionaly
 
