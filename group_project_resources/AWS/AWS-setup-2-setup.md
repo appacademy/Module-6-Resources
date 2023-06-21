@@ -1,6 +1,8 @@
-# AWS S3 Bucket Setup - Setup
+# AWS S3 Bucket Setup - Account Setup
+
 
 In this reading we are going to acomplish the following goals:
+
 
 1. Set up an account on AWS
 
