@@ -7,20 +7,18 @@ class User(db.Model):
     username = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     profile_pic = db.Column(db.String(250))
-    bio = db.Column(db.String(300))
+    bio = db.Column(db.String(250))
 
-    # relationship attribute
-    posts = db.relationship(
-        "Post",
-        back_populates="user",
-    )
-    
+    # relationship attributes
+    posts = db.relationship("Post", back_populates="user")
     user_likes = db.relationship(
         "Post",
         secondary=likes,
         back_populates="post_likes"
     )
 
-
     def __repr__(self):
-        return f'< User: {self.id}, username: {self.username} >'
+        return f"< User: {self.username} ID: {self.id}>"
+
+    def __str__(self):
+        return f"< User: {self.username} ID: {self.id}>"

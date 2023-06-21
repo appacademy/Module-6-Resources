@@ -1,65 +1,95 @@
-from flask import Blueprint, render_template, redirect
-from ..posts import posts as seed_posts
-from ..forms.post_form import PostForm
-from datetime import date
 from random import randint
-from ..models import db, Post, User
-
-posts = Blueprint("posts", __name__)
-
-
-print(__name__, "Inside posts blueprint")
+from datetime import date
+from flask import Blueprint, render_template, redirect, url_for
+from ..forms.post_form import PostForm
+from ..models import Post, User, db
 
 
-@posts.route("/all")
-def feed():
-    """Get all post and send to template for display"""
-    # Query for all posts
-    sorted_posts = Post.query.order_by(Post.date.desc()).all()
-    # sorted_posts = sorted(seed_posts, key=lambda post: post["date"], reverse=True)
-    return render_template("feed.html", posts=sorted_posts)
+post_routes = Blueprint("posts", __name__)
+
+# print(__name__)
+
+@post_routes.route("/all")
+def all_posts():
+  all_posts = Post.query.order_by(Post.post_date.desc()).all()
+  print(all_posts)
+  return render_template("feed.html", posts=all_posts)
 
 
-@posts.route("/<int:id>")
+@post_routes.route("/<int:id>")
 def get_post_by_id(id):
-    """returns a single post by its id"""
-    one_post = [Post.query.get(id)]
-    print(id)
-    # one_post = [post for post in seed_posts if post["id"] == id]
+    # one_post = [post for post in posts if post["id"] == id]
+    # print(one_post)
+    one_post = Post.query.get(id)
     print(one_post)
-    return render_template("feed.html", posts=one_post)
+    return render_template("feed.html", posts=[one_post])
+
+    
+@post_routes.route("/new", methods=["GET", "POST"])
+def new_post():
+  form = PostForm()
+  # print(form.caption.label)
+  form.user_id.choices = [ (user.id, user.username) for user in User.query.all()]
+  # print(form.author.choices)
+  
+  if form.validate_on_submit():
+    selected_user = User.query.get(form.data["user_id"])
+    print(selected_user)
+
+    new_post = Post(
+      caption = form.data["caption"],
+      image = form.data["image"],
+      user = selected_user,
+      post_date = date.today(),
+    )
+    print(new_post)
+    db.session.add(new_post)
+    db.session.commit()
+    return redirect(url_for("posts.all_posts"))
+  
+  print(form.errors)
+  if form.errors:
+    return render_template("post_form.html", form=form, errors=form.errors)
+  
+
+  return render_template("post_form.html", form=form)
 
 
-@posts.route("/new", methods=["GET", "POST"])
-def create_new_post():
-    """renders an empty form on get requests, and validates
-    a form and creates a resource on post requests"""
-    form = PostForm()
-    users = User.query.all()
-    form.author.choices = [(user.id, user.username) for user in users]
 
-    if form.validate_on_submit():
-        # we will make a new post
-        params = {
-            "caption": form.data["caption"],
-            "image": form.data["image_url"],
-            "date": date.today(),
-        }
+@post_routes.route("/update/<int:id>", methods=["GET", "POST"])
+def update_post(id):
+  form = PostForm()
 
-        new_post = Post(**params)
-        # new_post.author = form.data["author"]
-        user = User.query.get(form.data["author"])
-        new_post.user = user
-        print(new_post)
-        db.session.add(new_post)
-        db.session.commit()
+  form.user_id.choices = [ (user.id, user.username) for user in User.query.all()]
+  print(form.user_id.choices)
 
-        # seed_posts.append(new_post)
-        return redirect("/posts/all")
+  if form.validate_on_submit():
+    post_to_update = Post.query.get(id)
 
-    if form.errors:
-        print(form.errors)
-        return render_template("post_form.html", form=form, errors=form.errors)
+    selected_user = User.query.get(form.data["user_id"])
+    post_to_update.user = selected_user
+    post_to_update.caption = form.data["caption"]
+    post_to_update.image = form.data["image"]
+    post_to_update.post_date = date.today()
+    db.session.commit()
+    return redirect("/posts/all")
 
-    # DOTO - Post stuff
-    return render_template("post_form.html", form=form, errors=None)
+
+  elif form.errors:
+    return render_template("post_form.html", form=form, errors=form.errors, type="update", id=id)
+
+
+  else:
+    current_data = Post.query.get(id)
+    form.process(obj=current_data)
+    return render_template("post_form.html", form=form, errors=None, type="update", id=id)
+
+
+@post_routes.route("/delete/<int:id>")
+def delete_post(id):
+  post_to_delete = Post.query.get(id)
+  db.session.delete(post_to_delete)
+  db.session.commit()
+  return redirect("/posts/all")
+
+  

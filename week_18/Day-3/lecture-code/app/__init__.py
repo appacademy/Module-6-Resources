@@ -1,30 +1,39 @@
 from flask import Flask, render_template, redirect
 from .config import Config
-from .routes.post_routes import posts
-from .routes.user_routes import users
+from .routes.post_routes import post_routes
+from .routes.user_routes import user_routes
 from .models import db
 
-
 app = Flask(__name__)
-print(__name__, "in the main __init__")
-
+# print(__name__)
 app.config.from_object(Config)
-
 db.init_app(app)
 
-app.register_blueprint(posts, url_prefix="/posts")
-app.register_blueprint(users, url_prefix="/users")
 
+app.register_blueprint(post_routes, url_prefix="/posts")
+app.register_blueprint(user_routes, url_prefix="/users")
 
 @app.route("/")
 def index():
-    """Landing page"""
-    # Query the DB
-    # return "<h1>Welcome to our flask server!</h1>"
+    """Landing page for our Patchstagram app"""
+    # query for data
+    # any other python logic we want
+    print("I'm in the index route!!!!")
     return render_template("index.html")
-    # return redirect("/another")
+    # return {"key": "some values"}
 
 
-@app.route("/another")
-def another():
-    return "<h2>This is another route!!!</h2>"
+# @app.route("/all")
+# def get_all_posts():
+#     """Query for all posts and render a template displaying them"""
+#     # posts = Post.query.all()
+#     # return redirect("/")
+#     return render_template("feed.html", posts=posts)
+
+
+# @app.route("/<int:id>")
+# def get_post_by_id(id):
+#     # one_posr = Post.query.get(id)
+#     one_post = [post for post in posts if post["id"] == id]
+#     print(one_post)
+#     return render_template("feed.html", posts=one_post)

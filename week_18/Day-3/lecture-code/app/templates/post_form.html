@@ -1,21 +1,27 @@
 {% extends "nav.html" %}
 
-
-{% block second %}
+{% block feed %}
 <div class="feed-container">
-    <h2>Create a New Post</h2>
-    {% if errors != None %}
-        {% for error in errors %}
-            <p style="color: red;">{{ error }}</p>
-        {% endfor %}
-    {% endif %}
-    <form action="/posts/new" method="POST">
-        {{ form.csrf_token }}
-        <p>{{ form.caption.label }}: {{ form.caption }}</p>
-        <p>{{ form.image_url.label }}: {{ form.image_url }}</p>
-        <p>{{ form.author.label }}: {{ form.author }}</p>
-        <p>{{ form.submit }}</p>
-    </form>
-
+  <h2>Create a New Post</h2>
+{% if type == "update" %}
+  <form action="/posts/update/{{ id }}" method="post">
+{% else %}
+  <form action="/posts/new" method="post">
+{% endif %}
+{% if errors %}
+  {% for error in errors.values() %}
+      {% for output in error %}
+        <p style="color: red;">{{output}}</p>
+      {% endfor %}
+  {% endfor %}
+{% endif %}
+{% for field in form %}
+  {% if field.name != "submit" and field.name != "csrf_token" %}
+    <p>{{field.label}}: {{field(class="post_field")}}</p>
+  {% else %}
+    <p>{{field}}</p>
+  {% endif %}
+{% endfor %}
+</form>
 </div>
 {% endblock %}
