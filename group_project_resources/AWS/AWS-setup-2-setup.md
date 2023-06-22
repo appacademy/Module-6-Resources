@@ -51,7 +51,7 @@ src='https://res.cloudinary.com/app-academy4/image/upload/v1687282074/AWS/Screen
 style='width: 400px;' />
 
 
-We can go with the default selections for the rest of this page.  Got ahead and
+We can go with the default selections for the rest of this page.  Go ahead and
 click the `Create Bucket` botton on the bottom and now your bucket should be set
 up!  
 
@@ -102,13 +102,13 @@ We will want to refresh the `Permission policies` list and then find and select 
 
 Almost done with the AWS account setup, our last step is we need to generate our access keys for the user we just made.  
 
-Find the user details page, it should look like the below image, and select the `Security-credentials` tab where we will want to click on the `Create access key` button.
+Find the user details page, it should look like the below image, and select the `Security credentials` tab where we will want to click on the `Create access key` button.
 
 <img
 src='https://res.cloudinary.com/app-academy4/image/upload/v1687299983/AWS/Screenshot_2023-06-20_at_2.20.25_PM_fekhto.png'
 style='width: 400px;' />
 
-On the next page we want to select the setting for `Aplication running outside of AWS` as our sites will not be hosted on AWS.  Then click on the `Next` button to continue.
+On the next page we want to select the setting for `Application running outside of AWS` as our sites will not be hosted on AWS.  Then click on the `Next` button to continue.
 
 <img
 src='https://res.cloudinary.com/app-academy4/image/upload/v1687300089/AWS/Screenshot_2023-06-20_at_2.20.40_PM_wenrfz.png'
@@ -121,7 +121,7 @@ src='https://res.cloudinary.com/app-academy4/image/upload/v1687300046/AWS/Screen
 style='width: 400px;' />
 
 
-At this point are AWS S3 bucket and user have been created, time to start work on our server next...
+At this point our AWS S3 bucket and user have been created, time to start work on our server next...
 
 
 
