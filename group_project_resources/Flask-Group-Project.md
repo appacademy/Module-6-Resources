@@ -16,7 +16,7 @@ is too similar a site to clone!)
 
 
 [Link to Projects List in aA
-Open](https://open.appacademy.io/learn/js-py---dec-2022-cohort-1-online/week-19---docker-and-microservices/project-planning-day-1)
+Open](https://open.appacademy.io/learn/js-py---feb-2023-cohort-1-online/week-19---docker--aws--and-microservices/project-planning-day-1)
 
 
 The following requirements are necessary to pass the Group Flask Project:
@@ -83,7 +83,7 @@ throughout Week 19.
 
 ## Instructor GitHub Handles
 
-Please add your all your instructor to your project repo as collaborators.  Your project advisor will be assigned once all group have settle on their clone projects (so should happen Tuesday)
+Please add your all your instructor to your project repo as collaborators.  Your project advisor will be assigned once all group have settled on their clone projects (so should happen Tuesday)
 
 - Brad: `bradsimpson213`
 - David: `hisownspace`
