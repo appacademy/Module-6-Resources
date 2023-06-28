@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon32.png') }}">
+  {% block title %}<title>Patchstagram</title>{% endblock %}
+</head>
+<body>
+  {% block nav %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  {% include "footer.html" %}
+</body>
+</html>
