@@ -17,10 +17,10 @@ def random_date_2023():
 
 
 with app.app_context():
-  db.drop_all()
-  print("All tables dropped")
-  db.create_all()
-  print("Created all tables")
+#   db.drop_all()
+#   print("All tables dropped")
+#   db.create_all()
+#   print("Created all tables")
   
   pip = User(username="Pip", email="pip@pip.pip", profile_pic="https://pipstagram.s3.amazonaws.com/137336008_406744080656046_3364448327964401597_n.jpg")
   loki = User(username="Loki", email="loki@loki.loki", profile_pic="https://pipstagram.s3.amazonaws.com/96422911_295207864815265_1703976767659593889_n.jpg")

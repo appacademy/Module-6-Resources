@@ -1,4 +1,5 @@
 from random import randint
+from pprint import pprint
 from datetime import datetime
 from flask import Blueprint, render_template, url_for, redirect
 from ..forms import PostForm
@@ -9,8 +10,9 @@ post_routes = Blueprint("post_routes", __name__, url_prefix="/posts")
 @post_routes.route("/all")
 def feed():
   posts = Post.query.all()
+  posts_list = [post.to_dict() for post in posts]
   
-  return render_template("feed.html", posts=posts)
+  return render_template("feed.html", posts=posts_list)
 
 @post_routes.route("/new", methods=["GET", "POST"])
 def get_post_form():
@@ -35,6 +37,7 @@ def get_post_form():
     print(form.errors)
     return form.errors
   
+  return render_template("post-form.html", post=form)
 
 @post_routes.route("/delete/<int:id>")
 def delete_post(id):
@@ -46,4 +49,3 @@ def delete_post(id):
     
     
   
-  return render_template("post-form.html", post=form)

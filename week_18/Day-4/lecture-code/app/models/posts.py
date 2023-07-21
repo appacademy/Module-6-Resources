@@ -13,4 +13,13 @@ class Post(db.Model):
   author = db.relationship("User", back_populates="posts")
   # user_likes = db.relationship("User", secondary="likes", back_populates="post_likes")
   
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "user_id": self.user_id,
+      "caption": self.caption,
+      "image": self.image,
+      "date": self.date,
+      "author": self.author.to_dict()["username"]
+    }
   

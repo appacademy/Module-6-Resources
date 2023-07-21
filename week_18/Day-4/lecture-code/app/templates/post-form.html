@@ -1,7 +1,20 @@
-<form action="/posts/new" method="post">
-  {{post.author.label}}{{post.author}}
-  {{post.caption.label}}{{post.caption(placeholder="describe your post here", required=False)}}
-  {{post.image.label}}{{post.image}}
-  {{post.hidden_tag()}}
-  {{post.submit}}
-</form>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="feed-container">
+  <h2>Create A New Post</h2>
+  {% if errors != None %}
+      {% for error in errors %}
+          <p style="color: red;">{{ error }}</p>
+      {% endfor %}
+  {% endif %}
+  <form action="/posts/update/{{ id }}" method="POST">
+      {{ post.csrf_token }}
+      <p>{{ post.caption.label }}: {{ post.caption }}</p>
+      <p>{{ post.image.label }}: {{ post.image }}</p>
+      <p>{{ post.author.label }}: {{ post.author }}</p>
+      <p>{{ post.submit }}</p>
+  </form>
+</div>
+
+{% endblock %}
