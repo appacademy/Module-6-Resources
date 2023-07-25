@@ -1,39 +1,35 @@
-{% extends "nav.html" %}
+
+
+{% extends "base.html" %}
 
 {% block title %}<title>Feed</title>{% endblock %}
 
-{% block feed %}
+{% block content %}
 <div class="feed-container">
     {% for post in posts  %}
         <div class="post-container">
             <div class="post-box">
                 <div class="post-author">
-                    <img src="{{ post.user.profile_pic}}"
-                        class="profile-pic" />
-                    {% if post.user.username == "Patchenator" %}
-                        <h3 style="color: red">{{ post.user.username }}</h3>
+                    {% if post["author"] == "Pip" %}
+                        <h3 style="color: red">{{ post["author"] }}</h3>
 
-                    {% elif post.author == "Blueberry44" %}
-                        <h3 style="color: blue">{{ post.user.username }}</h3>
+                    {% elif post["author"] == "Loki" %}
+                        <h3 style="color: blue">{{ post["author"] }}</h3>
 
-                    {% elif post.author == "Mimi" %}
-                        <h3 style="color: green">{{ post.user.username }}</h3>
+                    {% elif post["author"] == "Luna" %}
+                        <h3 style="color: green">{{ post["author"] }}</h3>
 
                     {% else %}
-                        <h3>{{ post.user.username }}</h3>
+                        <h3>{{ post["author"] }}</h3>
 
                     {% endif %}
                 </div>
-                <h3>{{ post.post_date }}</h3>
+                <h3>{{ post["date"] }}</h3>
             </div>
             <div>
-                <img class="post-image" src="{{ post.image }}" />
-                <p class="post-text">{{ post.caption }}</p>
-                <p class="post-text">{{ post.likes }} Likes</p>
-                <div>
-                    <a href="/posts/update/{{ post.id }}">Update</a>
-                    <a href="/posts/delete/{{ post.id }}">Delete</a>
-                </div>
+                <img class="post-image" src="{{ post['image'] }}" />
+                <p class="post-text">{{ post["caption"] }}</p>
+                <p><a href="/posts/delete/{{ post['id'] }}">Delete Post</a></p>
             </div>
         </div>
     {% endfor %}

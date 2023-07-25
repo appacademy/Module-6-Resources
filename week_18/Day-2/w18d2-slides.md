@@ -122,7 +122,6 @@ Blueprints allow us to organize our code by breaking our routes into individual 
 
 ```python=
 from flask import Blueprint
-
 books_router = Blueprint('books', __name__, url_prefix='/books')
 ```
 
@@ -138,9 +137,7 @@ books_router = Blueprint('books', __name__, url_prefix='/books')
 ```python=
 # In the routes/books.py
 from flask import Blueprint
-
 books_router = Blueprint('books', __name__, url_prefix='/books')
-
 @books_router.route('/')
 def book_index():
     # Show all the books
@@ -156,7 +153,6 @@ def book_index():
 ```python=
 from flask import Flask
 from book_app.routes import books_router # assuming we have a __init__.py in routes
-
 app = Flask(__name__)
 app.register_blueprint(books_router)
 ```
@@ -187,7 +183,6 @@ You must have a SECRET_KEY in your app configuration for CSRF token validation t
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired
-
 class NewBookForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     rating = SelectField(
@@ -222,7 +217,6 @@ In our app, we can handle:
 @books_router.route('/new_book', methods=["GET"])
 def add_book():
     form = NewBookForm()
-
     return render_template("new_book.html", form=form)
 ```
 
@@ -243,7 +237,6 @@ def add_book():
 @books_router.route('/new_book', methods=["GET", "POST"])
 def add_book():
     form = NewBookForm()
-
     if form.validate_on_submit():
         title = form.data['title']
         
@@ -263,7 +256,6 @@ def add_book():
     
     if form.errors:
         return form.errors
-
     return render_template("new_book.html", form=form)
 ```
 

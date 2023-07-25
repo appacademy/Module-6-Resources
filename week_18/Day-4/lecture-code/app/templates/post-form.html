@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="feed-container">
+  <h2>Create A New Post</h2>
+  {% if errors != None %}
+      {% for error in errors %}
+          <p style="color: red;">{{ error }}</p>
+      {% endfor %}
+  {% endif %}
+  <form action="/posts/update/{{ id }}" method="POST">
+      {{ post.csrf_token }}
+      <p>{{ post.caption.label }}: {{ post.caption }}</p>
+      <p>{{ post.image.label }}: {{ post.image }}</p>
+      <p>{{ post.author.label }}: {{ post.author }}</p>
+      <p>{{ post.submit }}</p>
+  </form>
+</div>
+
+{% endblock %}

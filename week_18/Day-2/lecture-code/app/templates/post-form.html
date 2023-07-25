@@ -1,0 +1,7 @@
+<form action="/posts/new" method="post">
+  {{post.author.label}}{{post.author}}
+  {{post.caption.label}}{{post.caption(placeholder="describe your post here", required=False)}}
+  {{post.image.label}}{{post.image}}
+  {{post.hidden_tag()}}
+  {{post.submit}}
+</form>

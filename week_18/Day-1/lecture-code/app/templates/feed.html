@@ -1,14 +1,14 @@
 <div>
-    {% for post in posts %}
-        <div>
-            <div>
-                <h2>{{ post.author }}</h2>
-            </div>
-        </div>
-        <div>
-            <img style="height: 100px;" src="{{ post.image }}" />
-            <p>{{ post.date }} - {{ post.caption }}</p>
-            <p>{{ post.likes }} Likes</p>
-        </div>
-    {% endfor %}
+  {% for post in posts %}
+    <div>
+      <div>
+        <h3>{{post.author}}</h3>
+      </div>
+    </div>
+    <div>
+      <img src={{post.image}} style="height: 250px;"/>
+      <p>{{post.date}}</p>
+      <p>{{post.likes}}</p>
+    </div>
+  {% endfor %}
 </div>

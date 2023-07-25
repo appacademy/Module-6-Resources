@@ -1,20 +1,22 @@
-{% extends "nav.html" %}
+
+
+{% extends "base.html" %}
 
 {% block title %}<title>Feed</title>{% endblock %}
 
-{% block feed %}
+{% block content %}
 <div class="feed-container">
     {% for post in posts  %}
         <div class="post-container">
             <div class="post-box">
                 <div class="post-author">
-                    {% if post.author == "Patch" %}
+                    {% if post.author == "Pip" %}
                         <h3 style="color: red">{{ post.author }}</h3>
 
-                    {% elif post.author == "Blue" %}
+                    {% elif post.author == "Loki" %}
                         <h3 style="color: blue">{{ post.author }}</h3>
 
-                    {% elif post.author == "Mimi" %}
+                    {% elif post.author == "Luna" %}
                         <h3 style="color: green">{{ post.author }}</h3>
 
                     {% else %}

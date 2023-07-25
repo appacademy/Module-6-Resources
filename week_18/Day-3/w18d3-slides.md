@@ -42,7 +42,7 @@ DATABASE_URL=sqlite:///dev.db
 
 4. Modify your config class.
     a. Add a class variable called `SQLALCHEMY_DATABASE_URI`, and set the value to the `DATABASE_URL` from your environment
-    
+
     b. Add a class variable called `SQLALCHEMY_TRACK_MODIFICATIONS` and set the value. This will turn off a Flask-SQLAlchemy feature that signals our app everytime a change is made to db objects.
 
 ```python=
@@ -92,7 +92,6 @@ If you want to specify a tablename, use the `__tablename__` property.
 
 ```python=
 db = SQLALchemy()
-
 class Book(db.Model):
     __tablename__ = "books"
 ```

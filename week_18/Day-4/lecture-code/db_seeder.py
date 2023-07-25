@@ -1,88 +1,98 @@
+from datetime import datetime, timedelta
+from random import randint
+from app import app
 from app.models import db, User, Post
-from app import app 
-from random import choice
-from faker import Faker
-fake = Faker()
+
+def random_date_2023():
+    """Generate a random datetime between `start` and `end` which
+    should be datetime objects"""
+    start = datetime(2023, 1, 1)
+    end = datetime.now()
+    random_date = start + timedelta(
+        # Get a random amount of seconds between `start` and `end`
+        seconds=randint(0, int((end - start).total_seconds())),
+    )
+
+    return random_date
 
 
 with app.app_context():
-    # db.drop_all()
-    # print("All tables dropped!")
-    # db.create_all()
-    # print("Created all tables!")
+#   db.drop_all()
+#   print("All tables dropped")
+#   db.create_all()
+#   print("Created all tables")
+  
+  pip = User(username="Pip", email="pip@pip.pip", profile_pic="https://pipstagram.s3.amazonaws.com/137336008_406744080656046_3364448327964401597_n.jpg")
+  loki = User(username="Loki", email="loki@loki.loki", profile_pic="https://pipstagram.s3.amazonaws.com/96422911_295207864815265_1703976767659593889_n.jpg")
+  luna = User(username="Luna", email="luna@luna.luna", profile_pic="https://pipstagram.s3.amazonaws.com/14736358_1218308304908741_9131677530216988672_n.jpg")
 
-
-    user1 = User(
-            username="Patchenator",
-            email="patch_the_cat@gmail.com",
-            profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
-            bio= "I love naps and food",
-    )
-
-    user2 = User(
-            username="Blueberry44",
-            email="blue@aol.com",
-            profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912128/Patchstagram/66346842095__0566A55A-DF10-4E86-A59A-F5694436FA4E_wmoi1w.jpg",
-            bio="I am a ninja! 🥷🏻",
-    )
-
-    user3 = User(
-            username="brads213",
-            email="brad@gmail.com",
-            profile_pic="https://ca.slack-edge.com/T03GU501J-USQFVK3GT-941e867a316f-512",
-            bio="I am the father of 2 crazy cats",
-    )
-
-    # db.session.add(user1)
-    # db.session.add(user2)
-    # db.session.add(user3)
-    all_users = [user1, user2, user3]
-    _ = [db.session.add(user) for user in all_users]
-    db.session.commit()
-    print("Users seeded to db!")
-
-
-    post1 = Post(
-        caption="Napping Outside is always fun...",
-        image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
-        post_date=fake.date_between(start_date='-1y', end_date='today'),
-        user=choice(all_users),
-        post_likes=[user2, user3],
-    ) 
-
-    post2 = Post(
-        caption="Napping inside is pretty awesome too...",
-        image="https://res.cloudinary.com/app-academy4/image/upload/v1647912403/Patchstagram/64865942444__2B7B1A74-ECAF-4798-BEAB-D4890B7164C4_hnmowy.jpg",
-        post_date=fake.date_between(start_date='-1y', end_date='today'),
-        user=choice(all_users),
-        post_likes=[user2, user1],
-    )
-
-    post3 = Post(
-        caption= "I like my fish",
-        image= "https://res.cloudinary.com/app-academy4/image/upload/v1647912006/Patchstagram/IMG_3437_u2frrk.jpg",
-        post_date=fake.date_between(start_date='-1y', end_date='today'),
-        user=choice(all_users),
-        post_likes=[user1, user2, user3],
-    )       
-    
-    post4 = Post(
-        caption= "Now THIS is a party!",
-        image= "https://res.cloudinary.com/app-academy4/image/upload/v1647912056/Patchstagram/IMG_3389_i6czzx.jpg",
-        post_date=fake.date_between(start_date='-1y', end_date='today'),
-        user=choice(all_users),
-    )
-
-    post5 = Post(
-        caption= "This punk stole my tent! ⛺️",
-        image= "https://res.cloudinary.com/app-academy4/image/upload/v1647912094/Patchstagram/IMG_3211_sy5wcy.jpg",
-        post_date=fake.date_between(start_date='-1y', end_date='today'),
-        user=user2,
-        post_likes=[user2, user3]
-    )
-
-
-    all_posts = [post1, post2, post3, post4, post5]
-    add_posts = [db.session.add(post) for post in all_posts]
-    db.session.commit()
-    print("All posts seeded to the db!")
+  # print(dir(db.session))
+  posts = [
+    {
+        "author": pip,
+        "caption": "hello!",
+        "image": "https://pipstagram.s3.amazonaws.com/137336008_406744080656046_3364448327964401597_n.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": pip,
+        "caption": "you would've gotten that stick... if you knew how to swim",
+        "image": "https://pipstagram.s3.amazonaws.com/14736358_1218308304908741_9131677530216988672_n.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": pip,
+        "caption": "please, just give me another hour",
+        "image": "https://pipstagram.s3.amazonaws.com/147984230_349580496062106_6664809776347526236_n.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": luna,
+        "caption": "my best buddy!",
+        "image": "https://pipstagram.s3.amazonaws.com/15035574_1079682388796264_6184137089534132224_n.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": pip,
+        "caption": "Ready for the job interview",
+        "image": "https://pipstagram.s3.amazonaws.com/17332517_1437522652946724_7128079981032243200_n.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": pip,
+        "caption": "let's just be friends",
+        "image": "https://pipstagram.s3.amazonaws.com/18012097_255074681625671_5096963914957062144_n.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": loki,
+        "caption": "allow me to introduce myself",
+        "image": "https://pipstagram.s3.amazonaws.com/2023-07-17+14.53.08.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": loki,
+        "caption": "mmmm... dirt!",
+        "image": "https://pipstagram.s3.amazonaws.com/2023-07-17+14.53.30.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    },
+    {
+        "author": loki,
+        "caption": "please sir, i beg of you",
+        "image": "https://pipstagram.s3.amazonaws.com/2023-07-17+14.57.09.jpg",
+        "date": random_date_2023(),
+        # "likes": randint(0, 100),
+    }
+  ]
+  [db.session.add(Post(**post)) for post in posts]
+  
+  db.session.add(pip)
+  db.session.commit()
