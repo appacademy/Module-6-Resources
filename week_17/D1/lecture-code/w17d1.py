@@ -1,167 +1,144 @@
-# # FUNCTIONS
-
 # def get_average(num_1, num_2):
-    # """This function will accept 2 numbers 
-    # and return their average"""
-#     average = (num_1 + num_2) / 2
-#     print(average)
+#     """Will take in 2 numbers and return their average"""
+#     average =(num_1 + num_2) / 2
+#     # print(average)
 #     return average
 
 
 # ran_average = get_average(4, 6)
 # print(ran_average)
 
-# help(get_average)
 
-# If we need 
-# a multi line comment
-# STRINGS
+# String Stuff
 
 # lunch = "Pizza"
-# lunch_2 = 'Sandwich'
-
 # print(lunch)
-# print(len(lunch_2))
+# print("Pizza")
+# print(len(lunch))
 
-# print("Let's")
-# print('Lets\'s')
-# print('''This is a
-# multi line
-# string so spaces
-# and new 
-# lines are
-# preserved''')
+# print('Pizza')
+# print("Pizza")
+# print('Let\'s')
+# print(""" This is a multi
+# line string where spaces
+# and new lines get preserved
+# and stuff""")
 
 
-a = 1
-b = 2
-# print(a)
-# a = "Pizza"
-# print(a)
-
-# LUNCH = "pizza"
-# LUNCH = 2
-# print(LUNCH)
+# a = 1
+# b = 2
 
 # print(f"Let's add {a} and {b} together to get {a + b}")
-# print("Let's add {1} and {2} together to get {0}".format(a, b, a+b))
-# print("Let's add {thing_1} and {thing_2} together to get {thing_3}".format(thing_3=a+b,thing_1=a, thing_2=b))
+# print("Let's add {} and {} together to get {}".format(a, b, a + b))
+# print("Let's add {1} and {0} together to get {2}".format(a, b, a + b))
+# print("Let's add {thing_1} and {thing_2} together to get {thing_3}".format(thing_3=a+b, thing_1=a, thing_2=b))
 
+# print("Pizza" + " is " + "very yummy")
+# print("Pizza" + " is " + "so " * 3 + "very yummy")
 
-# print("Pizza" + " is " + "delicious")
-# print("pizza " * 4)
+# sentence = "Brad is very much obsessed with pizza today!"
 
-sentence = 'Brad is very much obsessed with pizza and food'
-# print(sentence[0])
-# print(sentence[-2])
-# # print(sentence[start:stop:step])
-# print(sentence[1:6])
-# print(sentence[:10])
-# print(sentence[::2])
-# print(sentence[::-1])
+# # print(sentence[2])
+# # print(sentence[-2])
+# # # print(sentence[start:stop:step])
+# # print(sentence[:6])
+# # print(sentence[::-1])
+# print(sentence.split("a"))
+# print(len(sentence))
+# print(list(sentence))
 
-# names = ["Brad", "David", "Andrew", "Keegan"]
-# join_str = ", "
+# names = ["brad", "david", "andrew"]
+# join_str= ", "
 # print(join_str.join(names))
 
-# DO NOT EDIT - Sample debug for an equality operation
-# num = 5
-# string = "5"
-# print('num {0}, str {1}, equal? {2}'.format(num, string, num==string))
-
-# # STEP 6: Rewrite the print above in an alternate way using f' on the string
-# print(f'num {num}, str {string}, equal {num==string}')
 
 
-# BOOLEAN
-a = True
-b = False
+# BOOLEANS
+
+# a = True
+# b = False
 
 # && || !
-# and or not 
+# and or not
+# print(True and False)
 # print(True or False)
-# print(False and True)
+# print(False and False)
 # print(not True)
-# print(True and True)
-
-# print( 1 == 2)
-# print( 2 != 3)
-# print( 3 == "3")
-
 # print(True + 1)
-# print(False + 3)
+# print(False + 1)
 # print(True == 1)
-
+# print("4" == 4)
 
 # NUMBERS
-# Integer & Floats
-# results = 2 * 4
-# print(results)
-# value = 23445
-# val_2 = 3.14
 
-# print(int("2345"))
-# print(float(1234))
-# print(int(250.25))
-# print(float("23.6"))
+# result = 4 * 3
+# print(result)
+# value = 12345.000
+# big_num = 1_000_000_000_000
+# other_num =1000000000000
+# print(big_num)
+# print(int(value))
+# integer = 45
+# print(float(integer))
+# val_2 = "12345"
+# print(float(val_2))
 
-# Operators
-# + - * / % ** // 
+# # + - * / % ** //
+
 # print(4**2)
 
-def long_division(dividend, divisor):
-    """Takes in 2 numbers and calculates the quotient and remainder"""
-    quotient = dividend // divisor
-    remainder = dividend % divisor
-    print(quotient, remainder)
-    return f"{dividend} divided by {divisor} is {quotient} reaminder {remainder}"
+# def long_division(dividend, divisor):
+#     """ Take in 2 numbers and return their result and remainder"""
+#     quotent = dividend // divisor
+#     remainder = dividend % divisor
+#     print(quotent, remainder)
+#     return f"{dividend} divided by {divisor} is {quotent} reaminder {remainder}"
+
 
 # print(long_division(25, 3))
+# help(long_division)
+# count = 40
+# count += 1
 
-# number = 40
-# number += 1
+# VARIABLES
 
-# ORDER OF OPERATIONS
-# Parenthesis Exponents Multiplication Division Addition Subtraction
+# x = 30
 
-#  VARIABLES
+# num_1 = 40
 
-# age = 40
-# x = 40
-# PI = 3.14
+# average_of_sums = 500
 
-# bags = cases = 50
-# print(bags)
-# print(cases)
+# average_of_sums = "taco"
+
+# print(average_of_sums)
+
+# LUNCH = "pizza"
+
+# WORK_DAYS = ["Mon", "Tues", "Wed", "Thurs", "Fri"]
 
 
 # IDENTITY vs EQUALITY
-#   is     vs  ==
+#    is          ==
 
-# my_int = 4
-# my_float = 4.0
+my_int = 4
+my_float = 4.0
 
-# print(my_int == my_float)
+# print(my_float == my_int)
 # print(my_int is my_float)
 
-# print("2" == '2')
+# print('2' == "2")
 # print("2" is '2')
 
-a = None
-print(id(a))
-b = 'pizza'
-print(id(b))
-c = None
-print(id(c))
-d = True
-print(id(d))
-e = True
-print(id(e))
-print( a is c)
-print(d is e)
-print(a is b)
-f = 1
-g = 0
-print(id(f))
-print(id(g))
-print(f is d)
+rand_var = None
+print(id(rand_var))
+rand_var_2 = "pizza"
+print(id(rand_var_2))
+rand_var_3 = None
+print(id(rand_var_3))
+rand_var_4 = True
+print(id(rand_var_4))
+rand_var_5 = 1
+print(id(rand_var_5))
+
+print(rand_var_4 == rand_var_5)
+print(rand_var_4 is rand_var_5)
