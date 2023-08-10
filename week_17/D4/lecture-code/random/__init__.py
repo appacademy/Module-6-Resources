@@ -1,6 +1,5 @@
-from .random_stuff1 import choice, choices
-from .random_stuff2 import shuffle, sample
+from .more_random import choices, randfloat, randint, shuffle
 
-
-def randint():
+def choice():
     pass
+
