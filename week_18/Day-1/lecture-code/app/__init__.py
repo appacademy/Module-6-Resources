@@ -2,17 +2,36 @@ from flask import Flask, render_template
 from .config import Config
 from .posts import posts
 
+
 app = Flask(__name__)
+app.config.from_object(Config)
 
 print(__name__)
 
-app.config.from_object(Config)
 
 @app.route("/")
 def index():
-  return render_template("index.html", title="Pipstagram")
+    """renders the home page of our app"""
+    # query the DB
+    # return "<h1>Hello Programmers!</h1>"
+    return render_template("index.html")
 
-  
-@app.route("/feed")
-def feed():
-  return render_template("feed.html", posts=posts)
+
+
+@app.route("/all")
+def get_all_posts():   
+    """gat all of the posts that exist and display them in a feed""" 
+    # query the DB for all posts
+    # all_posts = Post.query.all()
+    return render_template("feed.html", posts=posts)
+
+
+@app.route("/<int:id>")
+def get_post_by_id(id):
+    """display a single post by its id"""
+    # one_post = Post.query.get(id)
+    one_post = [post for post in posts if post["id"] == id]
+    print(one_post)
+    return render_template("feed.html", posts=one_post)
+
+

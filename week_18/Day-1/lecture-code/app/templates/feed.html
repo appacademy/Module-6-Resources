@@ -1,14 +1,23 @@
 <div>
-  {% for post in posts %}
+    {% for post in posts %}
     <div>
-      <div>
-        <h3>{{post.author}}</h3>
-      </div>
+        <div>
+            <div>
+                {% if post.author == "Patch" %}
+                    <h2 style="color: orange">{{ post.author  }}</h2>
+                {% elif post.author == "Blue" %}
+                    <h2 style="color: blue">{{ post.author  }}</h2>
+                {% else %}
+                    <h2>{{ post.author  }}</h2>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <img style="height: 100px" src="{{ post.image }}" />
+            <p>{{ post.date }} -{{ post.caption }}</p>
+            <p>{{ post.likes }}</p>
+        </div>
     </div>
-    <div>
-      <img src={{post.image}} style="height: 250px;"/>
-      <p>{{post.date}}</p>
-      <p>{{post.likes}}</p>
-    </div>
-  {% endfor %}
+    {% endfor %}
+
 </div>
