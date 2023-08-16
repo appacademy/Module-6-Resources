@@ -25,7 +25,7 @@ class Post(db.Model):
             "caption": self.caption,
             "image": self.image,
             "postDate": self.post_date,
-            "user": self.user.to_dict()
+            "user": self.user.to_dict_no_post()
        }
 
 # user id as a route parameter and post

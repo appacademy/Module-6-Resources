@@ -18,7 +18,20 @@ class User(db.Model):
     )
 
 
-    def to_dict(self):
+    def to_dict(self, posts=False):
+        user_dictionary = {
+            "id": self.id,
+            "username": self.username,
+            "profilePic": self.profile_pic,
+            "bio": self.bio,
+        }
+        if posts:
+            user_dictionary["posts"] = [post.to_dict() for post in self.posts]
+  
+        return user_dictionary
+
+
+    def to_dict_no_post(self):
         return {
             "id": self.id,
             "username": self.username,

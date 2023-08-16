@@ -19,10 +19,10 @@ def get_all_posts():
     """gat all of the posts that exist and display them in a feed""" 
     # query the DB for all posts
     all_posts = Post.query.order_by(Post.post_date.desc()).all()
-    response = [post.to_dict() for post in all_posts]
-    print(response)
-    return response
-    # return render_template("feed.html", posts=all_posts)
+    # response = [post.to_dict() for post in all_posts]
+    # print(response)
+    # return response
+    return render_template("feed.html", posts=all_posts)
 
 
 @posts.route("/<int:id>")
@@ -41,16 +41,14 @@ def create_new_post():
     form.author.choices = [(user.id, user.username) for user in User.query.all()]
     print(form.author.choices)
 
-
     if form.validate_on_submit():
         print(form.data["author"])
         selected_user = User.query.get(form.data["author"])
-        print(selected_user.to_dict())
-
+        # print(selected_user.to_dict())
 
         new_post = Post(
             caption= form.data["caption"],
-            image=form.data["image_url"],
+            image=form.data["image"],
             post_date=date.today(),
             user=selected_user
         )
@@ -65,3 +63,40 @@ def create_new_post():
         return render_template("post_form.html", form=form, errors=form.errors)
 
     return render_template("post_form.html", form=form, errors=None)
+
+
+@posts.route("/update/<int:id>", methods=["GET", "POST"])
+def update_post(id):
+    form = PostForm()
+
+    form.author.choices = [(user.id, user.username) for user in User.query.all()]
+
+    if form.validate_on_submit():
+        post_to_update = Post.query.get(id)
+        selected_user = User.query.get(form.data["author"])
+
+        post_to_update.user = selected_user
+        post_to_update.caption = form.data["caption"]
+        post_to_update.image = form.data["image"]
+        db.session.commit()
+        return redirect(f"/posts/{post_to_update.id}")
+
+
+    elif form.errors:
+        print(form.errors)
+        return render_template("post_form.html", form=form, id=id, type="update", errors=form.errors)
+
+    
+    else:
+        current_data = Post.query.get(id)
+        form.process(obj=current_data)
+        return render_template("post_form.html", form=form, id=id, type="update", errors=None)
+
+
+
+@posts.route("/delete/<int:id>")
+def delete_post(id):
+    post_to_delete = Post.query.get(id)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect("/posts/all")

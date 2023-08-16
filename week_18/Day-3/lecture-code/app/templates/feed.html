@@ -31,6 +31,8 @@
                 <p class="post-text">{{ post.caption }}</p>
                 <p class="post-text">{{ post.post_likes | length }} Likes</p>
             </div>
+            <a href="/posts/update/{{ post.id }}">Update</a>
+            <a href="/posts/delete/{{ post.id }}">Delete</a>
         </div>
     {% endfor %}
 </div>
