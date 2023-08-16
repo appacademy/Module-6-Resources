@@ -1,35 +1,35 @@
-
-
-{% extends "base.html" %}
-
-{% block title %}<title>Feed</title>{% endblock %}
+{% extends "nav.html" %}
 
 {% block content %}
 <div class="feed-container">
     {% for post in posts  %}
         <div class="post-container">
             <div class="post-box">
+                <img 
+                    src="{{ post.user.profile_pic }}" 
+                    class="profile-pic"
+                />
                 <div class="post-author">
-                    {% if post.author.username == "Pip" %}
-                        <h3 style="color: red">{{ post.author.username }}</h3>
+                    {% if post.user.username == "Patchenator" %}
+                        <h3 style="color: red">{{ post.user.username }}</h3>
 
-                    {% elif post.author.username == "Loki" %}
-                        <h3 style="color: blue">{{ post.author.username }}</h3>
+                    {% elif post.user.username == "Blueberry44" %}
+                        <h3 style="color: blue">{{ post.user.username}}</h3>
 
-                    {% elif post.author.username == "Luna" %}
-                        <h3 style="color: green">{{ post.author.username }}</h3>
+                    {% elif post.user.username == "brads213" %}
+                        <h3 style="color: green">{{ post.user.username }}</h3>
 
                     {% else %}
-                        <h3>{{ post.author.username }}</h3>
+                        <h3>{{ post.user.username }}</h3>
 
                     {% endif %}
                 </div>
-                <h3>{{ post.date }}</h3>
+                <h3>{{ post.post_date }}</h3>
             </div>
             <div>
                 <img class="post-image" src="{{ post.image }}" />
                 <p class="post-text">{{ post.caption }}</p>
-                <p><a href="/posts/delete/{{ post.id }}">Delete Post</a></p>
+                <p class="post-text">{{ post.post_likes | length }} Likes</p>
             </div>
         </div>
     {% endfor %}
