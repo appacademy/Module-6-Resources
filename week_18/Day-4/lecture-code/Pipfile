@@ -10,8 +10,11 @@ wtforms = "*"
 flask-wtf = "*"
 sqlalchemy = "*"
 flask-sqlalchemy = "*"
+faker = "*"
 alembic = "*"
 flask-migrate = "*"
 
 [dev-packages]
 
+[requires]
+python_version = "3.9"
