@@ -1,22 +1,23 @@
 from app.models import db, User, Post
-from app import app 
+from app import app
 from random import choice
 from faker import Faker
+
 fake = Faker()
 
-
 with app.app_context():
+    
     # db.drop_all()
-    # print("All tables dropped!")
+    # print("all tables drppped")
     # db.create_all()
-    # print("Created all tables!")
+    # print("Created all tables")
 
 
     user1 = User(
-            username="Patchenator",
-            email="patch_the_cat@gmail.com",
-            profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
-            bio= "I love naps and food",
+        username="Patchenator",
+        email="patch_the_cat@gmail.com",
+        profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
+        bio=" I love naps and fud"
     )
 
     user2 = User(
@@ -33,23 +34,23 @@ with app.app_context():
             bio="I am the father of 2 crazy cats",
     )
 
+    all_users = [user1, user2, user3]
+    _ = [db.session.add(user) for user in all_users]
     # db.session.add(user1)
     # db.session.add(user2)
     # db.session.add(user3)
-    all_users = [user1, user2, user3]
-    _ = [db.session.add(user) for user in all_users]
     db.session.commit()
-    print("Users seeded to db!")
+    print("users seeded!")
 
 
     post1 = Post(
-        caption="Napping Outside is always fun...",
+        caption="Napping outside is always fun...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
-        post_date=fake.date_between(start_date='-1y', end_date='today'),
+        post_date=fake.date_between(start_date="-1y", end_date="today"),
         user=choice(all_users),
-        post_likes=[user2, user3],
-    ) 
-
+        post_likes = [user3, user2]
+    )
+    
     post2 = Post(
         caption="Napping inside is pretty awesome too...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912403/Patchstagram/64865942444__2B7B1A74-ECAF-4798-BEAB-D4890B7164C4_hnmowy.jpg",
@@ -81,8 +82,7 @@ with app.app_context():
         post_likes=[user2, user3]
     )
 
-
     all_posts = [post1, post2, post3, post4, post5]
     add_posts = [db.session.add(post) for post in all_posts]
     db.session.commit()
-    print("All posts seeded to the db!")
+    print('POSTS SEEDED TO DB')

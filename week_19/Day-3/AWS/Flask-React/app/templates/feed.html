@@ -1,22 +1,22 @@
 {% extends "nav.html" %}
 
-{% block title %}<title>Feed</title>{% endblock %}
-
-{% block feed %}
+{% block content %}
 <div class="feed-container">
     {% for post in posts  %}
         <div class="post-container">
             <div class="post-box">
+                <img 
+                    src="{{ post.user.profile_pic }}" 
+                    class="profile-pic"
+                />
                 <div class="post-author">
-                    <img src="{{ post.user.profile_pic}}"
-                        class="profile-pic" />
                     {% if post.user.username == "Patchenator" %}
                         <h3 style="color: red">{{ post.user.username }}</h3>
 
-                    {% elif post.author == "Blueberry44" %}
-                        <h3 style="color: blue">{{ post.user.username }}</h3>
+                    {% elif post.user.username == "Blueberry44" %}
+                        <h3 style="color: blue">{{ post.user.username}}</h3>
 
-                    {% elif post.author == "Mimi" %}
+                    {% elif post.user.username == "brads213" %}
                         <h3 style="color: green">{{ post.user.username }}</h3>
 
                     {% else %}
@@ -29,12 +29,10 @@
             <div>
                 <img class="post-image" src="{{ post.image }}" />
                 <p class="post-text">{{ post.caption }}</p>
-                <p class="post-text">{{ post.likes }} Likes</p>
-                <div>
-                    <a href="/posts/update/{{ post.id }}">Update</a>
-                    <a href="/posts/delete/{{ post.id }}">Delete</a>
-                </div>
+                <p class="post-text">{{ post.post_likes | length }} Likes</p>
             </div>
+            <a href="/posts/update/{{ post.id }}">Update</a>
+            <a href="/posts/delete/{{ post.id }}">Delete</a>
         </div>
     {% endfor %}
 </div>

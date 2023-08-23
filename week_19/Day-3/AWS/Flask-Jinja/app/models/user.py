@@ -1,15 +1,15 @@
 from .db import db
-from .likes import likes
+from .like import likes
 
 class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), nullable=False)
+    username = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     profile_pic = db.Column(db.String(250))
     bio = db.Column(db.String(250))
 
-    # relationship attributes
+    # relationship atrribute
     posts = db.relationship("Post", back_populates="user")
     user_likes = db.relationship(
         "Post",
@@ -17,30 +17,24 @@ class User(db.Model):
         back_populates="post_likes"
     )
 
-    def __repr__(self):
-        return f"< User: {self.username} ID: {self.id}>"
 
-    def __str__(self):
-        return f"< User: {self.username} ID: {self.id}>"
-
-    
-    def to_dict(self):
-        return {
+    def to_dict(self, posts=False):
+        user_dictionary = {
             "id": self.id,
             "username": self.username,
-            "email": self.email,
             "profilePic": self.profile_pic,
             "bio": self.bio,
-            "likes": len(self.user_likes),
-            "posts":  [post.to_dict_no_user() for post in self.posts]
         }
+        if posts:
+            user_dictionary["posts"] = [post.to_dict() for post in self.posts]
+  
+        return user_dictionary
 
 
     def to_dict_no_post(self):
         return {
             "id": self.id,
             "username": self.username,
-            "email": self.email,
             "profilePic": self.profile_pic,
             "bio": self.bio,
         }
