@@ -1,44 +1,41 @@
-# boolean_1 = True
-# boolean_2 = False
+# XOR
+# print( True ^ False)
+# print( True ^ True)
+# print( False ^ False)
+# print( False ^ True)
 
 
-# print(True ^ True)
-# print(True ^ False)
-# print(False ^ True)
-# print(False ^ False)
-
-# && || !
-# and or not 
-
-
-# print(1 != 2)
-# print(not True)
-
-
-# def breakfast(food):
-#     """Accepts a food as an arguement and then judges your decisions"""
-
-#     if food == "waffles":
-#         print(f"{food} is my favorite breakfast!  Yum!")
-
-#     elif food == "panckes":
-#         print(f"{food} is okay, but not as good as waffles")
-
-#     else: 
-#         print(f"{food} is not waffles, yuck")
+def breakfast(food):
+    """Take in a food and judge if its a 
+    good breakfast or not"""
+    if food == "waffles":
+        print(f"{food} is my favorite breakfast!")
+    
+    elif food == 'pancakes':
+        print(f"{food} is pretty good, not waffles though")
+    
+    elif food == "bacon":
+        print(f"Hey now! {food} is a delicious breakfast meat!")
+    
+    else:
+        print(f"{food} is okay but not waffles!")
 
 
-# q
-# breakfast("waffles")
-# breakfast("pancakes")
-# breakfast("eggs")
-# breakfast("shrimp n grits")
+# breakfast('waffles')
+# breakfast('pancakes')
+# breakfast('bacon')
+# breakfast('cereal')
+
+# print("We will see this text")
+# food = "bacon"
+# print(f"{food} is so yummy!")
 
 
-# Create a function that returns the xor result of two values.
+# XOR
 # Write your function, here.
-# def xor(val1, val2):
-#     return val1 ^ val2
+def xor(val1, val2):
+    return val1 ^ val2
+
 
 # print(xor(False, False))   #>  False
 # print(xor(True, False))   #>  True
@@ -50,60 +47,58 @@
 # print(xor(4, 4))  #> 0
 # print(bin(True))
 # print(bin(False))
-# 0b1
-# 0b0
+# # 0b1
+# # 0b0
 # print(bin(5))
 # print(bin(3))
 # # 0b101
 # # 0b011
-# #   110
+# # 0b110
 # print(bin(6))
 
-# DON'T DO THIS REAL BAD
-# str = "jello"
-# print(str)
-# print(str(1))
+# STRING
+# meal = "breakfast"
+# food = 'wings'
 
-# STRINGS
-# meal = "Breakfast"
-# long_string = """This is a really,
-# really, really
-# reakly,
-# long string
+# print("""This
+# is a multi
+# line string
+# """)
 
-# """
-# print(long_string)
-# print(f"{long_string} is a long string")
+# print(f"We had {food} for {meal}!")
 
+# print("b" + "an")
+# print("b" + "an" * 2 + "a")
 
-# food = "tacos"
-# other_food = "banana"
-# print(food[1])
-# # food[start:stop:step]
-# print(food[-2])
-# print(food[:3])
-# print(food[::-1])
+# day = 'Wing Wednesday'
 
-# print(food.index('ac'))
-# print(other_food.index("a"))
-# # print(food.index('q'))
-# print(food.find('q'))
-# print(other_food.count('q'))
-# print(other_food.split("a"))
+# def super_import_function_that_saves_the_world(num):
+#     print('World is saved, phew, that was a close one')
+# # print(day[1])
+# # print(day[-2])
+# # print(day[start:stop:step])
+# print(day[::-1])
 
-# foods = ["tacos", "wings", "sandwich"]
+# print(day.index("W"))
+# print(day.find("x"))
 
-# print(", ".join(foods))
+# super_import_function_that_saves_the_world(3)
+
+# print(day.count("x"))
+# print(day.split("e"))
+# print(list(day))
+# print(day.upper())
+
+# names = ['Brad', 'David', 'Andrew']
+# print(", ".join(names))
 
 
 # STRING PROBLEMS
-
 # def is_palindrome(string):
-#     # return string == string[::-1]
-#     rev_string = reversed(string)
-#     return string == "".join(rev_string)
-
-
+#     # reversed_string = string[::-1]
+#     # print("reversed", reversed_string)
+#     # return string == reversed_string
+#     return string == string[::-1]
 
 # print(is_palindrome("kayak")) # True
 # print(is_palindrome("app"))  # False
@@ -111,18 +106,26 @@
 # print(is_palindrome("valid")) # False
 
 
-def recursive_string(string):
-    # base case
-    if len(string) == 0:
-        return string
+# Problem 7 - Recursive String
+# Write your function, here.
+# str = "hello"
+# print(str)
+# word = str(123)
 
-    # recursive step
-    return recursive_string(string[1:]) + string[0]
-                            #ivic     + c
-                            #vic + i
-                            #ic + v
-                            #c   + i
-                            #     
+
+# def recursive_string(string):
+#     # base case
+#     if len(string) == 0:
+#         return string
+
+#     return recursive_string(string[1:]) + string[0]
+
+
+#                             #ivic     + c
+#                             #vic + i
+#                             #ic + v
+#                             #c   + i
+#                             #     
 
 # print(recursive_string("civic")) # civic
 # print(recursive_string("refer")) # refer
@@ -131,179 +134,174 @@ def recursive_string(string):
 # print(recursive_string("application")) # noitacilppa
 
 
-# print(10 / 2)
-# print(10 // 2)
-# print(9 // 2)
-# print(9 / 2)
+# NUMBERS
 
-# big_num = 1_000_000_000
-# big_num_2 = 1,000,000,000
+# num_1 = 250.0
+# num_2 = int(num_1)
+# string_1 =str(num_1)
+# print(num_1, num_2, string_1)
 
 
-# Write your function, here.
-# Problem 5 - Recursive Countdown
+# print(25 // 2)
+
+# count = 0
+# count += 1
+# print(count)
+
+# big_num = 1_000_000_000_000
+# print(big_num)
+
+
+
+# def recursive_countdown(n):
+#     if n <= 0:
+#         return 
+#     else:
+#         print(n)
+#         recursive_countdown(n-1)
+
+
+# recursive_countdown(5) #> 5 4 3 2 1
+# recursive_countdown(15) #> 5 4 3 2 1
+
 # import os
 # import time
 
-
-# def recursive_countdown(number):
-#     if number <= 0:
+# def recursive_countdown_plus(n):
+#     if n <= 0:
 #         os.system("clear")
-#         print("BOOM!")
-#         return
+#         print("SURPRISE!!!")
+#         return 
 #     else:
 #         os.system("clear")
-#         print(number)
+#         print(n)
 #         time.sleep(1)
-#         recursive_countdown(number - 1)
+#         recursive_countdown_plus(n-1)
 
 
-# timer_length = int(input("How many seconds for the timer?"))
-# recursive_countdown(timer_length) #> 5 4 3 2 1
+# recursive_countdown_plus(5) #> 5 4 3 2 1
 
-
-
-# # Problem 4 - Recursive Fibonacci
-
-
-# The Fibonacci Sequence is the series of numbers:
-
-# 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
-
-# The next number is found by adding up the two numbers before it:
-
-# the 2 is found by adding the two numbers before it (1+1),
-# the 3 is found by adding the two numbers before it (1+2),
-# the 5 is (2+3),
-# and so on!
-# Example: the next number in the sequence above is 21+34 = 55
-# # Write your function, here.
-# def recursive_fib(number):
-#     if number <= 1:
-#         return number
-    
-#     return (recursive_fib(number - 1) + recursive_fib(number - 2))
-    
-
-# print(recursive_fib(1))     #> 1
-# print(recursive_fib(2))     #> 1
-# print(recursive_fib(4))     #> 3
-# print(recursive_fib(6))     #> 8
-# print(recursive_fib(12))    #> 144
 
 # def first_before_second(string, letter1, letter2):
 #     return string.rindex(letter1) < string.index(letter2)
 
+
+
 # print(first_before_second("a rabbit jumps joyfully", "a", "j"))
-# #> True
-# # Every instance of "a" occurs before every instance of "j".
+# #> True  Every instance of "a" occurs before every instance of "j".
 # print(first_before_second("knaves knew about waterfalls", "k", "w"))
 # #> True
 # print(first_before_second("happy birthday", "a", "y"))
-# #> False
-# # The "a" in "birthday" occurs after the "y" in "happy".
+# #> False  The "a" in "birthday" occurs after the "y" in "happy".
 # print(first_before_second("precarious kangaroos", "k", "a"))
-#> False
+# #> False
+
 
 # STATEMENTS
 
-index = 0
+# index = 0
 
 # while index < 5:
-#     print(f"{index}. Hello World!")
+#     if index == 3:
+#         print('We got a 3!')
+#     else:
+#         print(f"We got a {index}")
+
 #     index += 1
+# index = 0
 
 # while True:
-#     print(index)
-#     if index < 3:
+#     if index < 4:
+#         print(index)
 #         index += 1
 #         continue
-#     print("index should be greater than 3")
+
+#     print("We hopefully got a index greater than 4")
 #     break
 
-
-# FOR LOOPS
-
-# foods = ["pizza", "tacos", "waffles", "steak"]
-# dessert = "ice cream"
-
-# for index in range(len(foods)):
-#     print(index, foods[index])
+# foods = ["pizza", "wings", "chicken cheesesteak", "salad"]
 
 # for food in foods:
 #     print(food)
 
-# for letter in dessert:
-#     print(letter)
 
-# print("waffles" in foods)
-# print("potato" in foods)
+# print("pizza" in foods)
+# print("sandwich" in foods)
 
-# # range(start,stop,step)
-# first_range = range(2, 7, 2)
+# RANGES
+# first_range = range(5)
 # print(first_range)
 # print(list(first_range))
+# second_range = range(1, 6, 2)
+# print(list(second_range))
+
+# # for index in range(5):
+# #     print(index)
+
+# for index in range(len(foods)):
+#     print(index, foods[index])
 
 
-# TRY / EXCEPT
+# import random 
+# import time
+# import os
+
+# count = 99
+
+# while count < 1000:
+#     os.system('clear')
+#     print(f"{count} little bugs in our code...")
+#     time.sleep(2)
+#     print(f"{count} pesky little bugs...")
+#     time.sleep(2)
+#     print("Take one down and patch it around...")
+#     time.sleep(2)
+#     new_bugs = random.randint(1, 100)
+#     count += new_bugs
+#     print(f"{count} little bugs in our code!")
+#     time.sleep(2)
+
+# TRY EXCEPT
+
+# num = 0
+
 # try:
-#     "connect to the db"
-
-# except: 
-#     "did not connect, bad times, but we excepted/caught our error"
-
-# else:
-#     "do DB stuff, add, delete, query"
-
-# finally:
-#     "close out DB connection"
-
-# number = 0
-
-# try:
-#     print("In the try block")
-#     print(4/number)
+#     print("in the try block")
+#     print(4 / num)
 
 # except ZeroDivisionError:
-#     print("you can not divide by zero")
+#     print("You can not divide by zero!")
+
 
 # except TypeError:
-#     print("you can't divide with strings")
+#     print("we can not divide strings!")
 
 # # except:
-# #     print("something bad happened, it got messy...")
+# #     print("something went wrong!  oh no!")
 
 # else:
-#     print("only if try worked, do we see this code")
+#     print("only fires if the try is sucessful!")
 
 # finally:
-#     print("we will always see this")
-
-# # random_code_that_somehow_save_the_entire_planet()
-
-# raise Exception("You done made an error")
+#     print('We will see this every time')
 
 
 # def seq_of_numbers(seq):
+#     seq += ' '
 #     count = 1
 #     index = 0
-#     results = ""
-#     seq += ' '
+#     results = ''
 
-#     # for index in range(len(seq)-1):
-#     while index < len(seq) -1:
-#         if seq[index] != seq[index+1]:
+#     while index < len(seq) - 1:
+#         if seq[index] != seq[index + 1]:
 #             results = results + str(count) + seq[index] + ","
 #             count = 1
 #         else:
 #             count += 1
-
+        
 #         index += 1
 
-#     return results    
-
-# str = "pizza"
-
+#     return results 
 
 # print(seq_of_numbers("1211"))
 # # This is "one 1, one 2, two 1s"
@@ -315,91 +313,72 @@ index = 0
 # # Prints "31,22,11"
 
 # print(seq_of_numbers("31131211131221"))
-# # This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
-# #    one 3, one 1, two 2s, and one 1"
-# # Prints "13,21,13,11,12,31,13,11,22,11"
-
-# SONG TIME!
-# import random
-# import time
-# import os
-
-# count = 99
-
-# while count < 1000:
-#     os.system("clear")
-#     print(f'{count} little bugs in our code...')
-#     time.sleep(2)
-#     print(f"{count} pesky little bugs...")
-#     time.sleep(2)
-#     print("Take one down and patch it around...")
-#     time.sleep(2)
-#     new_bugs = random.randint(25, 100)
-#     count += new_bugs
-#     print(f"{count} little bugs in our code!")
-#     time.sleep(2)
+# This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
+#    one 3, one 1, two 2s, and one 1"
+# Prints "13,21,13,11,12,31,13,11,22,11"
 
 
 # FUNCTIONS
-# def is_even(number):
-#     """accepts a number and returns a boolean on if the number is even"""
-#     return number % 2 == 0
+# def is_even(num):
+#     """returns if the provided number is even or not"""
+#     return num % 2 == 0
 
-# print(is_even(0))
 
-# even = lambda number: number % 2 == 0 
+# # print(is_even(7))
 
+# even = lambda num: num % 2 == 0
 # print(even(7))
-# print(even(10))
 
-# multiply = lambda num_1, num_2: num_1 * num_2
-# print(multiply(3, 4))
+# multiply = lambda num1, num2: num1 * num2
 
-# y = 50
-# print(y, "global scope before function")
-# PI = 3.14
+# print(multiply(3,4))
 
+
+# SCOPE
+# y = 200
+# PII = 3.145
+
+# print("y in global scope", y)
 # def some_function():
-#     # y = 20
-#     global y
-#     print(y, "inside the function")
-#     # print(PI)
-#     y += 20
-#     print(y, "in function second time")
+#     # y = 10
+#     global y 
+#     print("y inside the function", y)
+#     print(PII)
+#     if True:
+#         print("in if block", y)
+#         y += 10
+#         print("in if block", y)
+#     y += 10
+#     print("y inside the function second time", y)
+
 
 # some_function()
 
-# print(y, "global scope aftern function")
+# print("y in global scope", y)
 
-# def sum_nums(num1, num2, num3=30, *args, **kwargs):
-#     print(num1, num2, num3)
-#     print(args)
-#     print(kwargs)
 
-# sum_nums(10, 20, 40, 50, 60, num6=70, num8=80)
-empy_list = []
-dinner = ["tacos", "wings", "hamburger", "chef salad", "ice cream"]
-# print(dinner)
-# print(len(dinner))
-# print(dinner[start:stop:step])
-# print(dinner[1:4])
-# print(dinner[::-1])
-# dinner.append("pizza")
-# print(dinner)
-# dinner.extend(["steak", "gnocchi"])
-# print(dinner)
-# dinner.insert(1, "sloppy joe")
-# print(dinner)
-# dinner.remove("steak")
-# print(dinner)
-# dinner.pop(2)
-# print(dinner)
-# # dinner.sort()
-# # print(dinner)
-# sorted_dinner = sorted(dinner)
-# print(sorted_dinner)
+# LISTS
+dinners = ["pizza", "wings", "steak", "cobb salad", "taco"]
+# print(dinners)
+# print(len(dinners))
 
-vals = [1, 2, 3, 4, 5]
+# print(dinners[2])
+# print(dinners[1::2])
+# print(dinners[::-1])
+# dinners.append("turkey")
+# print(dinners)
+# dinners.extend(["sloppy joe", "corn"])
+# print(dinners)
+# dinners.insert(1, "shrimp")
+# print(dinners)
+# dinners.remove("taco")
+# print(dinners)
+# dinners.pop(1)
+print(dinners)
+dinners.sort()
+print(dinners)
+
+vals = [2, 4, 45, 12, 234]
 print(sum(vals))
 print(min(vals))
 print(max(vals))
