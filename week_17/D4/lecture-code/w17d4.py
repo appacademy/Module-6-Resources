@@ -1,32 +1,10 @@
-# import random
-# random.choice()
-
-
-# from random import choice as pick, choices as picky_picky, randint as random_num_pickier
-# # choice()
-# random_num_pickier()
-# pick()
-
-
-# def choice():
-# #     pass
-# from helpers import add_2, add_4, numbers
-# from more_helpers import add_6, add_8, add_10
-
-# print(numbers)
-# print(add_2(2))
-# print(add_4(2))
-# print(add_6(2))
-
-# from random import choice, chooices, randint, randfloat
-
-# DECORATORS
-# from datetime import datetime
+# 🎄🎄🎄 DECORATORS   🎄🎄🎄
+# from datetime import datetime 
 
 
 # def timer(func):
-#     """decorator/closure function that will wrap 
-#     another fuction with a execution timer"""
+#     """decorator function to time how long 
+#     the passed in function takes to execute """
 #     def wrapper(*args, **kwargs):
 #         start_time = datetime.now()
 #         val = func(*args, **kwargs)
@@ -42,26 +20,25 @@
 #     return f"Hello {name}!"
 
 # @timer
-# def say_bye(name="you"):
+# def say_bye(name="person"):
 #     return f"See ya later {name}!"
-
 
 # timed_hi = timer(say_hi)
 # print(timed_hi())
+
+# print(say_hi())
 # print(say_hi("Brad"))
-# print(say_hi("everyone"))
-# print(say_bye("decorators"))
+# print(say_bye("Brad"))
 
 # @timer
 # def do_stuff(num):
-#     counter = 1
+#     counter = 0
 #     for val in range(num):
-#         counter += 1   
+#         counter += 1
 #     return counter
 
-# print(do_stuff(1_000_000_000))
 
-# CHAIN DECORATOR
+# print(do_stuff(1_000_000_000))
 # def power_of_two(func):
 #     def inner(*args, **kwargs):
 #         x = func(*args, **kwargs)
@@ -87,7 +64,6 @@
 # print(num(4, 9))  #> 1521
 
 
-# Alternative solution
 
 # def chain_decorator(func):
 #     @power_of_two
@@ -102,15 +78,12 @@
 # def num(a, b):
 #     return a + b
 
-
-# REGULAR POLYGON
 class RegularPolygon:
-    type = 'Polygon'
+    type = "Polygon"
     def __init__(self, num_sides, length):
         if num_sides < 3:
             raise Exception("A polygon must have at least 3 sides.")
-
-        self.num_sides = num_sides
+        self.num_sides =  num_sides
         self.length = length
 
 
@@ -126,21 +99,22 @@ class RegularPolygon:
             10: "Decagon"
         }
 
-        try: 
-            self.type = identifier_dict[self.num_sides]   
+        try:
+            self.type = identifier_dict[self.num_sides]
 
         except KeyError:
             self.type = f"Polygon with {self.num_sides} sides"
 
 
-    @classmethod    
-    def polygon_factory(cls, new_polygons):
-        return [cls(num_sides, length) for num_sides, length in new_polygons]
-
+    @classmethod
+    def polygon_factory(cls, polygons):
+        return [cls(num_sides, length) for num_sides, length in polygons]
 
     @staticmethod
     def get_perimeter(polygon):
-        return polygon.num_sides * polygon.length
+        return polygon.num_sides * polygon.length 
+
+
 
 
 pentagon = RegularPolygon(5, 5)
@@ -166,4 +140,3 @@ print(RegularPolygon.get_perimeter(dodecagon)) # 12
 print(RegularPolygon.polygon_factory([(5, 5), (3, 2), (8, 10)])) # prints a list of 3 RegularPolygon objects
 
 not_a_polygon = RegularPolygon(2, 5) # Exception: A polygon must have at least 3 sides.
-
