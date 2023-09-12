@@ -1,23 +1,19 @@
 {% extends "nav.html" %}
 
-{% block content %}
+{% block second %}
+
 <div class="feed-container">
-    {% for post in posts  %}
+
+    {% for post in posts %}
         <div class="post-container">
             <div class="post-box">
                 <div class="post-author">
-                    {% if post.author == "Patchenator" %}
-                        <h3 style="color: red">{{ post.author }}</h3>
-
-                    {% elif post.author == "Blueberry44" %}
-                        <h3 style="color: blue">{{ post.author }}</h3>
-
-                    {% elif post.author == "Mimi" %}
-                        <h3 style="color: green">{{ post.author }}</h3>
-
+                    {% if post.author == "Patch" %}
+                        <h2 style="color: red;">{{ post.author }}</h2>
+                    {% elif post.author == "Blue" %}
+                        <h2 style="color: blue;">{{ post.author }}</h2>
                     {% else %}
-                        <h3>{{ post.author }}</h3>
-
+                        <h2>{{ post.author }}</h2>
                     {% endif %}
                 </div>
                 <h3>{{ post.date }}</h3>
@@ -30,4 +26,5 @@
         </div>
     {% endfor %}
 </div>
-{% endblock %}
+
+{% endblock%}
