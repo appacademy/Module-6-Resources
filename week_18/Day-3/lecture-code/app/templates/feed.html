@@ -1,27 +1,20 @@
 {% extends "nav.html" %}
 
-{% block content %}
+{% block second %}
+
 <div class="feed-container">
-    {% for post in posts  %}
+
+    {% for post in posts %}
         <div class="post-container">
             <div class="post-box">
-                <img 
-                    src="{{ post.user.profile_pic }}" 
-                    class="profile-pic"
-                />
                 <div class="post-author">
+                    <img class="profile-pic" src="{{ post.user.profile_pic }}"/>
                     {% if post.user.username == "Patchenator" %}
-                        <h3 style="color: red">{{ post.user.username }}</h3>
-
+                        <h2 style="color: red;">{{ post.user.username }}</h2>
                     {% elif post.user.username == "Blueberry44" %}
-                        <h3 style="color: blue">{{ post.user.username}}</h3>
-
-                    {% elif post.user.username == "brads213" %}
-                        <h3 style="color: green">{{ post.user.username }}</h3>
-
+                        <h2 style="color: blue;">{{ post.user.username }}</h2>
                     {% else %}
-                        <h3>{{ post.user.username }}</h3>
-
+                        <h2>{{ post.user.username }}</h2>
                     {% endif %}
                 </div>
                 <h3>{{ post.post_date }}</h3>
@@ -36,4 +29,5 @@
         </div>
     {% endfor %}
 </div>
-{% endblock %}
+
+{% endblock%}

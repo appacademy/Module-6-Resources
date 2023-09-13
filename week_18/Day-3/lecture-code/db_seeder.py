@@ -5,19 +5,20 @@ from faker import Faker
 
 fake = Faker()
 
+
 with app.app_context():
-    
+
     db.drop_all()
-    print("all tables drppped")
+    print("all tables dropped")
     db.create_all()
-    print("Created all tables")
+    print("all tables created")
 
 
     user1 = User(
-        username="Patchenator",
+        username='Patchenator',
         email="patch_the_cat@gmail.com",
         profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
-        bio=" I love naps and fud"
+        bio="I love naps and food"
     )
 
     user2 = User(
@@ -36,21 +37,18 @@ with app.app_context():
 
     all_users = [user1, user2, user3]
     _ = [db.session.add(user) for user in all_users]
-    # db.session.add(user1)
-    # db.session.add(user2)
-    # db.session.add(user3)
     db.session.commit()
-    print("users seeded!")
+    print("users seeded!")  
 
 
     post1 = Post(
-        caption="Napping outside is always fun...",
+        caption="Napping Outside is always fun...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
-        post_date=fake.date_between(start_date="-1y", end_date="today"),
+        post_date=fake.date_between(start_date="-1yr", end_date="today"),
         user=choice(all_users),
-        post_likes = [user3, user2]
+        post_likes=[user2, user3]
     )
-    
+
     post2 = Post(
         caption="Napping inside is pretty awesome too...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912403/Patchstagram/64865942444__2B7B1A74-ECAF-4798-BEAB-D4890B7164C4_hnmowy.jpg",
@@ -83,6 +81,6 @@ with app.app_context():
     )
 
     all_posts = [post1, post2, post3, post4, post5]
-    add_posts = [db.session.add(post) for post in all_posts]
+    _ = [db.session.add(post) for post in all_posts]
     db.session.commit()
-    print('POSTS SEEDED TO DB')
+    print("all posts & likes seeded")
