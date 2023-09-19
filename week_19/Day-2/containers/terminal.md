@@ -1,86 +1,6 @@
-# Container CLI
+# CONTAINER CLI
 
-Last login: Mon Aug 21 17:22:31 on ttys074
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE                         COMMAND                  CREATED              STATUS                      PORTS     NAMES
-0fe734686379   bradsimpson213/patchstagram   "flask run"              About a minute ago   Exited (0) 24 seconds ago             thirsty_bardeen
-394ef7ba3467   2a5eb398bf5e                  "/bin/sh -c 'gunicor…"   5 minutes ago        Exited (3) 5 minutes ago              elegant_blackburn
-0eb39ef68891   9dcd6c2141ad                  "/bin/sh -c 'gunicor…"   10 minutes ago       Exited (0) 6 minutes ago              peaceful_hellman
-642de2c74d22   41cff62e047c                  "/bin/sh -c 'gunicor…"   13 minutes ago       Exited (0) 12 minutes ago             quizzical_chaplygin
-bee0311a6bb3   bba8d2ee8f69                  "/bin/sh -c 'gunicor…"   14 minutes ago       Exited (0) 13 minutes ago             optimistic_wiles
-b06b4bd3e8ba   bba8d2ee8f69                  "/bin/sh -c 'gunicor…"   15 minutes ago       Exited (0) 14 minutes ago             vigilant_rubin
-67b1925bd665   a34109ecd6d4                  "/bin/sh -c 'gunicor…"   16 minutes ago       Exited (0) 15 minutes ago             brave_ptolemy
-fc0b9d4eb5c2   25496cc28d2e                  "/bin/sh -c 'gunicor…"   18 minutes ago       Exited (3) 18 minutes ago             dazzling_nightingale
-74d1d619c750   1cee8b9a9b1f                  "flask run"              22 minutes ago       Exited (0) 19 minutes ago             stoic_darwin
-bradsimpson@Brads-MacBook-Air ~ % docker container prune
-WARNING! This will remove all stopped containers.
-Are you sure you want to continue? [y/N] y
-Deleted Containers:
-0fe7346863791c53fa1f1b6d181057d88a73a34a49f6524ced2a4a4ffc5fbddc
-394ef7ba34670134c78c9e53cfdae53bf12728a1f9fff700fb5d6988c2d76e88
-0eb39ef688918243abb4f7b93d48ec2571b66ae84979582d8074ace7d7e267bb
-642de2c74d22043464cc91112958b82bc19db0e06115d9f2a841026c3b451f43
-bee0311a6bb3c34992940a89492f59b0a7c2daf522376e48754b413c8eaedf14
-b06b4bd3e8ba26e2d020e8d1d1d05603ad995dffce9c497e6ff5f0c07906722c
-67b1925bd6657457f0f6828d994b185c9ea9ed42fc121d2faf7d2c9e5dc62ad8
-fc0b9d4eb5c2597a88b573d7fb9155559e92266e78dd02918aa236d8b80d56a8
-74d1d619c75012563fd67ebb16fde1793689fcd4ac76b9040663a241dfba9493
-
-Total reclaimed space: 5.008MB
-bradsimpson@Brads-MacBook-Air ~ % \clear
-
-
-
-
-
-
-bradsimpson@Brads-MacBook-Air ~ % 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Last login: Tue Sep 19 08:53:28 on ttys008
 bradsimpson@Brads-MacBook-Air ~ % docker container run hello-world
 docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
 See 'docker run --help'.
@@ -108,30 +28,268 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
 bradsimpson@Brads-MacBook-Air ~ % docker image ls
-REPOSITORY                    TAG       IMAGE ID       CREATED        SIZE
-bradsimpson213/patchstagram   latest    6277c82a8b27   2 hours ago    113MB
-<none>                        <none>    2a5eb398bf5e   2 hours ago    113MB
-<none>                        <none>    1f5a7525d4a7   2 hours ago    113MB
-<none>                        <none>    9dcd6c2141ad   2 hours ago    113MB
-<none>                        <none>    41cff62e047c   2 hours ago    113MB
-<none>                        <none>    bba8d2ee8f69   2 hours ago    113MB
-<none>                        <none>    a34109ecd6d4   2 hours ago    113MB
-<none>                        <none>    0de177ebe3ba   2 hours ago    113MB
-<none>                        <none>    25496cc28d2e   2 hours ago    113MB
-<none>                        <none>    1cee8b9a9b1f   2 hours ago    113MB
-bradsimpson213/my_react_app   latest    0e6d1fad2b08   3 weeks ago    451MB
-postgres                      latest    0344b98f56a6   7 weeks ago    433MB
-bradsimpson213/taco_react     latest    aea6ddf0f44b   7 weeks ago    569MB
-<none>                        <none>    df9580143a75   8 weeks ago    1.59GB
-nginx                         alpine    66bf2c914bf4   2 months ago   41MB
-alpine                        latest    5053b247d78b   2 months ago   7.66MB
-nginx                         latest    2d21d843073b   2 months ago   192MB
-ubuntu                        latest    cfb01e8e3121   2 months ago   69.2MB
-hello-world                   latest    b038788ddb22   3 months ago   9.14kB
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   15 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   15 hours ago   113MB
+<none>                            <none>    8442fa932634   15 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   16 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   16 hours ago   814MB
+<none>                            <none>    f6211611ef7b   17 hours ago   814MB
+<none>                            <none>    ec44781411c1   18 hours ago   814MB
+<none>                            <none>    e3758b5271b3   18 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   7 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   7 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+hello-world                       latest    b038788ddb22   4 months ago   9.14kB
+bradsimpson@Brads-MacBook-Air ~ % docker image rm hello-world
+Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container 87e873dab3a7 is using its referenced image b038788ddb22
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
-bradsimpson@Brads-MacBook-Air ~ % docker container run [-flags] image_name [commands]
-zsh: no matches found: [-flags]
+bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS                          PORTS     NAMES
+87e873dab3a7   hello-world    "/hello"                 About a minute ago   Exited (0) About a minute ago             suspicious_margulis
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   15 hours ago         Exited (0) 15 hours ago                   pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   15 hours ago         Exited (0) 15 hours ago                   romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker container rm suspicious_margulis
+
+suspicious_margulis
+bradsimpson@Brads-MacBook-Air ~ % docker container ls -a                 
+CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS                    PORTS     NAMES
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   15 hours ago   Exited (0) 15 hours ago             pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   15 hours ago   Exited (0) 15 hours ago             romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker image ls
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   15 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   15 hours ago   113MB
+<none>                            <none>    8442fa932634   15 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   16 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   16 hours ago   814MB
+<none>                            <none>    f6211611ef7b   17 hours ago   814MB
+<none>                            <none>    ec44781411c1   18 hours ago   814MB
+<none>                            <none>    e3758b5271b3   18 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   7 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   7 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+hello-world                       latest    b038788ddb22   4 months ago   9.14kB
+bradsimpson@Brads-MacBook-Air ~ % docker image rm hellp-world
+Error response from daemon: No such image: hellp-world:latest
+bradsimpson@Brads-MacBook-Air ~ % docker image ls            
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   15 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   15 hours ago   113MB
+<none>                            <none>    8442fa932634   15 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   16 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   16 hours ago   814MB
+<none>                            <none>    f6211611ef7b   17 hours ago   814MB
+<none>                            <none>    ec44781411c1   18 hours ago   814MB
+<none>                            <none>    e3758b5271b3   18 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   7 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   7 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+hello-world                       latest    b038788ddb22   4 months ago   9.14kB
+bradsimpson@Brads-MacBook-Air ~ % docker image rm hello-world
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:a13ec89cdf897b3e551bd9f89d499db6ff3a7f44c5b9eb8bca40da20eb4ea1fa
+Deleted: sha256:b038788ddb222cb7d6025b411759e4f5abe9910486c8f98534ead97befd77dd7
+Deleted: sha256:a7866053acacfefb68912a8916b67d6847c12b51949c6b8a5580c6609c08ae45
+bradsimpson@Brads-MacBook-Air ~ % \clear        
+
+bradsimpson@Brads-MacBook-Air ~ % docker image ls
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   15 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   15 hours ago   113MB
+<none>                            <none>    8442fa932634   15 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   16 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   16 hours ago   814MB
+<none>                            <none>    f6211611ef7b   17 hours ago   814MB
+<none>                            <none>    ec44781411c1   18 hours ago   814MB
+<none>                            <none>    e3758b5271b3   18 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   7 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   7 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+bradsimpson@Brads-MacBook-Air ~ % docker container run hello-world       
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+70f5ac315c5a: Pull complete 
+Digest: sha256:4f53e2564790c8e7856ec08e384732aa38dc43c52f02952483e3f003afbf23db
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (arm64v8)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+bradsimpson@Brads-MacBook-Air ~ % docker container run [options flags] image_name [additonal commands or arguements] 
+zsh: bad pattern: [options
+bradsimpson@Brads-MacBook-Air ~ % docker container run                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bradsimpson@Brads-MacBook-Air ~ %                      
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+bradsimpson@Brads-MacBook-Air ~ % 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bradsimpson@Brads-MacBook-Air ~ % 
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
 bradsimpson@Brads-MacBook-Air ~ % docker container run --name cool_container -p 8000:80 nginx
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
@@ -142,601 +300,383 @@ bradsimpson@Brads-MacBook-Air ~ % docker container run --name cool_container -p 
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
 /docker-entrypoint.sh: Configuration complete; ready for start up
-2023/08/22 15:18:49 [notice] 1#1: using the "epoll" event method
-2023/08/22 15:18:49 [notice] 1#1: nginx/1.25.1
-2023/08/22 15:18:49 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
-2023/08/22 15:18:49 [notice] 1#1: OS: Linux 5.15.49-linuxkit-pr
-2023/08/22 15:18:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2023/08/22 15:18:49 [notice] 1#1: start worker processes
-2023/08/22 15:18:49 [notice] 1#1: start worker process 29
-2023/08/22 15:18:49 [notice] 1#1: start worker process 30
-2023/08/22 15:18:49 [notice] 1#1: start worker process 31
-2023/08/22 15:18:49 [notice] 1#1: start worker process 32
-172.17.0.1 - - [22/Aug/2023:15:19:18 +0000] "GET / HTTP/1.1" 200 615 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [22/Aug/2023:15:19:18 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:8000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-2023/08/22 15:19:18 [error] 29#29: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/"
-172.17.0.1 - - [22/Aug/2023:15:19:37 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [22/Aug/2023:15:19:37 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [22/Aug/2023:15:19:38 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [22/Aug/2023:15:19:39 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [22/Aug/2023:15:19:39 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [22/Aug/2023:15:19:40 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" "-"
-^C2023/08/22 15:20:06 [notice] 1#1: signal 2 (SIGINT) received, exiting
-2023/08/22 15:20:06 [notice] 29#29: exiting
-2023/08/22 15:20:06 [notice] 32#32: exiting
-2023/08/22 15:20:06 [notice] 30#30: exiting
-2023/08/22 15:20:06 [notice] 29#29: exit
-2023/08/22 15:20:06 [notice] 30#30: exit
-2023/08/22 15:20:06 [notice] 32#32: exit
-2023/08/22 15:20:06 [notice] 31#31: exiting
-2023/08/22 15:20:06 [notice] 31#31: exit
-2023/08/22 15:20:06 [notice] 1#1: signal 17 (SIGCHLD) received from 31
-2023/08/22 15:20:06 [notice] 1#1: worker process 30 exited with code 0
-2023/08/22 15:20:06 [notice] 1#1: worker process 31 exited with code 0
-2023/08/22 15:20:06 [notice] 1#1: signal 29 (SIGIO) received
-2023/08/22 15:20:06 [notice] 1#1: signal 17 (SIGCHLD) received from 32
-2023/08/22 15:20:06 [notice] 1#1: worker process 32 exited with code 0
-2023/08/22 15:20:06 [notice] 1#1: signal 29 (SIGIO) received
-2023/08/22 15:20:06 [notice] 1#1: signal 17 (SIGCHLD) received from 29
-2023/08/22 15:20:06 [notice] 1#1: worker process 29 exited with code 0
-2023/08/22 15:20:06 [notice] 1#1: exit
+2023/09/19 15:25:56 [notice] 1#1: using the "epoll" event method
+2023/09/19 15:25:56 [notice] 1#1: nginx/1.25.1
+2023/09/19 15:25:56 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/09/19 15:25:56 [notice] 1#1: OS: Linux 6.3.13-linuxkit
+2023/09/19 15:25:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/09/19 15:25:56 [notice] 1#1: start worker processes
+2023/09/19 15:25:56 [notice] 1#1: start worker process 29
+2023/09/19 15:25:56 [notice] 1#1: start worker process 30
+2023/09/19 15:25:56 [notice] 1#1: start worker process 31
+2023/09/19 15:25:56 [notice] 1#1: start worker process 32
+192.168.65.1 - - [19/Sep/2023:15:26:18 +0000] "GET / HTTP/1.1" 200 615 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+2023/09/19 15:26:19 [error] 29#29: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.65.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8000", referrer: "http://localhost:8000/"
+192.168.65.1 - - [19/Sep/2023:15:26:19 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:8000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+192.168.65.1 - - [19/Sep/2023:15:26:29 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+192.168.65.1 - - [19/Sep/2023:15:26:30 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+192.168.65.1 - - [19/Sep/2023:15:26:30 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+192.168.65.1 - - [19/Sep/2023:15:26:31 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+192.168.65.1 - - [19/Sep/2023:15:26:32 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" "-"
+^C2023/09/19 15:27:12 [notice] 1#1: signal 2 (SIGINT) received, exiting
+2023/09/19 15:27:12 [notice] 30#30: exiting
+2023/09/19 15:27:12 [notice] 31#31: exiting
+2023/09/19 15:27:12 [notice] 32#32: exiting
+2023/09/19 15:27:12 [notice] 31#31: exit
+2023/09/19 15:27:12 [notice] 32#32: exit
+2023/09/19 15:27:12 [notice] 30#30: exit
+2023/09/19 15:27:12 [notice] 29#29: exiting
+2023/09/19 15:27:12 [notice] 29#29: exit
+2023/09/19 15:27:12 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/09/19 15:27:12 [notice] 1#1: worker process 31 exited with code 0
+2023/09/19 15:27:12 [notice] 1#1: signal 29 (SIGIO) received
+2023/09/19 15:27:12 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/09/19 15:27:12 [notice] 1#1: worker process 32 exited with code 0
+2023/09/19 15:27:12 [notice] 1#1: signal 29 (SIGIO) received
+2023/09/19 15:27:12 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2023/09/19 15:27:12 [notice] 1#1: worker process 30 exited with code 0
+2023/09/19 15:27:12 [notice] 1#1: signal 29 (SIGIO) received
+2023/09/19 15:27:12 [notice] 1#1: signal 2 (SIGINT) received, exiting
+2023/09/19 15:27:12 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2023/09/19 15:27:12 [notice] 1#1: worker process 29 exited with code 0
+2023/09/19 15:27:12 [notice] 1#1: exit
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS                      PORTS     NAMES
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   About a minute ago   Exited (0) 27 seconds ago             cool_container
-7ee28eef80e7   hello-world   "/hello"                 14 minutes ago       Exited (0) 14 minutes ago             happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % \clear
-
-bradsimpson@Brads-MacBook-Air ~ % docker image inspect nginx      
-[
-    {
-        "Id": "sha256:2d21d843073b4df6a03022861da4cb59f7116c864fe90b3b5db3b90e1ce932d3",
-        "RepoTags": [
-            "nginx:latest"
-        ],
-        "RepoDigests": [
-            "nginx@sha256:593dac25b7733ffb7afe1a72649a43e574778bf025ad60514ef40f6b5d606247"
-        ],
-        "Parent": "",
-        "Comment": "",
-        "Created": "2023-06-14T03:47:04.608168367Z",
-        "Container": "3d692c6bf8c27f8927a126f64dda01db9513712ef8b2f6e606dfb22e2bfba211",
-        "ContainerConfig": {
-            "Hostname": "3d692c6bf8c2",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.1",
-                "NJS_VERSION=0.7.12",
-                "PKG_RELEASE=1~bookworm"
-            ],
-            "Cmd": [
-                "/bin/sh",
-                "-c",
-                "#(nop) ",
-                "CMD [\"nginx\" \"-g\" \"daemon off;\"]"
-            ],
-            "Image": "sha256:5b0110e5e828098bdd36b1f65802bd907a1bc04091213fb8b78645cc69f72ead",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "DockerVersion": "20.10.23",
-        "Author": "",
-        "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.1",
-                "NJS_VERSION=0.7.12",
-                "PKG_RELEASE=1~bookworm"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Image": "sha256:5b0110e5e828098bdd36b1f65802bd907a1bc04091213fb8b78645cc69f72ead",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "Architecture": "arm64",
-        "Variant": "v8",
-        "Os": "linux",
-        "Size": 192298817,
-        "VirtualSize": 192298817,
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/11cb118caa40a3099df7a324cc18c7423112edae245447848f6ab12ec357081f/diff:/var/lib/docker/overlay2/18ecb8b555fd5d03131e2766662964c3b83c9938e9aaec68e440b1000fac0f11/diff:/var/lib/docker/overlay2/78cf9c681ec67cbb61ce143084a2b197f86e2192dd6ce86a48554f53cbbb0f5a/diff:/var/lib/docker/overlay2/409e2bf2e463d93ce887a4c6a07ec018b4f0b6210aa94d9ce84f6285b8f7b340/diff:/var/lib/docker/overlay2/506f25698e9ff48f088110b5dd62fe113a2895206f40b29aec16846d90cd7713/diff:/var/lib/docker/overlay2/aff10c7882ab3ca8e994823de96214ef8d937e9b85c1204753a12d5690f391c5/diff",
-                "MergedDir": "/var/lib/docker/overlay2/80c0d951ea84b8f3270723a20f2f529241dbbd45fb2622fa3c6b618e3325dfb5/merged",
-                "UpperDir": "/var/lib/docker/overlay2/80c0d951ea84b8f3270723a20f2f529241dbbd45fb2622fa3c6b618e3325dfb5/diff",
-                "WorkDir": "/var/lib/docker/overlay2/80c0d951ea84b8f3270723a20f2f529241dbbd45fb2622fa3c6b618e3325dfb5/work"
-            },
-            "Name": "overlay2"
-        },
-        "RootFS": {
-            "Type": "layers",
-            "Layers": [
-                "sha256:28729e4ae0abb44b42af819e47380bb8cc20e05d94c9f241f52122a1144a4401",
-                "sha256:9778a1e5c8724bdaa5f17fb130a6fd055ca7fce663f8ebeddf755b2025c0bb42",
-                "sha256:a02619bcaf18f97f71e9b3cb04e78a76be5b67d00510b3dab523cd1f5f6f6245",
-                "sha256:ef823dda6d4f6348b36eb5a0cecfbb9dc52a7d05dc9c52116bee854cdfc6be88",
-                "sha256:e97ed8d349b812fc7726ecb304d237653bf8e495f7d2e2d3031d71f7a64e74d7",
-                "sha256:79b41f6a1b71bf2da50e101be580edd14fc614dcb78d3636a6bfbfd6602318a4",
-                "sha256:0f024290dd085b43aa4e75ee57598636d88ff4d02920bffc05b528051495d0be"
-            ]
-        },
-        "Metadata": {
-            "LastTagTime": "0001-01-01T00:00:00Z"
-        }
-    }
-]
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS     NAMES
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   5 minutes ago    Exited (0) 4 minutes ago              cool_container
-7ee28eef80e7   hello-world   "/hello"                 18 minutes ago   Exited (0) 18 minutes ago             happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % docker container inspect cool_container
-[
-    {
-        "Id": "c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4",
-        "Created": "2023-08-22T15:18:48.98347375Z",
-        "Path": "/docker-entrypoint.sh",
-        "Args": [
-            "nginx",
-            "-g",
-            "daemon off;"
-        ],
-        "State": {
-            "Status": "exited",
-            "Running": false,
-            "Paused": false,
-            "Restarting": false,
-            "OOMKilled": false,
-            "Dead": false,
-            "Pid": 0,
-            "ExitCode": 0,
-            "Error": "",
-            "StartedAt": "2023-08-22T15:18:49.235885167Z",
-            "FinishedAt": "2023-08-22T15:20:06.991604551Z"
-        },
-        "Image": "sha256:2d21d843073b4df6a03022861da4cb59f7116c864fe90b3b5db3b90e1ce932d3",
-        "ResolvConfPath": "/var/lib/docker/containers/c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4/hostname",
-        "HostsPath": "/var/lib/docker/containers/c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4/hosts",
-        "LogPath": "/var/lib/docker/containers/c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4/c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4-json.log",
-        "Name": "/cool_container",
-        "RestartCount": 0,
-        "Driver": "overlay2",
-        "Platform": "linux",
-        "MountLabel": "",
-        "ProcessLabel": "",
-        "AppArmorProfile": "",
-        "ExecIDs": null,
-        "HostConfig": {
-            "Binds": null,
-            "ContainerIDFile": "",
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {}
-            },
-            "NetworkMode": "default",
-            "PortBindings": {
-                "80/tcp": [
-                    {
-                        "HostIp": "",
-                        "HostPort": "8000"
-                    }
-                ]
-            },
-            "RestartPolicy": {
-                "Name": "no",
-                "MaximumRetryCount": 0
-            },
-            "AutoRemove": false,
-            "VolumeDriver": "",
-            "VolumesFrom": null,
-            "ConsoleSize": [
-                45,
-                96
-            ],
-            "CapAdd": null,
-            "CapDrop": null,
-            "CgroupnsMode": "private",
-            "Dns": [],
-            "DnsOptions": [],
-            "DnsSearch": [],
-            "ExtraHosts": null,
-            "GroupAdd": null,
-            "IpcMode": "private",
-            "Cgroup": "",
-            "Links": null,
-            "OomScoreAdj": 0,
-            "PidMode": "",
-            "Privileged": false,
-            "PublishAllPorts": false,
-            "ReadonlyRootfs": false,
-            "SecurityOpt": null,
-            "UTSMode": "",
-            "UsernsMode": "",
-            "ShmSize": 67108864,
-            "Runtime": "runc",
-            "Isolation": "",
-            "CpuShares": 0,
-            "Memory": 0,
-            "NanoCpus": 0,
-            "CgroupParent": "",
-            "BlkioWeight": 0,
-            "BlkioWeightDevice": [],
-            "BlkioDeviceReadBps": [],
-            "BlkioDeviceWriteBps": [],
-            "BlkioDeviceReadIOps": [],
-            "BlkioDeviceWriteIOps": [],
-            "CpuPeriod": 0,
-            "CpuQuota": 0,
-            "CpuRealtimePeriod": 0,
-            "CpuRealtimeRuntime": 0,
-            "CpusetCpus": "",
-            "CpusetMems": "",
-            "Devices": [],
-            "DeviceCgroupRules": null,
-            "DeviceRequests": null,
-            "MemoryReservation": 0,
-            "MemorySwap": 0,
-            "MemorySwappiness": null,
-            "OomKillDisable": null,
-            "PidsLimit": null,
-            "Ulimits": null,
-            "CpuCount": 0,
-            "CpuPercent": 0,
-            "IOMaximumIOps": 0,
-            "IOMaximumBandwidth": 0,
-            "MaskedPaths": [
-                "/proc/asound",
-                "/proc/acpi",
-                "/proc/kcore",
-                "/proc/keys",
-                "/proc/latency_stats",
-                "/proc/timer_list",
-                "/proc/timer_stats",
-                "/proc/sched_debug",
-                "/proc/scsi",
-                "/sys/firmware"
-            ],
-            "ReadonlyPaths": [
-                "/proc/bus",
-                "/proc/fs",
-                "/proc/irq",
-                "/proc/sys",
-                "/proc/sysrq-trigger"
-            ]
-        },
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/3fabe1b2a8deb87f9ae677621b0374c847212b0ef5bcd784236ae7d323cafa82-init/diff:/var/lib/docker/overlay2/80c0d951ea84b8f3270723a20f2f529241dbbd45fb2622fa3c6b618e3325dfb5/diff:/var/lib/docker/overlay2/11cb118caa40a3099df7a324cc18c7423112edae245447848f6ab12ec357081f/diff:/var/lib/docker/overlay2/18ecb8b555fd5d03131e2766662964c3b83c9938e9aaec68e440b1000fac0f11/diff:/var/lib/docker/overlay2/78cf9c681ec67cbb61ce143084a2b197f86e2192dd6ce86a48554f53cbbb0f5a/diff:/var/lib/docker/overlay2/409e2bf2e463d93ce887a4c6a07ec018b4f0b6210aa94d9ce84f6285b8f7b340/diff:/var/lib/docker/overlay2/506f25698e9ff48f088110b5dd62fe113a2895206f40b29aec16846d90cd7713/diff:/var/lib/docker/overlay2/aff10c7882ab3ca8e994823de96214ef8d937e9b85c1204753a12d5690f391c5/diff",
-                "MergedDir": "/var/lib/docker/overlay2/3fabe1b2a8deb87f9ae677621b0374c847212b0ef5bcd784236ae7d323cafa82/merged",
-                "UpperDir": "/var/lib/docker/overlay2/3fabe1b2a8deb87f9ae677621b0374c847212b0ef5bcd784236ae7d323cafa82/diff",
-                "WorkDir": "/var/lib/docker/overlay2/3fabe1b2a8deb87f9ae677621b0374c847212b0ef5bcd784236ae7d323cafa82/work"
-            },
-            "Name": "overlay2"
-        },
-        "Mounts": [],
-        "Config": {
-            "Hostname": "c8955f28c0c4",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": true,
-            "AttachStderr": true,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.1",
-                "NJS_VERSION=0.7.12",
-                "PKG_RELEASE=1~bookworm"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Image": "nginx",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "NetworkSettings": {
-            "Bridge": "",
-            "SandboxID": "4e195ac9f74cf934db4ae18dad3ab32d97d2d92d8b65925bccba69baa45d8278",
-            "HairpinMode": false,
-            "LinkLocalIPv6Address": "",
-            "LinkLocalIPv6PrefixLen": 0,
-            "Ports": {},
-            "SandboxKey": "/var/run/docker/netns/4e195ac9f74c",
-            "SecondaryIPAddresses": null,
-            "SecondaryIPv6Addresses": null,
-            "EndpointID": "",
-            "Gateway": "",
-            "GlobalIPv6Address": "",
-            "GlobalIPv6PrefixLen": 0,
-            "IPAddress": "",
-            "IPPrefixLen": 0,
-            "IPv6Gateway": "",
-            "MacAddress": "",
-            "Networks": {
-                "bridge": {
-                    "IPAMConfig": null,
-                    "Links": null,
-                    "Aliases": null,
-                    "NetworkID": "2e300c43b871ee0ba16d7e97ea70f7eb7898bfd1b6a9e89b1812169e81b74cf4",
-                    "EndpointID": "",
-                    "Gateway": "",
-                    "IPAddress": "",
-                    "IPPrefixLen": 0,
-                    "IPv6Gateway": "",
-                    "GlobalIPv6Address": "",
-                    "GlobalIPv6PrefixLen": 0,
-                    "MacAddress": "",
-                    "DriverOpts": null
-                }
-            }
-        }
-    }
-]
-bradsimpson@Brads-MacBook-Air ~ % \clear
-
-bradsimpson@Brads-MacBook-Air ~ % docker container run -d -p 5000:80 nginx
-6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   17 seconds ago   Up 16 seconds   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container run --rm -it alpine ash
+CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS                      PORTS     NAMES
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   About a minute ago   Exited (0) 22 seconds ago             cool_container
 / # \ls
 bin    etc    lib    mnt    proc   run    srv    tmp    var
 dev    home   media  opt    root   sbin   sys    usr
-/ # cd lib
-/lib # \ls
-apk                     libc.musl-aarch64.so.1  libz.so.1.2.13
-firmware                libcrypto.so.3          mdev
-ld-musl-aarch64.so.1    libssl.so.3             modules-load.d
-libapk.so.2.14.0        libz.so.1               sysctl.d
-/lib # cd ..
-/ # cd bin
+/ # cd bin/
 /bin # \ls
-arch           dmesg          gzip           lzop           ping6          sleep
-ash            dnsdomainname  hostname       makemime       pipe_progress  stat
-base64         dumpkmap       ionice         mkdir          printenv       stty
-bbconfig       echo           iostat         mknod          ps             su
-busybox        ed             ipcalc         mktemp         pwd            sync
-cat            egrep          kbd_mode       more           reformime      tar
-chattr         false          kill           mount          rev            touch
-chgrp          fatattr        link           mountpoint     rm             true
-chmod          fdflush        linux32        mpstat         rmdir          umount
-chown          fgrep          linux64        mv             run-parts      uname
-cp             fsync          ln             netstat        sed            usleep
-date           getopt         login          nice           setpriv        watch
-dd             grep           ls             pidof          setserial      zcat
-df             gunzip         lsattr         ping           sh
+arch           echo           kill           mv             setserial
+ash            ed             link           netstat        sh
+base64         egrep          linux32        nice           sleep
+bbconfig       false          linux64        pidof          stat
+busybox        fatattr        ln             ping           stty
+cat            fdflush        login          ping6          su
+chattr         fgrep          ls             pipe_progress  sync
+chgrp          fsync          lsattr         printenv       tar
+chmod          getopt         lzop           ps             touch
+chown          grep           makemime       pwd            true
+cp             gunzip         mkdir          reformime      umount
+date           gzip           mknod          rev            uname
+dd             hostname       mktemp         rm             usleep
+df             ionice         more           rmdir          watch
+dmesg          iostat         mount          run-parts      zcat
+dnsdomainname  ipcalc         mountpoint     sed
+dumpkmap       kbd_mode       mpstat         setpriv
 /bin # exit
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
+bradsimpson@Brads-MacBook-Air ~ % docker container ls   
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                  NAMES
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
+f0e031555192   nginx     "/docker-entrypoint.…"   6 minutes ago   Up 6 minutes   0.0.0.0:8000->80/tcp   busy_banach
 bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS                  NAMES
-6ebc7f23386b   nginx         "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes                0.0.0.0:5000->80/tcp   admiring_blackburn
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   12 minutes ago   Exited (0) 11 minutes ago                          cool_container
-7ee28eef80e7   hello-world   "/hello"                 25 minutes ago   Exited (0) 25 minutes ago                          happy_lumiere
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+f0e031555192   nginx          "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes                0.0.0.0:8000->80/tcp   busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   10 minutes ago   Exited (0) 8 minutes ago                           cool_container
+d6716e28836a   hello-world    "/hello"                 26 minutes ago   Exited (0) 26 minutes ago                          sleepy_tu
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   16 hours ago     Exited (0) 16 hours ago                            pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
-bradsimpson@Brads-MacBook-Air ~ % docker container run -d -p 8080:80 nginx
-678ba78568e3c1fc77b511dc007f905feb37b222ad1ac0f845ef46ae90c9d4ac
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   5 seconds ago   Up 5 seconds   0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   7 minutes ago   Up 7 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container run -it --name test alpine sh
+bradsimpson@Brads-MacBook-Air ~ % docker container run -it alpine     
+/ # \ls
+bin    etc    lib    mnt    proc   run    srv    tmp    var
+dev    home   media  opt    root   sbin   sys    usr
 / # exit
 bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS                      PORTS                  NAMES
-d7bed0836e86   alpine        "sh"                     13 seconds ago       Exited (0) 7 seconds ago                           test
-678ba78568e3   nginx         "/docker-entrypoint.…"   About a minute ago   Up About a minute           0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx         "/docker-entrypoint.…"   8 minutes ago        Up 8 minutes                0.0.0.0:5000->80/tcp   admiring_blackburn
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   16 minutes ago       Exited (0) 15 minutes ago                          cool_container
-7ee28eef80e7   hello-world   "/hello"                 29 minutes ago       Exited (0) 29 minutes ago                          happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % docker container run --name greet_me --rm ubuntu echo hello world
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+22c42d9291a3   alpine         "/bin/sh"                20 seconds ago   Exited (0) 8 seconds ago                           clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   7 minutes ago    Up 7 minutes                0.0.0.0:8000->80/tcp   busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   10 minutes ago   Exited (0) 9 minutes ago                           cool_container
+d6716e28836a   hello-world    "/hello"                 27 minutes ago   Exited (0) 27 minutes ago                          sleepy_tu
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   16 hours ago     Exited (0) 16 hours ago                            pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d -p 8080:80 nginx
+eec94608825fffa274fa515429ef81b41d07dc35a6e708ad181cb3fe6783564a
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                  NAMES
+eec94608825f   nginx     "/docker-entrypoint.…"   7 seconds ago   Up 6 seconds   0.0.0.0:8080->80/tcp   affectionate_bassi
+f0e031555192   nginx     "/docker-entrypoint.…"   9 minutes ago   Up 8 minutes   0.0.0.0:8000->80/tcp   busy_banach
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d -p 8080:80 nginx
+36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1
+docker: Error response from daemon: driver failed programming external connectivity on endpoint zealous_chaum (90efc4c80a1a2c7a87772414de65a10ba6a2cb640bc4629f0d390796014b344c): Bind for 0.0.0.0:8080 failed: port is already allocated.
+bradsimpson@Brads-MacBook-Air ~ % docker container run -it --name test alpine sh
+/ # \ls
+bin    etc    lib    mnt    proc   run    srv    tmp    var
+dev    home   media  opt    root   sbin   sys    usr
+/ # exit
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS              PORTS                  NAMES
+eec94608825f   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp   affectionate_bassi
+f0e031555192   nginx     "/docker-entrypoint.…"   10 minutes ago       Up 10 minutes       0.0.0.0:8000->80/tcp   busy_banach
+bradsimpson@Brads-MacBook-Air ~ % docker container run --name greet_me --rm ubunut echo hello world
+Unable to find image 'ubunut:latest' locally
+docker: Error response from daemon: pull access denied for ubunut, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+bradsimpson@Brads-MacBook-Air ~ % docker container run --name greet_me --rm ubuntu echo hello world 
 hello world
+bradsimpson@Brads-MacBook-Air ~ % echo hello world
+hello world
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
+eec94608825f   nginx     "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes    0.0.0.0:8080->80/tcp   affectionate_bassi
+f0e031555192   nginx     "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes   0.0.0.0:8000->80/tcp   busy_banach
 bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS                          PORTS                  NAMES
-d7bed0836e86   alpine        "sh"                     About a minute ago   Exited (0) About a minute ago                          test
-678ba78568e3   nginx         "/docker-entrypoint.…"   3 minutes ago        Up 3 minutes                    0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx         "/docker-entrypoint.…"   10 minutes ago       Up 10 minutes                   0.0.0.0:5000->80/tcp   admiring_blackburn
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   18 minutes ago       Exited (0) 16 minutes ago                              cool_container
-7ee28eef80e7   hello-world   "/hello"                 31 minutes ago       Exited (0) 31 minutes ago                              happy_lumiere
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+c6291f8d625c   alpine         "sh"                     2 minutes ago    Exited (0) 2 minutes ago                           test
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   3 minutes ago    Created                                            zealous_chaum
+eec94608825f   nginx          "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes                0.0.0.0:8080->80/tcp   affectionate_bassi
+22c42d9291a3   alpine         "/bin/sh"                6 minutes ago    Exited (0) 6 minutes ago                           clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes               0.0.0.0:8000->80/tcp   busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   17 minutes ago   Exited (0) 15 minutes ago                          cool_container
+d6716e28836a   hello-world    "/hello"                 34 minutes ago   Exited (0) 34 minutes ago                          sleepy_tu
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   16 hours ago     Exited (0) 16 hours ago                            pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
+eec94608825f   nginx     "/docker-entrypoint.…"   5 minutes ago    Up 5 minutes    0.0.0.0:8080->80/tcp   affectionate_bassi
+f0e031555192   nginx     "/docker-entrypoint.…"   14 minutes ago   Up 14 minutes   0.0.0.0:8000->80/tcp   busy_banach
+bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+c6291f8d625c   alpine         "sh"                     4 minutes ago    Exited (0) 4 minutes ago                           test
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   5 minutes ago    Created                                            zealous_chaum
+eec94608825f   nginx          "/docker-entrypoint.…"   5 minutes ago    Up 5 minutes                0.0.0.0:8080->80/tcp   affectionate_bassi
+22c42d9291a3   alpine         "/bin/sh"                7 minutes ago    Exited (0) 7 minutes ago                           clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   14 minutes ago   Up 14 minutes               0.0.0.0:8000->80/tcp   busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   18 minutes ago   Exited (0) 17 minutes ago                          cool_container
+d6716e28836a   hello-world    "/hello"                 35 minutes ago   Exited (0) 35 minutes ago                          sleepy_tu
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   16 hours ago     Exited (0) 16 hours ago                            pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker image ls
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   16 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   16 hours ago   113MB
+<none>                            <none>    8442fa932634   16 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   16 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   16 hours ago   814MB
+<none>                            <none>    f6211611ef7b   18 hours ago   814MB
+<none>                            <none>    ec44781411c1   18 hours ago   814MB
+<none>                            <none>    e3758b5271b3   18 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   7 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   7 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+hello-world                       latest    b038788ddb22   4 months ago   9.14kB
+bradsimpson@Brads-MacBook-Air ~ % docker network ls
+NETWORK ID     NAME           DRIVER    SCOPE
+55327caa5de1   bridge         bridge    local
+0c4794c37db6   host           host      local
+2be63f87cace   my_network     bridge    local
+61b3161ebf7d   none           null      local
+5bd45a71ad73   taco_network   bridge    local
+bradsimpson@Brads-MacBook-Air ~ % docker volume ls
+DRIVER    VOLUME NAME
+local     taco_tues
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+c6291f8d625c   alpine         "sh"                     5 minutes ago    Exited (0) 5 minutes ago                           test
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   6 minutes ago    Created                                            zealous_chaum
+eec94608825f   nginx          "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes                0.0.0.0:8080->80/tcp   affectionate_bassi
+22c42d9291a3   alpine         "/bin/sh"                9 minutes ago    Exited (0) 8 minutes ago                           clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   15 minutes ago   Up 15 minutes               0.0.0.0:8000->80/tcp   busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   19 minutes ago   Exited (0) 18 minutes ago                          cool_container
+d6716e28836a   hello-world    "/hello"                 36 minutes ago   Exited (0) 36 minutes ago                          sleepy_tu
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   16 hours ago     Exited (0) 16 hours ago                            pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker container ls   
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
+eec94608825f   nginx     "/docker-entrypoint.…"   7 minutes ago    Up 6 minutes    0.0.0.0:8080->80/tcp   affectionate_bassi
+f0e031555192   nginx     "/docker-entrypoint.…"   15 minutes ago   Up 15 minutes   0.0.0.0:8000->80/tcp   busy_banach
+bradsimpson@Brads-MacBook-Air ~ % docker container stop affectionate_bassi f0e031555192 
+affectionate_bassi
+f0e031555192
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
 
 
 
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes    0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS                  NAMES
-d7bed0836e86   alpine        "sh"                     2 minutes ago    Exited (0) 2 minutes ago                           test
-678ba78568e3   nginx         "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes                0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx         "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes               0.0.0.0:5000->80/tcp   admiring_blackburn
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   19 minutes ago   Exited (0) 18 minutes ago                          cool_container
-7ee28eef80e7   hello-world   "/hello"                 32 minutes ago   Exited (0) 32 minutes ago                          happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes    0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container stop admiring_blackburn 678ba78568e3
-admiring_blackburn
-678ba78568e3
-bradsimpson@Brads-MacBook-Air ~ % docker container ls                                  
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS     NAMES
-d7bed0836e86   alpine        "sh"                     4 minutes ago    Exited (0) 4 minutes ago              test
-678ba78568e3   nginx         "/docker-entrypoint.…"   5 minutes ago    Exited (0) 20 seconds ago             condescending_gagarin
-6ebc7f23386b   nginx         "/docker-entrypoint.…"   12 minutes ago   Exited (0) 20 seconds ago             admiring_blackburn
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   20 minutes ago   Exited (0) 19 minutes ago             cool_container
-7ee28eef80e7   hello-world   "/hello"                 33 minutes ago   Exited (0) 33 minutes ago             happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % docker container start 678ba78568e3 admiring_blackburn
-678ba78568e3
-admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   6 minutes ago    Up 6 seconds   0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   13 minutes ago   Up 6 seconds   0.0.0.0:5000->80/tcp   admiring_blackburn
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS     NAMES
+c6291f8d625c   alpine         "sh"                     6 minutes ago    Exited (0) 6 minutes ago              test
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   7 minutes ago    Created                               zealous_chaum
+eec94608825f   nginx          "/docker-entrypoint.…"   7 minutes ago    Exited (0) 24 seconds ago             affectionate_bassi
+22c42d9291a3   alpine         "/bin/sh"                10 minutes ago   Exited (0) 9 minutes ago              clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   16 minutes ago   Exited (0) 24 seconds ago             busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   20 minutes ago   Exited (0) 19 minutes ago             cool_container
+d6716e28836a   hello-world    "/hello"                 37 minutes ago   Exited (0) 37 minutes ago             sleepy_tu
+e7be82eea601   23d8681bdbcf   "/bin/sh -c 'gunicor…"   16 hours ago     Exited (0) 16 hours ago               pedantic_goodall
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago               romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker container start zealous_chaum
+zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container ls                 
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                  NAMES
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   7 minutes ago   Up 2 seconds   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container rm sleepy_tu pedantic_goodall
+
+
+sleepy_tu
+pedantic_goodall
+bradsimpson@Brads-MacBook-Air ~ % docker container ls                           
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS              PORTS                  NAMES
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   8 minutes ago   Up About a minute   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+c6291f8d625c   alpine         "sh"                     7 minutes ago    Exited (0) 7 minutes ago                           test
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   8 minutes ago    Up About a minute           0.0.0.0:8080->80/tcp   zealous_chaum
+eec94608825f   nginx          "/docker-entrypoint.…"   9 minutes ago    Exited (0) 2 minutes ago                           affectionate_bassi
+22c42d9291a3   alpine         "/bin/sh"                11 minutes ago   Exited (0) 11 minutes ago                          clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   18 minutes ago   Exited (0) 2 minutes ago                           busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   22 minutes ago   Exited (0) 20 minutes ago                          cool_container
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
 bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS                  NAMES
-d7bed0836e86   alpine        "sh"                     6 minutes ago    Exited (0) 5 minutes ago                           test
-678ba78568e3   nginx         "/docker-entrypoint.…"   7 minutes ago    Up About a minute           0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx         "/docker-entrypoint.…"   14 minutes ago   Up About a minute           0.0.0.0:5000->80/tcp   admiring_blackburn
-c8955f28c0c4   nginx         "/docker-entrypoint.…"   22 minutes ago   Exited (0) 21 minutes ago                          cool_container
-7ee28eef80e7   hello-world   "/hello"                 35 minutes ago   Exited (0) 35 minutes ago                          happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % docker container rm happy_lumiere
-happy_lumiere
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a           
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS                  NAMES
-d7bed0836e86   alpine    "sh"                     6 minutes ago    Exited (0) 6 minutes ago                           test
-678ba78568e3   nginx     "/docker-entrypoint.…"   7 minutes ago    Up About a minute           0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   15 minutes ago   Up About a minute           0.0.0.0:5000->80/tcp   admiring_blackburn
-c8955f28c0c4   nginx     "/docker-entrypoint.…"   22 minutes ago   Exited (0) 21 minutes ago                          cool_container
-bradsimpson@Brads-MacBook-Air ~ % docker container prune 
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
+c6291f8d625c   alpine         "sh"                     8 minutes ago    Exited (0) 8 minutes ago                           test
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   9 minutes ago    Up About a minute           0.0.0.0:8080->80/tcp   zealous_chaum
+eec94608825f   nginx          "/docker-entrypoint.…"   9 minutes ago    Exited (0) 2 minutes ago                           affectionate_bassi
+22c42d9291a3   alpine         "/bin/sh"                11 minutes ago   Exited (0) 11 minutes ago                          clever_easley
+f0e031555192   nginx          "/docker-entrypoint.…"   18 minutes ago   Exited (0) 2 minutes ago                           busy_banach
+ea74fcad86b3   nginx          "/docker-entrypoint.…"   22 minutes ago   Exited (0) 21 minutes ago                          cool_container
+d126b6b1565f   8442fa932634   "/bin/sh -c 'flask r…"   16 hours ago     Exited (0) 16 hours ago                            romantic_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker container prune
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
 Deleted Containers:
-d7bed0836e865ea26f4aa299b1bf342374f7c038f1200037e90c4d0de3443cb6
-c8955f28c0c4df3c538ab133ee3ea080665a633bf9e60afc5356219e22c937a4
+c6291f8d625cbbb9c341d4e4b8f74276db9ab47e2520a8735a55f5c7a65cd480
+eec94608825fffa274fa515429ef81b41d07dc35a6e708ad181cb3fe6783564a
+22c42d9291a36342c9d2aafc875b176b3df5afe47a5f0fe1b5e1093391b85c8c
+f0e031555192fa04bf1ca8733e79b4c60e7f291a7acc5c4dba443ddcfda4753a
+ea74fcad86b33475bc2559d8d79906dcb1f5f9e663b5dd8c0f93d4c2862eae50
+d126b6b1565fbd73cc5fe1edcec774a0fdf2f283470443a2069fadfc7b723889
 
-Total reclaimed space: 1.098kB
-bradsimpson@Brads-MacBook-Air ~ % docker image ls 
-REPOSITORY                    TAG       IMAGE ID       CREATED        SIZE
-bradsimpson213/patchstagram   latest    6277c82a8b27   2 hours ago    113MB
-<none>                        <none>    2a5eb398bf5e   2 hours ago    113MB
-<none>                        <none>    1f5a7525d4a7   2 hours ago    113MB
-<none>                        <none>    9dcd6c2141ad   2 hours ago    113MB
-<none>                        <none>    41cff62e047c   2 hours ago    113MB
-<none>                        <none>    bba8d2ee8f69   2 hours ago    113MB
-<none>                        <none>    a34109ecd6d4   2 hours ago    113MB
-<none>                        <none>    0de177ebe3ba   2 hours ago    113MB
-<none>                        <none>    25496cc28d2e   2 hours ago    113MB
-<none>                        <none>    1cee8b9a9b1f   3 hours ago    113MB
-bradsimpson213/my_react_app   latest    0e6d1fad2b08   3 weeks ago    451MB
-postgres                      latest    0344b98f56a6   7 weeks ago    433MB
-bradsimpson213/taco_react     latest    aea6ddf0f44b   7 weeks ago    569MB
-<none>                        <none>    df9580143a75   8 weeks ago    1.59GB
-nginx                         alpine    66bf2c914bf4   2 months ago   41MB
-alpine                        latest    5053b247d78b   2 months ago   7.66MB
-nginx                         latest    2d21d843073b   2 months ago   192MB
-ubuntu                        latest    cfb01e8e3121   2 months ago   69.2MB
-hello-world                   latest    b038788ddb22   3 months ago   9.14kB
-bradsimpson@Brads-MacBook-Air ~ % docker image prune 
-WARNING! This will remove all dangling images.
-Are you sure you want to continue? [y/N] y
-Deleted Images:
-deleted: sha256:1cee8b9a9b1fcb98037ddc715f8621055b287ac855938b95aa968253808a6364
-deleted: sha256:df9580143a753581b04a2a701b3eb3c78ba5baa20b7a178e9ebb81239cee2060
-deleted: sha256:9dcd6c2141adcd3967d705b49717314d8ce941c07248760e59c9e2d1dbcee0ad
-deleted: sha256:41cff62e047c0782cb4f33bdff25f37a287d1c7f2d9cdd635cd5c954556c1e27
-deleted: sha256:2a5eb398bf5e0640bbb4f51ac387c308ec9824419b7680c0d542bfcb1fe4e47b
-deleted: sha256:a34109ecd6d448906ee4976d9d6c5fd6565ea75a20fecdce6c3d1826bc39cabb
-deleted: sha256:1f5a7525d4a719c4c0a780c15602e1b1cb2f09afc7968de1e3f4ccf2ef27cafb
-deleted: sha256:bba8d2ee8f6976260ede36af614c1cf78db5de2461360f22960694c01e86b11e
-deleted: sha256:25496cc28d2eb6173184365a30c449a4c3cfc8cd8a4b0a024d785c29ccc68005
-deleted: sha256:0de177ebe3ba9b2315527fed900dadab1dbd8dc36fb5f04acb4a74ba61268103
-
-Total reclaimed space: 0B
-bradsimpson@Brads-MacBook-Air ~ % docker image ls    
-REPOSITORY                    TAG       IMAGE ID       CREATED        SIZE
-bradsimpson213/patchstagram   latest    6277c82a8b27   2 hours ago    113MB
-bradsimpson213/my_react_app   latest    0e6d1fad2b08   3 weeks ago    451MB
-postgres                      latest    0344b98f56a6   7 weeks ago    433MB
-bradsimpson213/taco_react     latest    aea6ddf0f44b   7 weeks ago    569MB
-nginx                         alpine    66bf2c914bf4   2 months ago   41MB
-alpine                        latest    5053b247d78b   2 months ago   7.66MB
-nginx                         latest    2d21d843073b   2 months ago   192MB
-ubuntu                        latest    cfb01e8e3121   2 months ago   69.2MB
-hello-world                   latest    b038788ddb22   3 months ago   9.14kB
-bradsimpson@Brads-MacBook-Air ~ % docker image prune 
-WARNING! This will remove all dangling images.
-Are you sure you want to continue? [y/N] y
-Total reclaimed space: 0B
+Total reclaimed space: 19.68kB
+bradsimpson@Brads-MacBook-Air ~ % docker image ls
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   16 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   16 hours ago   113MB
+<none>                            <none>    8442fa932634   16 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   16 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   16 hours ago   814MB
+<none>                            <none>    f6211611ef7b   18 hours ago   814MB
+<none>                            <none>    ec44781411c1   18 hours ago   814MB
+<none>                            <none>    e3758b5271b3   18 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   7 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   7 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+hello-world                       latest    b038788ddb22   4 months ago   9.14kB
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   10 minutes ago   Up 3 minutes   0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   17 minutes ago   Up 3 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it admiring_blackburn sh
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   10 minutes ago   Up 2 minutes   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   11 minutes ago   Up 3 minutes   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it zealous_chaum sh
 # \ls
-bin   dev		   docker-entrypoint.sh  home  media  opt   root  sbin	sys  usr
-boot  docker-entrypoint.d  etc			 lib   mnt    proc  run   srv	tmp  var
-# cd usr	
+bin   docker-entrypoint.d   home   mnt	 root  srv  usr
+boot  docker-entrypoint.sh  lib    opt	 run   sys  var
+dev   etc		    media  proc  sbin  tmp
+# cd usr
 # \ls
 bin  games  include  lib  libexec  local  sbin	share  src
 # cd share
 # \ls
-X11		 common-licenses  dpkg	      java	   man	       pam-configs  terminfo
-base-files	 debconf	  fontconfig  keyrings	   maven-repo  perl5	    util-linux
-base-passwd	 debianutils	  fonts       libc-bin	   menu        pixmaps	    xml
-bash-completion  dict		  gcc	      libgcrypt20  misc        polkit-1     zoneinfo
-bug		 doc		  gdb	      lintian	   nginx       readline     zsh
-ca-certificates  doc-base	  info	      locale	   pam	       tabset
+X11		 debconf      fonts	libgcrypt20  nginx	  tabset
+base-files	 debianutils  gcc	lintian      pam	  terminfo
+base-passwd	 dict	      gdb	locale	     pam-configs  util-linux
+bash-completion  doc	      info	man	     perl5	  xml
+bug		 doc-base     java	maven-repo   pixmaps	  zoneinfo
+ca-certificates  dpkg	      keyrings	menu	     polkit-1	  zsh
+common-licenses  fontconfig   libc-bin	misc	     readline
+# cd nginx	
+# \ls
+html
+# cd html	
+# \ls
+50x.html  index.html
+# exit
+bradsimpson@Brads-MacBook-Air ~ % docker container ls                       
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   14 minutes ago   Up 6 minutes   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % 
+
+
+# NETWORKING
+
+Last login: Tue Sep 19 10:59:31 on ttys008
+bradsimpson@Brads-MacBook-Air ~ % >....                                         
+bin  games  include  lib  libexec  local  sbin  share  src
+# cd share
+# \ls
+X11              debconf      fonts     libgcrypt20  nginx        tabset
+base-files       debianutils  gcc       lintian      pam          terminfo
+base-passwd      dict         gdb       locale       pam-configs  util-linux
+bash-completion  doc          info      man          perl5        xml
+bug              doc-base     java      maven-repo   pixmaps      zoneinfo
+ca-certificates  dpkg         keyrings  menu         polkit-1     zsh
+common-licenses  fontconfig   libc-bin  misc         readline
 # cd nginx
 # \ls
 html
@@ -744,33 +684,88 @@ html
 # \ls
 50x.html  index.html
 # exit
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS
+  PORTS                  NAMES
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   14 minutes ago   Up 6 minutes
+  0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~\clear
+zsh: parse error near `<'
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 bradsimpson@Brads-MacBook-Air ~ % docker network ls
-NETWORK ID     NAME         DRIVER    SCOPE
-2e300c43b871   bridge       bridge    local
-0c4794c37db6   host         host      local
-2be63f87cace   my_network   bridge    local
-61b3161ebf7d   none         null      local
-bradsimpson@Brads-MacBook-Air ~ % 
+NETWORK ID     NAME           DRIVER    SCOPE
+55327caa5de1   bridge         bridge    local
+0c4794c37db6   host           host      local
+2be63f87cace   my_network     bridge    local
+61b3161ebf7d   none           null      local
+5bd45a71ad73   taco_network   bridge    local
+bradsimpson@Brads-MacBook-Air ~ % docker network prune
+WARNING! This will remove all custom networks not used by at least one container.
+Are you sure you want to continue? [y/N] y
+Deleted Networks:
+my_network
+taco_network
+
+bradsimpson@Brads-MacBook-Air ~ % docker network ls   
+NETWORK ID     NAME      DRIVER    SCOPE
+55327caa5de1   bridge    bridge    local
+0c4794c37db6   host      host      local
+61b3161ebf7d   none      null      local
+bradsimpson@Brads-MacBook-Air ~ % \clear
 
 
-# NETWORKING
 
-Last login: Tue Aug 22 11:49:49 on ttys076
+
+
+
+
+
+
+
+
+
+
+
+
+
 bradsimpson@Brads-MacBook-Air ~ % docker network ls
-NETWORK ID     NAME         DRIVER    SCOPE
-2e300c43b871   bridge       bridge    local
-0c4794c37db6   host         host      local
-2be63f87cace   my_network   bridge    local
-61b3161ebf7d   none         null      local
+NETWORK ID     NAME      DRIVER    SCOPE
+55327caa5de1   bridge    bridge    local
+0c4794c37db6   host      host      local
+61b3161ebf7d   none      null      local
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   27 minutes ago   Up 21 minutes   0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   34 minutes ago   Up 21 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   34 minutes ago   Up 26 minutes   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container inspect zealous_chaum
 [
     {
-        "Id": "6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6",
-        "Created": "2023-08-22T15:26:36.393606717Z",
+        "Id": "36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1",
+        "Created": "2023-09-19T15:39:12.488259584Z",
         "Path": "/docker-entrypoint.sh",
         "Args": [
             "nginx",
@@ -784,18 +779,18 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
             "Restarting": false,
             "OOMKilled": false,
             "Dead": false,
-            "Pid": 7118,
+            "Pid": 4440,
             "ExitCode": 0,
             "Error": "",
-            "StartedAt": "2023-08-22T15:40:09.320345593Z",
-            "FinishedAt": "2023-08-22T15:38:57.645717213Z"
+            "StartedAt": "2023-09-19T15:46:45.877248419Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
         },
         "Image": "sha256:2d21d843073b4df6a03022861da4cb59f7116c864fe90b3b5db3b90e1ce932d3",
-        "ResolvConfPath": "/var/lib/docker/containers/6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6/hostname",
-        "HostsPath": "/var/lib/docker/containers/6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6/hosts",
-        "LogPath": "/var/lib/docker/containers/6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6/6ebc7f23386b50f4316a817474c654231a91ce3a4106e55ec1f12d9518e608f6-json.log",
-        "Name": "/admiring_blackburn",
+        "ResolvConfPath": "/var/lib/docker/containers/36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1/hostname",
+        "HostsPath": "/var/lib/docker/containers/36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1/hosts",
+        "LogPath": "/var/lib/docker/containers/36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1/36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1-json.log",
+        "Name": "/zealous_chaum",
         "RestartCount": 0,
         "Driver": "overlay2",
         "Platform": "linux",
@@ -815,7 +810,7 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
                 "80/tcp": [
                     {
                         "HostIp": "",
-                        "HostPort": "5000"
+                        "HostPort": "8080"
                     }
                 ]
             },
@@ -827,8 +822,8 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
             "VolumeDriver": "",
             "VolumesFrom": null,
             "ConsoleSize": [
-                45,
-                96
+                39,
+                87
             ],
             "CapAdd": null,
             "CapDrop": null,
@@ -903,16 +898,16 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
         },
         "GraphDriver": {
             "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/33f7be3b4ff2cfd50693a1f220a1894a8376a3342b51209eeebc8b2d7c15caa3-init/diff:/var/lib/docker/overlay2/80c0d951ea84b8f3270723a20f2f529241dbbd45fb2622fa3c6b618e3325dfb5/diff:/var/lib/docker/overlay2/11cb118caa40a3099df7a324cc18c7423112edae245447848f6ab12ec357081f/diff:/var/lib/docker/overlay2/18ecb8b555fd5d03131e2766662964c3b83c9938e9aaec68e440b1000fac0f11/diff:/var/lib/docker/overlay2/78cf9c681ec67cbb61ce143084a2b197f86e2192dd6ce86a48554f53cbbb0f5a/diff:/var/lib/docker/overlay2/409e2bf2e463d93ce887a4c6a07ec018b4f0b6210aa94d9ce84f6285b8f7b340/diff:/var/lib/docker/overlay2/506f25698e9ff48f088110b5dd62fe113a2895206f40b29aec16846d90cd7713/diff:/var/lib/docker/overlay2/aff10c7882ab3ca8e994823de96214ef8d937e9b85c1204753a12d5690f391c5/diff",
-                "MergedDir": "/var/lib/docker/overlay2/33f7be3b4ff2cfd50693a1f220a1894a8376a3342b51209eeebc8b2d7c15caa3/merged",
-                "UpperDir": "/var/lib/docker/overlay2/33f7be3b4ff2cfd50693a1f220a1894a8376a3342b51209eeebc8b2d7c15caa3/diff",
-                "WorkDir": "/var/lib/docker/overlay2/33f7be3b4ff2cfd50693a1f220a1894a8376a3342b51209eeebc8b2d7c15caa3/work"
+                "LowerDir": "/var/lib/docker/overlay2/598bdee746003cc2af82091996adf6ed1c0df231c4b16faf3dde2095f9e58400-init/diff:/var/lib/docker/overlay2/80c0d951ea84b8f3270723a20f2f529241dbbd45fb2622fa3c6b618e3325dfb5/diff:/var/lib/docker/overlay2/11cb118caa40a3099df7a324cc18c7423112edae245447848f6ab12ec357081f/diff:/var/lib/docker/overlay2/18ecb8b555fd5d03131e2766662964c3b83c9938e9aaec68e440b1000fac0f11/diff:/var/lib/docker/overlay2/78cf9c681ec67cbb61ce143084a2b197f86e2192dd6ce86a48554f53cbbb0f5a/diff:/var/lib/docker/overlay2/409e2bf2e463d93ce887a4c6a07ec018b4f0b6210aa94d9ce84f6285b8f7b340/diff:/var/lib/docker/overlay2/506f25698e9ff48f088110b5dd62fe113a2895206f40b29aec16846d90cd7713/diff:/var/lib/docker/overlay2/aff10c7882ab3ca8e994823de96214ef8d937e9b85c1204753a12d5690f391c5/diff",
+                "MergedDir": "/var/lib/docker/overlay2/598bdee746003cc2af82091996adf6ed1c0df231c4b16faf3dde2095f9e58400/merged",
+                "UpperDir": "/var/lib/docker/overlay2/598bdee746003cc2af82091996adf6ed1c0df231c4b16faf3dde2095f9e58400/diff",
+                "WorkDir": "/var/lib/docker/overlay2/598bdee746003cc2af82091996adf6ed1c0df231c4b16faf3dde2095f9e58400/work"
             },
             "Name": "overlay2"
         },
         "Mounts": [],
         "Config": {
-            "Hostname": "6ebc7f23386b",
+            "Hostname": "36eb27ccf7be",
             "Domainname": "",
             "User": "",
             "AttachStdin": false,
@@ -949,7 +944,7 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
         },
         "NetworkSettings": {
             "Bridge": "",
-            "SandboxID": "34cb130828ac69c0be238406839b8d44c9dfebdd972810468bb56e6c6175a68c",
+            "SandboxID": "052fe6af665d5170a1b5ac1880798bd6a7141841974a1d422a9837ed6ffef804",
             "HairpinMode": false,
             "LinkLocalIPv6Address": "",
             "LinkLocalIPv6PrefixLen": 0,
@@ -957,35 +952,35 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
                 "80/tcp": [
                     {
                         "HostIp": "0.0.0.0",
-                        "HostPort": "5000"
+                        "HostPort": "8080"
                     }
                 ]
             },
-            "SandboxKey": "/var/run/docker/netns/34cb130828ac",
+            "SandboxKey": "/var/run/docker/netns/052fe6af665d",
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
-            "EndpointID": "536f07788086f1369d742a9b320a16f980381d7f3f1eb80641475a5c56f7cc72",
+            "EndpointID": "e73f6026c80e8a62dd7e93cdfb48189ead03289cb15035ae7582fb2472dfccfe",
             "Gateway": "172.17.0.1",
             "GlobalIPv6Address": "",
             "GlobalIPv6PrefixLen": 0,
-            "IPAddress": "172.17.0.3",
+            "IPAddress": "172.17.0.2",
             "IPPrefixLen": 16,
             "IPv6Gateway": "",
-            "MacAddress": "02:42:ac:11:00:03",
+            "MacAddress": "02:42:ac:11:00:02",
             "Networks": {
                 "bridge": {
                     "IPAMConfig": null,
                     "Links": null,
                     "Aliases": null,
-                    "NetworkID": "2e300c43b871ee0ba16d7e97ea70f7eb7898bfd1b6a9e89b1812169e81b74cf4",
-                    "EndpointID": "536f07788086f1369d742a9b320a16f980381d7f3f1eb80641475a5c56f7cc72",
+                    "NetworkID": "55327caa5de17af707254494e8631f02aa9a634c6e66da5d46f57b42ef298de0",
+                    "EndpointID": "e73f6026c80e8a62dd7e93cdfb48189ead03289cb15035ae7582fb2472dfccfe",
                     "Gateway": "172.17.0.1",
-                    "IPAddress": "172.17.0.3",
+                    "IPAddress": "172.17.0.2",
                     "IPPrefixLen": 16,
                     "IPv6Gateway": "",
                     "GlobalIPv6Address": "",
                     "GlobalIPv6PrefixLen": 0,
-                    "MacAddress": "02:42:ac:11:00:03",
+                    "MacAddress": "02:42:ac:11:00:02",
                     "DriverOpts": null
                 }
             }
@@ -993,58 +988,40 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect  admiring_blackburn
     }
 ]
 bradsimpson@Brads-MacBook-Air ~ % docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+55327caa5de1   bridge    bridge    local
+0c4794c37db6   host      host      local
+61b3161ebf7d   none      null      local
+bradsimpson@Brads-MacBook-Air ~ % docker network create --driver bridge my_network
+60994c698b8b5bf011c1030808e8681d4ae0fec76049def7eb282f299a306fa9
+bradsimpson@Brads-MacBook-Air ~ % docker network ls
 NETWORK ID     NAME         DRIVER    SCOPE
-2e300c43b871   bridge       bridge    local
+55327caa5de1   bridge       bridge    local
 0c4794c37db6   host         host      local
-2be63f87cace   my_network   bridge    local
+60994c698b8b   my_network   bridge    local
 61b3161ebf7d   none         null      local
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
-bradsimpson@Brads-MacBook-Air ~ % docker network ls
-NETWORK ID     NAME         DRIVER    SCOPE
-2e300c43b871   bridge       bridge    local
-0c4794c37db6   host         host      local
-2be63f87cace   my_network   bridge    local
-61b3161ebf7d   none         null      local
-bradsimpson@Brads-MacBook-Air ~ % docker network create --driver bridge taco_network
-5bd45a71ad7349c1e15b22e54fe893b07cf3bb649debfc103e441ce454a09a64
-bradsimpson@Brads-MacBook-Air ~ % docker network ls                                 
-NETWORK ID     NAME           DRIVER    SCOPE
-2e300c43b871   bridge         bridge    local
-0c4794c37db6   host           host      local
-2be63f87cace   my_network     bridge    local
-61b3161ebf7d   none           null      local
-5bd45a71ad73   taco_network   bridge    local
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-678ba78568e3   nginx     "/docker-entrypoint.…"   32 minutes ago   Up 25 minutes   0.0.0.0:8080->80/tcp   condescending_gagarin
-6ebc7f23386b   nginx     "/docker-entrypoint.…"   39 minutes ago   Up 25 minutes   0.0.0.0:5000->80/tcp   admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container stop condescending_gagarin admiring_blackburn
-condescending_gagarin
-admiring_blackburn
-bradsimpson@Brads-MacBook-Air ~ % docker container run --name c1 --network taco_network -d nginx:alpine
-91eeb2088717ed2c33c88a94f173a32fc585a6c6ce2f287123ca66d8a98a9061
-bradsimpson@Brads-MacBook-Air ~ % docker container run --name c2 --network taco_network -d nginx:alpine 
-3ec4762a0b9f31e015627660afa88b9e93345b60b010fceb9555bdc493bf4275
+36eb27ccf7be   nginx     "/docker-entrypoint.…"   40 minutes ago   Up 32 minutes   0.0.0.0:8080->80/tcp   zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container stop zealous_chaum
+zealous_chaum
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d --name c1 --network my_network nginx:alpine
+69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d --name c2 --network my_network nginx:alpine 
+e5f729d879efeee148f2d127bd03516ed19fa9a360546c82e79d0a7b81749449
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   4 seconds ago    Up 3 seconds    80/tcp    c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   16 seconds ago   Up 15 seconds   80/tcp    c1
-bradsimpson@Brads-MacBook-Air ~ % docker container run --name c3 -d nginx:alpine 
-17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655
-bradsimpson@Brads-MacBook-Air ~ % docker container run --name c4 -d nginx:alpine 
-2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
-2c54eda5fbf9   nginx:alpine   "/docker-entrypoint.…"   9 seconds ago    Up 7 seconds    80/tcp    c4
-17eb423a61a7   nginx:alpine   "/docker-entrypoint.…"   15 seconds ago   Up 14 seconds   80/tcp    c3
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   42 seconds ago   Up 41 seconds   80/tcp    c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   54 seconds ago   Up 53 seconds   80/tcp    c1
-bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
+e5f729d879ef   nginx:alpine   "/docker-entrypoint.…"   5 seconds ago    Up 4 seconds    80/tcp    c2
+69c19dfd0c9c   nginx:alpine   "/docker-entrypoint.…"   16 seconds ago   Up 15 seconds   80/tcp    c1
+bradsimpson@Brads-MacBook-Air ~ % docker container inspect c1
 [
     {
-        "Id": "2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890",
-        "Created": "2023-08-22T16:09:03.867702716Z",
+        "Id": "69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307",
+        "Created": "2023-09-19T16:21:10.146995263Z",
         "Path": "/docker-entrypoint.sh",
         "Args": [
             "nginx",
@@ -1058,18 +1035,18 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
             "Restarting": false,
             "OOMKilled": false,
             "Dead": false,
-            "Pid": 11418,
+            "Pid": 9111,
             "ExitCode": 0,
             "Error": "",
-            "StartedAt": "2023-08-22T16:09:04.056676216Z",
+            "StartedAt": "2023-09-19T16:21:10.319720347Z",
             "FinishedAt": "0001-01-01T00:00:00Z"
         },
         "Image": "sha256:66bf2c914bf4d0aac4b62f09f9f74ad35898d613024a0f2ec94dca9e79fac6ea",
-        "ResolvConfPath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/hostname",
-        "HostsPath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/hosts",
-        "LogPath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890-json.log",
-        "Name": "/c4",
+        "ResolvConfPath": "/var/lib/docker/containers/69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307/hostname",
+        "HostsPath": "/var/lib/docker/containers/69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307/hosts",
+        "LogPath": "/var/lib/docker/containers/69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307/69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307-json.log",
+        "Name": "/c1",
         "RestartCount": 0,
         "Driver": "overlay2",
         "Platform": "linux",
@@ -1084,7 +1061,7 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
                 "Type": "json-file",
                 "Config": {}
             },
-            "NetworkMode": "default",
+            "NetworkMode": "my_network",
             "PortBindings": {},
             "RestartPolicy": {
                 "Name": "no",
@@ -1094,8 +1071,8 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
             "VolumeDriver": "",
             "VolumesFrom": null,
             "ConsoleSize": [
-                46,
-                99
+                37,
+                80
             ],
             "CapAdd": null,
             "CapDrop": null,
@@ -1170,16 +1147,16 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
         },
         "GraphDriver": {
             "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7-init/diff:/var/lib/docker/overlay2/647a1f9e4c9b6c7373dda8cc6bfaf043643937900e08999038352818a01cd05c/diff:/var/lib/docker/overlay2/24725ff88ecb44d283bed4fbaa517a5e0e5cbae124c0607064a08e01403b6452/diff:/var/lib/docker/overlay2/42fce0a44605c073f0f80eab7e94426685255d5b9cf53811f57b22aabb2e5787/diff:/var/lib/docker/overlay2/343ffb4ee390b1071933b39cc22e679d0196b73f19fa8b10c72873bfe77effaf/diff:/var/lib/docker/overlay2/e50487c91c51ba1602a6c8776b58b5383a37f6b14f249736a87588f2a831aa60/diff:/var/lib/docker/overlay2/c45ae8da3e73d60ad3833e00105d832c8252039e8f0b0ed181644f936c01d6f9/diff:/var/lib/docker/overlay2/3e6a64f7d286c79f617a6adc7832a2fdddee4bd877816812952da86c482edfe8/diff:/var/lib/docker/overlay2/ead025bc032cd2b273c109b69f2dc045b12f5474a097ee4c2f59525d0d62398d/diff",
-                "MergedDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7/merged",
-                "UpperDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7/diff",
-                "WorkDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7/work"
+                "LowerDir": "/var/lib/docker/overlay2/08547042ac5c1e20fae501f58eaceefdbe4c3d40621e69921f5d4dacea688615-init/diff:/var/lib/docker/overlay2/647a1f9e4c9b6c7373dda8cc6bfaf043643937900e08999038352818a01cd05c/diff:/var/lib/docker/overlay2/24725ff88ecb44d283bed4fbaa517a5e0e5cbae124c0607064a08e01403b6452/diff:/var/lib/docker/overlay2/42fce0a44605c073f0f80eab7e94426685255d5b9cf53811f57b22aabb2e5787/diff:/var/lib/docker/overlay2/343ffb4ee390b1071933b39cc22e679d0196b73f19fa8b10c72873bfe77effaf/diff:/var/lib/docker/overlay2/e50487c91c51ba1602a6c8776b58b5383a37f6b14f249736a87588f2a831aa60/diff:/var/lib/docker/overlay2/c45ae8da3e73d60ad3833e00105d832c8252039e8f0b0ed181644f936c01d6f9/diff:/var/lib/docker/overlay2/3e6a64f7d286c79f617a6adc7832a2fdddee4bd877816812952da86c482edfe8/diff:/var/lib/docker/overlay2/ead025bc032cd2b273c109b69f2dc045b12f5474a097ee4c2f59525d0d62398d/diff",
+                "MergedDir": "/var/lib/docker/overlay2/08547042ac5c1e20fae501f58eaceefdbe4c3d40621e69921f5d4dacea688615/merged",
+                "UpperDir": "/var/lib/docker/overlay2/08547042ac5c1e20fae501f58eaceefdbe4c3d40621e69921f5d4dacea688615/diff",
+                "WorkDir": "/var/lib/docker/overlay2/08547042ac5c1e20fae501f58eaceefdbe4c3d40621e69921f5d4dacea688615/work"
             },
             "Name": "overlay2"
         },
         "Mounts": [],
         "Config": {
-            "Hostname": "2c54eda5fbf9",
+            "Hostname": "69c19dfd0c9c",
             "Domainname": "",
             "User": "",
             "AttachStdin": false,
@@ -1216,17 +1193,237 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
         },
         "NetworkSettings": {
             "Bridge": "",
-            "SandboxID": "2d9035c17c60eed02051ef9dc70fefd62d169276fa6e08f6dc14891e5ab5c7d9",
+            "SandboxID": "0c31d00bf31a4f0a530c31c0c43de753ce4189451c3b890f332f732547491e0c",
             "HairpinMode": false,
             "LinkLocalIPv6Address": "",
             "LinkLocalIPv6PrefixLen": 0,
             "Ports": {
                 "80/tcp": null
             },
-            "SandboxKey": "/var/run/docker/netns/2d9035c17c60",
+            "SandboxKey": "/var/run/docker/netns/0c31d00bf31a",
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
-            "EndpointID": "8a0277efb46bb6a8024acb7bdc229b1c6ce470500d50f9ba701ef7cb8a740939",
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "my_network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "69c19dfd0c9c"
+                    ],
+                    "NetworkID": "60994c698b8b5bf011c1030808e8681d4ae0fec76049def7eb282f299a306fa9",
+                    "EndpointID": "53e2d883f49012f90be816e0db8d3eca65aec55c7c70f8460614a2671630dc39",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d --name c3 nginx:alpine
+0f19558e8f44d43ca91c8c1476434f0ed12df39532148625e1f90d7f4c7bc74b
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d --name c4 nginx:alpine 
+d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461
+bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
+[
+    {
+        "Id": "d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461",
+        "Created": "2023-09-19T16:22:18.527840336Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 9592,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-09-19T16:22:18.688242961Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:66bf2c914bf4d0aac4b62f09f9f74ad35898d613024a0f2ec94dca9e79fac6ea",
+        "ResolvConfPath": "/var/lib/docker/containers/d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461/hostname",
+        "HostsPath": "/var/lib/docker/containers/d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461/hosts",
+        "LogPath": "/var/lib/docker/containers/d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461/d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461-json.log",
+        "Name": "/c4",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                37,
+                80
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/ab6da4c8e555b7ff883a0be8fe4bf07000a39de1df61814c9c1a7d64b31bdde8-init/diff:/var/lib/docker/overlay2/647a1f9e4c9b6c7373dda8cc6bfaf043643937900e08999038352818a01cd05c/diff:/var/lib/docker/overlay2/24725ff88ecb44d283bed4fbaa517a5e0e5cbae124c0607064a08e01403b6452/diff:/var/lib/docker/overlay2/42fce0a44605c073f0f80eab7e94426685255d5b9cf53811f57b22aabb2e5787/diff:/var/lib/docker/overlay2/343ffb4ee390b1071933b39cc22e679d0196b73f19fa8b10c72873bfe77effaf/diff:/var/lib/docker/overlay2/e50487c91c51ba1602a6c8776b58b5383a37f6b14f249736a87588f2a831aa60/diff:/var/lib/docker/overlay2/c45ae8da3e73d60ad3833e00105d832c8252039e8f0b0ed181644f936c01d6f9/diff:/var/lib/docker/overlay2/3e6a64f7d286c79f617a6adc7832a2fdddee4bd877816812952da86c482edfe8/diff:/var/lib/docker/overlay2/ead025bc032cd2b273c109b69f2dc045b12f5474a097ee4c2f59525d0d62398d/diff",
+                "MergedDir": "/var/lib/docker/overlay2/ab6da4c8e555b7ff883a0be8fe4bf07000a39de1df61814c9c1a7d64b31bdde8/merged",
+                "UpperDir": "/var/lib/docker/overlay2/ab6da4c8e555b7ff883a0be8fe4bf07000a39de1df61814c9c1a7d64b31bdde8/diff",
+                "WorkDir": "/var/lib/docker/overlay2/ab6da4c8e555b7ff883a0be8fe4bf07000a39de1df61814c9c1a7d64b31bdde8/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "d6be95d64a36",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.25.1",
+                "PKG_RELEASE=1",
+                "NJS_VERSION=0.7.12"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx:alpine",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "9ce0e23bc52a7c1171422b7ecc808478a89e7fc99bcc30e4f51808f613be8131",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/9ce0e23bc52a",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "e08ee2145b11a6393b919fa21347d6305daa007602a5e0e8bfe61ea0ad455cf1",
             "Gateway": "172.17.0.1",
             "GlobalIPv6Address": "",
             "GlobalIPv6PrefixLen": 0,
@@ -1239,8 +1436,8 @@ bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
                     "IPAMConfig": null,
                     "Links": null,
                     "Aliases": null,
-                    "NetworkID": "2e300c43b871ee0ba16d7e97ea70f7eb7898bfd1b6a9e89b1812169e81b74cf4",
-                    "EndpointID": "8a0277efb46bb6a8024acb7bdc229b1c6ce470500d50f9ba701ef7cb8a740939",
+                    "NetworkID": "55327caa5de17af707254494e8631f02aa9a634c6e66da5d46f57b42ef298de0",
+                    "EndpointID": "e08ee2145b11a6393b919fa21347d6305daa007602a5e0e8bfe61ea0ad455cf1",
                     "Gateway": "172.17.0.1",
                     "IPAddress": "172.17.0.3",
                     "IPPrefixLen": 16,
@@ -1258,614 +1455,244 @@ bradsimpson@Brads-MacBook-Air ~ % \clear
 
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS              PORTS     NAMES
-2c54eda5fbf9   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c4
-17eb423a61a7   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c3
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes        80/tcp    c1
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c1 ash
+d6be95d64a36   nginx:alpine   "/docker-entrypoint.…"   31 seconds ago       Up 30 seconds       80/tcp    c4
+0f19558e8f44   nginx:alpine   "/docker-entrypoint.…"   38 seconds ago       Up 37 seconds       80/tcp    c3
+e5f729d879ef   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c2
+69c19dfd0c9c   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c1
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c1 sh
 / # ping -c 4 c2
 PING c2 (172.18.0.3): 56 data bytes
-64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.531 ms
-64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.190 ms
-64 bytes from 172.18.0.3: seq=2 ttl=64 time=0.259 ms
-64 bytes from 172.18.0.3: seq=3 ttl=64 time=0.147 ms
+64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.230 ms
+64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.258 ms
+64 bytes from 172.18.0.3: seq=2 ttl=64 time=0.244 ms
+64 bytes from 172.18.0.3: seq=3 ttl=64 time=0.243 ms
 
 --- c2 ping statistics ---
 4 packets transmitted, 4 packets received, 0% packet loss
-round-trip min/avg/max = 0.147/0.281/0.531 ms
-/ # exit
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c3 ash 
+round-trip min/avg/max = 0.230/0.243/0.258 ms
+/ # ping -c 4 c3
+ping: bad address 'c3'
 / # ping -c 4 c4
 ping: bad address 'c4'
-/ # ping -c 172.17.0.3
-ping: invalid number '172.17.0.3'
-/ # ping -c 172.17.0.3
-ping: invalid number '172.17.0.3'
+/ # exit 
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c3 sh 
+/ # ping -c 4 c4
+ping: bad address 'c4'
+/ # ping -c 4 172.17.0.3
+PING 172.17.0.3 (172.17.0.3): 56 data bytes
+64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.311 ms
+64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.127 ms
+64 bytes from 172.17.0.3: seq=2 ttl=64 time=0.289 ms
+64 bytes from 172.17.0.3: seq=3 ttl=64 time=0.129 ms
+
+--- 172.17.0.3 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 0.127/0.214/0.311 ms
+/ # docker network ls
+sh: docker: not found
 / # exit
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS     NAMES
-2c54eda5fbf9   nginx:alpine   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    c4
-17eb423a61a7   nginx:alpine   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    c3
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   80/tcp    c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   80/tcp    c1
-bradsimpson@Brads-MacBook-Air ~ % docker container inspect c3
-[
-    {
-        "Id": "17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655",
-        "Created": "2023-08-22T16:08:57.289262421Z",
-        "Path": "/docker-entrypoint.sh",
-        "Args": [
-            "nginx",
-            "-g",
-            "daemon off;"
-        ],
-        "State": {
-            "Status": "running",
-            "Running": true,
-            "Paused": false,
-            "Restarting": false,
-            "OOMKilled": false,
-            "Dead": false,
-            "Pid": 11296,
-            "ExitCode": 0,
-            "Error": "",
-            "StartedAt": "2023-08-22T16:08:57.478147838Z",
-            "FinishedAt": "0001-01-01T00:00:00Z"
-        },
-        "Image": "sha256:66bf2c914bf4d0aac4b62f09f9f74ad35898d613024a0f2ec94dca9e79fac6ea",
-        "ResolvConfPath": "/var/lib/docker/containers/17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655/hostname",
-        "HostsPath": "/var/lib/docker/containers/17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655/hosts",
-        "LogPath": "/var/lib/docker/containers/17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655/17eb423a61a7678005f00c994eec32a62d9bfa032ed22333b9d61f7f2e566655-json.log",
-        "Name": "/c3",
-        "RestartCount": 0,
-        "Driver": "overlay2",
-        "Platform": "linux",
-        "MountLabel": "",
-        "ProcessLabel": "",
-        "AppArmorProfile": "",
-        "ExecIDs": null,
-        "HostConfig": {
-            "Binds": null,
-            "ContainerIDFile": "",
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {}
-            },
-            "NetworkMode": "default",
-            "PortBindings": {},
-            "RestartPolicy": {
-                "Name": "no",
-                "MaximumRetryCount": 0
-            },
-            "AutoRemove": false,
-            "VolumeDriver": "",
-            "VolumesFrom": null,
-            "ConsoleSize": [
-                46,
-                99
-            ],
-            "CapAdd": null,
-            "CapDrop": null,
-            "CgroupnsMode": "private",
-            "Dns": [],
-            "DnsOptions": [],
-            "DnsSearch": [],
-            "ExtraHosts": null,
-            "GroupAdd": null,
-            "IpcMode": "private",
-            "Cgroup": "",
-            "Links": null,
-            "OomScoreAdj": 0,
-            "PidMode": "",
-            "Privileged": false,
-            "PublishAllPorts": false,
-            "ReadonlyRootfs": false,
-            "SecurityOpt": null,
-            "UTSMode": "",
-            "UsernsMode": "",
-            "ShmSize": 67108864,
-            "Runtime": "runc",
-            "Isolation": "",
-            "CpuShares": 0,
-            "Memory": 0,
-            "NanoCpus": 0,
-            "CgroupParent": "",
-            "BlkioWeight": 0,
-            "BlkioWeightDevice": [],
-            "BlkioDeviceReadBps": [],
-            "BlkioDeviceWriteBps": [],
-            "BlkioDeviceReadIOps": [],
-            "BlkioDeviceWriteIOps": [],
-            "CpuPeriod": 0,
-            "CpuQuota": 0,
-            "CpuRealtimePeriod": 0,
-            "CpuRealtimeRuntime": 0,
-            "CpusetCpus": "",
-            "CpusetMems": "",
-            "Devices": [],
-            "DeviceCgroupRules": null,
-            "DeviceRequests": null,
-            "MemoryReservation": 0,
-            "MemorySwap": 0,
-            "MemorySwappiness": null,
-            "OomKillDisable": null,
-            "PidsLimit": null,
-            "Ulimits": null,
-            "CpuCount": 0,
-            "CpuPercent": 0,
-            "IOMaximumIOps": 0,
-            "IOMaximumBandwidth": 0,
-            "MaskedPaths": [
-                "/proc/asound",
-                "/proc/acpi",
-                "/proc/kcore",
-                "/proc/keys",
-                "/proc/latency_stats",
-                "/proc/timer_list",
-                "/proc/timer_stats",
-                "/proc/sched_debug",
-                "/proc/scsi",
-                "/sys/firmware"
-            ],
-            "ReadonlyPaths": [
-                "/proc/bus",
-                "/proc/fs",
-                "/proc/irq",
-                "/proc/sys",
-                "/proc/sysrq-trigger"
-            ]
-        },
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/4ece3bae5e98f9b1530c636c6f51d3e514c58e7d24a953cb9cd9691d922c7067-init/diff:/var/lib/docker/overlay2/647a1f9e4c9b6c7373dda8cc6bfaf043643937900e08999038352818a01cd05c/diff:/var/lib/docker/overlay2/24725ff88ecb44d283bed4fbaa517a5e0e5cbae124c0607064a08e01403b6452/diff:/var/lib/docker/overlay2/42fce0a44605c073f0f80eab7e94426685255d5b9cf53811f57b22aabb2e5787/diff:/var/lib/docker/overlay2/343ffb4ee390b1071933b39cc22e679d0196b73f19fa8b10c72873bfe77effaf/diff:/var/lib/docker/overlay2/e50487c91c51ba1602a6c8776b58b5383a37f6b14f249736a87588f2a831aa60/diff:/var/lib/docker/overlay2/c45ae8da3e73d60ad3833e00105d832c8252039e8f0b0ed181644f936c01d6f9/diff:/var/lib/docker/overlay2/3e6a64f7d286c79f617a6adc7832a2fdddee4bd877816812952da86c482edfe8/diff:/var/lib/docker/overlay2/ead025bc032cd2b273c109b69f2dc045b12f5474a097ee4c2f59525d0d62398d/diff",
-                "MergedDir": "/var/lib/docker/overlay2/4ece3bae5e98f9b1530c636c6f51d3e514c58e7d24a953cb9cd9691d922c7067/merged",
-                "UpperDir": "/var/lib/docker/overlay2/4ece3bae5e98f9b1530c636c6f51d3e514c58e7d24a953cb9cd9691d922c7067/diff",
-                "WorkDir": "/var/lib/docker/overlay2/4ece3bae5e98f9b1530c636c6f51d3e514c58e7d24a953cb9cd9691d922c7067/work"
-            },
-            "Name": "overlay2"
-        },
-        "Mounts": [],
-        "Config": {
-            "Hostname": "17eb423a61a7",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.1",
-                "PKG_RELEASE=1",
-                "NJS_VERSION=0.7.12"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Image": "nginx:alpine",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "NetworkSettings": {
-            "Bridge": "",
-            "SandboxID": "26310ba9a6acdee7b794a087ac244e9737ebf680f362cb49f42edfa564310d76",
-            "HairpinMode": false,
-            "LinkLocalIPv6Address": "",
-            "LinkLocalIPv6PrefixLen": 0,
-            "Ports": {
-                "80/tcp": null
-            },
-            "SandboxKey": "/var/run/docker/netns/26310ba9a6ac",
-            "SecondaryIPAddresses": null,
-            "SecondaryIPv6Addresses": null,
-            "EndpointID": "0721d6b7d20e7914311f93b773cd3a5ac8a3c02c716d2a942dbd3812a40d880f",
-            "Gateway": "172.17.0.1",
-            "GlobalIPv6Address": "",
-            "GlobalIPv6PrefixLen": 0,
-            "IPAddress": "172.17.0.2",
-            "IPPrefixLen": 16,
-            "IPv6Gateway": "",
-            "MacAddress": "02:42:ac:11:00:02",
-            "Networks": {
-                "bridge": {
-                    "IPAMConfig": null,
-                    "Links": null,
-                    "Aliases": null,
-                    "NetworkID": "2e300c43b871ee0ba16d7e97ea70f7eb7898bfd1b6a9e89b1812169e81b74cf4",
-                    "EndpointID": "0721d6b7d20e7914311f93b773cd3a5ac8a3c02c716d2a942dbd3812a40d880f",
-                    "Gateway": "172.17.0.1",
-                    "IPAddress": "172.17.0.2",
-                    "IPPrefixLen": 16,
-                    "IPv6Gateway": "",
-                    "GlobalIPv6Address": "",
-                    "GlobalIPv6PrefixLen": 0,
-                    "MacAddress": "02:42:ac:11:00:02",
-                    "DriverOpts": null
-                }
-            }
-        }
-    }
-]
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c4 ash 
-/ # ping -c 4 172.17.0.2
-PING 172.17.0.2 (172.17.0.2): 56 data bytes
-64 bytes from 172.17.0.2: seq=0 ttl=64 time=0.348 ms
-64 bytes from 172.17.0.2: seq=1 ttl=64 time=0.146 ms
-64 bytes from 172.17.0.2: seq=2 ttl=64 time=0.134 ms
-64 bytes from 172.17.0.2: seq=3 ttl=64 time=0.166 ms
-
---- 172.17.0.2 ping statistics ---
-4 packets transmitted, 4 packets received, 0% packet loss
-round-trip min/avg/max = 0.134/0.198/0.348 ms
-/ # ping -c 4 c3
-ping: bad address 'c3'
+d6be95d64a36   nginx:alpine   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   80/tcp    c4
+0f19558e8f44   nginx:alpine   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   80/tcp    c3
+e5f729d879ef   nginx:alpine   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    c2
+69c19dfd0c9c   nginx:alpine   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   80/tcp    c1
+bradsimpson@Brads-MacBook-Air ~ % docker network ls
+NETWORK ID     NAME         DRIVER    SCOPE
+55327caa5de1   bridge       bridge    local
+0c4794c37db6   host         host      local
+60994c698b8b   my_network   bridge    local
+61b3161ebf7d   none         null      local
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c1 sh
+/ # ping c2
+PING c2 (172.18.0.3): 56 data bytes
+64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.171 ms
+64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.255 ms
+64 bytes from 172.18.0.3: seq=2 ttl=64 time=0.165 ms
+64 bytes from 172.18.0.3: seq=3 ttl=64 time=0.122 ms
+64 bytes from 172.18.0.3: seq=4 ttl=64 time=0.121 ms
+64 bytes from 172.18.0.3: seq=5 ttl=64 time=0.161 ms
+64 bytes from 172.18.0.3: seq=6 ttl=64 time=0.125 ms
+64 bytes from 172.18.0.3: seq=7 ttl=64 time=0.189 ms
+64 bytes from 172.18.0.3: seq=8 ttl=64 time=0.242 ms
+64 bytes from 172.18.0.3: seq=9 ttl=64 time=0.141 ms
+64 bytes from 172.18.0.3: seq=10 ttl=64 time=0.111 ms
+64 bytes from 172.18.0.3: seq=11 ttl=64 time=0.159 ms
+64 bytes from 172.18.0.3: seq=12 ttl=64 time=0.126 ms
+64 bytes from 172.18.0.3: seq=13 ttl=64 time=0.131 ms
+64 bytes from 172.18.0.3: seq=14 ttl=64 time=0.170 ms
+64 bytes from 172.18.0.3: seq=15 ttl=64 time=0.120 ms
+64 bytes from 172.18.0.3: seq=16 ttl=64 time=0.118 ms
+64 bytes from 172.18.0.3: seq=17 ttl=64 time=0.206 ms
+64 bytes from 172.18.0.3: seq=18 ttl=64 time=0.160 ms
+64 bytes from 172.18.0.3: seq=19 ttl=64 time=0.171 ms
+64 bytes from 172.18.0.3: seq=20 ttl=64 time=0.145 ms
+^C
+--- c2 ping statistics ---
+21 packets transmitted, 21 packets received, 0% packet loss
+round-trip min/avg/max = 0.111/0.157/0.255 ms
 / # exit
-bradsimpson@Brads-MacBook-Air ~ % docker container inspect c4
-[
-    {
-        "Id": "2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890",
-        "Created": "2023-08-22T16:09:03.867702716Z",
-        "Path": "/docker-entrypoint.sh",
-        "Args": [
-            "nginx",
-            "-g",
-            "daemon off;"
-        ],
-        "State": {
-            "Status": "running",
-            "Running": true,
-            "Paused": false,
-            "Restarting": false,
-            "OOMKilled": false,
-            "Dead": false,
-            "Pid": 11418,
-            "ExitCode": 0,
-            "Error": "",
-            "StartedAt": "2023-08-22T16:09:04.056676216Z",
-            "FinishedAt": "0001-01-01T00:00:00Z"
-        },
-        "Image": "sha256:66bf2c914bf4d0aac4b62f09f9f74ad35898d613024a0f2ec94dca9e79fac6ea",
-        "ResolvConfPath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/hostname",
-        "HostsPath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/hosts",
-        "LogPath": "/var/lib/docker/containers/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890/2c54eda5fbf967f01e996353a8c6806461cee4954b0ee5251604dac41ebc3890-json.log",
-        "Name": "/c4",
-        "RestartCount": 0,
-        "Driver": "overlay2",
-        "Platform": "linux",
-        "MountLabel": "",
-        "ProcessLabel": "",
-        "AppArmorProfile": "",
-        "ExecIDs": null,
-        "HostConfig": {
-            "Binds": null,
-            "ContainerIDFile": "",
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {}
-            },
-            "NetworkMode": "default",
-            "PortBindings": {},
-            "RestartPolicy": {
-                "Name": "no",
-                "MaximumRetryCount": 0
-            },
-            "AutoRemove": false,
-            "VolumeDriver": "",
-            "VolumesFrom": null,
-            "ConsoleSize": [
-                46,
-                99
-            ],
-            "CapAdd": null,
-            "CapDrop": null,
-            "CgroupnsMode": "private",
-            "Dns": [],
-            "DnsOptions": [],
-            "DnsSearch": [],
-            "ExtraHosts": null,
-            "GroupAdd": null,
-            "IpcMode": "private",
-            "Cgroup": "",
-            "Links": null,
-            "OomScoreAdj": 0,
-            "PidMode": "",
-            "Privileged": false,
-            "PublishAllPorts": false,
-            "ReadonlyRootfs": false,
-            "SecurityOpt": null,
-            "UTSMode": "",
-            "UsernsMode": "",
-            "ShmSize": 67108864,
-            "Runtime": "runc",
-            "Isolation": "",
-            "CpuShares": 0,
-            "Memory": 0,
-            "NanoCpus": 0,
-            "CgroupParent": "",
-            "BlkioWeight": 0,
-            "BlkioWeightDevice": [],
-            "BlkioDeviceReadBps": [],
-            "BlkioDeviceWriteBps": [],
-            "BlkioDeviceReadIOps": [],
-            "BlkioDeviceWriteIOps": [],
-            "CpuPeriod": 0,
-            "CpuQuota": 0,
-            "CpuRealtimePeriod": 0,
-            "CpuRealtimeRuntime": 0,
-            "CpusetCpus": "",
-            "CpusetMems": "",
-            "Devices": [],
-            "DeviceCgroupRules": null,
-            "DeviceRequests": null,
-            "MemoryReservation": 0,
-            "MemorySwap": 0,
-            "MemorySwappiness": null,
-            "OomKillDisable": null,
-            "PidsLimit": null,
-            "Ulimits": null,
-            "CpuCount": 0,
-            "CpuPercent": 0,
-            "IOMaximumIOps": 0,
-            "IOMaximumBandwidth": 0,
-            "MaskedPaths": [
-                "/proc/asound",
-                "/proc/acpi",
-                "/proc/kcore",
-                "/proc/keys",
-                "/proc/latency_stats",
-                "/proc/timer_list",
-                "/proc/timer_stats",
-                "/proc/sched_debug",
-                "/proc/scsi",
-                "/sys/firmware"
-            ],
-            "ReadonlyPaths": [
-                "/proc/bus",
-                "/proc/fs",
-                "/proc/irq",
-                "/proc/sys",
-                "/proc/sysrq-trigger"
-            ]
-        },
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7-init/diff:/var/lib/docker/overlay2/647a1f9e4c9b6c7373dda8cc6bfaf043643937900e08999038352818a01cd05c/diff:/var/lib/docker/overlay2/24725ff88ecb44d283bed4fbaa517a5e0e5cbae124c0607064a08e01403b6452/diff:/var/lib/docker/overlay2/42fce0a44605c073f0f80eab7e94426685255d5b9cf53811f57b22aabb2e5787/diff:/var/lib/docker/overlay2/343ffb4ee390b1071933b39cc22e679d0196b73f19fa8b10c72873bfe77effaf/diff:/var/lib/docker/overlay2/e50487c91c51ba1602a6c8776b58b5383a37f6b14f249736a87588f2a831aa60/diff:/var/lib/docker/overlay2/c45ae8da3e73d60ad3833e00105d832c8252039e8f0b0ed181644f936c01d6f9/diff:/var/lib/docker/overlay2/3e6a64f7d286c79f617a6adc7832a2fdddee4bd877816812952da86c482edfe8/diff:/var/lib/docker/overlay2/ead025bc032cd2b273c109b69f2dc045b12f5474a097ee4c2f59525d0d62398d/diff",
-                "MergedDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7/merged",
-                "UpperDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7/diff",
-                "WorkDir": "/var/lib/docker/overlay2/2d1ad824f64c858b4983a8e823172149e7db494a3224a785056c1993cf0965e7/work"
-            },
-            "Name": "overlay2"
-        },
-        "Mounts": [],
-        "Config": {
-            "Hostname": "2c54eda5fbf9",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.1",
-                "PKG_RELEASE=1",
-                "NJS_VERSION=0.7.12"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Image": "nginx:alpine",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "NetworkSettings": {
-            "Bridge": "",
-            "SandboxID": "2d9035c17c60eed02051ef9dc70fefd62d169276fa6e08f6dc14891e5ab5c7d9",
-            "HairpinMode": false,
-            "LinkLocalIPv6Address": "",
-            "LinkLocalIPv6PrefixLen": 0,
-            "Ports": {
-
-# BIND MOUNTS
-
-/ # --mount type=bind/volume,source=path/to/folder or volume, target=path/in/container
-ash: --mount: not found
-/ # docker volume ls
-ash: docker: not found
-/ # exit
-bradsimpson@Brads-MacBook-Air ~ % docker volume ls
-DRIVER    VOLUME NAME
-local     my_volume
-local     taco_tuesday
-bradsimpson@Brads-MacBook-Air ~ % docker volume prune
-WARNING! This will remove anonymous local volumes not used by at least one container.
-Are you sure you want to continue? [y/N] y
-Total reclaimed space: 0B
-bradsimpson@Brads-MacBook-Air ~ % docker volume ls   
-DRIVER    VOLUME NAME
-local     my_volume
-local     taco_tuesday
-bradsimpson@Brads-MacBook-Air ~ % docker volume rm taco_tuesday
-taco_tuesday
-bradsimpson@Brads-MacBook-Air ~ % docker volume ls             
-DRIVER    VOLUME NAME
-local     my_volume
-bradsimpson@Brads-MacBook-Air ~ % docker volume rm my_volume   
-my_volume
-bradsimpson@Brads-MacBook-Air ~ % docker volume ls          
-DRIVER    VOLUME NAME
-bradsimpson@Brads-MacBook-Air ~ % docker volume create taco_tues
-taco_tues
-bradsimpson@Brads-MacBook-Air ~ % docker volume ls              
-DRIVER    VOLUME NAME
-local     taco_tues
-bradsimpson@Brads-MacBook-Air ~ % \ls
-Desktop			Library			Pictures		requirements.txt
-Documents		Movies			Public
-Downloads		Music			app
-bradsimpson@Brads-MacBook-Air ~ % cd app
-bradsimpson@Brads-MacBook-Air app % \ls     
-index.html
-bradsimpson@Brads-MacBook-Air app % nano index.html
-bradsimpson@Brads-MacBook-Air app % cd ..
-bradsimpson@Brads-MacBook-Air ~ % \ls
-Desktop			Library			Pictures		requirements.txt
-Documents		Movies			Public
-Downloads		Music			app
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
-bradsimpson@Brads-MacBook-Air ~ % docker container run -d --mount type=bind,source="$(pwd)/app",target=/usr/share/nginx/html -p 8000:80 nginx:alpine
-f3687ce94ba8fa6b6ed4a5b791be909a371b71a7977ac902f203b161eb1a3963
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                  NAMES
-f3687ce94ba8   nginx:alpine   "/docker-entrypoint.…"   5 seconds ago    Up 5 seconds    0.0.0.0:8000->80/tcp   serene_darwin
-2c54eda5fbf9   nginx:alpine   "/docker-entrypoint.…"   32 minutes ago   Up 32 minutes   80/tcp                 c4
-17eb423a61a7   nginx:alpine   "/docker-entrypoint.…"   33 minutes ago   Up 33 minutes   80/tcp                 c3
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   33 minutes ago   Up 33 minutes   80/tcp                 c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   33 minutes ago   Up 33 minutes   80/tcp                 c1
-bradsimpson@Brads-MacBook-Air ~ % docker container stop c1 c2 c3 c4
+bradsimpson@Brads-MacBook-Air ~ % 
+
+
+# VOLUMES & BIND MOUNTS
+
+
+Last login: Tue Sep 19 11:57:34 on ttys008
+bradsimpson@Brads-MacBook-Air ~ % \ls
+Desktop			Movies			Postman Agent
+Documents		Music			Public
+Downloads		Pictures		app
+Library			Postman			requirements.txt
+bradsimpson@Brads-MacBook-Air ~ % rm app
+rm: app: is a directory
+bradsimpson@Brads-MacBook-Air ~ % rm -rf app
+bradsimpson@Brads-MacBook-Air ~ % \ls
+Desktop			Movies			Postman Agent
+Documents		Music			Public
+Downloads		Pictures		requirements.txt
+Library			Postman
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bradsimpson@Brads-MacBook-Air ~ % docker container run --mount type=bind,source=direcct/path/to/subfolder,targetr=path/to/where/container/wants/it 
+invalid argument "type=bind,source=direcct/path/to/subfolder,targetr=path/to/where/container/wants/it" for "--mount" flag: unexpected key 'targetr' in 'targetr=path/to/where/container/wants/it'
+See 'docker container run --help'.
+bradsimpson@Brads-MacBook-Air ~ % docker volume ls
+DRIVER    VOLUME NAME
+local     taco_tues
+bradsimpson@Brads-MacBook-Air ~ % mkdir app
+bradsimpson@Brads-MacBook-Air ~ % \ls
+Desktop			Movies			Postman Agent
+Documents		Music			Public
+Downloads		Pictures		app
+Library			Postman			requirements.txt
+bradsimpson@Brads-MacBook-Air ~ % cd app
+bradsimpson@Brads-MacBook-Air app % touch index.html
+bradsimpson@Brads-MacBook-Air app % nano index.html
+bradsimpson@Brads-MacBook-Air app % \sl
+zsh: command not found: sl
+bradsimpson@Brads-MacBook-Air app % \ls
+index.html
+bradsimpson@Brads-MacBook-Air app % docker container ls
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+d6be95d64a36   nginx:alpine   "/docker-entrypoint.…"   43 minutes ago   Up 43 minutes   80/tcp    c4
+0f19558e8f44   nginx:alpine   "/docker-entrypoint.…"   43 minutes ago   Up 43 minutes   80/tcp    c3
+e5f729d879ef   nginx:alpine   "/docker-entrypoint.…"   44 minutes ago   Up 44 minutes   80/tcp    c2
+69c19dfd0c9c   nginx:alpine   "/docker-entrypoint.…"   44 minutes ago   Up 44 minutes   80/tcp    c1
+bradsimpson@Brads-MacBook-Air app % docker container stop c1 c2 c3 c4
 c1
 c2
 c3
 c4
-bradsimpson@Brads-MacBook-Air ~ % docker container ls              
+bradsimpson@Brads-MacBook-Air app % docker container ls              
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+bradsimpson@Brads-MacBook-Air app % \clear
+
+bradsimpson@Brads-MacBook-Air app % docker container run -d -p 8000:80 --moun     
+unknown flag: --moun
+See 'docker container run --help'.
+bradsimpson@Brads-MacBook-Air app % cd ..
+bradsimpson@Brads-MacBook-Air ~ % docker container run -d -p 8000:80 --mount type=bind,source="$(pwd)/app",target=/usr/share/nginx/html nginx:alpine
+5f9b52626ce5dd8d21051928824538ff7428eb2116e7f6080b1af6f6ec40c86e
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                  NAMES
-f3687ce94ba8   nginx:alpine   "/docker-entrypoint.…"   18 seconds ago   Up 17 seconds   0.0.0.0:8000->80/tcp   serene_darwin
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it serene_darwin ash
+5f9b52626ce5   nginx:alpine   "/docker-entrypoint.…"   34 seconds ago   Up 32 seconds   0.0.0.0:8000->80/tcp   cool_raman
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it cool_raman sh
 / # \ls
-bin                   home                  proc                  sys
-dev                   lib                   root                  tmp
-docker-entrypoint.d   media                 run                   usr
-docker-entrypoint.sh  mnt                   sbin                  var
-etc                   opt                   srv
-/ # cd usr
-/usr # \ls
-bin    lib    local  sbin   share
-/usr # cd share
-/usr/share # cd nginx
-/usr/share/nginx # cd html
-/usr/share/nginx/html # \la
-ash: la: not found
+bin                   media                 srv
+dev                   mnt                   sys
+docker-entrypoint.d   opt                   tmp
+docker-entrypoint.sh  proc                  usr
+etc                   root                  var
+home                  run
+lib                   sbin
+/ # cd usr/
+/usr # cd share/
+/usr/share # cd nginx/
+/usr/share/nginx # cd html/
 /usr/share/nginx/html # \ls
 index.html
-/usr/share/nginx/html # nano index/html
-ash: nano: not found
+/usr/share/nginx/html # nano index.html
+sh: nano: not found
 /usr/share/nginx/html # apk add nano
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/aarch64/APKINDEX.tar.gz
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/aarch64/APKINDEX.tar.gz
 (1/1) Installing nano (7.0-r0)
 Executing busybox-1.35.0-r29.trigger
 OK: 44 MiB in 63 packages
-/usr/share/nginx/html # nano index/html
 /usr/share/nginx/html # nano index.html
 /usr/share/nginx/html # exit
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                  NAMES
-f3687ce94ba8   nginx:alpine   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:8000->80/tcp   serene_darwin
 bradsimpson@Brads-MacBook-Air ~ % cd app 
-bradsimpson@Brads-MacBook-Air app % nano index.html
-bradsimpson@Brads-MacBook-Air app % 
+bradsimpson@Brads-MacBook-Air app % nano index.html 
 bradsimpson@Brads-MacBook-Air app % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                  NAMES
-f3687ce94ba8   nginx:alpine   "/docker-entrypoint.…"   6 minutes ago   Up 6 minutes   0.0.0.0:8000->80/tcp   serene_darwin
-bradsimpson@Brads-MacBook-Air app % docker container stop serene_darwin
-serene_darwin
-bradsimpson@Brads-MacBook-Air app % docker container ls                
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+5f9b52626ce5   nginx:alpine   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:8000->80/tcp   cool_raman
+bradsimpson@Brads-MacBook-Air app % docker container stop cool_raman
+cool_raman
 bradsimpson@Brads-MacBook-Air app % \clear
 
-# VOLUMES
-
-
+bradsimpson@Brads-MacBook-Air app % docker volume ls
+DRIVER    VOLUME NAME
+local     taco_tues
+bradsimpson@Brads-MacBook-Air app % docker volume create my_volume
+my_volume
+bradsimpson@Brads-MacBook-Air app % docker volume ls
+DRIVER    VOLUME NAME
+local     my_volume
+local     taco_tues
 bradsimpson@Brads-MacBook-Air app % docker image ls
-REPOSITORY                    TAG       IMAGE ID       CREATED        SIZE
-bradsimpson213/patchstagram   latest    6277c82a8b27   3 hours ago    113MB
-bradsimpson213/my_react_app   latest    0e6d1fad2b08   3 weeks ago    451MB
-postgres                      latest    0344b98f56a6   7 weeks ago    433MB
-bradsimpson213/taco_react     latest    aea6ddf0f44b   7 weeks ago    569MB
-nginx                         alpine    66bf2c914bf4   2 months ago   41MB
-alpine                        latest    5053b247d78b   2 months ago   7.66MB
-nginx                         latest    2d21d843073b   2 months ago   192MB
-ubuntu                        latest    cfb01e8e3121   2 months ago   69.2MB
-hello-world                   latest    b038788ddb22   3 months ago   9.14kB
-bradsimpson@Brads-MacBook-Air app % docker image rm postgres  
-Untagged: postgres:latest
-Untagged: postgres@sha256:362a63cb1e864195ea2bc29b5066bdb222bc9a4461bfaff2418f63a06e56bce0
-Deleted: sha256:0344b98f56a6e17873f7e37ee5cdc90d51bc172b2cbf7768419509ca3cce8d14
-Deleted: sha256:3c587faf268cebef075306b661259e1d522435813e52672d8879ce968373df1e
-Deleted: sha256:b9ec775547eff70d603477e5197461c8dd8f966d1809ae494880f6587324cd02
-Deleted: sha256:49bf9c21272528ce846888241739eee9fdaf1c6af6a06e70b050b37b9ec49165
-Deleted: sha256:a40f8ed8a245683cc01fb208c92c4a8aa1fe049d85db392a0c8871d9501de0fe
-Deleted: sha256:2fbcdacd5e0106e44ee809f0d46d607e6f7a3fff876e2294dbe328f69163fa1d
-Deleted: sha256:70d8f900c1da18418398dc50fc4ee718b8f4d9d28b6ee8587fc2fcee6175b1d2
-Deleted: sha256:d5fa27a4f01480a15c7f267824a258d04c393b60325f7a691eb7f49109f14950
-Deleted: sha256:cf375d1e4d034ccdaddfb8da181ce937cf0ad2b0717fc66a2165dc78ef7f0864
-Deleted: sha256:69cfc0ef48a7251a291c2d9d070d9fc7a3f59a2e54a28984a503ffa7f8537e2e
-Deleted: sha256:be5524e8ee45c8e932e42367b0d276f235a6b03825cb79202a1adf1600c0f3e4
-Deleted: sha256:991985db7d9bee3b37c7f53250c57c53388af49019a8861abe61d72a3d3a3f0e
-Deleted: sha256:ad1d6d47ecad672fe218db22529462c12fd8c540862dcff960a524db5454cf24
-Deleted: sha256:efd1965f1684506744544d66c57387a60bd89607480e2dbc89bf3e8a30081bc1
-bradsimpson@Brads-MacBook-Air app % docker image ls         
-REPOSITORY                    TAG       IMAGE ID       CREATED        SIZE
-bradsimpson213/patchstagram   latest    6277c82a8b27   3 hours ago    113MB
-bradsimpson213/my_react_app   latest    0e6d1fad2b08   3 weeks ago    451MB
-bradsimpson213/taco_react     latest    aea6ddf0f44b   7 weeks ago    569MB
-nginx                         alpine    66bf2c914bf4   2 months ago   41MB
-alpine                        latest    5053b247d78b   2 months ago   7.66MB
-nginx                         latest    2d21d843073b   2 months ago   192MB
-ubuntu                        latest    cfb01e8e3121   2 months ago   69.2MB
-hello-world                   latest    b038788ddb22   3 months ago   9.14kB
-bradsimpson@Brads-MacBook-Air app % docker pull postgres
-Using default tag: latest
-latest: Pulling from library/postgres
-4ee097f9a366: Pull complete 
-76feac26ff4c: Pull complete 
-cd38eeb1c7ed: Pull complete 
-c5a6aa48270c: Pull complete 
-8400a13ec8f7: Pull complete 
-0bddf18c4a6e: Pull complete 
-287cdab72fa1: Pull complete 
-d55736c8451f: Pull complete 
-d84639c1fc9e: Pull complete 
-a7a76ec02575: Pull complete 
-b0c360759201: Pull complete 
-118910365168: Pull complete 
-f6a1c2f3f6a0: Pull complete 
-Digest: sha256:a5e89e5f2679863bedef929c4a7ec5d1a2cb3c045f13b47680d86f8701144ed7
-Status: Downloaded newer image for postgres:latest
-docker.io/library/postgres:latest
+REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
+bradsimpson213/patch              latest    85fd9d51fbc4   17 hours ago   113MB
+<none>                            <none>    23d8681bdbcf   17 hours ago   113MB
+<none>                            <none>    8442fa932634   18 hours ago   113MB
+bradsimpson213/patchstagram       latest    fdb3d88cc9df   18 hours ago   144MB
+<none>                            <none>    1be486eb8e9e   18 hours ago   814MB
+<none>                            <none>    f6211611ef7b   19 hours ago   814MB
+<none>                            <none>    ec44781411c1   20 hours ago   814MB
+<none>                            <none>    e3758b5271b3   20 hours ago   814MB
+bradsimpson213/my_flask_starter   latest    5a987801c667   7 days ago     1.21GB
+bradsimpson213/my_flask_starter   <none>    5106d41fd79a   7 days ago     1.21GB
+<none>                            <none>    3e9c435ed215   7 days ago     1.23GB
+bradsimpson213/my_starter         latest    982c7b107bb2   7 days ago     976MB
+bradsimpson213/my_starter         <none>    d67adf9f658a   7 days ago     976MB
+bradsimpson213/my_starter         <none>    8c2a30d1ab93   7 days ago     976MB
+bradsimpson213/my_starter         <none>    887a2903d7f6   7 days ago     976MB
+bradsimpson213/my_starter         <none>    6afd10397145   8 days ago     976MB
+bradsimpson213/my_starter         <none>    31b768bb850b   8 days ago     994MB
+bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   3 weeks ago    575MB
+<none>                            <none>    6277c82a8b27   4 weeks ago    113MB
+postgres                          latest    ee56d70bcdf1   4 weeks ago    433MB
+bradsimpson213/my_react_app       latest    0e6d1fad2b08   7 weeks ago    451MB
+bradsimpson213/taco_react         latest    aea6ddf0f44b   2 months ago   569MB
+nginx                             alpine    66bf2c914bf4   3 months ago   41MB
+alpine                            latest    5053b247d78b   3 months ago   7.66MB
+nginx                             latest    2d21d843073b   3 months ago   192MB
+ubuntu                            latest    cfb01e8e3121   3 months ago   69.2MB
+hello-world                       latest    b038788ddb22   4 months ago   9.14kB
 bradsimpson@Brads-MacBook-Air app % docker image inspect postgres
 [
     {
@@ -1994,43 +1821,114 @@ bradsimpson@Brads-MacBook-Air app % docker image inspect postgres
         }
     }
 ]
-bradsimpson@Brads-MacBook-Air app % \clear
+bradsimpson@Brads-MacBook-Air app % docker container run -e POSTGRES_PASSWORD=password --name postgres1 --mount type=volume,source=my_volume,target=/var/lib/postgresql/data postgres
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
 
-bradsimpson@Brads-MacBook-Air app % 
-bradsimpson@Brads-MacBook-Air app % docker container run --name postgres1 -d --mount type=volume,source=taco_tues,target=/var/lib/postgresql/data -e POSTGRES_PASSWORD=password postgres 
-970f2b0173315d53d911598e1a7dcb3c8602a601d082b16b632590d5597c427d
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+waiting for server to start....2023-09-19 17:18:49.490 UTC [48] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2023-09-19 17:18:49.491 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2023-09-19 17:18:49.493 UTC [51] LOG:  database system was shut down at 2023-09-19 17:18:49 UTC
+2023-09-19 17:18:49.496 UTC [48] LOG:  database system is ready to accept connections
+ done
+server started
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+2023-09-19 17:18:49.626 UTC [48] LOG:  received fast shutdown request
+waiting for server to shut down....2023-09-19 17:18:49.626 UTC [48] LOG:  aborting any active transactions
+2023-09-19 17:18:49.627 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+2023-09-19 17:18:49.627 UTC [49] LOG:  shutting down
+2023-09-19 17:18:49.628 UTC [49] LOG:  checkpoint starting: shutdown immediate
+2023-09-19 17:18:49.631 UTC [49] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.004 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2023-09-19 17:18:49.634 UTC [48] LOG:  database system is shut down
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+2023-09-19 17:18:49.749 UTC [1] LOG:  starting PostgreSQL 15.4 (Debian 15.4-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2023-09-19 17:18:49.750 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2023-09-19 17:18:49.750 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2023-09-19 17:18:49.751 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2023-09-19 17:18:49.753 UTC [62] LOG:  database system was shut down at 2023-09-19 17:18:49 UTC
+2023-09-19 17:18:49.756 UTC [1] LOG:  database system is ready to accept connections
+^C2023-09-19 17:18:54.117 UTC [1] LOG:  received fast shutdown request
+2023-09-19 17:18:54.119 UTC [1] LOG:  aborting any active transactions
+2023-09-19 17:18:54.121 UTC [1] LOG:  background worker "logical replication launcher" (PID 65) exited with exit code 1
+2023-09-19 17:18:54.122 UTC [60] LOG:  shutting down
+2023-09-19 17:18:54.125 UTC [60] LOG:  checkpoint starting: shutdown immediate
+2023-09-19 17:18:54.131 UTC [60] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.010 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2023-09-19 17:18:54.135 UTC [1] LOG:  database system is shut down
+bradsimpson@Brads-MacBook-Air app % docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+bradsimpson@Brads-MacBook-Air app % docker container run -e POSTGRES_PASSWORD=password --name postgres1 --mount type=volume,source=my_volume,target=/var/lib/postgresql/data -d postgres
+docker: Error response from daemon: Conflict. The container name "/postgres1" is already in use by container "003d83821ce8e77c6c05422c5f52253b3b4c872c2e68e76813331c3ae7e30885". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+bradsimpson@Brads-MacBook-Air app % docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+bradsimpson@Brads-MacBook-Air app % docker container ls -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS     NAMES
+003d83821ce8   postgres       "docker-entrypoint.s…"   38 seconds ago   Exited (0) 30 seconds ago             postgres1
+5f9b52626ce5   nginx:alpine   "/docker-entrypoint.…"   10 minutes ago   Exited (0) 6 minutes ago              cool_raman
+d6be95d64a36   nginx:alpine   "/docker-entrypoint.…"   57 minutes ago   Exited (0) 13 minutes ago             c4
+0f19558e8f44   nginx:alpine   "/docker-entrypoint.…"   57 minutes ago   Exited (0) 13 minutes ago             c3
+e5f729d879ef   nginx:alpine   "/docker-entrypoint.…"   58 minutes ago   Exited (0) 13 minutes ago             c2
+69c19dfd0c9c   nginx:alpine   "/docker-entrypoint.…"   58 minutes ago   Exited (0) 13 minutes ago             c1
+36eb27ccf7be   nginx          "/docker-entrypoint.…"   2 hours ago      Exited (0) 59 minutes ago             zealous_chaum
+bradsimpson@Brads-MacBook-Air app % docker container rm postgres1
+postgres1
+bradsimpson@Brads-MacBook-Air app % docker container run -e POSTGRES_PASSWORD=password --name postgres1 --mount type=volume,source=my_volume,target=/var/lib/postgresql/data -d postgres
+41298975e431c2a0eac5ef9e1bbb92b0bba21914c0cd25077ba1bcda359f0460
 bradsimpson@Brads-MacBook-Air app % docker container ls
 CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS      NAMES
-970f2b017331   postgres   "docker-entrypoint.s…"   5 seconds ago   Up 4 seconds   5432/tcp   postgres1
-bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres1 ash
-OCI runtime exec failed: exec failed: unable to start container process: exec: "ash": executable file not found in $PATH: unknown
-bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres1    
-"docker container exec" requires at least 2 arguments.
-See 'docker container exec --help'.
-
-Usage:  docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]
-
-Execute a command in a running container
-bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres1 sh  
-# psql -p 5432 -h localhost -U postgres
+41298975e431   postgres   "docker-entrypoint.s…"   4 seconds ago   Up 4 seconds   5432/tcp   postgres1
+bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres1 sh
+# psql -p 5432 -h localhost -U postgres 
 psql (15.4 (Debian 15.4-1.pgdg120+1))
 Type "help" for help.
 
+postgres=# \ls
+invalid command \ls
+Try \? for help.
 postgres=# \l
                                                 List of databases
-   Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider |   Access p
-rivileges   
------------+----------+----------+------------+------------+------------+-----------------+-----------
-------------
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider | 
+  Access privileges   
+-----------+----------+----------+------------+------------+------------+-----------------+-
+----------------------
  postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/postgre
-s          +
-           |          |          |            |            |            |                 | postgres=C
-Tc/postgres
- template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/postgre
-s          +
-           |          |          |            |            |            |                 | postgres=C
-Tc/postgres
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+=c/postgres          +
+           |          |          |            |            |            |                 | 
+postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+=c/postgres          +
+           |          |          |            |            |            |                 | 
+postgres=CTc/postgres
 (3 rows)
 
 
@@ -2054,41 +1952,25 @@ Tc/postgres
 
 
 
-
-
-
-
-
-
-
-
-postgres=# CREATE DATABASE taco_tuesday WITH OWNER postgres;
+postgres=# CREATE DATABASE taco_tues WITH OWNER postgres;
 CREATE DATABASE
 postgres=# \l
-                                                  List of databases
-     Name     |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider |   Acces
-s privileges   
---------------+----------+----------+------------+------------+------------+-----------------+--------
----------------
- postgres     | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- taco_tuesday | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- template0    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/post
-gres          +
-              |          |          |            |            |            |                 | postgre
-s=CTc/postgres
- template1    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/post
-gres          +
-              |          |          |            |            |            |                 | postgre
-s=CTc/postgres
+                                                List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider | 
+  Access privileges   
+-----------+----------+----------+------------+------------+------------+-----------------+-
+----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+ taco_tues | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+=c/postgres          +
+           |          |          |            |            |            |                 | 
+postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+=c/postgres          +
+           |          |          |            |            |            |                 | 
+postgres=CTc/postgres
 (4 rows)
-
-
-
-
-
-
-
-
 
 
 
@@ -2113,70 +1995,54 @@ s=CTc/postgres
 postgres=# exit
 # exit
 bradsimpson@Brads-MacBook-Air app % docker container ls
-CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS      NAMES
-970f2b017331   postgres   "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   5432/tcp   postgres1
+CONTAINER ID   IMAGE      COMMAND                  CREATED              STATUS              PORTS      NAMES
+41298975e431   postgres   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp   postgres1
 bradsimpson@Brads-MacBook-Air app % docker container stop postgres1
 postgres1
-bradsimpson@Brads-MacBook-Air app % docker container ls            
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-bradsimpson@Brads-MacBook-Air app % docker container ls -a
-CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS                      PORTS     NAMES
-970f2b017331   postgres       "docker-entrypoint.s…"   3 minutes ago       Exited (0) 7 seconds ago              postgres1
-f3687ce94ba8   nginx:alpine   "/docker-entrypoint.…"   17 minutes ago      Exited (0) 10 minutes ago             serene_darwin
-2c54eda5fbf9   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 16 minutes ago             c4
-17eb423a61a7   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 16 minutes ago             c3
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 16 minutes ago             c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 16 minutes ago             c1
-678ba78568e3   nginx          "/docker-entrypoint.…"   About an hour ago   Exited (0) 52 minutes ago             condescending_gagarin
-6ebc7f23386b   nginx          "/docker-entrypoint.…"   2 hours ago         Exited (0) 52 minutes ago             admiring_blackburn
-bradsimpson@Brads-MacBook-Air app % docker container rm postgres1
-postgres1
-bradsimpson@Brads-MacBook-Air app % docker container ls -a       
-CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS                      PORTS     NAMES
-f3687ce94ba8   nginx:alpine   "/docker-entrypoint.…"   17 minutes ago      Exited (0) 10 minutes ago             serene_darwin
-2c54eda5fbf9   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 17 minutes ago             c4
-17eb423a61a7   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 17 minutes ago             c3
-3ec4762a0b9f   nginx:alpine   "/docker-entrypoint.…"   50 minutes ago      Exited (0) 17 minutes ago             c2
-91eeb2088717   nginx:alpine   "/docker-entrypoint.…"   51 minutes ago      Exited (0) 17 minutes ago             c1
-678ba78568e3   nginx          "/docker-entrypoint.…"   About an hour ago   Exited (0) 53 minutes ago             condescending_gagarin
-6ebc7f23386b   nginx          "/docker-entrypoint.…"   2 hours ago         Exited (0) 53 minutes ago             admiring_blackburn
+bradsimpson@Brads-MacBook-Air app % docker container prune 
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+41298975e431c2a0eac5ef9e1bbb92b0bba21914c0cd25077ba1bcda359f0460
+5f9b52626ce5dd8d21051928824538ff7428eb2116e7f6080b1af6f6ec40c86e
+d6be95d64a365742de6830f8d09381e33c9153dfbfb20c859aa85db3fe11b461
+0f19558e8f44d43ca91c8c1476434f0ed12df39532148625e1f90d7f4c7bc74b
+e5f729d879efeee148f2d127bd03516ed19fa9a360546c82e79d0a7b81749449
+69c19dfd0c9cfabe47ed5c87698af1bf5c20123161061ac46d323636ff641307
+36eb27ccf7be2ce08fe2cee788cb4deb42c020aae478b24d8d39e07be6243aa1
+
+Total reclaimed space: 3.075MB
 bradsimpson@Brads-MacBook-Air app % \clear
 
-bradsimpson@Brads-MacBook-Air app % docker container run --name postgres2 -d --mount type=volume,source=taco_tues,target=/var/lib/postgresql/data -e POSTGRES_PASSWORD=password postgres
-5a34dd6b17070964ec561967ecc6886de462746c5e4e01e125a7d2a1cc24ecb8
-bradsimpson@Brads-MacBook-Air app % docker container ls
-CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS      NAMES
-5a34dd6b1707   postgres   "docker-entrypoint.s…"   4 seconds ago   Up 4 seconds   5432/tcp   postgres2
-bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres2 sh
+bradsimpson@Brads-MacBook-Air app % docker container run -e POSTGRES_PASSWORD=password --name postgres2 --mount type=volume,source=my_volume,target=/var/lib/postgresql/data -d postgres 
+27a1537c2e1beff7355ca27c3731329910a5de3c2b17a3903e0f70f4d3cb42f9
+bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres2 sh 
+# psql -p 5431 -h localhost -U postgres
+psql: error: connection to server at "localhost" (127.0.0.1), port 5431 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5431 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
 # psql -p 5432 -h localhost -U postgres
 psql (15.4 (Debian 15.4-1.pgdg120+1))
 Type "help" for help.
 
 postgres=# \l
-                                                  List of databases
-     Name     |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider |   Acces
-s privileges   
---------------+----------+----------+------------+------------+------------+-----------------+--------
----------------
- postgres     | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- taco_tuesday | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- template0    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/post
-gres          +
-              |          |          |            |            |            |                 | postgre
-s=CTc/postgres
- template1    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/post
-gres          +
-              |          |          |            |            |            |                 | postgre
-s=CTc/postgres
+                                                List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider | 
+  Access privileges   
+-----------+----------+----------+------------+------------+------------+-----------------+-
+----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+ taco_tues | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+=c/postgres          +
+           |          |          |            |            |            |                 | 
+postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+=c/postgres          +
+           |          |          |            |            |            |                 | 
+postgres=CTc/postgres
 (4 rows)
-
-
-
-
-
-
-
-
 
 
 
@@ -2200,4 +2066,18 @@ s=CTc/postgres
 
 postgres=# exit
 # exit
+bradsimpson@Brads-MacBook-Air app % docker container ls 
+CONTAINER ID   IMAGE      COMMAND                  CREATED              STATUS              PORTS      NAMES
+27a1537c2e1b   postgres   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp   postgres2
+bradsimpson@Brads-MacBook-Air app % docker container stop postgres2
+postgres2
 bradsimpson@Brads-MacBook-Air app % 
+
+
+
+
+
+
+
+bradsimpson@Brads-MacBook-Air ~ % 
+
