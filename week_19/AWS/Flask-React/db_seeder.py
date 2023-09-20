@@ -2,49 +2,49 @@ from app.models import db, User, Post
 from app import app
 from random import choice
 from faker import Faker
+
 fake = Faker()
 
 
 with app.app_context():
-    # db.drop_all()
-    # print("All tables tables")
-    # db.create_all()
-    # print("Created all tables")
+
+    db.drop_all()
+    print("all tables dropped")
+    db.create_all()
+    print("all tables created")
 
 
     user1 = User(
-        username="Patchenator",
+        username='Patchenator',
         email="patch_the_cat@gmail.com",
-        password="i_luv_fud",
         profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
-        bio="I love food and naps"
+        bio="I love naps and food"
     )
 
     user2 = User(
-        username="Blueberry44",
-        email="blue@aol.com",
-        password="catNinja",
-        profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912128/Patchstagram/66346842095__0566A55A-DF10-4E86-A59A-F5694436FA4E_wmoi1w.jpg",
-        bio="I am a ninja! 🥷🏻",
+            username="Blueberry44",
+            email="blue@aol.com",
+            profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912128/Patchstagram/66346842095__0566A55A-DF10-4E86-A59A-F5694436FA4E_wmoi1w.jpg",
+            bio="I am a ninja! 🥷🏻",
     )
 
     user3 = User(
-        username="brads213",
-        email="brad@gmail.com",
-        password=("crazycats2"),
-        profile_pic="https://ca.slack-edge.com/T03GU501J-USQFVK3GT-941e867a316f-512",
-        bio="I am the father of 2 crazy cats",
+            username="brads213",
+            email="brad@gmail.com",
+            profile_pic="https://ca.slack-edge.com/T03GU501J-USQFVK3GT-941e867a316f-512",
+            bio="I am the father of 2 crazy cats",
     )
 
     all_users = [user1, user2, user3]
-    add_users = [db.session.add(user) for user in all_users]
+    _ = [db.session.add(user) for user in all_users]
     db.session.commit()
-    print("Users created!")
+    print("users seeded!")  
+
 
     post1 = Post(
-        caption="Napping outside is always fun...",
+        caption="Napping Outside is always fun...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
-        post_date=fake.date_between(start_date="-1y", end_date="today"),
+        post_date=fake.date_between(start_date="-1yr", end_date="today"),
         user=choice(all_users),
         post_likes=[user2, user3]
     )
@@ -81,6 +81,6 @@ with app.app_context():
     )
 
     all_posts = [post1, post2, post3, post4, post5]
-    add_posts = [db.session.add(post) for post in all_posts]
+    _ = [db.session.add(post) for post in all_posts]
     db.session.commit()
-    print("Posts created!")
+    print("all posts & likes seeded")

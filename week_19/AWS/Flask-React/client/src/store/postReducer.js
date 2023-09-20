@@ -34,10 +34,6 @@ export const getAllPosts = (currentUser) => async (dispatch) => {
 export const createPost = (post) => async (dispatch) => {
     const response = await fetch(`/posts/new`, {
       method: "POST",
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     "Content-Type": "application/json",
-    //   },
       body: post
     });
     console.log("RESPONSE FROM SERVER", response)

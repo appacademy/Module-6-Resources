@@ -24,12 +24,12 @@ const PostForm = () => {
         if (validationErrors.length) return alert("Your Post has errors, cannot submit!");
         
 
-        const formData = new FormData()
 
+        const formData = new FormData()
         formData.append("caption", caption)
-        formData.append("author", currentUser.id)
         formData.append("image", image)
-        console.log(formData)
+        formData.append("author", currentUser.id)
+
         // const newPost = {
         //     caption,
         //     author: currentUser.id,
@@ -67,8 +67,8 @@ const PostForm = () => {
                     </div>
                 )}
                 <form 
+                    encType="multipart/form-data"
                     onSubmit={(e) => submitForm(e)}
-                    encType='multipart/form-data'
                 >
                     <h3 className="form-label">User: { currentUser.username }</h3>
                     <div className='form-input-box'>
@@ -98,7 +98,7 @@ const PostForm = () => {
                             type="file"
                             accept="image/*"
                             onChange={(e) => setImage(e.target.files[0])}
-                            >
+                        >
                         </input>
                     </div>
                     <button className="button">Submit</button>
