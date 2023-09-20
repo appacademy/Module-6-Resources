@@ -101,6 +101,7 @@ def delete_post(id):
     post_to_delete = Post.query.get(id)
 
     file_delete = remove_file_from_s3(post_to_delete.image)
+    # We should print this too but UPLOAD above is more important
     print(file_delete)
 
     if file_delete is True:
