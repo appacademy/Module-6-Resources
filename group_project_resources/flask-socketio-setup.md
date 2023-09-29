@@ -1,4 +1,5 @@
 # Simple websocket set up (React frontend, Flask backend)
+
 Websockets are a protocol for creating a persistant connection between a client and a server, allowing data to be sent in either direction outside of the typical request/response cycle. This makes them very useful for features that rely on live updates, like chatting, gameplay, and notifications.
 
 The goal of this guide is the successful implementation of websockets in a React app with a Flask backend, including deployment on Heroku. For the purposes of this demo, we will be creating a very simple application, that allows live chatting with all active users. This guide is not intended to cover all of the functionality that websockets can provide—it's just a starting point.
@@ -340,3 +341,38 @@ export default Chat;
 On our Flask back-end, we create a `SocketIO` instance from the `flask-socketio` package, and used a custom event handler to broadcast all chat messages that are recieved to all connected users. 
 
 In our React front-end, we used `socket.io-client` to create a websocket instance. We added a listener to our socket to handle events where we recieve new chats. We displayed all the chats we recieved, and used a form to submit new chats.
+
+
+# Websockets & AWS
+
+If you are implementing BOTH websockets and AWS, you will want to do things slightly differently.  AWS will try to use the same worker you have assigned to handle your sockets, so we need to do a few things differently, as listed below...
+
+First:
+```
+pipenv install gevent
+```
+
+Next, 
+```
+pipenv requirements > requirements.txt
+```
+
+In your init.py for app, add the following code before all imports
+
+```python
+from gevent import monkey
+
+monkey.patch_all()
+```
+
+Replace socketio.init_app(app) with
+
+```python
+socketio.init_app(app, async_mode='gevent') 
+```
+
+Replace start command on render or in your Dockerfile with
+
+```
+gunicorn -k gevent -w 1 app:app
+```
