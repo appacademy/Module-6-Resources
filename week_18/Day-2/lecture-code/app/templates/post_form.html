@@ -1,19 +1,9 @@
 {% extends "nav.html" %}
 
-{% block second %}
-<div class="feed-container">
-    <h2>Create a New Post</h2>
-    {% if errors != None %}
-        {% for error in errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
-    {% endif %}
-    <form action="/posts/new" method="POST">
-      
-        <p>{{ form.caption.label }}: {{ form.caption }}</p>
-        <p>{{ form.image_url.label }}: {{ form.image_url }}</p>
-        <p>{{ form.author.label }}: {{ form.author }}</p>
-        <p>{{ form.submit }}</p>
-    </form>
-</div>
+
+{% block content %}
+
+    <h2>New Post Form</h2>
+
+
 {% endblock %}
