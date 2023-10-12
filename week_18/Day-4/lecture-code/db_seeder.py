@@ -2,23 +2,21 @@ from app.models import db, User, Post
 from app import app
 from random import choice
 from faker import Faker
-
 fake = Faker()
 
 
 with app.app_context():
 
-    db.drop_all()
-    print("all tables dropped")
-    db.create_all()
-    print("all tables created")
-
+    # db.drop_all()
+    # print("all tabels dropped, all data destroyed")
+    # db.create_all()
+    # print("Created all tables!")
 
     user1 = User(
-        username='Patchenator',
-        email="patch_the_cat@gmail.com",
+        username="Patch",
+        email="path_the_cat@gmail.com",
         profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
-        bio="I love naps and food"
+        bio="I love naps and food" 
     )
 
     user2 = User(
@@ -38,15 +36,14 @@ with app.app_context():
     all_users = [user1, user2, user3]
     _ = [db.session.add(user) for user in all_users]
     db.session.commit()
-    print("users seeded!")  
-
+    print("Users created!")
 
     post1 = Post(
-        caption="Napping Outside is always fun...",
+        caption="Napping outside is always fun...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
-        post_date=fake.date_between(start_date="-1yr", end_date="today"),
+        post_date=fake.date_between(start_date="-1y", end_date="today"),
         user=choice(all_users),
-        post_likes=[user2, user3]
+        post_likes=[user2, user3] 
     )
 
     post2 = Post(
@@ -83,4 +80,4 @@ with app.app_context():
     all_posts = [post1, post2, post3, post4, post5]
     _ = [db.session.add(post) for post in all_posts]
     db.session.commit()
-    print("all posts & likes seeded")
+    print('POSTS SEEDED TO DB')
