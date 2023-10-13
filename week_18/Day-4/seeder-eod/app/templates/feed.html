@@ -1,0 +1,34 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+    <div class="feed-container">
+
+        {% for post in posts %}
+            <div class="post-container">
+                <div class="post-box">
+                    <div class="post-author">
+                        <img src="{{ post.user.profile_pic }}" class="profile-pic"/>
+                        {% if post.user.username == "Patch" %}
+                            <h2 style="color: red;">{{ post.user.username }}</h2>
+                        {% elif post.user.username == "Blueberry44" %}
+                            <h2 style="color: blue;">{{ post.user.username }}</h2>
+                        {% else %}
+                            <h2 style="color: green;">{{ post.user.username }}</h2>
+                        {% endif %}
+                    </div>
+                    <h3>{{ post.post_date }}</h3>
+                </div>
+                <div>
+                    <img class="post-image" src="{{ post.image }}" />
+                    <p class="post-text">{{ post.caption }}</p>
+                    <p class="post-text">{{ post.post_likes | length }} Likes</p>
+                </div>
+                <a href="/posts/update/{{ post.id }}">Update</a>
+                <a href="/posts/delete/{{ post.id }}">Delete</a>
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
