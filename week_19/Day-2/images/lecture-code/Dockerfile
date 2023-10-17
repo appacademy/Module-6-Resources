@@ -1,18 +1,20 @@
-FROM node:18-alpine3.18
-
-EXPOSE 3000
+FROM node:18-alpine3.17
 
 ENV FLASK_APP=app
-ENV FLASK_DEBUG=True
-ENV REACT_BACKEND_URL="https://app_name.onrender.com"
+ENV FLASK_DEBUG=False
+ENV REACT_BACKEND_URL="https://my_app.onrender.com"
 
 WORKDIR /app
 
-COPY package.json . 
+COPY package.json .
 RUN npm install
 
-COPY . .
+EXPOSE 3000 
+
+COPY . . 
+
+RUN pip install 
 
 CMD ["npm", "start"]
-# CMD ["arg1", "arg2"]
-# CMD npm start 
+# CMD ["param1", "param2"]
+# CMD npm start

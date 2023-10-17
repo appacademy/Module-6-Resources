@@ -1,8 +1,8 @@
-FROM node:18-alpine3.18
+FROM node:18-alpine3.17
 
 EXPOSE 3000
 
-WORKDIR /my_app
+WORKDIR /app
 
 COPY package.json ./
 
