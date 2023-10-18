@@ -247,9 +247,7 @@ bradsimpson@Brads-MacBook-Air ~ %
 
 ## NETWORKING
 
-        }
-    }
-]
+
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS              PORTS     NAMES
 c3b2c14eabed   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c4
@@ -297,6 +295,8 @@ bradsimpson@Brads-MacBook-Air ~ %
 
 
 ## VOLUMES & BIND MOUNTS
+
+
 
    Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider |   Access privileges   
 -----------+----------+----------+------------+------------+------------+-----------------+-----------------------
