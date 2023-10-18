@@ -8,9 +8,10 @@ likes = db.Table(
     db.Column("post_id", db.Integer, db.ForeignKey("posts.id"), primary_key=True),
 )
 
+# "id"  "user_id"  "post_id"
+#  1        1           1
+#  2        1           2
+#  3        1           1  
+#  4        2           1 
 
-# example of input into likes and how composite primary key will prevent duplicatre combos
-# like_1 = (1, 1)
-# like_2 = (1, 2)
-# like_3 = (2, 1)
-# like_4 = (1, 1)
+
