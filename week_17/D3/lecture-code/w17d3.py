@@ -12,7 +12,7 @@
 # tup2 = ()
 # tup3 = tuple()
 
-# # SINGLE VALUE SINGLETON 
+# # SINGLE VALUE SINGLETON
 # tup4 = 1,
 # tup5 = (2,)
 
@@ -99,7 +99,6 @@
 #     return list1_min > list2_min and list1_max < list2_max
 
 
-
 # print(can_nest([1, 2, 3, 4], [0, 6]))  #> True
 # print(can_nest([3, 1], [4, 0]))        #> True
 # print(can_nest([9, 9, 8], [8, 9]))     #> False
@@ -154,7 +153,7 @@
 #     for arg in args:
 #         total += arg
 
-#     print(kwargs)    
+#     print(kwargs)
 #     for val in kwargs.values():
 #         total += val
 
@@ -199,12 +198,12 @@
 
 #     # print(merged_list)
 #     # return dict(merged_list)
-  
+
 
 # lst1 = ('a', 'b', 'c')
 # lst2 = (1, 2, 3)
 # merged_dict = merge_lists2(lst1, lst2)
-# print(merged_dict)    
+# print(merged_dict)
 
 
 # SETS
@@ -250,3 +249,134 @@
 # # SYMMETTRIC DIFFERENCE
 # print(a ^ b)
 # print(a.symmetric_difference(b))
+
+
+def check_binary(num):
+    return set(num).issubset({1, 0})
+
+
+# BUILT-IN FUNCTIONS
+
+teachers = "brad", "David", "Andrew"
+
+nums = 1, 6, 4, 9, 210
+
+# print(sorted(teachers, key=str.lower, reverse=True))
+# print(sorted(nums, key=lambda x: -x))
+
+
+word = "hello"
+
+ls = [0, 5, 6]
+empty_ls = []
+
+# print(all(ls))
+# print(any(ls))
+# print(all(empty_ls))
+# print(any(empty_ls))
+
+
+def is_a(num):
+    return num >= 90
+
+
+scores = 89, 67, 100, 99, 84, 93, 70, 99
+just_as = filter(is_a, scores)
+# jst_as = filter(lambda x: X >= 90, scores)
+# print(just_as)
+# print(list(just_as))
+
+
+def get_grade(num):
+    if num >= 90:
+        return "A"
+    elif num < 90 and num >= 80:
+        return "B"
+    elif num < 80 and num >= 70:
+        return "C"
+    elif num < 70 and num >= 60:
+        return "D"
+    else:
+        return "F"
+
+
+# grades = map(get_grade, scores)
+grades = "B", "D", "A", "A"
+
+# print(grades)
+# for el in grades:
+#     print(el)
+#     if el == "A":
+#         break
+
+# print(list(grades))
+# print(scores)
+
+# zipped_grades = zip(scores, grades)
+# print(zipped_grades)
+# print(dict(zipped_grades))
+# print(list(zipped_grades))
+
+# for idx, score in enumerate(scores):
+#     print(f"index is {idx}")
+#     print(f"score is {score}")
+
+phones = [
+    {"brand": "Apple", "model": "iPhone 13 Pro", "cost": 929, "color": "alpine green"},
+    {"brand": "Samsung", "model": "Galaxy S22+", "cost": 999, "color": "black"},
+    {"brand": "Google", "model": "Pixel 6", "cost": 599, "color": "kinda coral"},
+    {"brand": "Apple", "model": "iPhone 13 Pro", "cost": 929, "color": "gold"},
+    {"brand": "Google", "model": "Pixel 6", "cost": 599, "color": "stormy black"},
+]
+
+
+def get_unique_models(phones):
+    previous_models = []
+    unique_models = []
+    for phone in phones:
+        if phone["model"] in previous_models:
+            continue
+        else:
+            previous_models.append(phone["model"])
+            unique_models.append(phone)
+    return unique_models
+
+
+# print(get_unique_models(phones))
+unique_phones = get_unique_models(phones)
+
+
+def map_to_names(phones):
+    return list(map(lambda phone: phone["model"], phones))
+
+
+# print(map_to_names(unique_phones))
+
+# COMPREHENSIONS
+
+ls = [1, 2, 3, 4, 5]
+
+my_first_comp = [el * 2 for el in ls]
+
+boring_old_map = map(lambda x: x * 2, ls)
+
+# print(list(boring_old_map))
+
+filtered_and_mapped = [el**2 for el in ls if el % 2 != 0]
+
+# print(filtered_and_mapped)
+
+# print(my_first_comp)
+
+# print([1 for el in ls if el % 2 == 0])
+
+not_comp = []
+for member in ls:
+    not_comp.append(member)
+
+
+mapped_ls = [num * 2 + 1 for num in ls]
+
+# print(mapped_ls)
+
+print({num + 1: num**2 for num in ls})
