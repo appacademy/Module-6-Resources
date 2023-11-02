@@ -6,6 +6,8 @@ from home.leisure import playGames, petDog, readBook, takeNap
 # from office.idle import chat, getWater, useSocialMedia
 from office import code, attendMeeting, updateSchedule, chat, getWater, useSocialMedia
 
+
+
 def morningMenu():
   print("Starting the day off...")
   while True:
