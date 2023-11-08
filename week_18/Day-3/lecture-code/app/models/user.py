@@ -7,17 +7,18 @@ class User(db.Model):
     username = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     profile_pic = db.Column(db.String(250))
-    bio = db.Column(db.String(500))
+    bio = db.Column(db.String(2000))
 
-    # relationship attributes
+    # relationship attributes 
     posts = db.relationship(
         "Post", 
-        back_populates="user", 
+        back_populates="user",
+        uselist=False,
     )
     user_likes = db.relationship(
         "Post",
         secondary=likes,
-        back_populates="post_likes",
+        back_populates="post_likes"
     )
 
 
@@ -25,15 +26,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "username": self.username,
-            "email": self.email,
             "profilePic": self.profile_pic,
             "bio": self.bio,
-    }
-
-
-
-
-
-    # post = Post.query.get(1)
-    # post.image = "http:///urlstuff"
-    # post.user.username
+            # "posts": self.posts
+        }
