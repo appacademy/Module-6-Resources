@@ -2,21 +2,23 @@ from app.models import db, User, Post
 from app import app
 from random import choice
 from faker import Faker
+
 fake = Faker()
 
 
 with app.app_context():
-
+    
     # db.drop_all()
-    # print("all tabels dropped, all data destroyed")
+    # print("All tables have been dropped")
     # db.create_all()
-    # print("Created all tables!")
+    # print("All tables habe been created!")
+
 
     user1 = User(
-        username="Patch",
-        email="path_the_cat@gmail.com",
+        username="Patchenator",
+        email="patch_the_cat@hotmail.com",
         profile_pic="https://res.cloudinary.com/app-academy4/image/upload/v1647912257/Patchstagram/IMG_3074_ubqe1e.jpg",
-        bio="I love naps and food" 
+        bio="I love food and naps"
     )
 
     user2 = User(
@@ -33,17 +35,21 @@ with app.app_context():
             bio="I am the father of 2 crazy cats",
     )
 
+    # db.session.add(user1)
+    # db.session.add(user2)
+    # db.session.add(user3)
     all_users = [user1, user2, user3]
     _ = [db.session.add(user) for user in all_users]
     db.session.commit()
-    print("Users created!")
+    print("All users seeded")
 
-    post1 = Post(
+
+    post1 =  Post(
         caption="Napping outside is always fun...",
         image="https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
-        post_date=fake.date_between(start_date="-1y", end_date="today"),
+        post_date=fake.date_between(start_date='-1y', end_date='today'),
         user=choice(all_users),
-        post_likes=[user2, user3] 
+        post_likes=[user2, user3]
     )
 
     post2 = Post(

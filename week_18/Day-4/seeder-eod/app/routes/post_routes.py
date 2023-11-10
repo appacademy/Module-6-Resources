@@ -1,53 +1,57 @@
 from flask import Blueprint, render_template, redirect
 from ..posts import posts as seed_posts
-from ..forms.post import PostForm
+from ..forms.post_form import PostForm
 from datetime import date
 from random import randint
-from ..models import db, Post, User
+from ..models import db, Post, User 
 
 
 posts = Blueprint("posts", __name__)
-# print("in posts bp", __name__)
+# print("in the posts bp", __name__)
 
 
 @posts.route("/all")
 def get_all_posts():
-    """get all the posts and return them """
-    all_posts = Post.query.order_by(Post.post_date.desc()).all()
-    see_posts = [post.to_dict() for post in all_posts]
-    print(see_posts)
-    print(all_posts)
+    """get all posts and return a feed of those posts"""
+    posts = Post.query.order_by(Post.post_date.desc()).all()
+    print(posts)
+    list_dict_posts = [post.to_dict() for post in posts]
+    print(list_dict_posts)
     # sorted_posts = sorted(seed_posts, key=lambda post: post["date"], reverse=True)
-    # return render_template("feed.html", posts=all_posts)
-    return see_posts
+    return render_template("feed.html", posts=posts)
+    # return "<div><p>This is text</p></div>"
+    # return list_dict_posts
+
 
 
 @posts.route("/<int:id>")
 def get_post_by_id(id):
-    """return a single post by the id passed to the route"""
-    one_post = Post.query.get(id)
-    # one_post = [post for post in seed_posts if post["id"] == id ]
-    print(one_post)
-    return render_template("feed.html", posts=[one_post] )
+    """get a post by its id"""
+    post = Post.query.get(id)
+    # one_post = [post for post in seed_posts if post['id'] == id]
+    print(post.to_dict())
+    return render_template("feed.html", posts=[post])
+
 
 
 @posts.route("/new", methods=["GET", "POST"])
-def create_new_user():
-    """ route that handles displaying a form on get requets and 
-    handles post submission on post requests"""
+def create_new_post():
+    """handles displaying an empty form on get requests and 
+    the submission of that form on post requests"""
+
     form = PostForm()
     form.author.choices = [(user.id, user.username) for user in User.query.all()]
-    print(form.author.choices)
+
+
 
     if form.validate_on_submit():
         selected_user = User.query.get(form.data["author"])
-        print(selected_user)
-        
+        # print(selected_user.to_dict())
         new_post = Post(
             caption=form.data["caption"],
             image=form.data["image"],
-            user=selected_user,
-            post_date=date.today(),    
+            post_date=date.today(),
+            user=selected_user
         )
         print(new_post)
         db.session.add(new_post)
@@ -58,20 +62,19 @@ def create_new_user():
         print(form.errors)
         return render_template("post_form.html", form=form, errors=form.errors)
 
+
     return render_template("post_form.html", form=form, errors=None)
 
 
 
-@posts.route("/update/<int:id>", methods=['GET', 'POST'])
+@posts.route("/update/<int:id>", methods=["GET", "POST"])
 def update_post(id):
     form = PostForm()
-
     form.author.choices = [(user.id, user.username) for user in User.query.all()]
 
     if form.validate_on_submit():
-        # gets a ref to the resouce we want to update
         post_to_update = Post.query.get(id)
-        # get e ref to the new user, if there is one
+
         selected_user = User.query.get(form.data["author"])
         post_to_update.user = selected_user
         post_to_update.caption = form.data["caption"]
@@ -81,13 +84,13 @@ def update_post(id):
 
 
     elif form.errors:
-        print(form.errors)
-        return render_template("post_form.html", form=form, type="update", id=id, errors=form.errors)
+        return render_template("post_form.html", form=form,type="update", id=id, errors=form.errors)
+
 
     else:
         current_data = Post.query.get(id)
         form.process(obj=current_data)
-        return render_template("post_form.html", form=form, type="update", id=id,  errors=None)
+        return render_template("post_form.html", form=form, type="update", id=id, errors=None)
 
 
 

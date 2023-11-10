@@ -9,13 +9,11 @@ seed_commands = AppGroup("seed")
 def seed():
     users = seed_users()
     seed_posts(users)
-    print("WE WOULD WE WOULD SEED YOU SEED YOU")
-
+    print("IF WE SEE THIS WE WOULD BE SEEDING")
 
 
 @seed_commands.command("undo")
-def undo_seeds():
+def undo():
     undo_posts()
     undo_users()
-    print("WE WOULD WE WOULD UNSEED YOU UNSEED YOU")
-
+    print("WE WOULD BE VICIOUSLY DESTROYING ALL OUR DATA NOW...")
