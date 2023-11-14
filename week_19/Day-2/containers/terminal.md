@@ -1,39 +1,144 @@
-# CONTAINER COMMANDS
+#  CONTAINER CLI
+
+  Exited (0) 17 minutes ago                             priceless_murdock
+cb672c4a8ef6   alpine                           "ash"                    17 minutes ago   Exited (0) 17 minutes ago                             cranky_archimedes
+fe14c9c7ae9c   alpine                           "/bin/sh"                18 minutes ago   Exited (0) 18 minutes ago                             condescending_ride
+1e347115139d   nginx                            "/docker-entrypoint.…"   21 minutes ago   Exited (0) 4 minutes ago                              mystifying_ride
+ab4a4b0f863b   nginx                            "/docker-entrypoint.…"   26 minutes ago   Exited (0) 2 minutes ago                              my_container
+31ff746e6b70   hello-world                      "/hello"                 38 minutes ago   Exited (0) 38 minutes ago                             serene_satoshi
+a0cc5dc8296d   hello-world                      "/hello"                 20 hours ago     Exited (0) 20 hours ago                               sleepy_einstein
+af98054f7cb5   alpine                           "echo hello world"       3 weeks ago      Exited (0) 3 weeks ago                                elegant_davinci
+b16dae3fda47   alpine                           "echo 'hello world'"     3 weeks ago      Exited (0) 3 weeks ago                                quirky_villani
+12a3975c1596   bradsimpson213/taco_tues-react   "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago     0.0.0.0:3000->3000/tcp   ecstatic_jones
+913e467eb882   postgres                         "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago     5432/tcp                 postgres2
+8076f58c26ff   nginx:alpine                     "/docker-entrypoint.…"   3 weeks ago      Exited (0) 3 weeks ago                                romantic_curie
+c3b2c14eabed   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago     80/tcp                   c4
+9c3aec309568   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago     80/tcp                   c3
+76cdc8329e64   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago     80/tcp                   c2
+a3c1d1e23c83   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago     80/tcp                   c1
+c9fd81f2a59e   nginx                            "/docker-entrypoint.…"   4 weeks ago      Exited (0) 4 weeks ago                                silly_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker container start boring_ptolemy
+boring_ptolemy
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
+d01c4905d4bc   nginx     "/docker-entrypoint.…"   11 minutes ago   Up 5 seconds   0.0.0.0:8080->80/tcp   boring_ptolemy
+bradsimpson@Brads-MacBook-Air ~ % \clear
+
+bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
+CONTAINER ID   IMAGE                            COMMAND                  CREATED          STATUS                        PORTS                    NAMES
+4f01751fdb42   alpine                           "sh"                     10 minutes ago   Exited (130) 10 minutes ago                            test
+d01c4905d4bc   nginx                            "/docker-entrypoint.…"   12 minutes ago   Up 37 seconds                 0.0.0.0:8080->80/tcp     boring_ptolemy
+704ba2e58250   alpine                           "sh"                     16 minutes ago   Exited (0) 15 minutes ago                              kind_edison
+530da23563f9   alpine                           "sh"                     18 minutes ago   Exited (0) 18 minutes ago                              priceless_murdock
+cb672c4a8ef6   alpine                           "ash"                    18 minutes ago   Exited (0) 18 minutes ago                              cranky_archimedes
+fe14c9c7ae9c   alpine                           "/bin/sh"                19 minutes ago   Exited (0) 19 minutes ago                              condescending_ride
+1e347115139d   nginx                            "/docker-entrypoint.…"   22 minutes ago   Exited (0) 5 minutes ago                               mystifying_ride
+ab4a4b0f863b   nginx                            "/docker-entrypoint.…"   27 minutes ago   Exited (0) 3 minutes ago                               my_container
+31ff746e6b70   hello-world                      "/hello"                 40 minutes ago   Exited (0) 40 minutes ago                              serene_satoshi
+a0cc5dc8296d   hello-world                      "/hello"                 20 hours ago     Exited (0) 20 hours ago                                sleepy_einstein
+af98054f7cb5   alpine                           "echo hello world"       3 weeks ago      Exited (0) 3 weeks ago                                 elegant_davinci
+b16dae3fda47   alpine                           "echo 'hello world'"     3 weeks ago      Exited (0) 3 weeks ago                                 quirky_villani
+12a3975c1596   bradsimpson213/taco_tues-react   "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago      0.0.0.0:3000->3000/tcp   ecstatic_jones
+913e467eb882   postgres                         "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago      5432/tcp                 postgres2
+8076f58c26ff   nginx:alpine                     "/docker-entrypoint.…"   3 weeks ago      Exited (0) 3 weeks ago                                 romantic_curie
+c3b2c14eabed   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago      80/tcp                   c4
+9c3aec309568   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago      80/tcp                   c3
+76cdc8329e64   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago      80/tcp                   c2
+a3c1d1e23c83   nginx:alpine                     "/docker-entrypoint.…"   4 weeks ago      Exited (255) 4 weeks ago      80/tcp                   c1
+c9fd81f2a59e   nginx                            "/docker-entrypoint.…"   4 weeks ago      Exited (0) 4 weeks ago                                 silly_dhawan
+bradsimpson@Brads-MacBook-Air ~ % docker container rm 8076f58c26ff romantic_curie
+romantic_curie
+Error response from daemon: removal of container 8076f58c26ff is already in progress
+bradsimpson@Brads-MacBook-Air ~ % docker container rm a3c1d1e23c83  sleepy_einstein
+a3c1d1e23c83
+sleepy_einstein
+bradsimpson@Brads-MacBook-Air ~ % docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+4f01751fdb422b483e126c9f8fbf0e27af91d65daed9ac06267d7fb4a3c1cdc5
+704ba2e58250baa939a9ed08c04830ca575803f459b0798ba21649c885f619ed
+530da23563f9c79cf8c82807aeca4a0a0734065b31fb9fa758536cfab86e6c23
+cb672c4a8ef6b23332909cbb50f3cdbe4d7776a1647f404370384b2363657325
+fe14c9c7ae9caec8bf4121e7d812241553f583e68f200ed793ff733795fc5ab5
+1e347115139d5dc9b4bb5044b446719e4c6390fa5d8e1e45a6df8cdaa93b82e4
+ab4a4b0f863b56f62dedeeac5f67d2c941e53dad4c49017ed20b31f15d8b0371
+31ff746e6b708ad1449b927e19d6a662d8c04b146a0e3ed2864a0f4c2f30b3cd
+af98054f7cb5c8e4ecdd770fa4d7788d3bb26696060cb8416d5b279e763848b7
+b16dae3fda4780620307738121657d00e9e5e1c8b84f612e19621e78896b6292
+12a3975c159606539be7e2857724f29045b22b4c66f2b23d3836701d66c5f541
+913e467eb88288832b705efdf5cded8b150875d2a7c6faefc81fcbdeeed70038
+c3b2c14eabed9b6e4ef8586f413001cc301790c59bb28b05b1e90aa8a12e0563
+9c3aec309568058a45fef83bf29f03ccf4470702def4e62a4ce93a58f83c1352
+76cdc8329e6439e780aecbd9d41ad7c91eaeb519997b6c6b7aa510bc9983edfb
+c9fd81f2a59e70f7c5ce832e458b783da4c92e557366b8a066d0a3f3956f7ef0
+
+Total reclaimed space: 48.53MB
+bradsimpson@Brads-MacBook-Air ~ % docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
+d01c4905d4bc   nginx     "/docker-entrypoint.…"   15 minutes ago   Up 3 minutes   0.0.0.0:8080->80/tcp   boring_ptolemy
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it  boring_ptolemy sh
+# \ls
+bin   docker-entrypoint.d   home   mnt	 root  srv  usr
+boot  docker-entrypoint.sh  lib    opt	 run   sys  var
+dev   etc		    media  proc  sbin  tmp
+# cd usr
+# \ls
+bin  games  include  lib  libexec  local  sbin	share  src
+# cd share
+# \ls
+X11		 debconf      fonts	libgcrypt20  nginx	  tabset
+base-files	 debianutils  gcc	lintian      pam	  terminfo
+base-passwd	 dict	      gdb	locale	     pam-configs  util-linux
+bash-completion  doc	      info	man	     perl5	  xml
+bug		 doc-base     java	maven-repo   pixmaps	  zoneinfo
+ca-certificates  dpkg	      keyrings	menu	     polkit-1	  zsh
+common-licenses  fontconfig   libc-bin	misc	     readline
+# cd nginx
+# \ls
+html
+# cd html
+# \ls
+50x.html  index.html
+# ^C
+# exit
+bradsimpson@Brads-MacBook-Air ~ % 
+
+
+
+# NETWORKING
 
             "LinkLocalIPv6PrefixLen": 0,
             "Ports": {
-                "80/tcp": [
-                    {
-                        "HostIp": "0.0.0.0",
-                        "HostPort": "5000"
-                    }
-                ]
+                "80/tcp": null
             },
-            "SandboxKey": "/var/run/docker/netns/84d32fa72679",
+            "SandboxKey": "/var/run/docker/netns/d41be3c520c0",
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
-            "EndpointID": "c37179e3f7c8fe7dad3e5a9ee63edc886f73dfb536654059f8f7b678ed6e8356",
-            "Gateway": "172.17.0.1",
+            "EndpointID": "",
+            "Gateway": "",
             "GlobalIPv6Address": "",
             "GlobalIPv6PrefixLen": 0,
-            "IPAddress": "172.17.0.2",
-            "IPPrefixLen": 16,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
             "IPv6Gateway": "",
-            "MacAddress": "02:42:ac:11:00:02",
+            "MacAddress": "",
             "Networks": {
-                "bridge": {
+                "taco_today": {
                     "IPAMConfig": null,
                     "Links": null,
-                    "Aliases": null,
-                    "NetworkID": "c683084e8312230618373d57df20ce3e602a13c083563f043f7afdbc697d69d5",
-                    "EndpointID": "c37179e3f7c8fe7dad3e5a9ee63edc886f73dfb536654059f8f7b678ed6e8356",
-                    "Gateway": "172.17.0.1",
-                    "IPAddress": "172.17.0.2",
+                    "Aliases": [
+                        "4d77799a7d31"
+                    ],
+                    "NetworkID": "aab807bb7f01ad0991647cc7514c69fdf5a8057785874b03e39a98cda28151bc",
+                    "EndpointID": "31e7bdd5c80a4e2b5f4d44ae8555a2d5e3fd78f72f63b27bd2b494ddfdb123fa",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.2",
                     "IPPrefixLen": 16,
                     "IPv6Gateway": "",
                     "GlobalIPv6Address": "",
                     "GlobalIPv6PrefixLen": 0,
-                    "MacAddress": "02:42:ac:11:00:02",
+                    "MacAddress": "02:42:ac:14:00:02",
                     "DriverOpts": null
                 }
             }
@@ -42,308 +147,65 @@
 ]
 bradsimpson@Brads-MacBook-Air ~ % \clear
 
-bradsimpson@Brads-MacBook-Air ~ % 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-bradsimpson@Brads-MacBook-Air ~ % docker container run -d -p 8080:80 nginx
-daa0435d90631fe9ca13804d8f341483a77aa3f1389369957da98298de313558
-bradsimpson@Brads-MacBook-Air ~ % docker container run -it --name test alpine sh
-/ # exit
-bradsimpson@Brads-MacBook-Air ~ % docker container run --name greet_me --rm ubuntu echo hello world
-Unable to find image 'ubuntu:latest' locally
-latest: Pulling from library/ubuntu
-bfbe77e41a78: Pull complete 
-Digest: sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
-Status: Downloaded newer image for ubuntu:latest
-hello world
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-daa0435d9063   nginx     "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes    0.0.0.0:8080->80/tcp   unruffled_noether
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   20 minutes ago   Up 20 minutes   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS                      PORTS                    NAMES
-1ca69eb87eb2   alpine                        "sh"                     3 minutes ago    Exited (0) 3 minutes ago                             test
-daa0435d9063   nginx                         "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes                0.0.0.0:8080->80/tcp     unruffled_noether
-c9fd81f2a59e   nginx                         "/docker-entrypoint.…"   20 minutes ago   Up 20 minutes               0.0.0.0:5000->80/tcp     silly_dhawan
-104e5d9d8ed7   nginx                         "/docker-entrypoint.…"   25 minutes ago   Exited (0) 24 minutes ago                            my_container
-a5d5ccb8308a   hello-world                   "/hello"                 35 minutes ago   Exited (0) 35 minutes ago                            zen_cerf
-382e546ebd9b   hello-world                   "/hello"                 20 hours ago     Exited (0) 20 hours ago                              nervous_matsumoto
-d3f98edb35d6   nginx                         "/docker-entrypoint.…"   3 weeks ago      Exited (255) 20 hours ago   0.0.0.0:500->80/tcp      vigilant_gagarin
-b178af824c14   bradsimpson213/my_fancy_app   "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago    0.0.0.0:3000->3000/tcp   serene_swartz
-27a1537c2e1b   postgres                      "docker-entrypoint.s…"   3 weeks ago      Exited (0) 3 weeks ago                               postgres2
-bradsimpson@Brads-MacBook-Air ~ % docker image ls
-REPOSITORY                        TAG       IMAGE ID       CREATED        SIZE
-ubuntu                            latest    e343402cadef   12 days ago    69.2MB
-bradsimpson213/my_fancy_app       latest    2e962f4183bc   3 weeks ago    578MB
-bradsimpson213/patch              latest    85fd9d51fbc4   4 weeks ago    113MB
-<none>                            <none>    23d8681bdbcf   4 weeks ago    113MB
-<none>                            <none>    8442fa932634   4 weeks ago    113MB
-bradsimpson213/patchstagram       latest    fdb3d88cc9df   4 weeks ago    144MB
-<none>                            <none>    1be486eb8e9e   4 weeks ago    814MB
-<none>                            <none>    f6211611ef7b   4 weeks ago    814MB
-<none>                            <none>    ec44781411c1   4 weeks ago    814MB
-<none>                            <none>    e3758b5271b3   4 weeks ago    814MB
-bradsimpson213/my_flask_starter   latest    5a987801c667   5 weeks ago    1.21GB
-bradsimpson213/my_flask_starter   <none>    5106d41fd79a   5 weeks ago    1.21GB
-<none>                            <none>    3e9c435ed215   5 weeks ago    1.23GB
-bradsimpson213/my_starter         latest    982c7b107bb2   5 weeks ago    976MB
-bradsimpson213/my_starter         <none>    d67adf9f658a   5 weeks ago    976MB
-bradsimpson213/my_starter         <none>    8c2a30d1ab93   5 weeks ago    976MB
-bradsimpson213/my_starter         <none>    887a2903d7f6   5 weeks ago    976MB
-bradsimpson213/my_starter         <none>    6afd10397145   5 weeks ago    976MB
-bradsimpson213/my_starter         <none>    31b768bb850b   5 weeks ago    994MB
-bradsimpson213/aptil_react_taco   latest    08caba4d9ff4   7 weeks ago    575MB
-<none>                            <none>    6277c82a8b27   8 weeks ago    113MB
-postgres                          latest    ee56d70bcdf1   2 months ago   433MB
-bradsimpson213/my_react_app       latest    0e6d1fad2b08   2 months ago   451MB
-bradsimpson213/taco_react         latest    aea6ddf0f44b   3 months ago   569MB
-nginx                             alpine    66bf2c914bf4   4 months ago   41MB
-alpine                            latest    5053b247d78b   4 months ago   7.66MB
-nginx                             latest    2d21d843073b   4 months ago   192MB
-hello-world                       latest    b038788ddb22   5 months ago   9.14kB
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-daa0435d9063   nginx     "/docker-entrypoint.…"   9 minutes ago    Up 9 minutes    0.0.0.0:8080->80/tcp   unruffled_noether
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   23 minutes ago   Up 23 minutes   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS                      PORTS                    NAMES
-1ca69eb87eb2   alpine                        "sh"                     6 minutes ago    Exited (0) 6 minutes ago                             test
-daa0435d9063   nginx                         "/docker-entrypoint.…"   9 minutes ago    Up 9 minutes                0.0.0.0:8080->80/tcp     unruffled_noether
-c9fd81f2a59e   nginx                         "/docker-entrypoint.…"   23 minutes ago   Up 23 minutes               0.0.0.0:5000->80/tcp     silly_dhawan
-104e5d9d8ed7   nginx                         "/docker-entrypoint.…"   28 minutes ago   Exited (0) 27 minutes ago                            my_container
-a5d5ccb8308a   hello-world                   "/hello"                 38 minutes ago   Exited (0) 38 minutes ago                            zen_cerf
-382e546ebd9b   hello-world                   "/hello"                 20 hours ago     Exited (0) 20 hours ago                              nervous_matsumoto
-d3f98edb35d6   nginx                         "/docker-entrypoint.…"   3 weeks ago      Exited (255) 20 hours ago   0.0.0.0:500->80/tcp      vigilant_gagarin
-b178af824c14   bradsimpson213/my_fancy_app   "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago    0.0.0.0:3000->3000/tcp   serene_swartz
-27a1537c2e1b   postgres                      "docker-entrypoint.s…"   3 weeks ago      Exited (0) 3 weeks ago                               postgres2
-bradsimpson@Brads-MacBook-Air ~ % docker container ls   
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-daa0435d9063   nginx     "/docker-entrypoint.…"   10 minutes ago   Up 10 minutes   0.0.0.0:8080->80/tcp   unruffled_noether
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   23 minutes ago   Up 23 minutes   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container stop daa0435d9063 silly_dhawan
-daa0435d9063
-silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container ls                            
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS                      PORTS                    NAMES
-1ca69eb87eb2   alpine                        "sh"                     7 minutes ago    Exited (0) 7 minutes ago                             test
-daa0435d9063   nginx                         "/docker-entrypoint.…"   11 minutes ago   Exited (0) 14 seconds ago                            unruffled_noether
-c9fd81f2a59e   nginx                         "/docker-entrypoint.…"   24 minutes ago   Exited (0) 14 seconds ago                            silly_dhawan
-104e5d9d8ed7   nginx                         "/docker-entrypoint.…"   30 minutes ago   Exited (0) 28 minutes ago                            my_container
-a5d5ccb8308a   hello-world                   "/hello"                 39 minutes ago   Exited (0) 39 minutes ago                            zen_cerf
-382e546ebd9b   hello-world                   "/hello"                 20 hours ago     Exited (0) 20 hours ago                              nervous_matsumoto
-d3f98edb35d6   nginx                         "/docker-entrypoint.…"   3 weeks ago      Exited (255) 20 hours ago   0.0.0.0:500->80/tcp      vigilant_gagarin
-b178af824c14   bradsimpson213/my_fancy_app   "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago    0.0.0.0:3000->3000/tcp   serene_swartz
-27a1537c2e1b   postgres                      "docker-entrypoint.s…"   3 weeks ago      Exited (0) 3 weeks ago                               postgres2
-bradsimpson@Brads-MacBook-Air ~ % docker container start zen_cerf
-zen_cerf
-bradsimpson@Brads-MacBook-Air ~ % docker container start silly_dhawan
-silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   29 minutes ago   Up 7 seconds   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS                          PORTS                    NAMES
-1ca69eb87eb2   alpine                        "sh"                     12 minutes ago   Exited (0) 12 minutes ago                                test
-daa0435d9063   nginx                         "/docker-entrypoint.…"   15 minutes ago   Exited (0) 4 minutes ago                                 unruffled_noether
-c9fd81f2a59e   nginx                         "/docker-entrypoint.…"   29 minutes ago   Up 14 seconds                   0.0.0.0:5000->80/tcp     silly_dhawan
-104e5d9d8ed7   nginx                         "/docker-entrypoint.…"   34 minutes ago   Exited (0) 33 minutes ago                                my_container
-a5d5ccb8308a   hello-world                   "/hello"                 44 minutes ago   Exited (0) About a minute ago                            zen_cerf
-382e546ebd9b   hello-world                   "/hello"                 20 hours ago     Exited (0) 20 hours ago                                  nervous_matsumoto
-d3f98edb35d6   nginx                         "/docker-entrypoint.…"   3 weeks ago      Exited (255) 20 hours ago       0.0.0.0:500->80/tcp      vigilant_gagarin
-b178af824c14   bradsimpson213/my_fancy_app   "docker-entrypoint.s…"   3 weeks ago      Exited (255) 3 weeks ago        0.0.0.0:3000->3000/tcp   serene_swartz
-27a1537c2e1b   postgres                      "docker-entrypoint.s…"   3 weeks ago      Exited (0) 3 weeks ago                                   postgres2
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                  NAMES
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   29 minutes ago   Up 58 seconds   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container rm b178af824c14
-b178af824c14
-bradsimpson@Brads-MacBook-Air ~ % docker container ls             
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS              PORTS                  NAMES
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   30 minutes ago   Up About a minute   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container prune
-WARNING! This will remove all stopped containers.
-Are you sure you want to continue? [y/N] y
-Deleted Containers:
-1ca69eb87eb2dc569f611b890a15c0387da80e9c31d00ba64d6bde9209cb46da
-daa0435d90631fe9ca13804d8f341483a77aa3f1389369957da98298de313558
-104e5d9d8ed7fbd4d64c9049b2a76b1e9f913a3429192014a2d4e0eea3e2f58f
-a5d5ccb8308a20f820b8efe966cc8c053ab4c892f2b40c4b091b8fd6b34c9ca4
-382e546ebd9b6b2f25fd3f3dcb743a9c2c9e0728c9269b68c1ebe43e58dcbc71
-d3f98edb35d66ecd481ee6a852b6df3dd98cdda939cfbe392186ddcd0884c5d9
-27a1537c2e1beff7355ca27c3731329910a5de3c2b17a3903e0f70f4d3cb42f9
-
-Total reclaimed space: 3.289kB
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   31 minutes ago   Up 2 minutes   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it silly_dhawan sh
-# \ls
-bin   dev		   docker-entrypoint.sh  home  media  opt   root  sbin	sys  usr
-boot  docker-entrypoint.d  etc			 lib   mnt    proc  run   srv	tmp  var
-# cd usr
-# \ls
-bin  games  include  lib  libexec  local  sbin	share  src
-# cd share
-# \ls
-X11		 ca-certificates  doc	      gcc	libc-bin     maven-repo  pam-configs  tabset	  zsh
-base-files	 common-licenses  doc-base    gdb	libgcrypt20  menu	 perl5	      terminfo
-base-passwd	 debconf	  dpkg	      info	lintian      misc	 pixmaps      util-linux
-bash-completion  debianutils	  fontconfig  java	locale	     nginx	 polkit-1     xml
-bug		 dict		  fonts       keyrings	man	     pam	 readline     zoneinfo
-# cd nginx
-# \ls
-html
-# cd html
-# ls
-50x.html  index.html
-# exit
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS                  NAMES
-c9fd81f2a59e   nginx     "/docker-entrypoint.…"   34 minutes ago   Up 5 minutes   0.0.0.0:5000->80/tcp   silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % 
-
-
-## NETWORKING
-
-
 bradsimpson@Brads-MacBook-Air ~ % docker container ls
 CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS              PORTS     NAMES
-c3b2c14eabed   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c4
-9c3aec309568   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c3
-76cdc8329e64   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes        80/tcp    c2
-a3c1d1e23c83   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes        80/tcp    c1
+5ecf404cef04   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c4
+083b4eaf90a5   nginx:alpine   "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    c3
+adeac7a3c4cb   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes        80/tcp    c2
+4d77799a7d31   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes        80/tcp    c1
 bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c1 sh
-/ # ping -c 4 c2
-PING c2 (172.19.0.3): 56 data bytes
-64 bytes from 172.19.0.3: seq=0 ttl=64 time=0.228 ms
-64 bytes from 172.19.0.3: seq=1 ttl=64 time=0.163 ms
-64 bytes from 172.19.0.3: seq=2 ttl=64 time=0.280 ms
-64 bytes from 172.19.0.3: seq=3 ttl=64 time=0.220 ms
+/ # ping -c 4 c2 
+PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=0.120 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.192 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.226 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.114 ms
 
 --- c2 ping statistics ---
 4 packets transmitted, 4 packets received, 0% packet loss
-round-trip min/avg/max = 0.163/0.222/0.280 ms
-/ # ping -c 4 c3
+round-trip min/avg/max = 0.114/0.163/0.226 ms
+/ # ping -c 4 c3 
 ping: bad address 'c3'
-/ # ping -c 4 c4
+/ # ping -c 4 c4 
 ping: bad address 'c4'
 / # exit
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c3 sh 
+bradsimpson@Brads-MacBook-Air ~ % docker container exec -it c3 sh
 / # ping -c 4 c4
 ping: bad address 'c4'
-/ # ping -c 4 c1
-ping: bad address 'c1'
 / # ping -c 4 c2
 ping: bad address 'c2'
 / # ping -c 4 172.17.0.3
 PING 172.17.0.3 (172.17.0.3): 56 data bytes
-64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.224 ms
-64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.158 ms
-64 bytes from 172.17.0.3: seq=2 ttl=64 time=0.159 ms
-64 bytes from 172.17.0.3: seq=3 ttl=64 time=0.144 ms
+64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.140 ms
+64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.140 ms
+64 bytes from 172.17.0.3: seq=2 ttl=64 time=0.160 ms
+64 bytes from 172.17.0.3: seq=3 ttl=64 time=0.229 ms
 
 --- 172.17.0.3 ping statistics ---
 4 packets transmitted, 4 packets received, 0% packet loss
-round-trip min/avg/max = 0.144/0.171/0.224 ms
-/ # exit
-bradsimpson@Brads-MacBook-Air ~ % \clear
-
-bradsimpson@Brads-MacBook-Air ~ % 
+round-trip min/avg/max = 0.140/0.167/0.229 ms
+/ # 
 
 
 
-## VOLUMES & BIND MOUNTS
+# BIND MOUNTS & VOLUMES
 
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Create and run a new container from an image
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
 
+Run 'docker container COMMAND --help' for more information on a command.
 
-   Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider |   Access privileges   
------------+----------+----------+------------+------------+------------+-----------------+-----------------------
- postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- taco_tues | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/postgres          +
-           |          |          |            |            |            |                 | postgres=CTc/postgres
- template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/postgres          +
-           |          |          |            |            |            |                 | postgres=CTc/postgres
-(4 rows)
+bradsimpson@Brads-MacBook-Air app % docker container exec -it postgres2 sh 
 
-postgres=# exit
-# exit
-bradsimpson@Brads-MacBook-Air ~ % docker container ls
-CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS      NAMES
-6e0c86a7dabb   postgres   "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   5432/tcp   postgres1
-bradsimpson@Brads-MacBook-Air ~ % docker container stop postgres1
-postgres1
-bradsimpson@Brads-MacBook-Air ~ % docker container ls            
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a
-CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS                         PORTS     NAMES
-6e0c86a7dabb   postgres       "docker-entrypoint.s…"   2 minutes ago       Exited (0) 8 seconds ago                 postgres1
-8076f58c26ff   nginx:alpine   "/docker-entrypoint.…"   16 minutes ago      Exited (0) 12 minutes ago                romantic_curie
-c3b2c14eabed   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 21 minutes ago    80/tcp    c4
-9c3aec309568   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 21 minutes ago    80/tcp    c3
-76cdc8329e64   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 21 minutes ago    80/tcp    c2
-a3c1d1e23c83   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 21 minutes ago    80/tcp    c1
-c9fd81f2a59e   nginx          "/docker-entrypoint.…"   2 hours ago         Exited (0) About an hour ago             silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % docker container rm postgres1
-postgres1
-bradsimpson@Brads-MacBook-Air ~ % docker container ls -a       
-CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS                         PORTS     NAMES
-8076f58c26ff   nginx:alpine   "/docker-entrypoint.…"   16 minutes ago      Exited (0) 12 minutes ago                romantic_curie
-c3b2c14eabed   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 22 minutes ago    80/tcp    c4
-9c3aec309568   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 22 minutes ago    80/tcp    c3
-76cdc8329e64   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 22 minutes ago    80/tcp    c2
-a3c1d1e23c83   nginx:alpine   "/docker-entrypoint.…"   About an hour ago   Exited (255) 22 minutes ago    80/tcp    c1
-c9fd81f2a59e   nginx          "/docker-entrypoint.…"   2 hours ago         Exited (0) About an hour ago             silly_dhawan
-bradsimpson@Brads-MacBook-Air ~ % \clear
-
-bradsimpson@Brads-MacBook-Air ~ % docker container run -e POSTGRES_PASSWORD=password --name postgres2 --mount type=volume,source=my_taco_tues,target=/var/lib/postgresql/data -d postgres 
-913e467eb88288832b705efdf5cded8b150875d2a7c6faefc81fcbdeeed70038
-bradsimpson@Brads-MacBook-Air ~ % docker container ls           
-CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS      NAMES
-913e467eb882   postgres   "docker-entrypoint.s…"   8 seconds ago   Up 7 seconds   5432/tcp   postgres2
-bradsimpson@Brads-MacBook-Air ~ % docker container exec -it postgres2 sh 
 # psql -p 5432 -h localhost -U postgres
 psql (15.4 (Debian 15.4-1.pgdg120+1))
 Type "help" for help.
@@ -353,16 +215,54 @@ postgres=# \l
    Name    |  Owner   | Encoding |  Collate   |   Ctype    | ICU Locale | Locale Provider |   Access privileges   
 -----------+----------+----------+------------+------------+------------+-----------------+-----------------------
  postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
- taco_tues | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
+ taco_time | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | 
  template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/postgres          +
            |          |          |            |            |            |                 | postgres=CTc/postgres
  template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 |            | libc            | =c/postgres          +
            |          |          |            |            |            |                 | postgres=CTc/postgres
 (4 rows)
 
-postgres=# exit
+postgres=# exit 
 # exit
-bradsimpson@Brads-MacBook-Air ~ % 
+bradsimpson@Brads-MacBook-Air app % docker container ls
+CONTAINER ID   IMAGE      COMMAND                  CREATED              STATUS              PORTS      NAMES
+dbada9136a38   postgres   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp   postgres2
+bradsimpson@Brads-MacBook-Air app % docker container stop postgres2
+postgres2
+bradsimpson@Brads-MacBook-Air app % \clear
+
+bradsimpson@Brads-MacBook-Air app % 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
