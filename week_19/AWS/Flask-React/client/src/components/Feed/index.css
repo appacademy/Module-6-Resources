@@ -1,9 +1,0 @@
-.feed-container {
-    height: 95vh;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 65px;
-    margin-bottom: 55px;
-}

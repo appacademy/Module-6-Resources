@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon32.png') }}" >
+    <link rel="icon" href="{{ url_for('static', filename='favicon32.png') }}">
     <title>Patchstagram</title>
 </head>
 <body>
-    {% block first %}
+    {% block navbar %}
     {% endblock %}
 
     {% include "footer.html" %}
