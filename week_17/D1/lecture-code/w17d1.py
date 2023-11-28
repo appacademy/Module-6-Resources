@@ -1,136 +1,138 @@
+# FUNCTIONS
+
+# def get_average(num1, num2):
+#     """This function takes in 2 numbers as 
+#     arguements and returns their average"""
+#     # This is a comment
+#     average = (num1 + num2) / 2
+#     print(average)
+#     return average
 
 
-def get_average(num1, num2):
-  """This function will accept 
-  two parameters and return their average"""
-  average = (num1 + num2) / 2
-  return average
-
-
-
+# print(get_average(4, 6))
 # help(get_average)
-# result = get_average(5, 10)
-# print(result)
 
+# other_get_average = lambda num1, num2: (num1 + num2) / 2
+# print(other_get_average(2,4))
 
-
-# STRINGS
-
-# lunch = 'pizza'
+# STRINGs
+# lunch = "pizza"
+# dinner = 'hamburger'
 # print(lunch)
-# print('pizza')
+# print(len(dinner))
+
 # print("pizza")
-# print("let's")
-# print('let\'s')
-# print(''' Also another
-# multi line string
-# !
-# ''')
+# print('pizza')
+# print("let's eat pizza")
+# print('let\'s eat pizza')
+# print(''' This is a multi
+# line string that does preserver new 
+# lines and
+# spac es  !''')
 
-my_string = """This is a multi
-line string preserving spaces and new lines
-like
-this
-and
-this"""
-# print(my_string)
-# print(len(my_string))
+# # STRING FORMATTING
+# a = 1
+# b = 2
+# # print(a)
+# # a = "pizza"
+# # print(a)
 
-a = 1
-b = 2
-# print(a)
-# a = "pizza"
-# print(a)
+# LUNCH = "pizza"
+# LUNCH = "SALAD"
+# print(LUNCH)
 
-LUNCH = "pizza"
+# print(f"Let's add {a} and {b} together and get {a + b}")
+# print("Let's add {} and {} together and get {}".format(a, b, a + b))
+# print("Let's add {1} and {0} together and get {2}".format(a, b, a + b))
+# print("Let's add {thing1} and {thing3} together and get {thing2}".format(thing3=a, thing2=b, thing1=a + b))
 
-# print(f"Let's add {a} and {b} together to get {a + b}")
-# print("Let's add {1} and {0} together to get {2}".format(a, b, a+b))
-# print("Lets add {thing1} and {thing2} together to get {thing3}".format(thing3=a+b, thing2=b, thing1=a, thing4="thing"))
+# print("Pizza" + " is " + "awesome!")
+# print("Pizza " * 4)
 
-# print("Pizza" + " is " + "delicious")
-# print("Pizza " * 3)
+# INDEXING
+# sentence = "Brad is very much obsessed with pizza today!"
 
-# # STRING INDEXING
-sentence = "Brad is very much obsessed with pizza today!"
-
-# print(sentence[0])
-# print(sentence[-4])
+# print(sentence[-2])
 # # print(sentence[start:stop:step])
-# print(sentence[1::2])
+# print(sentence[5:])
+# print(sentence[1:12:2])
 # print(sentence[::-1])
-# print(sentence.split("ss"))
+# print(sentence.split("s"))
 # print(list(sentence))
 
-# names = ["Brad", "David", "Andrew"]
+# names = ["Brad", "David", "Andrew", "Dan"]
 # join_str = ", "
 # print(join_str.join(names))
 
 # BOOLEANS
-
-# a = True
-# b = False
+a = True
+b = False
 
 # && || !
 # and or not
 
-# print(True and False)
-# print(False and _)
 # print(True or False)
+# print(True and False)
+# print(False and True)
 # print(not True)
-# print(1 != 2)
 
-# print(int("3") == 3)
+# print(1 == 1)
+# print(2 != 1)
+# print("The thing JS struggles with...", 4 == "4")
+
+# print(True + 1)
+# print(False + 1)
 
 # print(True == 1)
-# print(False == 0)
-# print(True is 1)
-# print(False is 0)
+# print(1 is True)
 
 # NUMBERS
-# results = 2 * 4
-# print(results)
-# another_val = 2 * 4.0
-# print(another_val)
+# num1 = 123
+# num2 = 123.023
+# print(str(num1))
+# print(int(num2))
+# print(float(num1))
+
 # # + - * / % ** //
 
-# print(4/2)
-# print(4.0**2)
-# print(7/2)
-# print(7//2)
+# print(4**2)
 
-# def long_division(dividend, divisor):
-#     """Take in 2 values and return their quotient and remainder"""
+# print(5/2)
+# print(5//2)
+# print(4/2)
+# print(4//2)
+
+
+# def long_divison(dividend, divisor):
+#     """ function that takes in 2 numbers and returns 
+#     their quotient and remainder"""
 #     quotient = dividend // divisor
 #     remainder = dividend % divisor
 #     print(quotient, remainder)
-#     return f"{dividend} divided by {divisor} is {quotient}, remainder {remainder}"
+#     return f"{dividend} divided by {divisor} is {quotient} remainder {remainder}"
 
 
-# print(long_division(200, 23))
-
+# print(long_divison(25, 3))
 
 # VARIABLES
-# a = 40
-# count_of_snickers_bars = 40
-# count_of_snickers_bars -= 4
-# print(count_of_snickers_bars)
+# integer1 = 34
+# integer1 += 1
+# print(integer1)
 
-# a = "taco"
-# a = True
-# a = 35
+# DINNER = "grilled cheese sandwich"
 
-# bags_of_candy = boxes_of_candy = 50
-# print("bags", bags_of_candy)
-# print("boxes", boxes_of_candy)
+# bags = cases = boxes = 50
 
-# DESSERT = "ice cream"
-# DESSERT = "pie"
-# print(DESSERT)
+# print(bags, cases, boxes)
+
+# big_num = 1_000_000_000_000
+
+# other_num = 1000000000000
+# print(big_num, other_num)
 
 
 # IDENTITY vs EQUALITY
-#     is        ==
+#    is     vs    ==
 
 # my_int = 4
 # my_float = 4.0
@@ -138,26 +140,27 @@ sentence = "Brad is very much obsessed with pizza today!"
 # print(my_float == my_int)
 # print(my_float is my_int)
 
+
 # print("2" == '2')
-# print("2" is '2')
+# print('2' is "2")
 
-# print(True == 1)
-# print(True is 1)
 
-# a = None
-# print(id(a))
-# b = "pizza"
-# print(id(b))
-# c = None
-# print(id(c))
-# d = 'pizza'
-# print(id(d))
-e = True
-# print(id(e))
-f = 1
-# print(id(f))
-g= True
-# print(id(g))
-print(e is g)
-print(e == f)
-print(e is f)
+a = None
+print(id(a))
+b = "pizza"
+print(id(b))
+c = None
+print(id(c))
+print(a is c)
+d = True
+print(id(d))
+e = 1 
+print(id(e))
+f = True
+print(id(f))
+
+print(e is True)
+print(e == True)
+print(bin(True))
+
+print(None == None)
