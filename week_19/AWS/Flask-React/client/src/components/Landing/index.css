@@ -1,0 +1,79 @@
+
+.splash-container {
+    background-color: lightblue;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}
+
+.splash-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+.splash-title {
+    font-family: Billabong;
+    color: white;
+    font-size: 3.5em;
+    text-shadow: -1px -1px 0 #000, 
+    1px -1px 0 #000, 
+    -1px 1px 0 #000, 
+    1px 1px 0 #000;
+}
+  
+.splash-detail {
+    font-family: Billabong;
+    font-size: 1.5em;
+    color: black;
+}
+
+.button-link {
+    color: black;
+    font-family: Helvetica;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    height: 1.6em;
+    width: 4em;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding-top: 5px;
+    margin-bottom: 35px;
+}
+
+.user-label {
+    font-family: Billabong;
+    font-size: 1.2em;
+    color: black;
+    background-color: lightblue;
+    margin-right: 10px;
+}
+
+.user-selector {
+    font-family: Billabong;
+    font-size: 1em;
+    color: black;
+    background-color: lightblue;
+    border: 2px solid black;
+    height: 1.6em;
+    width: 4em;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: row;
+    background-color: lightblue;
+}

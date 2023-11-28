@@ -1,0 +1,51 @@
+.post-container {
+    width: 600px;
+    height: auto;
+    border: 1px solid gray;
+    box-shadow: 3px 3px 2px lightgray ;
+    margin: 15px 0 15px 0;
+    background-color: whitesmoke;
+}
+
+.profile-pic {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 45px;
+    margin-right: 8px;
+}
+
+.post-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+
+.post-box-special {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    object-fit: cover;
+}
+
+.nav-icon {
+    color: black;
+    height: 25px;
+    width: 25px;
+    margin: auto 8px auto 8px;
+}
+
+.caption-username {
+    font-weight: bold;
+    margin-right: 8px;
+}
