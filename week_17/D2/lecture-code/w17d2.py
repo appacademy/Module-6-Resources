@@ -1,36 +1,39 @@
-# XOR
+# BOOLEANS
 
-# print(True ^ False)
+# XOR
 # print(True ^ True)
+# print(True ^ False)
 # print(False ^ True)
 # print(False ^ False)
 
-def candy(piece_of_candy):
-    """take in a candy piece and then judge 
-    your candy choices"""
+# def breakfast(food):
+#     """takes in a food arguement and returns judgement on your food decsions"""
+#     if food == "waffles":
+#         print(f"{food} is an excellent choice!")
 
-    if piece_of_candy == "milky way bar":
-        print(f"{piece_of_candy} is a delicious choice!")
+#     elif food == "pancakes":
+#         print(f"{food} are my second fav breakfast, nice job!")
 
-    elif piece_of_candy == "peanut butter cup":
-        print(f"{piece_of_candy}!!! Just throw as many as you can directly into my mouth space!")
+#     elif food == "cereal":
+#         print(f"{food} eh?  We aren't even trying today?")
 
-    elif piece_of_candy == "candy corn" or piece_of_candy == "smartie":
-        print(f"{piece_of_candy}!?!?!?!  You do not know what candy is...")
-
-    else:
-        print(f"{piece_of_candy} is an okayish choice...")
+#     else:
+#         print(f'{food} is an okay choice, but not as good as waffles...') 
 
 
-# candy("milky way bar")
-# candy("mild duds")
-# candy("peanut butter cup")
-# candy('candy corn')
-# candy("smartie")
+# breakfast('waffles')
+# breakfast("pancakes")
+# breakfast("cereal")
+# breakfast("toast")
+# day = "Tuesday"
+# todays_breakfast = "waffles" if day == "Wednesday" else "cereal"
 
-#XOR
-# def xor(x, y):
-#     return x ^ y
+# print(todays_breakfast)
+
+# Problem 4 - XOR
+# Write your function, here.
+def xor(x, y):
+    return x ^ y
 
 
 # print(xor(False, False))   #>  False
@@ -41,70 +44,64 @@ def candy(piece_of_candy):
 # print(xor(2, 2))  #> 0
 # print(xor(1, 2))  #> 3
 # print(xor(4, 4))  #> 0
-# # print(bin(True))
-# # print(bin(False))
-# #  0b1
-# #  0b1
-# #  0b0
+# print(bin(True))
+# print(bin(False))
+# 0b1
+# 0b0
 # print(bin(5))
 # print(bin(3))
-# #  0b101
-# #  0b011
-# #    110
+# # 0b101
+# # 0b011
+# #   110
+# # 0b110
 # print(bin(6))
 
 # STRINGS
+lunch = "wings"
+# print(lunch)
+# print(len(lunch))
+# long_string = """
 
-# multi_string = """Happy Halloween to everyone!
-# hope you      have fun trick or treatings 
-# and 
-# don't eat yellow candy"""
-# print(multi_string)
+# 1
 
+# """
+# print(long_string)
+# print(len(long_string))
 
-# big_number = 1_000_000_000
-# big_number = 1000000000
-# print(big_number)
+# print(f"{lunch.upper()} is a great lunch!")
 
 # a = "a"
 # b = "b"
 # an = "an"
  
 # print(b + an)
-# print(b + a * 7)
-# print(b + an * 2 + a)
+# print(b + a*7)
+# print(b + an*2 + a)
 
-halloween_char = "Jack Skellington"
+other_lunch = "Chicken Parm Sandwich"
 
-def function_to_save_halloween_from_disaster():
-    return "awesomeness"
+# print(other_lunch[-2])
+# # print(other_lunch[start:stop:step])
+# print(other_lunch[::-1])
 
-# print(halloween_char[-5])
-# print(halloween_char[start:stop:step])
-# print(halloween_char[::-1])
-# copy_hc = halloween_char[::]
+# print(other_lunch.index("ken"))
+# print(other_lunch.index("c"))
+# print(other_lunch.find("q"))
 
-# print(halloween_char.index("c"))
-# print(halloween_char.index("k"))
-# print(halloween_char.index("ell"))
-# print(halloween_char.find("w"))
+# print(other_lunch.count('q'))
+# print(other_lunch.split("c"))
+# print(list(other_lunch))
 
-# print(function_to_save_halloween_from_disaster())
-# print(halloween_char.count('l'))
-# print(halloween_char.split('n'))
-# print(list(halloween_char))
+# foods = ["pizza", "wings", "chicken parm"]
+# print(", ".join(foods))
 
-# print(" -  ".join(["milky way", "snickers", "almond joy"]))
-# print(halloween_char.upper())
-
-# # Problem 7 - IS Palindrome
-# # Write your function, here.
 
 # def is_palindrome(string):
-#     return string[::-1] == string   
-#     # reverse = " ".join(reversed(string))
- 
-# is_palindrome(1)
+#     # print(str(1))
+#     # return string == string[::-1]
+#     reverse = ''.join(reversed(string))
+#     print(reverse)
+#     return string == reverse
 
 
 # print(is_palindrome("kayak")) # True
@@ -115,13 +112,12 @@ def function_to_save_halloween_from_disaster():
 
 
 # Problem 7 - Recursive String
-# # Write your function, here.
+# Write your function, here.
 # def recursive_string(string):
-#     # base case
+#     # BASE CASE
 #     if len(string) == 0:
 #         return string
-
-#     # recursive step
+#     # RECURSIVE STEP
 #     return recursive_string(string[1:]) + string[0]
 
 #                             #ivic     + c
@@ -129,165 +125,196 @@ def function_to_save_halloween_from_disaster():
 #                             #ic + v
 #                             #c   + i
 #                             #     
-
 # print(recursive_string("civic")) # civic
 # print(recursive_string("refer")) # refer
 # print(recursive_string("string")) # gnirts
 # print(recursive_string("avocado")) # odacova
 # print(recursive_string("application")) # noitacilppa
 
-# print()
 
-# print(int('120'))
-# print(float(120))
-# print(str(3))
-# # print(int(3.145))
 
-# import os
-# import time
 
-# def more_fun_recursive_countdown(num):
-#     if num <= 0:
-#         os.system("clear")
-#         print("its lunchtime!  enjoy your lunch!")
+# NUMBERS
+# big_number = 1_000_000_000
+# print(big_number)
+# big_num = 1,0
+# print(big_num)
+
+# # Problem 3 - Perfect Square
+# # Write your function, here.
+# def perfect_square(num1, num2):
+#     return num1 / num2 == num2 and num2 * num2 == num1
+
+
+# print(perfect_square(15, 5)) #> False
+# print(perfect_square(25, 5)) #> True
+# print(perfect_square(81, 9)) #> True
+# print(perfect_square(9, 2))  #> False
+
+
+# def recursive_countdown(n):
+#     if n <= 0:
 #         return
+#     else:
+#         print(n)
+#         recursive_countdown(n - 1)
 
+
+# recursive_countdown(5) #> 5 4 3 2 1
+# import os 
+# import time 
+
+
+# def recursive_xmas_countdown(n):
+#     if n <= 0:
+#         os.system("clear")
+#         print('MERRY CHRISTMAS!!!')
+#         return
 #     else:
 #         os.system("clear")
-#         print(num)
-#         time.sleep(1)
-#         more_fun_recursive_countdown(num -1)
+#         print(n)
+#         time.sleep(0.5)
+#         recursive_xmas_countdown(n - 1)
 
 
-# more_fun_recursive_countdown(10) 
-# print(int("3") == 3)
+# recursive_xmas_countdown(26) #> 5 4 3 2 1
+
+# Identity vs equality
+
 # print(True == 1)
 # print(False == 0)
 # print(True is 1)
 # print(False is 0)
-# print(None == None)
-# print(None is None)
+
+# a = None
+# print(id(a))
+# b = None
+# print(id(b))
+# c = 'pizza'
+# d = 1
+# e = True
 
 
-# First Before Second
+# Problem 1 - First Before Second
+# Write your function, here.
 # def first_before_second(string, letter1, letter2):
-#     return string.rindex(letter1) < string.index(letter2)
+#    return string.rindex(letter1) < string.index(letter2)
 
 
+# print(first_before_second("a rabbit jumps joyfully", "a", "j"))
+# # > True  Every instance of "a" occurs before every instance of "j".
+# print(first_before_second("knaves knew about waterfalls", "k", "w"))
+# #> True
+# print(first_before_second("happy birthday", "a", "y"))
+# #> False  The "a" in "birthday" occurs after the "y" in "happy".
+# print(first_before_second("precarious kangaroos", "k", "a"))
+#> False
 
-# print(first_before_second("a rabbit jumps joyfully", "a", "j")) #> True
-# # Every instance of "a" occurs before every instance of "j".
-# print(first_before_second("knaves knew about waterfalls", "k", "w")) #> True
-# print(first_before_second("happy birthday", "a", "y")) #> False
-# # The "a" in "birthday" occurs after the "y" in "happy".
-# print(first_before_second("precarious kangaroos", "k", "a")) #> False
+# WHILE LOOP
+index = 0
 
+# while index < 5:
+#     if index == 3:
+#         print("We've got a three")
 
-# STATEMENTS
-# WHILE LOOPS
+#     else:
+#         print("Not a 3!")
 
-# pumpkins = 1
-
-# while pumpkins < 6:
-#     print(f'We have {pumpkins} pumpkins 🎃')
-
-    # pumpkins += 1
+#     index += 1
 
 # while True:
-#     if pumpkins < 6:
-#         print(f'We have {pumpkins} pumpkins 🎃')
-#         pumpkins += 1
+#     if index < 5:
+#         print(index)
+#         index += 1
 #         continue
 
 #     break
 
-# FOR LOOPS
+# info = input("Gimme info please" )
+# foods = ["pizza", "Chicken Parm", "Wings", "Chef Salad"]
 
-# candies = ["Reeses' Pieces", "3 Musketeers", "heath bar", "Twix"]
+# for food in foods:
+#     print(food)
 
-# for candy in candies:
-#     print(candy)
+# print("pizza" in foods)
 
-# print("heath bar" in candies)
-# print("milky way" in candies)
-# print('s' in "snickers")
+# for index in range(len(foods)):
+#     print(f"{index}. {foods[index]}")
 
-# RANGES
-# print(range(start, stop, step))
-# print(range(10))
-# print(list(range(10)))
-# print(list(range(10, -1, -1)))
-# print(tuple(range(10, 0, -1)))
 
-# # for integer in range(11):
-# #     print(integer) 
+# dinner = "Chicken Parm"
 
-# for index in range(len(candies)):
-#     print(f"{index}. {candies[index]}")
+# for letter in dinner:
+#     print(letter)
+
+# RANGE
+
+# my_range = range(start, stop, step)
+# print(list(range(1, 5, 2)))
+# print(tuple(range(5, 1, -1)))
 
 
 # import random
-# import time
+# from random import randint
+# from time import sleep
 # import os
 
 # count = 99
 
-
 # while count < 1000:
 #     os.system("clear")
 #     print(f"{count} little bugs in our code...")
-#     time.sleep(2.5)
+#     sleep(2.5)
 #     print(f"{count} pesky little bugs...")
-#     time.sleep(2.5)
+#     sleep(2.5)
 #     print("Take one down and patch it around...")
-#     time.sleep(2.5)
-#     new_bugs = random.randint(50, 100)
+#     sleep(2.5)
+#     new_bugs = randint(1, 100)
 #     count += new_bugs
 #     print(f"{count} little bugs in our code!")
-#     time.sleep(2.5)
+#     sleep(2.5)
 
+# TRY/EXCEPT
+# def save_the_holiday_season():
+#     print("Its saved, yay!")
 
-# TRY / EXCEPT
+# num = "wings"
 
-
-# raise Exception("we done made a boo boo")
-
-# try:
-#     num = int(input("provide you number here: "))
-#     print("In the try block")
-#     print(4/num)
+# try: 
+#     print(5/num)
 
 # except ZeroDivisionError:
-#     print("we can not divide by zero")
-
+#     print("You can not divide by zero")
+    
 # except TypeError:
-#     print("we can't do math with strings!")
+#     print("You can't divide by a string...")
 
-# except ValueError:
-#     print("we need to provide number digit values")
-
+# # except:
+# #     print("You have gotten an error, bummer")
 
 # else:
-#     print("we will only see this if the try is successful")
+#     print("if you see me, you see math above me...")
 
 # finally:
-#     print("We will always see this finally block")
-#     print("its like an old friend ")
+#     print("We will see this every time for reals")
+
+# save_the_holiday_season()
+
 
 # def seq_of_numbers(seq):
+#     seq += " "
 #     count = 1
 #     index = 0
 #     results = ''
-#     seq += " "
 
-#     while index < len(seq) -1:   # for index in range(len(seq) -1)
-#         if seq[index] != seq[index + 1]:  
-#             results = results + str(count) + seq[index] + ','
+#     while index < len(seq) - 1:  # for index in range(len(seq)-1)
+#         if seq[index] != seq[index + 1]:
+#             results = results + str(count) + seq[index] + ","
 #             count = 1
 #         else:
 #             count += 1
 
-#         index += 1
+#         index += 1 # remove if using a for loop
 
 #     return results
 
@@ -302,67 +329,66 @@ def function_to_save_halloween_from_disaster():
 # # Prints "31,22,11"
 
 # print(seq_of_numbers("31131211131221"))
-# # This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
-# #    one 3, one 1, two 2s, and one 1"
-# # Prints "13,21,13,11,12,31,13,11,22,11"
+# This is "one 3, two 1s, one 3, one 1, one 2, three 1s,
+#    one 3, one 1, two 2s, and one 1"
+# Prints "13,21,13,11,12,31,13,11,22,11"
 
 # FUNCTIONS
-
 # def is_even(num):
-#     """takes in a number and tells us if its even"""
+#     """tells us if the parameter is an even number"""
 #     return num % 2 == 0
 
-# print(is_even(7))
-
+# print(is_even(4))
 
 # even = lambda num: num % 2 == 0
-
-# print(even(7))
-# print(even(8))
+# print(even(4))
 
 # multiply = lambda num1, num2: num1 * num2
+
 # print(multiply(2, 5))
 
 # SCOPE
 
+# z = 50
 # PIE = 3.145
 
-# candies = 50
-# print("candies global 1st time", candies)
+# print("global scope before function", z)
 
-# def trick_or_treat():
-#     """silly fucntion to demonstrate scope"""
-#     print(PIE)
-#     # candies = 10
-#     global candies
-#     print("candies in the func", candies)
-#     candies += 20
-#     print("candies in the func 2nd time", candies)
-#     if True:
-#         candies = 1_000_000_000
+# def some_func():
+#     #  z = 20
+#      global z 
+#      print("inside func scope", z)
+#      print(PIE)
+#      z += 10
+#      print("inside func scope 2x", z)
 
-# trick_or_treat()
+# some_func()
 
-# print("global after function call", candies)
-candies = ["Snickers", "Milky Way", "Twix", "Kitkats", "Health Bar"]
-# mish_mosh = [1, True, None, "pumpkin", "5"]
-print(candies)
-# print(len(candies))
-# print(candies[1:4])
-# print(candies[::-1])
-# candies.append("Dots")
-# print(candies)
-# candies.extend(["Payday", "3 Musketeers"])
-# print(candies)
-# candies.insert(1, "1,000,000 Bar")
-# print(candies)
-# candies.remove("Twix")
-# print(candies)
-# candies.pop(2)
-# print(candies)
-# candies.sort()
-# print(candies)
-vals = [1, 3, 4, 6, 8, 20]
+# print("Back in global after func", z)
+
+# LISTS
+
+foods = ["tacos", "burgers", "wings", "steamed veggies"]
+
+# print(foods[1])
+# print(foods[-2])
+# print(foods[1:])
+# print(foods[::-1])
+# print(len(foods))
+# foods.append("cookies")
+# print(foods)
+# foods.extend(["pizza", "calzone"])
+# print(foods)
+# foods.remove("tacos")
+# print(foods)
+# foods.insert(1, "buritto")
+# print(foods)
+# foods.pop(2)
+# print(foods)
+
+vals = [1, 5, 78, 2, 56]
+vals.sort()
+print(vals)
 print(sum(vals))
-print(max(vals))
 print(min(vals))
+print(max(vals))
