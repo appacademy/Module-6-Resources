@@ -1,4 +1,4 @@
-from flask.cli import AppGroup
+from flask.cli import AppGroup  
 from .users import seed_users, undo_users
 from .posts import seed_posts, undo_posts
 
@@ -9,11 +9,12 @@ seed_commands = AppGroup("seed")
 def seed():
     users = seed_users()
     seed_posts(users)
-    print("IF WE SEE THIS WE WOULD BE SEEDING")
+    print('If we see this text, we would be seeding')
+
 
 
 @seed_commands.command("undo")
 def undo():
     undo_posts()
     undo_users()
-    print("WE WOULD BE VICIOUSLY DESTROYING ALL OUR DATA NOW...")
+    print("If we see this text, we would be destroying all our data... 💥")
