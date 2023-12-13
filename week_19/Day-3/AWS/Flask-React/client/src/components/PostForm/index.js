@@ -23,16 +23,19 @@ const PostForm = () => {
         setHasSubmitted(true);
         if (validationErrors.length) return alert("Your Post has errors, cannot submit!");
         
-
-        const formData = new FormData()
-        formData.append("caption", caption);
-        formData.append("author", currentUser.id);
-        formData.append("image", image)
         // const newPost = {
         //     caption,
         //     author: currentUser.id,
         //     image,
         // };
+
+
+        const formData = new FormData()
+        formData.append("caption", caption)
+        formData.append("image", image)
+        formData.append("author", currentUser.id)
+
+        
         await dispatch(createPost(formData));
 
         setCaption('');
@@ -64,8 +67,7 @@ const PostForm = () => {
                         </ul>
                     </div>
                 )}
-                <form onSubmit={(e) => submitForm(e)}
-                    encType="multipart/form-data">
+                <form onSubmit={(e) => submitForm(e)} encType="multipart/form-data">
                     <h3 className="form-label">User: { currentUser.username }</h3>
                     <div className='form-input-box'>
                         <label 

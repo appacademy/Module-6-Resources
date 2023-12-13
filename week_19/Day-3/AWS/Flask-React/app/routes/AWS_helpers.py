@@ -1,7 +1,13 @@
 import boto3
-import botocore
+# import botocore
 import os
 import uuid
+
+
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
+BUCKET_NAME = os.environ.get("S3_BUCKET")
+S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
+
 
 s3 = boto3.client(
    "s3",
@@ -10,15 +16,11 @@ s3 = boto3.client(
 )
 
 
-ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
-BUCKET_NAME = os.environ.get("S3_BUCKET")
-S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
-
-
 def get_unique_filename(filename):
     ext = filename.rsplit(".", 1)[1].lower()
     unique_filename = uuid.uuid4().hex
     return f"{unique_filename}.{ext}"
+
 
 
 def upload_file_to_s3(file, acl="public-read"):
@@ -37,6 +39,7 @@ def upload_file_to_s3(file, acl="public-read"):
         return {"errors": str(e)}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
+
 
 
 def remove_file_from_s3(image_url):

@@ -6,19 +6,37 @@ from .routes.user_routes import users
 from .models import db
 from flask_migrate import Migrate
 from .seeds import seed_commands
-import os 
 from flask_wtf.csrf import generate_csrf
+import os
 
 
 app = Flask(__name__)
-# print(__name__)
+# print("in main dunder init", __name__)
+
+
+
 app.config.from_object(Config)
 db.init_app(app)
 Migrate(app, db)
+
 app.cli.add_command(seed_commands)
 
 app.register_blueprint(posts, url_prefix="/posts")
 app.register_blueprint(users, url_prefix="/users")
+
+
+@app.route("/")
+def index():
+    """renders the home/index page"""
+    return render_template("index.html")
+    # return redirect("/another")
+
+
+
+@app.route("/another")
+def another_route():
+    return "<h1>This is another route!</h1>"
+
 
 
 
@@ -33,23 +51,5 @@ def inject_csrf_token(response):
             'FLASK_ENV') == 'production' else None,
         httponly=True)
     return response
-
-
-
-
-
-@app.route("/")
-def index():
-    """home route will return the landing page"""
-    # Query
-    return render_template("index.html")
-    # return redirect("/another")
-
-
-# @app.route("/another")
-# def another_route():
-#     return "<h1>This is totally a different route!</h1>" 
-
-
 
 

@@ -1,15 +1,15 @@
 {% extends "nav.html" %}
 
 {% block content %}
+<div class="feed-container">
 
-    <div class="feed-container">
-
-        {% for post in posts %}
-            <div class="post-container">
+    {% for post in posts %}
+        <div class="post-container">
+            <a class="a-hidden" href="/posts/{{ post.id }}">
                 <div class="post-box">
                     <div class="post-author">
-                        <img src="{{ post.user.profile_pic }}" class="profile-pic"/>
-                        {% if post.user.username == "Patch" %}
+                        <img src="{{ post.user.profile_pic }}" class="profile-pic" />
+                        {% if post.user.username == "Patchenator" %}
                             <h2 style="color: red;">{{ post.user.username }}</h2>
                         {% elif post.user.username == "Blueberry44" %}
                             <h2 style="color: blue;">{{ post.user.username }}</h2>
@@ -24,11 +24,13 @@
                     <p class="post-text">{{ post.caption }}</p>
                     <p class="post-text">{{ post.post_likes | length }} Likes</p>
                 </div>
-                <a href="/posts/update/{{ post.id }}">Update</a>
-                <a href="/posts/delete/{{ post.id }}">Delete</a>
-            </div>
-        {% endfor %}
+            </a>
+            {% if details == True %}
+                <a href="/posts/update/{{ post.id }}">📝 Update</a>
+                <a href="/posts/delete/{{ post.id }}">❌ Delete</a>
+            {% endif %}
+        </div>
+    {% endfor %}
 
-    </div>
-
+</div>
 {% endblock %}

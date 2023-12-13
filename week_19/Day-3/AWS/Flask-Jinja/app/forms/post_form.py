@@ -1,15 +1,18 @@
 from flask_wtf import FlaskForm
+from wtforms import StringField, SelectField, SubmitField
+from wtforms.validators import DataRequired, Length, URL
 from flask_wtf.file import FileField, FileAllowed, FileRequired
-from wtforms import SelectField, StringField, SubmitField
-from wtforms.validators import DataRequired, Length
 from ..routes.aws_helpers import ALLOWED_EXTENSIONS
 
-# AUTHOR_CHOICES = ['Patch', 'Blue', "Mimi"]
+
+
+
+# AUTHOR_CHOICES = ["Patch", "Blue", "Mimi", "Other"]
 
 
 class PostForm(FlaskForm):
     caption = StringField("Caption", validators=[DataRequired(), Length(min=5)])
-    # image = StringField("Image", validators=[DataRequired(), URL()])
+    # image = StringField("Post Image URL", validators=[DataRequired(), URL()])
     image = FileField("Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
-    author = SelectField("Author", choices=[])
+    author = SelectField("Post Auther", choices=[])
     submit = SubmitField("Create Post")
