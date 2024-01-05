@@ -1,51 +1,12 @@
-# def power_of_two(func):
-#     def inner(*args, **kwargs):
-#         x = func(*args, **kwargs)
-#         return x * x
-#     return inner
-
-
-# def multiply_by_three(func):
-#     def inner(*args, **kwargs):
-#         x = func(*args, **kwargs)
-#         return x * 3
-#     return inner
-
-
-# @multiply_by_three
-# @power_of_two
-# def num(a, b):
-#     return a + b
-
-
-
-# print(num(5, 2))  #> 441  7 => 49 => 147  
-#                        # 7 => 21 => 441
-# print(num(8, 2))  #> 900
-# print(num(4, 9))  #> 1521
-
-
-# def chain_decorator(func):
-#     @multiply_by_three
-#     @power_of_two
-#     def inner(*args, **kwargs):
-#         x = func(*args, **kwargs)
-#         return x
-#     return inner
-
-
-# @chain_decorator
-# def num(a, b):
-#     return a + b
-
 
 class RegularPolygon:
     type = "Polygon"
     def __init__(self, num_sides, length):
         if num_sides < 3:
             raise Exception("A polygon must have at least 3 sides.")
+
         self.num_sides = num_sides
-        self.length = length  
+        self.length = length
 
 
     def identify_polygon(self):
@@ -59,7 +20,8 @@ class RegularPolygon:
             9: "Nonagon",
             10: "Decagon"
         }
-        try:
+
+        try: 
             self.type = identifier_dict[self.num_sides]
 
         except KeyError:
@@ -67,17 +29,16 @@ class RegularPolygon:
 
 
     @classmethod
-    def polygon_factory(cls, polygons):
-        return [cls(num_sides, length) for num_sides, length in polygons]   
+    def polygon_factory(cls, new_polygons):
+        return [cls(num_sides, length) for num_sides, length in new_polygons]
 
-
+    
     @staticmethod
     def get_perimeter(polygon):
         return polygon.num_sides * polygon.length
 
-
-    def get_perimeter2(self):
-        return self.num_sides * self.length
+    # def get_perimeter(self):
+    #     return self.num_sides * self.length
 
 
 
@@ -106,3 +67,5 @@ print(RegularPolygon.get_perimeter(dodecagon)) # 12
 print(RegularPolygon.polygon_factory([(5, 5), (3, 2), (8, 10)])) # prints a list of 3 RegularPolygon objects
 
 not_a_polygon = RegularPolygon(2, 5) # Exception: A polygon must have at least 3 sides.
+
+# print(pentagon.get_perimeter())
