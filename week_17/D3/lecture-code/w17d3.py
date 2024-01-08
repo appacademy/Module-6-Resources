@@ -339,27 +339,36 @@ from time import sleep
 
 def timer(cb):
     def wrapper(*args, **kwargs):
+        if kwargs.get("skip"):
+            return cb(*args, **kwargs)
+        print(kwargs)
         start_time = datetime.now()
         val = cb(*args, **kwargs)
         end_time = datetime.now()
         total_time = end_time - start_time
-        print(total_time)
+        print(f"{cb.__name__}{*args, kwargs} finished in {total_time} seconds!")
         return val
     return wrapper
 
 
 # this decorator does not work well with recursive functions
 # because the decorator fires every time the function calls itself
-# @timer
-# def recursive_fib(n):
-#     if n <= 2:
-#         return 1
-#     else:
-#         return recursive_fib(n-1) + recursive_fib(n-2)
+@timer
+def recursive_fib(n, memo = {}, skip=0):
+    print(memo)
+    if n <= 2:
+        return 1
+    else:
+        if n-1 not in memo:
+            memo[n-1] = recursive_fib(n-1, skip=True)
+        if n-2 not in memo:
+            memo[n-2] = recursive_fib(n-2, skip=True)
+        print(memo)
+        return memo[n-1] + memo[n-2]
 
 @timer
 def print_list(ls, time):
-    for i in range(time * 100000000):
+    for i in range(time * 90909090):
         continue
     return ls
 
@@ -368,6 +377,11 @@ def print_list(ls, time):
 
 # print(timed_fib(30))
 
-# print(recursive_fib())
+start_time = datetime.now()
+# print(recursive_fib(34))
+# print(recursive_fib(35))
+print(recursive_fib(36))
+end_time = datetime.now()
+print(end_time - start_time)
 
-print(print_list([1,2,3,4,5], 5))
+# print(print_list([1,2,3,4,5], 5))
