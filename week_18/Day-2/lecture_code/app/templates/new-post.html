@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="feed-container">
+  {% if post_id %}
+  <form action="/posts/{{post_id}}/update" method="POST">
+  {% else %}
+  <form action="/posts/new" method="POST">
+  {% endif %}
+    <p>{{form.caption.label}}{{form.caption}}</p>
+    <p>{{form.image.label}}{{form.image}}</p>
+    <p>{{form.author.label}}{{form.author}}</p>
+    <p>{{form.submit}} {{form.csrf_token}}</p>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block title %}
+    <title>Pipstagram</title>
+    {% endblock %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+    <link rel="icon" href="{{ url_for('static', filename='favicon32.png') }}" />
+  </head>
+  <body>
+    {% include "nav.html" %} {% block content %}
+    <h1>Pipstagram</h1>
+    {% endblock %}
+  </body>
+</html>
