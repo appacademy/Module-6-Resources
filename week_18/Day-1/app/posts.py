@@ -1,20 +1,16 @@
-from random import randint
 from datetime import datetime, timedelta
-
+from random import randint
 
 def random_date_2023():
-    """Generate a random datetime between `start` and `end` which
+    """Generate a random datetime between start and end which
     should be datetime objects"""
     start = datetime(2023, 1, 1)
     end = datetime.now()
     random_date = start + timedelta(
-        # Get a random amount of seconds between `start` and `end`
+        # Get a random amount of seconds between start and end
         seconds=randint(0, int((end - start).total_seconds())),
     )
     return random_date
-
-print(random_date_2023())
-
 
 posts = [
     {
@@ -88,5 +84,21 @@ posts = [
         "image": "https://pipstagram.s3.amazonaws.com/2023-07-17+14.57.09.jpg",
         "date": random_date_2023(),
         "likes": randint(0, 100),
+    }
+]
+
+
+users = [
+    {
+        "id": 1,
+        "name": "Pip"
+    },
+    {
+        "id": 2,
+        "name": "Luna"
+    },
+    {
+        "id": 3,
+        "name": "Loki"
     }
 ]
