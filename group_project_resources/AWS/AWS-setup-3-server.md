@@ -109,7 +109,7 @@ AWS S3 Bucket and return the new public URL if we're successful.
 
 ```python
 BUCKET_NAME = os.environ.get("S3_BUCKET")
-S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
+S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
 
 def upload_file_to_s3(file, acl="public-read"):
     try:
