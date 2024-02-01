@@ -1,387 +1,275 @@
-# TUPLES
+### Tuples
 
-sandwiches = "hot dog", "grilled cheese", "quesadilla", "falafel sandwich", "gyro"
+my_tup = (1,2,3,4)
+quick_tup = 1,2,3,4,        5
 
-sandwich = ( "burrito", )
+# print(type((1,2,3,4)))
+# print(type(quick_tup))
+
+
+my_tup += 5,6,7
+
+# my_tup[0] = 5 # cannot alter an element in place
+
+# my_tup += 8 # will not work
+my_tup += 8,
+
+my_tup = 1,2,3,4,5,6,7,8
+my_tup = "i'm now a string"
+
+# print(my_tup)
+
+
+not_a_tup = (1) # this is an integer, the parenethesis serve only as grouping mechanisms
 
 empty_tup = ()
-empty_tup = tuple()
 
-# print(type(sandwiches))
+# print(type(empty_tup))
+
+another_empty_tup = tuple()
+
+# print(another_empty_tup)
+
+
+# ls = [3,4,62,4,823,4]
 #
-# print(sandwiches)
-# print(sandwich)
-# print(empty_tup)
+# ls.sort()
+
+# tuple reassignment versus list appending
+# my_tup = 1,2,3
+# print("tuple address before reassigning:  ", id(my_tup))
+# my_tup += 4, # note that we are using the assignment operator
+# print("tuple address after reassigning:   ", id(my_tup))
+# print()
 #
-# print(empty_ls)
+# ls = []
+# print("list address before appending:     ", id(ls))
+# ls.append(1) # the append method mutates the list in place
+# print("list address after appending:      ", id(ls))
 
-# print(dir(sandwiches))
-# print(dir(list))
+sorted_obj = sorted((5,8,3,5,90,34,4,2,90,5))
 
-sandwiches += sandwich
+# print(tuple(sorted_obj))
 
-# print(sandwiches)
+### RANGES
 
-soups = ["lucky charms", "gazpacho", "warm ice cream", "chowder", "chili"]
-soups.append("ice water")
-soups.append("oatmeal")
+simple_range = range(10)
 
-soups = tuple(soups)
-# print(type(soups))
-# print(soups)
+odds_backwards = range(21, 0, -2)
 
-# print(dir(soups))
+# for num in simple_range:
+#     print(num)
 
-# sorted_soups = sorted(soups)
+# for num in odds_backwards:
+#     print(num)
 
-# print(soups)
-# print(sorted_soups)
+ls_for_range = [3,4,62,4,823,4]
 
-def fill_tuple(tups, val, length):
-    ls = []
-    for tup in tups:
-        ls.append(tup + (val,) * (length - len(tup)))
-    return tuple(ls)
-  # return tuple([tuple([tup[idx] if idx < len(tup) else val for idx in range(length)]) for tup in tups])
+ls_range = range(6)
 
-# print(fill_tuple(((58, 1, 5), (0, 3), (45, ), (24, 23)), 2, 3))    #> ((58, 1, 5), (0, 3, 2), (45, 2, 2), (24, 23, 2))
-# print(fill_tuple(((1, ), (5, 7), (55, 22), (80, 52, 20)), 5, 4))   #> ((1, 5, 5, 5), (5, 7, 5, 5), (55, 22, 5, 5), (80, 52, 20, 5))
-# print(fill_tuple(((), (0, 14), (5, 2, 8), (2, 4, 2, 3)), 0, 5))    #> ((0, 0, 0, 0, 0), (0, 14, 0, 0, 0), (5, 2, 8, 0, 0), (2, 4, 2, 3, 0))
+# print(ls_range)
 
-test_tup = 1,2,3
+# for i in range(len(ls_for_range)):
+#     print(i, ls_for_range[i])
 
-new_tup = test_tup + (1,)
-# print(new_tup)
+counting_numbers = list(range(100))
 
-def second_ele(tup):
-    return tup[1]
+# print(counting_numbers)
 
-def index_sort(tups):
-    return sorted(tups, key=lambda x: x[1])
+enumerate_obj = enumerate(ls_for_range)
 
-# print(index_sort([(1, 2, 3), (6, 8, 9), (0, 5, 0), (2, 0, 4)])) #> [(2, 0, 4), (1, 2, 3), (0, 5, 0), (6, 8, 9)]
-# print(index_sort([(9, 55, 11), (7, 14, 5), (32, 41, 12), (8, 5, 2)])) #> [(8, 5, 2), (7, 14, 5), (32, 41, 12), (9, 55, 11)]
-# print(index_sort([(0, 9, 1), (4, 3, 0), (6, 5, 14), (64, 32, 28)])) #> [(4, 3, 0), (6, 5, 14), (0, 9, 1), (64, 32, 28)]
+# print(enumerate_obj)
 
-# RANGES
+enumerated_ls = list(enumerate_obj)
 
-new_range = range(10)
-# print(type(new_range))
-# print(list(new_range))
+# print(enumerated_ls)
+# print(ls_for_range)
 
-# for i in range(0, len(sandwiches), 2):
-#     print(sandwiches[i])
-
-# ls = [1,2,3,4,5]
-# print(ls[1:4:2])
-
-
-# for i in range(11, 6, -2):
-#     print(i)
-
-
-# for i in range(len(sandwiches)-1, -1, -1):
-#     print(i, sandwiches[i])
-#
-# for sandwich in sandwiches:
-#     print(sandwich)
-
-
-# print(list(enumerate(sandwiches)))
-
-# for idx, ele in enumerate(sandwiches):
+for idx, ele in enumerate(ls_for_range):
     # print(idx, ele)
+    # ele = 0
+    ls_for_range[idx] = 0
 
-# print(dir(enumerate(sandwiches)))
+# print(ls_for_range)
 
-def difference(ls):
-    mini = ls[0]
-    maxi = ls[0]
-    for i in range(len(ls)):
-        if ls[i] < mini:
-            mini = ls[i]
-        if ls[i] > maxi:
-            maxi = ls[i]
-    return maxi - mini
+### DICTIONARIES
 
-# print(difference([10, 15, 20, 2, 10, 6]))
-# # 20 - 2 = 18
-#
-# print(difference([-3, 4, -9, -1, -2, 15]))
-# # 15 - (-9) = 24
-#
-# print(difference([4, 17, 12, 2, 10, 2]))
-# # 17 - 2 = 15
+crazy_dict = { 1: 1, "string": "value", (1,2): "tuple", False: "boolean", None: None }
 
-def factorial(n):
-    prod = 1
-    for i in range(1, n+1, 1):
-        prod *= i
-    return prod
+crazy_dict[9] = "new_value"
 
-# print(factorial(1))     #> 1
-# print(factorial(8))     #> 40320
-# print(factorial(12))    #> 479001600
+# crazy_dict.string # won't work with dicitonaries
 
-# Dictionaries
-
-# let obj = { hello: "world", 4: "four" };
-# console.log(obj.4);
-
-hello = "hello"
-
-my_dict = { "hello": "world" }
-# print(my_dict[hello])
-# print(my_dict.hello)
-
-# print(dir(my_dict))
-# print(my_dict.keys())
-
-crazy_dict = {
-    "hello": "world",
-    5: "five",
-    None: "none",
-    True: "wow!",
-    (1,2,3,4): [1,2,3,4],
-    factorial: 4
-}
-
-# print(crazy_dict[factorial])
-
-weird_dict = dict([(5, "ive"),(None, None)])
-
-# print(weird_dict)
+# print(crazy_dict)
 
 # print(crazy_dict[False])
-# print(crazy_dict.get(False))
+# print(crazy_dict["not here"])
 
+# print(crazy_dict.get("not here", "your key is not in the dictionary"))
 
-crazy_dict["new key"] = "new value"
+# new_obj = { "new": "object" }
+
+# newobj.new
+
+# print(crazy_dict[1,2])
+
+# del  crazy_dict[1,2]
+crazy_dict[1,2] = "new tuple value"
+
 # print(crazy_dict)
 
-crazy_dict["new key"] = factorial
-
-# del crazy_dict["new key"]
-# print(crazy_dict)
-
-def show_some_values(*args, a, **kwargs):
-    print(a)
-    print(args)
-    print(kwargs)
-
-# show_some_values(1,2,3,4,5,6,7,8,9,10,(1,2,2,2), a=10, gorp="gorp", mark=6)
-#
-
-def new_function(x,y,z):
-    print(x)
-    print(y)
-    print(z)
-
-
-new_dict = { "x": 1, "y": 2}
-# new_function(**new_dict)
-# new_function(1,2,3)
-
-# new_function(5, z=100, y=6)
-
-def merge_lists(ls1, ls2):
+def concatenate_dictionaries(lst):
     new_dict = {}
-    for idx in range(len(ls1)):
-        new_dict[ls1[idx]] = ls2[idx]
+    for dic in lst:
+      for key in dic.keys():
+        new_dict[key] = dic[key]
     return new_dict
 
-lst1 = ['a', 'b']
-lst2 = [1, 2]
-merged_dict = merge_lists(lst1, lst2)
-# print(merged_dict)      # { 'a': 1, 'b': 2 }
+def concatenate_dicationaries(ls):
+    pass
+    
+### SETS
 
-def majority_char(chars):
-    total_chars = len(chars)
-    char_count = {}
-    for char in chars:
-        if char in char_count:
-            char_count[char] += 1
-        else:
-            char_count[char] = 1
-        if char_count[char] > (total_chars / 2):
-            return char
-    return None
-
-
-str1 = 'all'
-str2 = 'welcome to the jungle'
-
-# print(majority_char(str1))           # 'l'
-# print(majority_char(str2))          # None
-
-
-# SETS
-
-my_set = set([1,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,5,6,6,6,6])
-# print(my_set)
-
-my_set.add(7)
+my_set = {1,1,2,2,3,4,5,6,7,6,6,5,4, "hello", "hello"}
 
 # print(my_set)
-
-# print(my_set[0])
-
-simple_set = { 1,2,3,4,5,6,6,6,6,6,6 }
-# print(simple_set)
 
 empty_set = set()
-# print(type(empty_set))
 
-# list_set = {[1,2,3], 5, 3, 3,4}
-# print(list_set)
+redundant_ls = [1,1,1,1,1,2,2,2,2,2,3,3,3,4,4,4,4,5,5,5,5,]
 
-set1 = {1,2,3,4,5,6,7,8,9,10}
-set2 = {2,4,6,8,10,12,14,16,18,20}
+unique_elements = set(redundant_ls)
 
+# print(unique_elements)
+
+set1 = {1,3,5,7,9,11,13,15,17,19}
+
+set2 = {1,2,3,4,5,6,7,8,9,10}
+
+
+# print(set1 | set2)
+# print(set1.union(set2))
+#
 # print(set1 & set2)
 # print(set1.intersection(set2))
 
-# print(set1 | set2)
-# print(set2.union(set1))
-
-# print(set1 ^ set2)
-# print((set1 - set2) | (set2 - set1))
-
 # print(set1 - set2)
 # print(set2 - set1)
+# print(set1.difference(set2))
 
-def check_binary(chars):
-    valid_bins = { "1", "0" }
-    # return set(chars).issubset(valid_bins)
-    return set(chars) == {"1", "0"} or set(chars) == {"1"} or set(chars) == {"0"} or set(chars) == set()
+# print(set1 ^ set2)
 
+empty_set.add(1)
 
-str1 = '1010001010010100101'
-str2 = '1010010015010101010'
+# print(empty_set)
 
-# print(check_binary(str1))       # True
-# print(check_binary(str2))       # False
+def remove_repeats(str1, str2):
+    set1 = set(str1)
+    set2 = set(str2)
+    return set1 - set2 | set2 - set1
 
-# BUILT-INS
-
-ls = [1,2,3,4]
-# print(dir(ls))
-# print(len(ls))
-# print(dir(5))
-# print(len(5))
-
-# print(ls.__len__())
-
-# new_tup = ("brad", "David", "Andrew")
-# sorted_ls = sorted(new_tup, key=str.upper, reverse=True)
-# print(sorted_ls)
+str1 = 'aloha'
+str2 = 'bonjour'
 
 
-ls_bools = [ False, True, False, False, False]
-ls_again = [0, None, tuple(), False]
-more_ls = [True, 5, -9, (1,2,3), "extra"]
+# print(remove_repeats(str1, str2)) 
 
-# print(all(more_ls))
+### BUILT INS
 
+ls = ["david", "andrew", "BRAD", "Keegan"]
 
-# print(tuple(filter(lambda x: True, sandwiches)))
+sorted_names = sorted(ls, key=str.upper, reverse=True)
+# print(sorted_names)
 
-# print(list(map(lambda x: x + "wubbbba", sandwiches)))
+ls = [1,2,3,4,5]
+# print(sorted(ls, key=lambda x: -x))
 
-# print(dict(zip(ls_again, more_ls)))
-# print(dict(zip(ls_bools, more_ls)))
+ls1 = [False, False, False, True]
+ls2 = [True, True, True, True]
+ls3 = [False, False, False, False]
+ls4 = []
 
-my_dict = {}
-my_dict[False] = True
-my_dict[False] = "extra"
+# print(any(ls1))
+# print(any(ls2))
+# print(any(ls3))
 
-# COMPREHENSIONS
+# print(all(ls1))
+# print(all(ls2))
+# print(all(ls3))
 
-normal_ls = []
+# print(any(ls4))
+# print(all(ls4))
 
-for i in range(10):
-    normal_ls.append(i)
+ls = ["david", "andrew", "BRAD", "Keegan"]
 
-# print(normal_ls)
+filtered_list = list(filter(lambda x: x.lower() < "f", ls))
 
-ls_comp = [i for i in normal_ls]
-# print(ls_comp is normal_ls)
+# print(filtered_list)
 
-evens = [i for i in normal_ls if i % 2 == 0]
-# print(evens)
+# print(set(filtered_list))
 
-squared_odds = [ i ** 2 if i < 6 else None for i in normal_ls if i % 2 != 0]
+# print(dict([ [1, "hello"], ["threee", 3]]))
+
+# print(dict(enumerate(ls)))
+
+# for x in filtered_list:
+#     print(x)
+
+nums = [1,2,3,4,5,6,7,8,9]
+
+sq_nums = tuple(map(lambda x: x ** 2, nums))
+# print(sq_nums)
+
+scores = [90, 86, 75, 91, 62, 99, 88, 90]
+grades = ["A", "B", "C", "A", "D", "A", "B", "A"]
+
+combined_lists = zip(scores, grades)
+# print(dict(combined_lists))
+
+### COMPREHENSIONS
+
+comp_ls = [ num for num in range(10) ]
+
+for_ls = []
+for num in range(10):
+    for_ls.append(num)
+
+# print(comp_ls)
+# print(for_ls)
+
+def square_num(num):
+    return num ** 2
+
+squares = [square_num(num) for num in range(1,10)]
+
+zeroes = [0 for num in range(1,10)]
+
+# print(squares)
+
+# print(zeroes)
+
+zeroes_n_odds = [0 if num % 2 == 0 else num for num in range(1,10)]
+
+# print(zeroes_n_odds)
+
+odds = [num for num in zeroes_n_odds if num != 0]
+
+squared_odds = [num**2 for num in zeroes_n_odds if num != 0]
+
 # print(squared_odds)
+# print(odds)
+
+
+
+scores = [90, 86, 75, 91, 62, 99, 88, 90]
+grades = ["A", "B", "C", "A", "D", "A", "B", "A"]
+
+
+grades_n_scores = { key: value for key, value in zip(scores, grades) }
+
+# print(grades_n_scores)
 #
-# print([9 for i in normal_ls])
+nums_all = { num: num**2 for num in scores if num >= 90 }
+# print(nums_all)
 
-nums = [-5, 11, 10, 14]
-def map_func(x):
-    return x * 2 + 1
-
-# print([map_func(num) for num in nums])
-
-nums = [-5, 11, 10, 14]
-
-# print([num for num in nums if num > 0])
-
-# [expression for ele in iterable if expression]
-
-my_first_dict_comp = { ele: ele * 2 for ele in normal_ls }
-# print(my_first_dict_comp)
-
-# print({idx: val for idx, val in enumerate(normal_ls)})
-
-# DECORATORS
-
-from datetime import datetime
-from time import sleep
-
-def timer(cb):
-    def wrapper(*args, **kwargs):
-        if kwargs.get("skip"):
-            return cb(*args, **kwargs)
-        print(kwargs)
-        start_time = datetime.now()
-        val = cb(*args, **kwargs)
-        end_time = datetime.now()
-        total_time = end_time - start_time
-        print(f"{cb.__name__}{*args, kwargs} finished in {total_time} seconds!")
-        return val
-    return wrapper
-
-
-# this decorator does not work well with recursive functions
-# because the decorator fires every time the function calls itself
-@timer
-def recursive_fib(n, memo = {}, skip=0):
-    print(memo)
-    if n <= 2:
-        return 1
-    else:
-        if n-1 not in memo:
-            memo[n-1] = recursive_fib(n-1, skip=True)
-        if n-2 not in memo:
-            memo[n-2] = recursive_fib(n-2, skip=True)
-        print(memo)
-        return memo[n-1] + memo[n-2]
-
-@timer
-def print_list(ls, time):
-    for i in range(time * 90909090):
-        continue
-    return ls
-
-
-# timed_fib = timer(recursive_fib)
-
-# print(timed_fib(30))
-
-start_time = datetime.now()
-# print(recursive_fib(34))
-# print(recursive_fib(35))
-print(recursive_fib(36))
-end_time = datetime.now()
-print(end_time - start_time)
-
-# print(print_list([1,2,3,4,5], 5))
+# [ expression for element in iterable (optional) if conditional]
