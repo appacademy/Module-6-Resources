@@ -70,7 +70,7 @@ posts = [
         "likes": randint(0, 100),
     },
     {
-        "id": 9,
+        "id": 8,
         "author": "Loki",
         "caption": "mmmm... dirt!",
         "image": "https://pipstagram.s3.amazonaws.com/2023-07-17+14.53.30.jpg",
@@ -78,7 +78,7 @@ posts = [
         "likes": randint(0, 100),
     },
     {
-        "id": 10,
+        "id": 8,
         "author": "Loki",
         "caption": "please sir, i beg of you",
         "image": "https://pipstagram.s3.amazonaws.com/2023-07-17+14.57.09.jpg",
