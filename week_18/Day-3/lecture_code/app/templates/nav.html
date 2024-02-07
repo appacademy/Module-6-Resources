@@ -1,21 +1,8 @@
 <div>
   <a href="/posts/all">All Posts</a>
   <a href="/home">Home</a>
-  <a href="/posts/users/3">User 3's Posts</a>
+  <a href="/users/1">User 1</a>
+  <a href="/users/2">User 2</a>
+  <a href="/users/3">User 3</a>
+  <a href="/posts/new">Create a new post</a>
 </div>
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo-container">
-      <img class="nav-logo" src="/static/favicon32.png" alt="cat-logo" />
-      <h1 class="nav-title">Pipstagram</h1>
-    </div>
-    <a href="/home">Home</a>
-    <a href="/posts/all">Feed</a>
-    <a href="/posts/new">New Post</a>
-    <div>
-      {% for id in [1,2,3] %}
-      <a href="/posts/users/{{id}}">User {{id}}'s Posts</a>
-      {% endfor %}
-    </div>
-  </div>
-</nav>

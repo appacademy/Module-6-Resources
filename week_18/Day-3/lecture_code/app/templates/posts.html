@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% include "nav.html" %} {% block title %} {% if
+username %}
+<title>{{username}}'s Posts</title>
+{% else %}
+<title>All Posts</title>
+{% endif %} {% endblock %} {% block content %}
+<div class="feed-container">
+  {% for post in all_posts %}
+  <div class="post-container">
+    <div class="post-box">
+      <div class="post-author">
+        {% if post.author == "Pip" %}
+        <h2 style="color: red">{{ post.author }}</h2>
+        {% elif post.author == "Loki" %}
+        <h2 style="color: blue">{{ post.author }}</h2>
+        {% else %}
+        <h2 style="color: green">{{ post.author }}</h2>
+        {% endif %}
+      </div>
+      <h3>{{ post.date }}</h3>
+    </div>
+    <div>
+      <a href="/posts/{{post.id}}/update">
+      <img class="post-image" src="{{ post.image }}" />
+      </a>
+      <p class="post-text">{{ post.caption }}</p>
+      <p>Likes: {{ post.likes }}</p>
+      <a href="/posts/{{post.id}}/delete">Delete Post</a>
+      {% if 1 in post["user_likes"] %}
+      <a href="/posts/{{post.id}}/unlike">Dislike Post</a>
+      {% else %}
+      <a href="/posts/{{post.id}}/like">Like Post</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %} {% include "footer.html" %}
