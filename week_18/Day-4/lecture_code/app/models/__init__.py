@@ -1,4 +1,3 @@
-from app.models.db import db
-from app.models.users import User
-from app.models.posts import Post
-from app.models.likes import likes
+from .db import db
+from .posts import Post
+from .users import User, likes

@@ -14,7 +14,7 @@
     <link rel="icon" href="{{ url_for('static', filename='favicon32.png') }}" />
   </head>
   <body>
-    {% include "nav.html" %} {% block content %}
+    {% block content %}
     <h1>Pipstagram</h1>
     {% endblock %}
   </body>
