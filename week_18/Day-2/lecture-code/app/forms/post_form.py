@@ -1,14 +1,16 @@
-from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
-from wtforms.validators import DataRequired, Length, URL
+from flask_wtf import FlaskForm
+from wtforms.validators import InputRequired, URL, Length
+from app.posts import users
 
 
+choices = [ user["name"] for user in users]
 
-AUTHOR_CHOICES = ["Patch", "Blue", "Mimi", "Other"]
+
+class NewPost(FlaskForm):
+    author = SelectField("Author", choices=choices, validators=[InputRequired()])
+    image = StringField("Image URL", [InputRequired(), URL()])
+    caption = StringField("Caption", validators=[InputRequired(), Length(min=3, max=200)])
+    submit = SubmitField("Submit")
 
 
-class PostForm(FlaskForm):
-    caption = StringField("Caption", validators=[DataRequired(), Length(min=5)])
-    image_url = StringField("Post Image URL", validators=[DataRequired(), URL()])
-    author = SelectField("Post Auther", choices=AUTHOR_CHOICES)
-    submit = SubmitField("Create Post")

@@ -1,0 +1,11 @@
+{% if id %}
+<form action="/posts/{{id}}/update" method="POST">
+{% else %}
+<form action="/posts/new" method="POST">
+  {% endif %}
+  {{form.hidden_tag()}}
+  {{form.author.label}} {{form.author}}
+  {{form.image.label}} {{form.image}}
+  {{form.caption.label}} {{form.caption}}
+  {{form.submit}}
+</form>
