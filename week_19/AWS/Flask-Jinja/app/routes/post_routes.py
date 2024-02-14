@@ -3,50 +3,48 @@ from ..posts import posts as seed_posts
 from ..forms.post_form import PostForm
 from datetime import date
 from random import randint
-from ..models import db, Post, User 
-from ..routes.AWS_helpers import upload_file_to_s3, remove_file_from_s3, get_unique_filename
+from ..models import db, Post, User
+from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
+
 
 posts = Blueprint("posts", __name__)
-# print("in the posts bp", __name__)
+# print(__name__)
 
 
 @posts.route("/all")
-def get_all_posts():
-    """get all posts and return a feed of those posts"""
-    posts = Post.query.order_by(Post.post_date.desc()).all()
-    print(posts)
-    list_dict_posts = [post.to_dict() for post in posts]
-    print(list_dict_posts)
+def view_all_posts():
+    all_posts = Post.query.order_by(Post.post_date.desc()).all()
+    print(all_posts)
+    response = [post.to_dict() for post in all_posts]
+    print(response)
     # sorted_posts = sorted(seed_posts, key=lambda post: post["date"], reverse=True)
-    return render_template("feed.html", posts=posts)
-    # return "<div><p>This is text</p></div>"
-    # return list_dict_posts
+    # return render_template("feed.html", posts=all_posts)
+    return {'posts': response }
 
 
 
 @posts.route("/<int:id>")
-def get_post_by_id(id):
-    """get a post by its id"""
+def post_by_id(id):
     post = Post.query.get(id)
+    print(post)
     # one_post = [post for post in seed_posts if post['id'] == id]
-    print(post.to_dict())
-    return render_template("feed.html", posts=[post])
+    # print(one_post)
+    return render_template("feed.html", posts=[post], details=True)
 
 
 
 @posts.route("/new", methods=["GET", "POST"])
 def create_new_post():
-    """handles displaying an empty form on get requests and 
-    the submission of that form on post requests"""
 
     form = PostForm()
-    form.author.choices = [(user.id, user.username) for user in User.query.all()]
-
-
+    form.author.choices = [ (user.id, user.username) for user in User.query.all()]
+    # print([user.to_dict() for user in User.query.all()])
+    # print(form.author.choices)
 
     if form.validate_on_submit():
         selected_user = User.query.get(form.data["author"])
-        # print(selected_user.to_dict())
+        print(selected_user)
+
 
         image = form.data["image"]
         image.filename = get_unique_filename(image.filename)
@@ -54,15 +52,14 @@ def create_new_post():
         print(upload)
 
         if "url" not in upload:
-            print(upload)
-            return render_template("post_form.html", form=form, errors=[upload])
+            return render_template("post_form.html", form=form, errors=[upload] )
 
 
         new_post = Post(
             caption=form.data["caption"],
-            image=upload["url"],
+            image=upload['url'],
             post_date=date.today(),
-            user=selected_user
+            user=selected_user,
         )
         print(new_post)
         db.session.add(new_post)
@@ -70,18 +67,20 @@ def create_new_post():
         return redirect("/posts/all")
 
     if form.errors:
-        print(form.errors)
-        return render_template("post_form.html", form=form, errors=form.errors)
+        print(form.errors)    
+        return render_template("post_form.html", form=form, errors=form.errors )
 
 
-    return render_template("post_form.html", form=form, errors=None)
+    return render_template("post_form.html", form=form, errors=None )
 
 
 
 @posts.route("/update/<int:id>", methods=["GET", "POST"])
 def update_post(id):
+
     form = PostForm()
-    form.author.choices = [(user.id, user.username) for user in User.query.all()]
+    form.author.choices = [ (user.id, user.username) for user in User.query.all()]
+
 
     if form.validate_on_submit():
         post_to_update = Post.query.get(id)
@@ -91,17 +90,20 @@ def update_post(id):
         post_to_update.caption = form.data["caption"]
         post_to_update.image = form.data["image"]
         db.session.commit()
+        print(post_to_update)
         return redirect(f"/posts/{post_to_update.id}")
 
 
     elif form.errors:
-        return render_template("post_form.html", form=form,type="update", id=id, errors=form.errors)
-
+        print(form.errors)
+        return render_template("post_form.html", form=form, errors=form.errors, type="update", id=id )
 
     else:
+        # Come back to here after lunch
         current_data = Post.query.get(id)
         form.process(obj=current_data)
-        return render_template("post_form.html", form=form, type="update", id=id, errors=None)
+        return render_template("post_form.html", form=form, errors=None, type="update", id=id)
+
 
 
 
@@ -111,11 +113,7 @@ def delete_post(id):
 
     file_to_delete = remove_file_from_s3(post_to_delete.image)
 
-    if file_to_delete is True:
-        db.session.delete(post_to_delete)
-        db.session.commit()
-        return redirect("/posts/all")
-
-    else:
-        print(file_to_delete)
-        return "<h1>File delete error!</h1>"
+    print(post_to_delete)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect("/posts/all")

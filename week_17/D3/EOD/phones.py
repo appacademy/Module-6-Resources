@@ -15,6 +15,7 @@ phones = [
         "brand": "Google",
         "model": "Pixel 6",
         "cost": 599,
+        
         "color": "kinda coral"
     },
     {

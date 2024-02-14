@@ -175,3 +175,6 @@ body {
     margin-left: 10px;
 }
 
+.a-hidden {
+    text-decoration: none;
+}

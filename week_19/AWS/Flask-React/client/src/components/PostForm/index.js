@@ -30,9 +30,11 @@ const PostForm = () => {
         // };
 
         const formData = new FormData()
-        formData.append("caption", caption);
-        formData.append("image", image)
+
+        formData.append("caption", caption)
         formData.append("author", currentUser.id)
+        formData.append("image", image)
+
 
         await dispatch(createPost(formData));
 
@@ -65,9 +67,8 @@ const PostForm = () => {
                         </ul>
                     </div>
                 )}
-                <form 
-                    onSubmit={(e) => submitForm(e)}
-                    encType="multipart/form-data"
+                <form onSubmit={(e) => submitForm(e)}
+                    encType='multipart/form-data'
                 >
                     <h3 className="form-label">User: { currentUser.username }</h3>
                     <div className='form-input-box'>
@@ -97,7 +98,7 @@ const PostForm = () => {
                             type="file"
                             accept="image/*"
                             onChange={(e) => setImage(e.target.files[0])}
-                            >
+                        >
                         </input>
                     </div>
                     <button className="button">Submit</button>

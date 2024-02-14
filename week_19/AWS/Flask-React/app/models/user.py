@@ -3,21 +3,16 @@ from .likes import likes
 
 
 class User(db.Model):
-    __tablename__ = "users"
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     profile_pic = db.Column(db.String(250))
-    bio = db.Column(db.String(2000))
-    fav_color = db.Column(db.String(50))
-    birthday = db.Column(db.Date)
+    bio = db.Column(db.String(1000))
+    fav_food = db.Column(db.String(50))
 
-    # relationship attributes 
-    posts = db.relationship(
-        "Post", 
-        back_populates="user",
-    )
-
+    # relationship attributes
+    posts = db.relationship("Post", back_populates="user")
     user_likes = db.relationship(
         "Post",
         secondary=likes,
@@ -26,18 +21,26 @@ class User(db.Model):
 
 
     def to_dict(self):
+        print(self.posts)
         return {
             "id": self.id,
             "username": self.username,
-            "profilePic": self.profile_pic,
-            "bio": self.bio,
-            "posts": [post.to_dict() for post in self.posts],
-        }
+            "profile_pic": self.profile_pic,
+            "posts": [ post.to_dict() for post in self.posts ]
+        }        
 
-    def to_dict_no_posts(self):
+
+    def to_dict_no_post(self):
         return {
             "id": self.id,
             "username": self.username,
             "profilePic": self.profile_pic,
-            "bio": self.bio,
-        }
+        }    
+
+
+
+
+#     ['< Post 1>']
+
+
+# user.posts[0].caption

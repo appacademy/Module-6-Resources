@@ -31,6 +31,7 @@ const Post = ({ postData }) => {
                 </div>
                 <div>
                     <MdMoreHoriz className="nav-icon" />
+                    <h3>{ postData.postDate }</h3>
                 </div>
             </div>
             { postData.image ?
