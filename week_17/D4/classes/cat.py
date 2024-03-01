@@ -1,112 +1,165 @@
 class Cat:
-    num_teeth = 44
-    def __init__(self, name, age, color="black"):
-        self._name = name
-        self.age = age
+    """This is a cat class. Cats are fun but also mean"""
+
+    demeanor = "aloof"
+
+    def __init__(self, name, color, teeth, size, age):
+        self.name = name
         self.color = color
-        self.demeanor = "aloof"
+        self.teeth = teeth
+        self.size = size
+        self._age = age
 
     @property
-    def name(self):
-        return self._name
+    def age(self):
+        return self._age
 
-    @name.setter
-    def name(self, val):
-        if len(val) > 10:
-            print("That's too long a name for a cat!!!")
+    @age.setter
+    def age(self, val):
+        if val > 35:
+            print("Cats can't be that old!!!")
         else:
-            self._name = val
+            self._age = val
 
-    def stretches_out(self):
-        print(f"{self.name} stretches out lazily!")
-
-    def has_birthday(self):
-        self.age += 1
-
-    def speaks(self):
-        return "Meooowwwww!!"
+    @staticmethod
+    def speak():
+        return "Meow!!!!!"
 
     @classmethod
     def cat_factory(cls, cats):
-        new_cats = [cls(name, age, color) for name, age, color in cats]
+        new_cats = [cls(name, color, teeth, size, age) for name, color, teeth, size, age in cats]
         return new_cats
 
-    @staticmethod
-    def hungry_cat(how_hungry):
-        for _ in range(how_hungry):
-            print("Meoooowwwww!!!")
+    def stretches_out(self):
+        return f"{self.name} stretches out lazily!"
 
-    # def __len__(self):
-    #     return self.age
-    #
-    # def __lt__(self, other):
-    #     return self.age < other.age
+    @classmethod
+    def demonstrate_aloofness(cls):
+        return f"The cat sees that you are feeling sad. It is {cls.demeanor}!"
+
+    def __len__(self):
+        return self.age
+
+    # @property
+    # def __dict__(self):
+        # return 5
 
     def __repr__(self):
-        return f"<{self.name} is a {self.color} Cat>"
+        return f"<{self.name} is a {self.color} cat with {self.teeth} teeth>"
+
+
+sunshine = Cat("Sunshine", "tabby", 400, "6 lbs", 20)
+
+
+# print(Cat.demonstrate_aloofness())
+
+# print(sunshine.stretches_out())
+
+# print(sunshine.demonstrate_aloofness())
+
+
+# new_cats = [Cat("Grey", "grey", 2, "25 lbs", 10), Cat("Sunshine", "tabby", 5000, "6 lbs", 2)]
+
+
+# cats = [("Grey", "grey", 2, "25 lbs", 10), ("Sunshine", "tabby", 5000, "6 lbs", 2)]
+
+# cats = Cat.cat_factory(cats)
+
+# for cat in cats:
+    # print(vars(cat))
+
+
+# print(sunshine)
+# print(sunshine.name)
+
+# print(Cat)
+
+# print(__name__)
+
+# help(Cat)
+
+# print(sunshine.speak())
+
+# print(sunshine._age)
+
+# sunshine._age += 1
+# print(sunshine._age)
+# print(sunshine.age)
+
+# sunshine.age += 20
+
+# print(sunshine.age)
+
+# print(sunshine.age)
+
+
+# print(vars(sunshine))
+
+# print(len(sunshine))
+# print(sunshine.__len__())
+
+# print(dir(sunshine))
+
+# class RegularPolygon:
+#     type = "Polygon"
+#
+#     def __init__(self, num_sides, length):
+#         if num_sides < 3:
+#             raise Exception("A polygon must have at least 3 sides.")
+#         self.num_sides = num_sides
+#         self.length = length
+#
+#     def identify_polygon(self):
+#         poly_type = {
+#             3: "Triangle",
+#             4: "Quadrilateral",
+#             5: "Pentagon",
+#             6: "Hexagon",
+#             7: "Heptagon",
+#             8: "Octagon",
+#             9: "Nonagon",
+#             10: "Decagon"
+#         }
+#         # try:
+#             # self.type = poly_type[self.num_sides]
+#         # except KeyError:
+#             # self.type = f"Polygon with {self.num_sides} sides."
+#
+#         self.type = poly_type.get(self.num_sides,f"Polygon with {self.num_sides} sides.")
+#         
+#         return self.type
+#
+#     @classmethod
+#     def polygon_factory(cls, polygons):
+#         return [cls(num_sides, length) for num_sides, length in polygons]
+#
+#     @staticmethod
+#     def get_perimeter(polygon):
+#         return polygon.num_sides * polygon.length
+
+
 
     
-
-
-# Cat.hungry_cat(9)
-
-
-
-# print(Cat.age)
-
-new_cats = [("Grey", 10, "grey"), ("Sunshine", 29, "tabby"), ("Henry", 3, "black")]
-
-cats = Cat.cat_factory(new_cats)
-grey, sunshine, henry = cats
-
-# print(cats)
-# cats.sort()
-# print(cats)
-
-# print(grey)
-
-# print(len(grey))
-
-# new_cats = [Cat(name, age, color) for name, age, color in new_cats]
-
-
-
-# grey = Cat("Grey", 10, "grey")
-# sunshine = Cat("Sunshine", 29, "tabby")
-
-
-# print(type(grey))
-# print(grey.name)
-# print(grey.age)
-# print(grey.color)
-# print()
-# print(sunshine.name)
-# print(sunshine.age)
-# print(sunshine.color)
-# print()
-# grey.stretches_out()
-# sunshine.stretches_out()
-
-# grey.has_birthday()
-# print(grey.age)
-# print(grey.num_teeth)
-# print(Cat.num_teeth)
+# triangle = RegularPolygon(3, 1)
 #
-# grey.num_teeth = 43
 #
-# print(grey.num_teeth)
-
-
-# sunshine.name = "Grendelllllllll"
-# sunshine.name = "Grendel"
-# print(sunshine.name)
-
-
-# print(sunshine._name)
-
-# sunshine._name = "GREEEEEEEEEEEENNNNNNSEEEEL"
-
-# print(sunshine.name)
-
-
-
+# # print(vars(triangle))
+#
+# # biangle = RegularPolygon(2, 1)
+#
+#
+# print(triangle.type)
+#
+# print(triangle.identify_polygon())
+#
+# print(triangle.type)
+# print(RegularPolygon.polygon_factory([(5, 5), (3, 2), (8, 10)]))
+#
+# pentagon = RegularPolygon(5, 5)
+# octagon = RegularPolygon(8, 10)
+# dodecagon = RegularPolygon(12, 1)
+# print(RegularPolygon.get_perimeter(pentagon)) # 25
+# print(RegularPolygon.get_perimeter(octagon)) # 80
+# print(RegularPolygon.get_perimeter(dodecagon)) # 12
+#
+# print(dodecagon.identify_polygon())

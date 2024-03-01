@@ -1,50 +1,72 @@
 from datetime import datetime
 
-def print_args(*args):
-    for arg in args:
-        print(arg)
-
-# print_args("g", 6, "5<", "hello") # *arg are stored as a tuple
-
-def print_kwargs(**kwargs):
-    print(kwargs)
-
-print_kwargs(key1="hello", key2="goodbye")
-
-def print_args_and_kwargs(num1, num2, *args, **kwargs):
-    print(num1, num2)
-    print(args)
-    print(kwargs)
-
-print_args_and_kwargs(1, 2, 3, key="value")
-
-
-def timer(func):
+def timer(cb):
     def wrapper(*args, **kwargs):
-        start_time = datetime.now()
-        val = func(*args, **kwargs)
-        end_time = datetime.now()
-        time_elapsed = end_time - start_time
-        print(time_elapsed)
-        return val
+        start = datetime.now()
+        cb(*args, **kwargs)
+        end = datetime.now()
+        return end - start
     return wrapper
 
-@timer
-def say_hi_1_000_000_times():
-    for _ in range(1_000_000):
-        print("Hello there!")
+
+# @timer
+# def say_hello_10000000_times():
+#     for _ in range(10000000):
+#         print("hello")
+
+
+# hello = timer(say_hello_10000000_times)
+
+# print(hello())
+
+# print(datetime.now())
+
+# print(say_hello_10000000_times())
 
 @timer
-def say_hi_x_times(x):
-    for _ in range(x):
-        print("Hello there!")
+def say_hello_x_times(x, y):
+    for _ in range(x * y):
+        print("hello")
 
-# timed_hello = timer(say_hi_1_000_000_times)
 
-# timed_hello()
+# print(say_hello_x_times(100, 10))
 
-# timer(say_hi_1_000_000_times)()
+def args_and_kwargs(*args, **kwargs):
+    for arg in args:
+        print(arg)
+    print(kwargs)
 
-say_hi_1_000_000_times()
+# args_and_kwargs(1,2,3,4,5,6, this="is", a="dictonary")
+
+
+# @app.routes("/")
+# def index():
+    # return "<h1>Hello</h1>"
+
+def square_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(args)
+        print(kwargs)
+        x = func(*args, **kwargs)
+        return x ** 2
+    return wrapper
+
+def multiply_by_3_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(args)
+        print(kwargs)
+        x = func(*args, **kwargs)
+        return x * 3
+    return wrapper
+
+@square_decorator
+@multiply_by_3_decorator
+def add_nums(x, y):
+    return x + y
+
+print(add_nums(1, y=9))
+
+
+
 
 
