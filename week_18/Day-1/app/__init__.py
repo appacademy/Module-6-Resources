@@ -1,31 +1,28 @@
 from flask import Flask, render_template
-from .posts import posts, users
-
 from app.config import Config
+from .posts import users, posts
 
 app = Flask(__name__)
 
 app.config.from_object(Config)
 
+# print(__name__)
+
 @app.route("/")
 def index():
     return render_template("index.html")
+    # return "<h1>Welcome to Pipstagram</h1>"
 
-
-@app.route("/all")
+@app.route("/posts")
 def all_posts():
-    return render_template("all-posts.html", posts=posts, id=None)
 
-# @app.route("/<int:id>")
-# def single_post(id):
-#     return render_template("all-posts.html", posts=posts, id=id)
+    return render_template("all_posts.html", posts=posts)
+    # return "posts coming soon"
+    # return { post["id"]: post for post in posts }
 
-@app.route("/users/<int:id>")
-def user_posts(id):
-    user = list(filter(lambda x: x["id"] == id, users))[0]
-    return render_template("all-posts.html", posts=posts, user=user)
-
-
-
-
-    
+@app.route("/posts/<int:id>")
+def single_post(id):
+    single_post = [posts[id]]
+    print(single_post)
+    # return "single_post"
+    return render_template("all_posts.html", posts=single_post)

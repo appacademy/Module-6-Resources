@@ -1,12 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Pipstagram</title>
+    <title></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Welcome to Pipstagram</h1>
+    {% for post in posts %}
+    <div>
+      <h2>{{post["author"]}}</h2>
+    </div>
+    <div>
+      <img style="height: 350px" src="{{post.image}}" />
+    </div>
+    {% endfor %}
   </body>
 </html>
