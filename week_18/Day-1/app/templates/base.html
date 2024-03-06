@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+    <link rel="icon" href="{{ url_for('static', filename='favicon32.png') }}" />
+  </head>
+  <body>
+    {% include "nav_bar.html" %}
+    <h1>Welcome to Pipstagram</h1>
+    {% block content %}
+    {% endblock %}
+    {% block posts %}
+    {% endblock %}
+    {% block new_post %}
+    {% endblock %}
+    {% block user %}
+    {% endblock %}
+  </body>
+</html>

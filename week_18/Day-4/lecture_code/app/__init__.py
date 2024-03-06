@@ -4,6 +4,7 @@ from app.config import Config
 # from .posts import posts, users
 from .routes import user_routes, post_routes
 from .models import db
+from .seeders import seed_commands
 
 app = Flask(__name__)
 
@@ -12,6 +13,8 @@ app.config.from_object(Config)
 db.init_app(app)
 
 Migrate(app, db)
+
+app.cli.add_command(seed_commands)
 
 app.register_blueprint(user_routes)
 app.register_blueprint(post_routes, url_prefix="/posts")

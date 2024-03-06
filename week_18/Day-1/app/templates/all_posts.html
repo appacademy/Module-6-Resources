@@ -1,19 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    {% for post in posts %}
-    <div>
-      <h2>{{post["author"]}}</h2>
+    {% extends "base.html" %}
+
+    {% block posts %}
+    <div class="feed-container">
+      {% for post in posts %}
+      <div class="post-container">
+        <div class="post-box">
+          <div class="post-author">
+            {% if post.author == "Pip" %}
+            <h2 style="color: red">{{ post.author }}</h2>
+            {% elif post.author == "Loki" %}
+            <h2 style="color: blue">{{ post.author }}</h2>
+            {% else %}
+            <h2 style="color: green">{{ post.author }}</h2>
+            {% endif %}
+          </div>
+          <h3>{{ post.date.strftime("%A, %B %d") }}</h3>
+        </div>
+        <div>
+          <img class="post-image" src="{{ post.image }}" />
+          <p class="post-text">{{ post.caption }}</p>
+          <a href="{{post.id}}/delete">Delete Post</a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    <div>
-      <img style="height: 350px" src="{{post.image}}" />
-    </div>
-    {% endfor %}
-  </body>
-</html>
+    {% endblock %}

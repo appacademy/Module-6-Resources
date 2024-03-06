@@ -4,13 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-python-dotenv = "*"
-wtforms = "*"
-flask-wtf = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
-python_full_version = "3.9.4"

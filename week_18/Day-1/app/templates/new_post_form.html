@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block new_post %}
+  <h1>HELLOOOOOOOO!!!!!</h1>
+  <form method="POST" action="/posts/new">
+  {{form.author.label}}{{form.author}}
+  {{form.image.label}}{{form.image}}
+  {{form.caption.label}}{{form.caption}}
+  {{form.csrf_token}}
+  {{form.submit}}
+
+  </form>
+{% endblock %}

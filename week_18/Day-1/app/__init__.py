@@ -1,28 +1,27 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from app.config import Config
 from .posts import users, posts
+from app.routes.posts import post_routes
+from app.routes.users import user_routes
 
 app = Flask(__name__)
 
 app.config.from_object(Config)
 
+app.register_blueprint(post_routes, url_prefix="/posts")
+app.register_blueprint(user_routes, url_prefix="/users")
+
 # print(__name__)
 
 @app.route("/")
 def index():
+    # print("I'm getting dizzy from all these redirects")
     return render_template("index.html")
     # return "<h1>Welcome to Pipstagram</h1>"
 
-@app.route("/posts")
-def all_posts():
+@app.route("/home")
+def home():
+    print("You are being redirected!!!!!")
+    return redirect("/")
 
-    return render_template("all_posts.html", posts=posts)
-    # return "posts coming soon"
-    # return { post["id"]: post for post in posts }
 
-@app.route("/posts/<int:id>")
-def single_post(id):
-    single_post = [posts[id]]
-    print(single_post)
-    # return "single_post"
-    return render_template("all_posts.html", posts=single_post)
