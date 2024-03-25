@@ -1,67 +1,60 @@
-// Example #1 Ternary Operator
-// let isGood = false;
-// let dragon = isGood ? "Toothless" : "Smaug";
-// console.log(dragon);
+// Ternary Operators
+let pythonRules = true;
+// pythonRules ? console.log("python really rules") : print("python still rules");
 
+// if conditionals
+// if (pythonRules) {
+//   console.log("i'm already tired of typing");
+// } else {
+//   console.log("some words");
+// }
 
-// Example #2 Random Numbers
-// const dragons = ['Puff', 'Toothless', 'Falkor', 'Draco'];
-// const randNum = Math.floor(Math.random() * dragons.length);
-// const dragonPick = dragons[randNum];
-// console.log(dragonPick);
+// multiline comments
 
+/* 
+ this is a multiline
+ comment
+*/
 
-// Example #3 User Input
-// const readline = require('readline');
+// Random numbers
 
+let teachers = ["Andrew", "David", "Krishna"];
+let randomIdx = Math.floor(Math.random() * teachers.length);
+// console.log(randomIdx);
+// console.log(teachers[randomIdx]);
+
+// get input from a user
+
+// const readline = require("readline");
 // const rl = readline.createInterface({
 //   input: process.stdin,
-//   output: process.stdout
+//   output: process.stdout,
 // });
-
-// rl.question('Who is the coolest dragon? ', (answer) => {
-//   console.log(`You thought ${answer} was the coolest dragon...`);
+//
+// rl.question("What is your name, friend? ", (ans) => {
+//   console.log(`Welcome to module 6 ${ans}. I hope you like snakes!`);
 //   rl.close();
 // });
 
+// filter method and fat arrow syntax
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let odds = nums.filter((x) => x % 2 !== 0);
+// console.log(odds);
 
-// Example #4 Reading Files
-// const fs = require("fs");
-// let words = [];
-
-// fs.readFile("words.txt", "utf8", (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   words = data.split(',');
-//   console.log(words);
-// });
-
-
-// Example #5 Array.map & arrow function
-// const array1 = [1, 4, 9, 16];
-// const map1 = array1.map(x => x * 2);
-// console.log(map1)
-
-
-// Example #6 Classes
-class Book {
-  constructor(title, series, author) {
-    this.title = title;
-    this.series = series;
-    this.author = author;
+// classes
+class Student {
+  constructor(name, pythonKnowledge) {
+    this.name = name;
+    this.pythonKnowledge = pythonKnowledge;
   }
- 
-  getInformation() {
-    return `${this.title} by ${this.author}`;
+  getStudentInfo() {
+    return `${this.name} knows ${this.pythonKnowledge} about python!`;
   }
-};
+}
 
-book = new Book("Two Towers", 'Lord of the Rings', 'JRR Tolkien');
-console.log(book.getInformation())
+const teagan = new Student((name = "Teagan"), (pythonKnowledge = "jack"));
+console.log(teagan.getStudentInfo());
 
-
-// Example #7 Routes (can't test)
-app.get('/item/:id', (req, res) => {
-  res.send(`<h1>Item ID: ${req.params.id}</h1>`);
+app.get("/", (req, res) => {
+  res.send("<h1>Welcome to my express app!!!!!</h1>");
 });

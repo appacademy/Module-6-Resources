@@ -1,63 +1,68 @@
-# Example #1 Ternary Operator
-is_good = False
-dragon = "Tootless" if is_good else "Smaug"
-print(dragon)
+# Ternary Operators
+python_rules = False
+# print("python is better") if python_rules else print("python is still better")
+
+# if condtionals
+# if python_rules:
+#     print("python is better")
+#     print("because it just is")
+# else:
+#     print("javscript honestly isn't that bad either")
+#     print("but python is still better")
+
+# multiline strings and comments
+
+multi_line_str = """
+this is a 
+multiline string!!!!
+"""
+
+# print(multi_line_str)
+
+"""
+This is a multiline
+comment
+"""
+
+# random numbers
+import random
+teachers = ["Andrew", "David", "Krishna"];
+random_idx = random.randint(0, len(teachers) - 1)
+# print(teachers[random_idx])
+# print(dir(random))
+# print(random.choice(teachers))
 
 
-# Example #2 Random Numbers
-# import random
-# dragons = ['Puff', 'Toothless', 'Falkor', 'Draco']
-# # dragonPick = dragons[random.randint(0, len(dragons) - 1)]
-# dragonPick = random.choice(dragons)
-# print(dragonPick)
+# asking for user input
 
+# name = input("What is your name, traveler? ")
+# print(f"Welcome to mod 6, {name}. It's going to be fun")
 
-# Example #3 User Input
-# answer = input('Who is the coolest dragon? ')
-# print(f'You thought {answer} was the coolest dragon...')
+# filter built-in and lambda syntax
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+def get_odds(x):
+    return x % 2 != 0
 
-# Example #4 Reading Files
-# f = open("words.txt", "r")
-# words = [ data.split(',') for data in f ][0]
-# print(words)
+# odds = filter(lambda x: x % 2 != 0, nums)
+odds = filter(get_odds, nums)
 
+# lambda_get_odds = lambda x: x % 2 != 0
+# odds = filter(lambda_get_odds, nums)
 
-# Example #5 List.map and Lambda
-# array1 = [1, 4, 9, 16] 
-# # map1 = map(lambda x: x * 2, array1)
-# # print(list(map1))
-# map2 = [ x * 2 for x in array1 ]
-# print(map2)
+# print(list(odds))
 
+# classes
+class Student:
+    def __init__(self, name, python_knowledge):
+        self.name = name
+        self.python_knowledge = python_knowledge
 
+    def get_student_info(self):
+        return f"{self.name} knows {self.python_knowledge} about python!"
 
+andres = Student("Andres", "a good amount")
 
+print(andres.get_student_info())
 
-# Example #6 Classes
-class Book:
-    def __init__(self, title, series, author):
-        self.title = title
-        self.series = series
-        self.author = author
-
-    def get_information(self):
-        # if self.title == "Two Towers":
-        #     pass
-        # else:
-        return f'{self.title} by {self.author}'
-
-    def new_method(self):  
-        pass
-
-book = Book("Two Towers", 'Lord of the Rings', 'JRR Tolkien');
-print(book.get_information())
-
-
-
-
-# Example #7 Routes  (can't test)
-@app.route('/item/<id>')
-def item(id):
-    return f'<h1>Item ID:{id}</h1>'
 
